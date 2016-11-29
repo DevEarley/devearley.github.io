@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Mygithubpage by DevEarley</title>
+<title>DevEarley</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/github-light.css">
@@ -12,7 +13,20 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
+<script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBN_Kvs_IuB6XnD6M5Pk15vWZQwxePmhTs",
+    authDomain: "shoshingamestudio-90843.firebaseapp.com",
+    databaseURL: "https://shoshingamestudio-90843.firebaseio.com",
+    storageBucket: "shoshingamestudio-90843.appspot.com",
+    messagingSenderId: "124515847756"
+  };
+  firebase.initializeApp(config);
+</script>
   <body>
+<body>
     <div class="wrapper">
       <header>
         <h1>Mygithubpage</h1>
@@ -20,6 +34,7 @@
 
         <p class="view"><a href="https://github.com/DevEarley/mygithubpage">View the Project on GitHub <small>DevEarley/mygithubpage</small></a></p>
 
+<img src="https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/Trilub1.PNG?alt=media&token=a1f05252-9890-4c4e-877e-8bde32e99f9b">
 
         <ul>
           <li><a href="https://github.com/DevEarley/mygithubpage/zipball/master">Download <strong>ZIP File</strong></a></li>
@@ -61,4 +76,6 @@
     <script src="javascripts/scale.fix.js"></script>
     
   </body>
+
+</body>
 </html>
