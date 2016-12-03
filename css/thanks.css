@@ -1,0 +1,48 @@
+﻿#Thanks {
+    position: relative;
+    padding: 40px;
+    padding-top: 9vh;
+    color: #7803c3;
+    text-align: center;
+    height: 100vh;
+    background-size: cover;
+    background-position-y:bottom;
+    background-repeat: no-repeat;
+    background-image: url('../images/SkyBack.png');
+}
+
+    #Thanks h1 {
+        font-size: 60px;
+        color: #7803c3;
+    }
+
+    #Thanks h2 {
+        background-color: #7803c3;
+        border-radius: 5px;
+        text-align: left;
+        padding: 20px;
+        color: #FFF;
+    }
+
+    #Thanks img {
+        margin-top: 40px;
+    }
+
+
+@media only screen and (max-width: 768px) {
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+}
+
+@media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 1024px) and (max-width:1400px) {
+}
+
+@media only screen and (min-width: 1024px) {
+}
+
+@media only screen and (min-width: 1400px) {
+}

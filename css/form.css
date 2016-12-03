@@ -1,0 +1,128 @@
+﻿#Form {
+    position: absolute;
+    top: 40px;
+    left: 5%;
+    width: auto;
+    min-width: 280px;
+    border-radius:5px;
+    color: #7803c3;
+    padding:8px;
+    background-color:rgba(255,255,255,0.8)
+}
+
+
+
+
+    #Form .input-container {
+        position: relative;
+        height: 65px;
+    }
+
+        #Form .input-container label {
+            position: absolute;
+            top: 0;
+            opacity: 0;
+        }
+
+            #Form .input-container label.validation {
+                color: #7803c3;
+                opacity: 0;
+            }
+
+            #Form .input-container label.active {
+                opacity: 1;
+            }
+
+
+        #Form .input-container input {
+            position: absolute;
+            width: 100%;
+            top: 18px;
+            background-color: transparent;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-bottom: #7803c3 solid 1px;
+        }
+
+        #Form .input-container select {
+            margin-top: 22px;
+           
+            width: 100%;
+            border: none;
+            border-bottom: #7803c3 1px solid;
+            background-color: transparent;
+        }
+        #Form .input-container #City{
+            position:absolute;
+            left:0;right:33%;
+            
+        }
+        #Form .input-container #State{
+             padding-left:5px;
+            position:absolute;
+            left:66%;right:0;
+        }
+
+
+    #Form .md-button {
+        padding: 5px;
+        padding-left: 40px;
+        padding-right: 40px;
+        float: right;
+        font-size: 24px;
+        margin-top: 20px;
+        background-color: #7803c3;
+        color: #FFF;
+    }
+
+    #Form ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+        color: #7803c3;
+    }
+
+    #Form :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        color: #7803c3;
+        opacity: 1;
+    }
+
+    #Form ::-moz-placeholder { /* Mozilla Firefox 19+ */
+        color: #7803c3;
+        opacity: 1;
+    }
+
+    #Form :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: #7803c3;
+    }
+
+@media only screen and (max-width: 768px) {
+    #Form {
+        top: 120px;
+        left: 10vw;
+        right: 10vw;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    #Form {
+        top: 200px;
+        left: 20vw;
+        right: 20vw;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+}
+
+@media only screen and (min-width: 1024px) {
+    #Form {
+        top: 40px;
+        left: 40px;
+        right: 50vw;
+    }
+}
+
+@media only screen and (min-width: 1024px) and (max-width:1400px) {
+}
+
+@media only screen and (min-width: 1400px) {
+}

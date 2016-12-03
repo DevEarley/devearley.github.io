@@ -1,0 +1,175 @@
+﻿#Landing {
+    height: auto;
+    margin-bottom: 0;
+}
+
+    #Landing #TitleBar {
+        background-color: #7803c3;
+        text-align: center;
+        padding: 20px;
+    }
+
+       
+
+    #Landing #FormContainer {
+        background-image: url(../../images/clouds.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: bottom;
+        height: 30vw;
+        min-height: 500px;
+        position: relative;
+    }
+
+        #Landing #FormContainer #FormTitle {
+            position: absolute;
+            right:0;
+        }
+
+            #Landing #FormContainer #FormTitle h1 {
+                color: #7803c3;
+                font-size: 45px;
+            }
+
+            #Landing #FormContainer #FormTitle h2 {
+                color: #928fe9;
+                margin-left: 50px;
+                font-size: 40px;
+            }
+
+    #Landing #HoodieContainer {
+        background-image: url(../../images/wallBG.png);
+        min-height: 400px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        text-align: justify;
+        position: relative;
+    }
+
+        #Landing #HoodieContainer #ImageContainer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 50%;
+            text-align: center;
+            display: block;
+        }
+
+        #Landing #HoodieContainer img {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        #Landing #HoodieContainer #FactsContainer {
+            width: auto;
+            margin-left: 50%;
+            margin-top: 0;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            margin-right: 40px;
+        }
+
+@media only screen and (max-width: 768px) {
+
+    #Landing {
+        width: 100vw;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+     #Landing #TitleBar img {
+            width: 100%;
+            min-width: 200px;
+        }
+        #Landing #FormContainer {
+            height: 80vw;
+            min-height: 800px;
+        }
+
+            #Landing #FormContainer #FormTitle {
+                text-align:center;
+                top: 0px;
+                left: 0; right: 0;
+            }
+             #Landing #FormContainer #FormTitle h1 {               
+                font-size: 25px; 
+            }
+
+            #Landing #FormContainer #FormTitle h2 {              
+                margin-left: 0px;
+                font-size: 25px;  
+            }
+}
+
+@media only screen and (min-width: 768px) {
+    #Landing {
+        width: 100vw;
+        margin-left: 0;
+        margin-right: 0;
+    }
+     #Landing #TitleBar img {
+            width: 100%;
+        }
+        #Landing #FormContainer {
+            height: 40vw;
+            min-height: 900px;
+        }
+
+            #Landing #FormContainer #FormTitle {
+                text-align:center;
+                top: 0px;
+                left: 0;
+                right:0;
+            }
+               #Landing #FormContainer #FormTitle h1 {               
+                font-size: 35px; 
+            }
+
+            #Landing #FormContainer #FormTitle h2 {              
+                margin-left: 30px;
+                font-size: 35px;  
+            }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+}
+
+@media only screen and (min-width: 1024px) {
+    #Landing {
+        width: 80vw;
+        margin-left: auto;
+        margin-right: auto;
+    }
+     #Landing #TitleBar img {
+            width: 80%;
+            min-width: 200px;
+        }
+        #Landing #FormContainer {
+            height: 30vw;
+            min-height: 500px;
+        }
+
+            #Landing #FormContainer #FormTitle {
+                text-align:left;
+                top: 40px;
+                left: 40vw;
+                right:0;
+            }
+             #Landing #FormContainer #FormTitle h1 {
+           
+                font-size: 45px;
+            }
+
+            #Landing #FormContainer #FormTitle h2 {
+           
+                margin-left: 50px;
+                font-size: 40px;
+            }
+}
+
+@media only screen and (min-width: 1024px) and (max-width:1400px) {
+}
+
+@media only screen and (min-width: 1400px) {
+}

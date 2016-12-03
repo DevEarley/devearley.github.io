@@ -1,0 +1,347 @@
+﻿#DEVEContent {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+  
+}
+
+.blue {
+    color: #fff;
+    background-color: #0000FF;
+}
+
+.red {
+    color: #fff;
+    background-color: #FF0000;
+}
+
+.minimal {
+    color: #fff;
+    background-color: #000000;
+}
+
+.orange {
+    color: #000;
+    background-color: #FFAA00;
+}
+
+.yellow {
+    color: #000;
+    background-color: #FFFF00;
+}
+
+#Header {
+    padding: 10px;
+}
+
+
+
+.blue #Home {
+    width: 55vw;
+}
+
+.red #Home {
+    width: 50vw;
+}
+
+.minimal #Home {
+    width: 45vw;
+}
+
+.orange #Home {
+    width: 40vw;
+}
+
+.yellow #Home {
+    width: 35vw;
+}
+
+.img {
+    width: 100vw;
+    overflow-x: hidden;
+    height: 120vh;
+    background-size: cover;
+    background-position-y: center;
+    background-repeat: no-repeat;
+    position: relative;
+    opacity:1;
+}
+
+.aura .img {
+    background-image: url("../images/personalsite_aura.png");
+}
+
+.ocean .img {
+    background-image: url("../images/personalsite_ocean.png");
+}
+
+.fish .img {
+    background-image: url("../images/personalsite_fish.png");
+}
+
+.stairs .img {
+    background-image: url("../images/personalsite_stairs.png");
+}
+
+.title {
+    z-index: 10;
+    position: absolute;
+    top: 200px;
+    left: 200px;
+    width: 400px;
+    height: 100px;
+    right: auto;
+    background-color: rgba(255,255,255,0.1);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.aura .title {
+    left: 0;
+    right: 50vw;
+    background-image: url("../images/personalsite_aura_title.png");
+}
+
+.ocean .title {
+    background-image: url("../images/personalsite_ocean_title.png");
+}
+
+.fish .title {
+    background-image: url("../images/personalsite_fish_title.png");
+}
+
+.stairs .title {
+    left: 400px;
+    background-image: url("../images/personalsite_stairs_title.png");
+}
+
+
+.shuffle {
+    cursor: pointer;
+    z-index: 10;
+    position: absolute;
+    top: 200px;
+    right: 200px;
+    width: 250px;
+    height: 30px;
+    background-color: rgba(255,255,255,0.1);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: auto;
+}
+
+.aura .shuffle {
+    background-image: url("../images/personalsite_aura_shuffle.png");
+}
+
+.ocean .shuffle {
+    background-image: url("../images/personalsite_ocean_shuffle.png");
+}
+
+.fish .shuffle {
+    background-image: url("../images/personalsite_fish_shuffle.png");
+}
+
+.stairs .shuffle {
+    background-image: url("../images/personalsite_stairs_shuffle.png");
+}
+
+.links {
+    background-color: rgba(255,255,255,0.1);
+    position: absolute;
+    top: 550px;
+    left: 200px;
+    width: 31vw;
+}
+
+.aura .links {
+    left: 50vw;
+    width: 31vw;
+}
+
+.ocean .links {
+}
+
+.fish .links {
+}
+
+.stairs .links {
+    left: 400px;
+}
+
+.links img {
+    width: 10vw;
+    margin: 0;
+    padding: 1vw;
+}
+
+.copy {
+    background-color: rgba(255,255,255,0.1);
+    position: absolute;
+    top: 350px;
+    left: 200px;
+    right: auto;
+    padding: 20px;
+    width: 31vw;
+}
+
+.aura .copy {
+    top: 250px;
+    left: 50vw;
+    right: 0;
+    color: #FFF;
+}
+
+.ocean .copy {
+    color: #FFF;
+}
+
+.fish .copy {
+    color: #FFF;
+}
+
+.stairs .copy {
+    left: 400px;
+    color: #FFF;
+}
+
+.unpop-animation {
+    opacity:1;
+  animation-fill-mode:both;
+    -webkit-animation-fill-mode:both;
+    -moz-animation-fill-mode:both;
+    -o-animation-fill-mode:both;
+    animation-timing-function: ease-out;
+    -webkit-animation: unpop-anim 0.25s; 
+    -moz-animation: unpop-anim 0.25s; 
+    -o-animation: unpop-anim 0.25s; 
+    animation: unpop-anim 0.25s;
+}
+
+.pop-animation {
+    opacity:0;
+    animation-fill-mode:both;
+    -webkit-animation-fill-mode:both;
+    -moz-animation-fill-mode:both;
+    -o-animation-fill-mode:both;
+    animation-timing-function: ease-out;
+    -webkit-animation: pop-anim 0.25s; 
+    -moz-animation: pop-anim 0.25s; 
+    -o-animation: pop-anim 0.25s; 
+    animation: pop-anim 0.25s;
+}
+
+@-webkit-keyframes pop-anim {
+    0% {
+        width: 100vw;
+        height: 120vh;
+        opacity: 1;
+    }
+
+    100% {
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes pop-anim {
+    0% {
+        width: 100vw;
+        height: 120vh;
+        opacity: 1;
+    }
+
+    100% {
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+}
+
+@-o-keyframes pop-anim {
+    0% {
+        width: 100vw;
+        height: 120vh;
+        opacity: 1;
+    }
+
+    100% {
+        width: 0;
+        opacity: 0;
+        height: 0;
+    }
+}
+
+@keyframes pop-anim {
+    0% {
+        width: 100vw;
+        height: 120vh;
+        opacity: 1;
+    }
+
+    100% {
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes unpop-anim {
+   
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+     100% {
+        width: 100vw;
+        height: 120vh;
+        opacity: 1;
+    }
+
+}
+
+@-moz-keyframes unpop-anim {
+  
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+      100% {
+        width: 100vw;
+        height: 120vh;
+        opacity: 1;
+    }
+
+}
+
+@-o-keyframes unpop-anim {
+    0% {
+        width: 0;
+        opacity: 0;
+        height: 0;
+    }
+
+    100% {
+        width: 100vw;
+        height: 120vh;
+        opacity: 1;
+    }
+}
+
+@keyframes unpop-anim {
+     0% {
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+    100% {
+        width: 100vw;
+        height: 120vh;
+        opacity: 1;
+    }
+
+   
+}

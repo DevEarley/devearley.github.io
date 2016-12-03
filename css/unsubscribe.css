@@ -1,0 +1,93 @@
+﻿#Unsubscribe {
+    position: relative;
+    padding: 0;
+    margin-top: 40px;
+    text-align: center;
+    margin-bottom: 20vh;
+    width: 800px;
+    background-image: url('../images/BG_Tile_light.png');
+    margin-left: auto;
+    margin-right: auto;
+}
+
+    #Unsubscribe h1 {
+        color: #FFF;
+        margin-top: 0;
+        padding: 40px;
+        background-color: #7803c3;
+        color: #FFF;
+        font-size: 50px;
+        font-family: 'ostrich';
+    }
+
+    #Unsubscribe .row {
+        padding: 40px;
+        padding-top: 20px;
+    }
+
+    #Unsubscribe img {
+        margin-top: 40px;
+    }
+
+    #Unsubscribe label {
+        opacity: 0;
+        position: absolute;
+        bottom: -30px;
+        left: 4px;
+    }
+
+        #Unsubscribe label.active {
+            bottom: -20px;
+            opacity: 1;
+        }
+
+    #Unsubscribe input {
+        width: 100%;
+        background-color: #FFF;
+        margin-bottom: 0;
+        padding: 4px;
+        border: 1px solid #7803c3;
+        border-radius: 4px;
+    }
+
+    #Unsubscribe button {
+        padding: 5px;
+        padding-left: 40px;
+        padding-right: 40px;
+        font-family: 'ostrich';
+        font-size: 30px;
+        margin-top: 20px;
+        background-color: #7803c3;
+        color: #FFF;
+    }
+
+
+@media only screen and (max-width: 768px) {
+    #Unsubscribe button {
+        margin-top: 40px;
+    }
+
+    #Unsubscribe {
+        width: auto;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+}
+
+@media only screen and (min-width: 768px) {
+    #Unsubscribe {
+        width: 800px;
+    }
+}
+
+@media only screen and (min-width: 1024px) and (max-width:1400px) {
+}
+
+@media only screen and (min-width: 1024px) {
+}
+
+@media only screen and (min-width: 1400px) {
+}

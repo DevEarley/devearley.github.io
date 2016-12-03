@@ -1,0 +1,103 @@
+﻿#Header {
+    background-attachment: fixed;
+    background-position: center;
+    background-image: url('../images/BG_Tile.png');
+    position: relative;
+}
+
+      #Header {
+        height: 150px;
+    }
+
+
+
+    #Header img {
+        height: 140px;
+    }
+
+    #Header #NavigationContainer {
+        position: absolute;
+        right: 0;
+        left: 0;
+        bottom: 10px;
+    }
+
+    #Header #Navigation {
+        /*position: absolute;
+        right: 10vw;
+        bottom: 10px;*/
+        bottom: 0;
+        right: 0;
+        height: 50px;
+        text-align: right;
+        overflow-x: visible;
+        white-space: nowrap;
+        padding: 0;
+    }
+
+        #Header #Navigation .navigation-button {
+            font-size: 24px;
+            float: right;
+            padding: 20px;
+            background-color: #FFF;
+            color: #7803c3;
+            border-bottom: 10px solid #7803c3;
+        }
+
+            #Header #Navigation .navigation-button.active {
+                background-color: #7803c3;
+                color: #FFF;
+            }
+
+@media only screen and (max-width: 768px) {
+    /*#Header.mobile-only {
+        height: 150px;
+    }*/
+    
+      #Header {
+        height: 200px;
+    }
+
+    #Header #NavigationContainer {
+        bottom: 0;
+    }
+
+    #Header #Navigation .navigation-button {
+        font-size: 18px;
+        padding: 10px;
+    }
+}
+
+
+
+@media only screen and (min-width: 768px) {
+    /*#Header.mobile-only {
+        height: 100px;
+    }*/
+    
+      #Header {
+        height: 150px;
+    }
+
+    #Header #NavigationContainer {
+        bottom: 10px;
+    }
+
+    #Header #Navigation .navigation-button {
+        font-size: 24px;
+        padding: 20px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+}
+
+@media only screen and (min-width: 1024px) {
+}
+
+@media only screen and (min-width: 1024px) and (max-width:1400px) {
+}
+
+
+@media only screen and (min-width: 1400px) {
+}

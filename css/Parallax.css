@@ -1,0 +1,35 @@
+﻿/* ============================================================
+  PRIMARY STRUCTURE
+============================================================ */
+
+/* ============================================================
+  SECTIONS
+============================================================ */
+
+
+.parallax {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+}
+
+@media (min-height: 800px) {
+    .parallax-1 {
+         background-position-y:-200px;
+    background-image: url("../Images/rockys.png");
+}
+}
+
+@media (max-height: 800px) {
+    .parallax-1 {
+         background-position-y:0px;
+    background-image: url("../Images/rockys.png");
+}
+}
+
+   
+.parallax-2 {
+  background-image: url("../Images/lab.png");
+}
+

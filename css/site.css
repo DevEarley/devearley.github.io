@@ -1,0 +1,181 @@
+﻿
+/*#region Site wide*/
+@font-face {
+    font-family: 'ostrich';
+    src: url(../OstrichSans-Heavy.otf);
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    html {
+        overflow: hidden;
+        height: 100%;
+    }
+
+    body {
+        overflow: auto;
+        height: 100%;
+    }
+}
+
+body {
+    background-color:#000!important;
+    margin: 0;
+}
+
+p, a, h1, h2, ul {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+}
+
+li {
+    list-style: none;
+    padding-bottom: 20px;
+}
+
+p, a, ul {
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 23px;
+    color: #5b5b5b;
+    text-decoration: none;
+}
+
+
+
+.white-bg {
+    background-color: #FFF;
+}
+
+.red-text {
+    color: #ff4359 !important;
+}
+
+.white-text {
+    color: #FFF !important;
+}
+
+.red-background {
+    background-color: #7803c3 !important;
+}
+
+.form-error {
+    font-weight: bold;
+    text-align: right;
+    color: #7803c3 !important;
+}
+
+.text-center{
+    text-align:center;
+}
+
+
+.animate {
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.form-group {
+    margin-bottom: 0;
+}
+
+
+.bold {
+    color: #CE2027;
+    font-weight: bold !important;
+}
+
+.affix {
+    position: fixed !important;
+    top: 0 !important;
+}
+
+.no-padding {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+
+
+
+/*#endregion*/
+
+/*#region Responsive Design - width*/
+
+@media only screen and (max-width: 768px) {
+    /* For tablets: */
+    .narrow-only {
+        display: initial;
+    }
+
+    .copy.narrow-only {
+        display: block;
+    }
+
+    .wide-only {
+        display: none;
+    }
+}
+
+
+@media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    /* For narrow desktop: */
+    .narrow-only {
+        display: initial;
+    }
+
+    .copy.narrow-only {
+        display: block;
+    }
+
+    .wide-only {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+}
+
+@media only screen and (min-width: 1024px) and (max-width:1400px) {
+    /* For wide desktop: */
+    .narrow-only {
+        display: none;
+    }
+
+    .copy.narrow-only {
+        display: none;
+    }
+
+    .wide-only {
+        display: initial;
+    }
+}
+
+
+@media only screen and (min-width: 1400px) {
+    .narrow-only {
+        display: none;
+    }
+
+    .copy.narrow-only {
+        display: none;
+    }
+
+    .wide-only {
+        display: initial;
+    }
+}
+/*#endregion*/
