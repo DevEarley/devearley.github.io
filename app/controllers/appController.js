@@ -6,6 +6,14 @@ function AppController($scope, $rootScope, $location, $timeout, $window) {
     vm.Themes = ['fish', 'aura', 'ocean', 'stairs'];
  
     vm.Popping = null;
+    vm.Change = function(newTheme)
+    {
+        vm.Popping = true;
+        $timeout(function () {
+            vm.Popping = false;
+            vm.Theme = newTheme;
+        }, 300);
+    }
     vm.Shuffle = function()
     {
 

@@ -1,23 +1,31 @@
-﻿<div class="title animate" >
-</div>
-<div class="shuffle animate" ng-click="vm.Shuffle()"></div>
-<div class="copy animate">
-    Alex is a full stack web developer and designer from Palm Beach, Florida. He has worked on enterprise solutions, iOS apps, marketing email campaigns, and wholesale trading platforms. Alex is proficient with <b>HTML CSS </b>and <b>JS</b> on the front end; <b>PHP</b> and<b> C# </b>server side.
-    Please see my resume for more information.
-</div>
-<div class="links animate" ng-class="{'active':vm.Theme!='ocean'}">
-    <img src="../../images/links/email.png" />
-    <img src="../../images/links/twitter.png" />
-    <img src="../../images/links/linkedin.png" />
-    <img src="../../images/links/resume.png" />
-    <img src="../../images/links/itchio.png" />
-    <img src="../../images/links/github.png" />
-</div>
-<div class="links animate" ng-class="{'active':vm.Theme=='ocean'}">
-    <img src="../../images/links/email_b.png" />
-    <img src="../../images/links/twitter_b.png" />
-    <img src="../../images/links/linkedin_b.png" />
-    <img src="../../images/links/resume_b.png" />
-    <img src="../../images/links/itchio_b.png" />
-    <img src="../../images/links/github_b.png" />
+﻿<div ng-class="{'pop-animation':vm.Popping,'unpop-animation':vm.Popping==false}">
+    <div class="title">
+    </div>
+    <div class="shuffle " ng-click="vm.Shuffle()"></div>
+   
+    <div class="choose " ng-click="vm.ShowDropdown()"></div>
+    <div class="dropdown animate">
+        <!--<div class="dropdown-item" ng-repeat=""></div>-->
+    </div>
+
+    <div class="copy ">
+        Alex is a full stack web developer and designer from Palm Beach, Florida. He has worked on enterprise solutions, iOS apps, marketing email campaigns, and wholesale trading platforms. Alex is proficient with <b>HTML CSS </b>and <b>JS</b> on the front end; <b>PHP</b> and<b> C# </b>server side.
+        Please see my resume for more information.
+    </div>
+    <div class="links " ng-class="{'active':vm.Theme!='ocean'}">
+        <img src="../../images/links/email.png" />
+        <img src="../../images/links/twitter.png" />
+        <img src="../../images/links/linkedin.png" />
+        <img src="../../images/links/resume.png" />
+        <img src="../../images/links/itchio.png" />
+        <img src="../../images/links/github.png" />
+    </div>
+    <div class="links " ng-class="{'active':vm.Theme=='ocean'}">
+        <img src="../../images/links/email_b.png" />
+        <img src="../../images/links/twitter_b.png" />
+        <img src="../../images/links/linkedin_b.png" />
+        <img src="../../images/links/resume_b.png" />
+        <img src="../../images/links/itchio_b.png" />
+        <img src="../../images/links/github_b.png" />
+    </div>
 </div>

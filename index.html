@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <meta name="viewport" content="initial-scale=0.5, maximum-scale=0.5">
-<html lang="en" data-framework="angularjs" class="white-bg" style="overflow-x:hidden;overflow-y:scroll">
+<html lang="en" data-framework="angularjs" >
 
 <head>
     <meta charset="utf-8">
@@ -36,22 +36,31 @@
 </head>
 
 <body ng-app="DEVE" class="dark-text">
-    <div id="DEVEContent" ng-controller="AppController as vm" class="{{vm.Theme}} animate" >
+    <div id="DEVEContent" ng-controller="AppController as vm" class="{{vm.Theme}}">
         <!-- Page Content -->
-
-        <div perfect-parallax parallax-ratio="0.1">
-            <div perfect-parallax parallax-ratio="0.5"  class="img" ng-class="{'pop-animation':vm.Popping,'unpop-animation':vm.Popping==false}" >
-                
-            </div>
+        <div class="themes">
+            <img class="animate" src="images/personalsite_aura_icon.png" ng-click="vm.Change('aura')" />
+            <img class="animate" src="images/personalsite_fish_icon.png" ng-click="vm.Change('fish')" />
+            <img class="animate" src="images/personalsite_ocean_icon.png" ng-click="vm.Change('ocean')" />
+            <img class="animate" src="images/personalsite_stairs_icon.png" ng-click="vm.Change('stairs')" />
         </div>
-        <ng-view style="display:inline-block;width:100vw!important;height:100vh!important" autoscroll="true" />
+        <div perfect-parallax parallax-ratio="0.1">
+           
+            <div perfect-parallax parallax-ratio="0.5" class="img-bg">    </div>
+
+                <div perfect-parallax parallax-ratio="0.5" class="img" ng-class="{'pop-animation':vm.Popping,'unpop-animation':vm.Popping==false}">
+
+                </div>
+            </div>
+            <ng-view style="display:inline-block;width:100vw!important;height:100vh!important" autoscroll="true" />
 
 
-        <!--<div style="min-height:95vh;">
-            <div ng-include="'./app/templates/header.html'"></div>
+            <!--<div style="min-height:95vh;">
+                <div ng-include="'./app/templates/header.html'"></div>
 
-        </div>-->
-    </div>
+            </div>-->
+        </div>
+
 
     <!-- Dependencies -->
 
