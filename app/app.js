@@ -1,4 +1,4 @@
-angular.module('DEVE', ['ngRoute', 'ngMaterial','perfectParallax' ])
+angular.module('DEVE', ['ngRoute','ngTouch', 'ngMaterial','perfectParallax' ])
 .config(function ($routeProvider, $locationProvider, $mdThemingProvider) {
     $locationProvider.html5Mode(true);
     $routeProvider
