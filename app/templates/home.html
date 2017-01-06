@@ -1,31 +1,66 @@
 ﻿<div ng-class="{'pop-animation':vm.Popping,'unpop-animation':vm.Popping==false}">
-    <div class="title">
-    </div>
-    <div class="shuffle " ng-click="vm.Shuffle()"></div>
-   
-    <div class="choose " ng-click="vm.ShowDropdown()"></div>
-    <div class="dropdown animate">
-        <!--<div class="dropdown-item" ng-repeat=""></div>-->
-    </div>
+    <div class="title"></div>
+    <div class="content">
+        <div class="copy ">
+            Alex is a full stack web developer and designer from Palm Beach, Florida. He has worked on enterprise solutions, iOS apps, marketing email campaigns, and wholesale trading platforms. Alex is proficient with <b>HTML CSS </b>and <b>JS</b> on the front end; <b>PHP</b> and<b> C# </b>server side.
+            Please see my resume for more information.
+        </div>
+        <div class="nav-grid">
 
-    <div class="copy ">
-        Alex is a full stack web developer and designer from Palm Beach, Florida. He has worked on enterprise solutions, iOS apps, marketing email campaigns, and wholesale trading platforms. Alex is proficient with <b>HTML CSS </b>and <b>JS</b> on the front end; <b>PHP</b> and<b> C# </b>server side.
-        Please see my resume for more information.
-    </div>
-    <div class="links " ng-class="{'active':vm.Theme!='ocean'}">
-        <img src="../../images/links/email.png" />
-        <img src="../../images/links/twitter.png" />
-        <img src="../../images/links/linkedin.png" />
-        <img src="../../images/links/resume.png" />
-        <img src="../../images/links/itchio.png" />
-        <img src="../../images/links/github.png" />
-    </div>
-    <div class="links " ng-class="{'active':vm.Theme=='ocean'}">
-        <img src="../../images/links/email_b.png" />
-        <img src="../../images/links/twitter_b.png" />
-        <img src="../../images/links/linkedin_b.png" />
-        <img src="../../images/links/resume_b.png" />
-        <img src="../../images/links/itchio_b.png" />
-        <img src="../../images/links/github_b.png" />
+            <a href="https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/resume.pdf?alt=media&token=e473af16-1580-4624-8aa3-6431b952472f" target="_blank" class="nav-grid-item">
+                <i class="fa fa-file-text-o"></i>
+                Resume
+            </a>
+            <a href="mailto:alexearley@me.com" target="_blank" class="nav-grid-item">
+                <i class="fa fa-envelope-o"></i>
+                Email
+            </a>
+           
+
+            <a href="https://www.linkedin.com/in/alex-earley-00a73928" target="_blank" class="nav-grid-item">
+                <i class="fa fa-linkedin-square"></i>
+                LinkedIn
+            </a>
+            <div ng-click="vm.ShowProjects = !vm.ShowProjects" target="_blank" class="nav-grid-item">
+                <i class="fa fa-coffee"></i>
+                Projects
+            </div>
+            <div class="projects" ng-class="{'active':vm.ShowProjects}">
+                <a class="nav-grid-item" target="_blank" href="projects/map-editor/">
+                    <i class="fa fa-coffee"></i>
+                    Map Editor
+                </a>
+                <a class="nav-grid-item" target="_blank" href="projects/live-voting/">
+                    <i class="fa fa-coffee"></i>
+                    Live Vote
+                </a>
+                <a class="nav-grid-item" target="_blank" href="https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/mock.png?alt=media&token=e08ac440-8d42-49e6-88ec-8a5bbf142d06">
+                    <i class="fa fa-coffee"></i>
+                    SV Mock 1
+                </a>
+                <a class="nav-grid-item" target="_blank" href="https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/mock2.png?alt=media&token=482e5ea2-aea7-4988-94b0-a18e6467bf26">
+                    <i class="fa fa-coffee"></i>
+                    SV Mock 2
+                </a>
+
+            </div>
+            <a href="https://devearley.itch.io/" target="_blank" class="nav-grid-item">
+                <i class="fa fa-gamepad"></i>
+                itch.io
+            </a>
+            <a href="https://codepen.io/DevEarley/" target="_blank" class="nav-grid-item">
+                <i class="fa fa-codepen"></i>
+                Codepen
+            </a>
+            <a href="https://github.com/devearley/" target="_blank" class="nav-grid-item">
+                <i class="fa fa-github"></i>
+                GitHub
+            </a>
+            <a href="https://twitter.com/DevEarley/" target="_blank" class="nav-grid-item">
+                <i class="fa fa-twitter-square "></i>
+                Twitter
+            </a>
+           
+        </div>
     </div>
 </div>

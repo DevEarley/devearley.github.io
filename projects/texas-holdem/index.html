@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Medula+One');
+        @import url('https://fonts.googleapis.com/css?family=Miriam+Libre');
+    </style>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Live Voting</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div onclick="clickPlay()" id="Play">
+
+        <h1 style="font-size:10vw">
+            Texas
+            <img style="height:35vh;margin-top:10vh;margin-bottom:-10vh;" src="https://firebasestorage.googleapis.com/v0/b/texasholdem-bac69.appspot.com/o/texas2.png?alt=media&token=23adff18-4f34-4b48-80f4-312e0b631721">
+            Hold'em
+        </h1>
+        Click to Play
+    </div>
+    <div class="top-bar">
+        <div class="cash">
+            Pot $ <span id="Pot">0</span>
+        </div>
+        <div class="cash">
+            Bet $ <span id="Bet">0</span>
+        </div>
+        <div class="cash">
+            Big Blind $ <span id="Blind">0</span>
+        </div>
+        <div class="cash">
+            Small Blind $ <span id="SmallBlind">0</span>
+        </div>
+        <div class="cash pull-right">
+            Purse $ <span id="Purse">0</span>
+        </div>
+
+    </div>
+    <div id="CanvasContainer">
+        <canvas></canvas>
+    </div>
+
+    <div class="bottom-bar">
+
+        <div onclick="clickStay()" id="Stay" class="button">
+            Stay
+        </div>
+        <div onclick="clickRaise()" id="Raise" class="button">
+            Raise $ <span id="ToRaise">200</span>
+        </div>
+        <div onclick="clickCall()" id="Call" class="button">
+            Call $ <span id="ToCall">100</span>
+        </div>
+        <div onclick="clickRules()" id="RulesButton" class="button pull-right" style="margin-right:0">
+            Rules
+        </div>
+        <div onclick="clickReset()" id="Reset" class="button pull-right">
+            Reset
+        </div>
+        <div onclick="clickFold()" id="Fold" class="button pull-right">
+            Fold
+        </div>
+    </div>
+    <br />
+    <div id="Rules">
+        <div style="padding:20px">
+            <h1>Poker Hands</h1>
+            <p>
+                Five of a Kind
+                <br><span>A♥ A♦ A♣ A♠ Jkr</span>
+            </p>
+
+            <p>Royal Flush<br><span>A♦ K♦ Q♦ J♦ 10♦</span></p>
+            <p>Straight Flush<br><span>10♣ 9♣ 8♣ 7♣ 6♣</span></p>
+            <p>Four of a Kind<br><span>7♥ 7♦ 7♠ 7♣ Q♥</span></p>
+            <p>Full House<br><span>4♦ 4♠ 4♣ 9♦ 9♣</span></p>
+            <p>Flush<br><span>Q♣ J♣ 7♣ 6♣ 5♣</span></p>
+            <p>Straight<br><span>J♥ 10♥ 9♣ 8♠ 7♥</span></p>
+            <p>Three of a Kind<br><span>3♦ 3♠ 3♣ J♠ 5♦</span></p>
+            <p>Two Pair<br><span>K♦ K♠ 7♦ 7♥ 8♥</span></p>
+            <p>One Pair<br><span>6♦ 6♥ Q♥ J♠ 2♣</span></p>
+            <p>High Card<br><span>K♠ 6♣ 5♥ 3♦ 2♣</span></p>
+            <h1>Play of the hand</h1>
+            <p>
+                Each player is dealt two private cards in hold 'em, which are dealt first.<br>
+                <br>
+                Following a shuffle of the cards, play begins with each player being dealt two cards face down, with the player in the small blind receiving the first card and the player in the button seat receiving the last card dealt. (As in most poker games, the deck is a standard 52-card deck containing no jokers.) These cards are the players' hole or pocket cards. These are the only cards each player will receive individually, and they will only (possibly) be revealed at the showdown, making Texas hold 'em a closed poker game.<br>
+                <br>
+                The hand begins with a "pre-flop" betting round, beginning with the player to the left of the big blind (or the player to the left of the dealer, if no blinds are used) and continuing clockwise. A round of betting continues until every player has folded, put in all of their chips, or matched the amount put in by all other active players. See betting for a detailed account. Note that the blinds are considered "live" in the pre-flop betting round, meaning that they are counted toward the amount that the blind player must contribute. If all players call around to the player in the big blind position, that player may either check or raise.<br>
+                <br>
+                After the pre-flop betting round, assuming there remain at least two players taking part in the hand, the dealer deals a flop, three face-up community cards. The flop is followed by a second betting round. This and all subsequent betting rounds begin with the player to the dealer's left and continue clockwise.<br>
+                <br>
+                After the flop betting round ends, a single community card (called the turn or fourth street) is dealt, followed by a third betting round. A final single community card (called the river or fifth street) is then dealt, followed by a fourth betting round and the showdown, if necessary. In the third and fourth betting rounds, the stakes double.<br>
+                <br>
+                In all casinos, the dealer will burn a card before the flop, turn, and river. Because of this burn, players who are betting cannot see the back of the next community card to come. This is done for traditional reasons, to avoid any possibility of a player knowing in advance the next card to be dealt due to its being marked.<br>
+            </p>
+            <h1>Betting structures</h1>
+            <p>
+                A standard hold 'em game showing the position of the blinds relative to the dealer button
+                Hold 'em is normally played using small and big blind bets— forced bets by two players. Antes (forced contributions by all players) may be used in addition to blinds, particularly in later stages of tournament play. A dealer button is used to represent the player in the dealer position; the dealer button rotates clockwise after each hand, changing the position of the dealer and blinds. The small blind is posted by the player to the left of the dealer and is usually equal to half of the big blind. The big blind, posted by the player to the left of the small blind, is equal to the minimum bet. In tournament poker, the blind/ante structure periodically increases as the tournament progresses. After one round of betting is done, the next betting round will start by the person in the small blind.<br>
+                <br>
+                When only two players remain, special 'head-to-head' or 'heads up' rules are enforced and the blinds are posted differently. In this case, the person with the dealer button posts the small blind, while his/her opponent places the big blind. The dealer acts first before the flop. After the flop, the dealer acts last and continues to do so for the remainder of the hand.<br>
+                <br>
+                The three most common variations of hold 'em are limit hold 'em, no-limit hold 'em and pot-limit hold 'em. Limit hold 'em has historically been the most popular form of hold 'em found in casino live action games in the United States.[19] In limit hold 'em, bets and raises during the first two rounds of betting (pre-flop and flop) must be equal to the big blind; this amount is called the small bet. In the next two rounds of betting (turn and river), bets and raises must be equal to twice the big blind; this amount is called the big bet.<br>
+                <br>
+                No-limit hold 'em has grown in popularity and is the form most commonly found in televised tournament poker and is the game played in the main event of the World Series of Poker. In no-limit hold 'em, players may bet or raise any amount over the minimum raise up to all of the chips the player has at the table (called an all-in bet). The minimum raise is equal to the size of the previous bet or raise. If someone wishes to re-raise, they must raise at least the amount of the previous raise. For example, if the big blind is $2 and there is a raise of $6 to a total of $8, a re-raise must be at least $6 more for a total of $14. If a raise or re-raise is all-in and does not equal the size of the previous raise (or half the size in some casinos), the initial raiser cannot re-raise again (in case there are other players also still in the game). In pot-limit hold 'em, the maximum raise is the current size of the pot (including the amount needed to call).<br>
+                <br>
+                Most casinos that offer hold 'em also allow the player to the left of the big blind to post an optional live straddle, usually double the amount of the big blind. This causes that player to act as the big blind and the player has an option to raise when it comes to their turn again. (Some variations allow for straddle on the button). No-limit games may also allow multiple re-straddles, in any amount that would be a legal raise.[9]
+                <br><br>
+            </p>
+
+            <h1>The showdown</h1>
+            <p>
+                If a player bets and all other players fold, then the remaining player is awarded the pot and is not required to show their hole cards. If two or more players remain after the final betting round, a showdown occurs. On the showdown, each player plays the best poker hand they can make from the seven cards comprising their two-hole cards and the five community cards. A player may use both of their own two hole cards, only one, or none at all, to form their final five-card hand. If the five community cards form the player's best hand, then the player is said to be playing the board and can only hope to split the pot, because each other player can also use the same five cards to construct the same hand.<br>
+                <br>
+
+                If the best hand is shared by more than one player, then the pot is split equally among them, with any extra chips going to the first players after the button in clockwise order. It is common for players to have closely valued, but not identically ranked hands. Nevertheless, one must be careful in determining the best hand; if the hand involves fewer than five cards, (such as two pair or three of a kind), then kickers are used to settle ties (see the second example below). The card's numerical rank is of sole importance; suit values are irrelevant in hold 'em.<br>
+            </p>
+            <h1>Misdeal</h1>
+            <p>
+                If the first or second card dealt is exposed, then this is considered a misdeal. The dealer then retrieves the card, reshuffles the deck, and again cuts the cards. However, if any other hole card is exposed due to a dealer error, the deal continues as usual. After completing the deal, the dealer replaces the exposed card with the top card on the deck, and the exposed card is then used as the burn card. If more than one hole card is exposed, a misdeal is declared by the dealer and the hand is dealt again from the beginning.[41] A misdeal is also declared if a player receives more than two hole cards by mistake (e.g. two cards stuck together).
+            </p>
+            <a target="_blank" href="https://en.wikipedia.org/wiki/Texas_hold_'em">Rules provided by Wikipedia.org</a>
+        </div>
+    </div>
+    <script src="app.js" type="text/javascript"></script>
+</body>
+</html>

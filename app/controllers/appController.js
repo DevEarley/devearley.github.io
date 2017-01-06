@@ -4,7 +4,6 @@ function AppController($scope, $rootScope, $location, $timeout, $window) {
 
     
     vm.Themes = ['fish', 'aura', 'ocean', 'stairs'];
- 
     vm.Popping = null;
     vm.Change = function(newTheme)
     {
@@ -14,6 +13,9 @@ function AppController($scope, $rootScope, $location, $timeout, $window) {
             vm.Theme = newTheme;
         }, 300);
     }
+    vm.Email = function (emailId, subject, message) {
+        $window.open("mailto:alexearley@me.com", "_self");
+    }
     vm.Shuffle = function()
     {
 
@@ -21,13 +23,9 @@ function AppController($scope, $rootScope, $location, $timeout, $window) {
         $timeout(function () {
 
             vm.Popping = false;
-            var index = Math.floor(Math.random() * vm.Themes.length);
-            var newTheme = vm.Themes[index];
-            if (newTheme == vm.Theme) {
-                index = index == vm.Themes.length - 1 ? index - 1 : index + 1;
-                vm.Theme = vm.Themes[index];
-            }
-            else vm.Theme = newTheme;
+            var index = Math.floor(Math.random() *( vm.Themes.length ));
+            vm.Theme = vm.Themes[index];
+          
         }, 300);
        
     }

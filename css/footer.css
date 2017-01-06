@@ -1,128 +1,16 @@
-﻿
-#Footer {
-    position: relative;
-    z-index: 100;
-    padding-top: 5px;
-    height: auto;
-    overflow-y: hidden;
+﻿#Footer {
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    height: 30px;
     width: 100%;
-    margin-top:0;
+    background-color: rgba(0,0,20,0.2);
+    padding-top:5px;
+    left: 0;
+    color:#FFF;
+    z-index: 0;
 }
+#Footer a{
+    color: #FFF;
 
-    #Footer.active {
-        /*height: 600px;*/
-        overflow-y: visible;
-    }
-
-    #Footer #FooterInnerContainer {
-       background-color:#7803c3;
-        position: absolute;
-        left: 0;
-        right: 0;
-        height: 400px;
-        top: 0;
-    }
-
-        #Footer #FooterInnerContainer.active {
-            top: -300px;
-        }
-
-
-
-    #Footer #FooterCopy {
-        color: #928fe9;
-        font-size: 20px;
-        position: absolute;
-        text-align: center;
-        width: 100%;
-        top: 10px;
-    }
-
-        #Footer #FooterCopy h1 {
-            margin-bottom: 5px;
-        }
-
-    #Footer .fake-link {
-        font-size: 20px;
-        font-weight: normal;
-        text-decoration: none;
-        color: #FFF;
-    }
-
-        #Footer .fake-link:hover {
-            color: #FFF;
-            text-decoration: underline;
-        }
-
-    #Footer #FooterCopy a {
-        color: #FFF;
-    }
-
-        #Footer #FooterCopy a:hover {
-            color: #FFF;
-        }
-
-    #Footer .close {
-        padding: 5px;
-        cursor: pointer;
-        background-color: #928fe9;
-        border-radius: 10px;
-        margin-top:-40px;
-        float: right;
-        color: #FFF;
-    }
-
-    #Footer #PrivacyPolicy {
-        margin-top: 120px;
-    }
-
-    #Footer #PrivacyPolicyCopy {
-        border-radius: 10px;
-        background-color: #FFF;
-        padding: 20px;
-    }
-
-    #Footer #PrivacyPolicyScrollArea {
-        overflow-y: scroll;
-        height: 200px;
-    }
-
-@media only screen and (max-width: 768px) {
-    #Footer {
-        height: 80px;
-    }
-
-        #Footer #FooterInnerContainer {
-            top: -10px;
-        }
-}
-
-@media only screen and (min-width: 768px) {
-    #Footer {
-        height: 80px;
-    }
-
-        #Footer #FooterInnerContainer {
-            top: 0;
-        }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
-}
-
-
-@media only screen and (min-width: 1024px) {
-    #Footer {
-        height: 40px;
-    }
-
-        #Footer #FooterInnerContainer {
-            top: 0;
-        }
-}
-
-@media only screen and (min-width: 1024px) and (max-width:1400px) {
-}
-
-@media only screen and (min-width: 1400px) {
 }

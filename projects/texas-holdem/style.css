@@ -1,0 +1,241 @@
+﻿html {font-size: 1.8em;
+  min-width:200px;
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+     -khtml-user-select: none; /* Konqueror */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  not supported by any browser */}
+
+body {
+  padding-left:80px;
+  padding-right:70px;
+  background-color: #115000;
+  font-family: 'Medula One', serif;
+  font-weight: 400;
+  line-height: 1.45;
+  color: white;
+}
+
+
+h1, h2, h3, h4 {
+  margin: 1.414em 0 0.5em;
+  font-weight: inherit;
+  line-height: 1.2;
+  color:#FFDD40;
+
+}
+#CanvasContainer
+{
+    /*min-height:670px;
+  overflow-y:auto;  
+  overflow-x:hidden;*/
+}
+canvas{
+
+  margin-top:60px;
+  min-width:100px;
+}
+
+p {font-size: 0.694em!important;
+font-family:'Miriam Libre',sans-serif;}
+
+p span
+{
+  display:inline-block;
+  font-size:0.8em;
+  margin-bottom:30px;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 2.074em;
+}
+
+h2 {font-size: 1.728em;}
+
+h3 {font-size: 1.44em;}
+
+h4 {font-size: 1.2em;}
+
+small, .font_small {font-size: 0.833em;}
+.top-bar
+{
+  left:87px;
+  right:70px;
+  background-color: #115000;
+  position:fixed;
+  top:0;
+}
+@media only screen and (max-width: 750px) {
+  .top-bar
+{
+  font-size: 20px!important;
+  line-height:20px;
+   left:0;
+  right:0;
+  }
+}
+@media only screen and (min-width: 750px) and (max-width: 1200px) {
+  .top-bar
+{
+  font-size: 30px!important;
+  line-height:30px;
+   left:10px;
+  right:10px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .top-bar
+{
+  font-size: 40px;
+  line-height:40px;
+   left:87px;
+  right:70px;
+  }
+}
+
+.bottom-bar
+{
+  font-size: 1.8em;
+  left:87px;
+  right:70px;
+  background-color: #115000;
+  position:fixed;
+  bottom:0;
+  
+}
+.pull-right
+{
+  float:right!important;
+}
+.button
+{
+  display:inline-block;
+  cursor:pointer;
+  float:left;
+  padding-top:10px;
+  padding-bottom:10px;
+   -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+  font-size:40px;
+  line-height:40px;
+  margin-right:4vw;
+ padding-left:10px;
+  padding-right:10px;
+    background-color:rgba(0,0,0,0.2);
+   border-bottom:5px solid rgba(0,0,0,0.2);
+  text-align:center;
+  font-size:30px;
+}
+span
+{
+  color:#FFDD40;
+}
+.button:hover
+{
+  
+  border-bottom:5px solid #FFDD40;
+}
+#RulesButton
+{
+  padding-left:10px;
+  padding-right:10px;
+    background-color:rgba(0,0,0,0.2);
+   border-bottom-color:rgba(0,0,0,0.2);
+  text-align:center;
+  font-size:30px;
+  //font-family:'Miriam Libre',sans-serif!important;
+
+}
+#RulesButton:hover
+{
+    
+  border-bottom:5px solid #FFDD40;
+}
+a
+{
+  padding:20px;
+  display:block;
+
+  text-align:center;
+  color:#FFF;
+  font-size: 0.833em!important;
+font-family:'Miriam Libre',sans-serif;}
+a:hover
+{
+  color:#FFDD40;
+  background-color:rgba(255,255,255,0.1);
+}
+.cash
+{
+  text-align:center;
+ display:inline-block;
+  float:left;
+  padding-top:10px;
+  padding-bottom:10px;
+/* font-size:40px;*/
+/*  line-height:40px;*/
+  margin-right:4vw;
+  margin-right:4vw;
+  color:#FFDD40;
+}
+#Rules
+{
+    -webkit-transition: bottom 0.25s ease-out;
+  -moz-transition: bottom 0.25s ease-out;
+  -o-transition: bottom 0.25s ease-out;
+  transition: bottom 0.25s ease-out;
+  position:absolute;
+  display:inline;
+  overflow-y:scroll;
+  overflow-x:hidden;
+  background-color:rgba(00,40,0,0.95);
+  height:0;
+  width:auto;
+  text-align:justify;
+  top:60px;
+  left:80px;
+  right:70px;
+  bottom:100vh;
+  height:auto;
+}
+#Rules.active
+{
+  position:absolute;
+  display:inline;
+  overflow-y:scroll;
+  overflow-x:hidden;
+  
+  height:100vh;
+  width:100vw;
+  top:80px;
+}
+#Play
+{
+  cursor:pointer;
+  position:fixed;
+  overflow:hidden;
+   -webkit-transition: all 0.25s ease-out;
+  -moz-transition: all 0.25s ease-out;
+  -o-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+  background-color:rgba(0,0,0,0.7);
+  left:0;
+  right:0;
+  top:0;
+  bottom:auto;
+  height:100%;
+  z-index:1;
+  text-align:center;
+  font-size:10vh;
+}
+#Play:hover
+{
+  
+  background-color:rgba(0,0,0,0.9);
+}

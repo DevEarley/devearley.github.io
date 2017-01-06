@@ -35,15 +35,11 @@
 
 </head>
 
-<body ng-app="DEVE" class="dark-text">
-    <div id="DEVEContent" ng-controller="AppController as vm" class="{{vm.Theme}}">
+<body ng-app="DEVE" class="dark-text"  ng-controller="AppController as vm" >
+
+  
+    <div id="DEVEContent"class="{{vm.Theme}}">
         <!-- Page Content -->
-        <div class="themes">
-            <img class="animate" src="images/personalsite_aura_icon.png" ng-click="vm.Change('aura')" />
-            <img class="animate" src="images/personalsite_fish_icon.png" ng-click="vm.Change('fish')" />
-            <img class="animate" src="images/personalsite_ocean_icon.png" ng-click="vm.Change('ocean')" />
-            <img class="animate" src="images/personalsite_stairs_icon.png" ng-click="vm.Change('stairs')" />
-        </div>
         <div perfect-parallax parallax-ratio="0.1">
            
             <div perfect-parallax parallax-ratio="0.5" class="img-bg">    </div>
@@ -61,7 +57,7 @@
             </div>-->
         </div>
 
-
+    <div id="Footer"><a href="http://devearley.github.io"><small>© Alex Earley | Shoshin Game Studio 2017 </small></a> | <a href="#" ng-click="vm.Shuffle()"><small><i class="fa fa-random"></i> Shuffle Themes</small></a> | <a target="_blank" href="http://devearley.github.io/projects/theme-voting"><small>Theme Vote!</small></a></div>
     <!-- Dependencies -->
 
     <script type="text/javascript" src="//wurfl.io/wurfl.js"></script>

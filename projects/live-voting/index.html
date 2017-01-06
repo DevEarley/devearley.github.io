@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Live Voting</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <center>
+        <div style="width:540px;display:inline-block;">
+            <div class="chart-h">
+                <div class="chart">
+                    <div class="bar" id="bar-1"></div>
+                    <div class="bar" id="bar-2"></div>
+                    <div class="bar" id="bar-3"></div>
+                    <div class="bar" id="bar-4"></div>
+                </div>
+            </div>
+            <div class="refresh" onclick="refresh()">Refresh data</div>
+            <div class="vote" onclick="vote()">Show Voting Form</div> <br> <br>
+            <div class="google-form" onmouseout="vote()">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfmoxtCtUklbl_VB4xnCiCi0zZ5KvyRFbkAbn0vGKRUv7JRFA/viewform?embedded=true" width="540" height="700" style="overflow-y:hidden;" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+            </div>
+        </div>
+        <div style="width:340px;display:inline-block;height:100%;vertical-align:top;">
+            <div class="winner">
+            </div>
+        </div>
+    </center>
+
+    <script src="../../libs/jquery-1.11.3.min.js"></script>
+    <script src="app.js" type="text/javascript"></script>
+</body>
+</html>

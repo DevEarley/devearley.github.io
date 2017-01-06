@@ -1,0 +1,147 @@
+﻿@import "https://fonts.googleapis.com/css?family=Montserrat";
+body {
+  background: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  padding-top:10vh;
+}
+
+form {
+  margin: 40px 0 0
+}
+
+input[type=submit] {
+  margin: 15px 0 0 20px;
+  padding: 8px;
+  border: 1px solid #5d3556;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif
+}
+
+.chart-h {
+  width: 540px;
+  display: inline-block;
+  max-width: calc(100vw - 40px)
+}
+
+.chart {
+  background-color:#f5f5f5;
+  padding-top:20px;
+  margin: 40px 20px 0;
+  min-height: 230px;
+  border-bottom: 2px solid grey;
+  border-left: 2px solid grey;
+  -webkit-display: flex;
+  -webkit-align-items: flex-end;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  overflow: hidden
+}
+
+.bar {
+  width: calc(25% - 20px);
+  height: 2px;
+  min-height:34px;
+  transition: all 1s;
+  color: rgba(255, 255, 255, 0.8);
+  padding-top: 2px;
+  font-size: 13px
+}
+.pull-left{
+  
+  float:left;
+}
+.graph {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 100%;
+  background: #f5f5f5;
+  -webkit-transform: rotate(-90deg);
+  margin: 40px 0 -10px 20px;
+  display: inline-block;
+  vertical-align: bottom
+}
+
+.graph:after {
+  position: absolute;
+  content: '';
+  background: #ffffff;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  top: 50px;
+  left: 50px
+}
+iframe html
+{
+  overflow-y:hidden;
+}
+.pie {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  clip: rect(100px, 200px, 200px, 0px);
+  transition: all 1s
+}
+.winner
+{
+  padding-top:10px;
+  color:#FFF;
+
+  margin-top:41px;
+}
+.winner-value
+{
+  margin-top:10px;
+  background-color:rgba(255,255,255,0.2);
+  padding:20px;
+  
+}
+.total
+{
+  padding:10px;
+  color:#FFF;
+  background-color:rgba(0,0,0,0.9);
+}
+.refresh
+{
+  padding:15px;
+  cursor:pointer;
+  display:inline-block;
+  margin-top:40px;
+  color:#FFF;
+  background-color:rgba(0,0,0,0.9);
+}
+.refresh:hover
+{
+  
+  background-color:rgba(0,0,0,0.8);
+}
+.vote
+{
+  cursor:pointer;
+  padding:15px;
+  display:inline-block;
+  margin-top:10px;
+  color:#FFF;
+  background-color:rgba(0,0,0,0.9);
+}
+.vote:hover
+{
+  
+  background-color:rgba(0,0,0,0.8);
+}
+.google-form
+{
+    -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  position:relative;
+  overflow:hidden;
+  display:inline-flex;
+  
+  height:0;
+}
