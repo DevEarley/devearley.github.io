@@ -8,7 +8,7 @@ angular.module('DEVE', ['ngRoute','ngTouch', 'ngMaterial','perfectParallax' ])
 }).run(function ($rootScope, $http) {
     $rootScope.IsMobile = WURFL.is_mobile;
     
-    var json = 'http://ipv4.myexternalip.com/json';
+    var json = 'https://ipv4.myexternalip.com/json';
     $http.get(json).then(function (result) {
         $rootScope.IPAddress = result.data.ip;
     }, function (e) {
