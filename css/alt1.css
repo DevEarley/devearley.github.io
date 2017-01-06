@@ -215,16 +215,26 @@ body {
 
 
 .projects {
-    height: 0;
+    height: 0;    
+    opacity:0;
+      padding-top:0;
+      padding-bottom:0;
     overflow: hidden;
-    /*-webkit-transition: height 0.5s ease-in-out;
-    -moz-transition: height 0.5s ease-in-out;
-    -o-transition: height 0.5s ease-in-out;
-    transition: height 0.5s ease-in-out;*/
+    
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 
     .projects.active {
-        height: 150px;
+        
+    opacity:1;
+      padding-top:50px;
+      padding-bottom:50px;
+
+
+        height: auto;
     }
 
 .nav-grid {
