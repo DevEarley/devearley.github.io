@@ -38,23 +38,17 @@
 <body ng-app="DEVE" class="dark-text"  ng-controller="AppController as vm" >
 
   
-    <div id="DEVEContent"class="{{vm.Theme}}">
+    <div id="DEVEContent" class="{{vm.Theme}}">
         <!-- Page Content -->
         <div perfect-parallax parallax-ratio="0.1">
            
             <div perfect-parallax parallax-ratio="0.5" class="img-bg">    </div>
 
-                <div perfect-parallax parallax-ratio="0.5" class="img" ng-class="{'pop-animation':vm.Popping,'unpop-animation':vm.Popping==false}">
+                <div perfect-parallax parallax-ratio="0.5" class="img">
 
                 </div>
             </div>
             <ng-view style="display:inline-block;width:100vw!important;height:100vh!important" autoscroll="true" />
-
-
-            <!--<div style="min-height:95vh;">
-                <div ng-include="'./app/templates/header.html'"></div>
-
-            </div>-->
         </div>
 
     <div id="Footer"><a href="http://devearley.github.io"><small>© Alex Earley | Shoshin Game Studio 2017 </small></a> | <a href="#" ng-click="vm.Shuffle()"><small><i class="fa fa-random"></i> Shuffle Themes</small></a> | <a target="_blank" href="http://devearley.github.io/projects/theme-voting"><small>Theme Vote!</small></a></div>
