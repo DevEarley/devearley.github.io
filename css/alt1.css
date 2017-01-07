@@ -526,11 +526,14 @@ body {
 @media only screen and (max-width: 768px) {
     .title {
         margin-left: 75px;
-        margin-right:45px;
+        margin-right:9%;
         width: auto;
+            padding-bottom:30px;
+        height:auto;
     }
 
         .title:after {
+
             margin-top:30px;
             margin-left:75px;
             width: auto;
