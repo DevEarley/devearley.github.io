@@ -31,6 +31,7 @@
     currentLayer = 0,
     layers = [],
        palette = [],
+       showFog = false,
        perspectiveView = false,
     sprites = new Image(),
     sprites2 = new Image(),
@@ -82,6 +83,13 @@ function clickMoveDownLayerButton() {
     }
     currentLayer--;
     updateLayersPreview();
+}
+
+function clickTogglePerspective() {
+    perspectiveView = !perspectiveView;
+    showFog = perspectiveView;
+} function clickToggleFog() {
+    showFog = !showFog;
 }
 
 function clickPaintTool() {
@@ -138,6 +146,7 @@ function clickToolsToolBarButton() {
 
 function clickSelectLayer(layerIndex) {
 
+    
     currentLayer = layerIndex;
     updateLayersPreview();
 }
@@ -158,7 +167,7 @@ function clickCopyLayer() {
     copiedLayer = currentLayer;
 }
 function clickPasteLayer() {
-    layers[currentLayer].tiles = layers[copiedLayer].tiles;
+    layers[currentLayer].tiles = layers[copiedLayer].tiles.slice();
 }
 function renameTile(tile, name) {
 
@@ -212,7 +221,7 @@ function generateLayersPreviewHtml() {
     var rows = "";
     layers.forEach(function (layer, index) {
         var classes = "button" + (currentLayer == index ? " selected" : "");
-        rows += "<div class='" + classes + "' onmouseenter='clickSelectLayer(" + index + ")'>" + layer.name + " (" + layer.order + ") </div>";
+        rows += "<div class='" + classes + "' onclick='clickSelectLayer(" + index + ")'>" + layer.name + " (" + layer.order + ") </div>";
     });
     return "<div>" + rows + "</div>";
 }
@@ -291,30 +300,17 @@ function drawLayers() {
     if (layers == null || layers[currentLayer] == null) return;
     layers.forEach(function (layer, index) {
         if (layers[currentLayer].order >= layer.order) {
-            var offsetIndex = layers[currentLayer].order - (layer.order);
-                drawTilesOff(layer, -mouseXoffset * offsetIndex, -mouseYoffset * offsetIndex);
-
-            //if (perspectiveView) {
-            //    var offsetIndex = layers[currentLayer].order - (layer.order);
-            //    drawTilesOff(layer, -mouseXoffset * offsetIndex, -mouseYoffset * offsetIndex);
-            //}
-            //else {
-            //    drawTiles(layer);
-            //}
-            if (layers[currentLayer].order != layer.order)
+            if (perspectiveView) {
+                var offsetIndex = layers[currentLayer].order - (layer.order);
+                drawTilesOff(layer, -mouseXoffset * offsetIndex / 5, -mouseYoffset * offsetIndex / 5);
+            }
+            else {
+                drawTiles(layer);
+            }
+            if (layers[currentLayer].order != layer.order && showFog)
                 drawLayerFog();
         }
 
-        //if (layers[currentLayer].order > layer.order)
-        //{
-        //    //drawTiles(layer);
-        //    drawTilesOff(layer, sx /( layer.order*9), sy / (layer.order*9));
-        //    drawLayerFog();
-        //}
-        //else if(layers[currentLayer].order == layer.order)
-        //{
-        //    drawTiles(layer);
-        //}
     });
 }
 function drawLayerFog() {
@@ -508,7 +504,7 @@ function generateHTMLForTile(tile) {
 }
 
 function mouseMoveHandler(e) {
-    perspectiveView = e.shiftKey;
+    if (e.button != 0) return;
     if (isMouseDown) mouseClickHandler();
     if (e.offsetX) {
         mouseX = Math.floor(e.offsetX / 32);
