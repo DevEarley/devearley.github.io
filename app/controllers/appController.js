@@ -5,6 +5,7 @@ function AppController($scope, $rootScope, $location, $timeout, $window) {
     
     vm.Themes = ['fish', 'aura', 'ocean', 'stairs'];
     vm.Popping = null;
+    vm.ShowProjects = false;
     vm.Change = function(newTheme)
     {
         vm.Popping = true;
@@ -13,6 +14,13 @@ function AppController($scope, $rootScope, $location, $timeout, $window) {
             vm.Theme = newTheme;
         }, 300);
     }
+
+    vm.OpenProjects =function(e)
+    {
+        e.preventDefault();
+        vm.ShowProjects = !vm.ShowProjects;
+    }
+
     vm.Email = function (emailId, subject, message) {
         $window.open("mailto:alexearley@me.com", "_self");
     }
