@@ -525,17 +525,21 @@ body {
 
 @media only screen and (max-width: 768px) {
     .title {
-        margin-left: 5%;
-        width: 86%;
+        margin-left: 75px;
+        margin-right:45px;
+        width: auto;
     }
 
         .title:after {
-            margin-left: 10%;
-            width: 70%;
+            margin-top:30px;
+            margin-left:75px;
+            width: auto;
+            margin-right:20px;
         }
 
         .title:before {
-            display: none;
+          
+        left: -60px;
         }
 
     .copy {
@@ -574,7 +578,7 @@ body {
         }
 
         .title:before {
-            display: initial;
+            left: -135px;
         }
 
     .copy {
@@ -603,7 +607,7 @@ body {
         }
 
         .title:before {
-            display: initial;
+            left: -135px;
         }
 
     .copy {
