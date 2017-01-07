@@ -6,7 +6,7 @@ function AppController($scope, $rootScope, $location, $timeout, $window) {
     vm.Themes = ['fish', 'aura', 'ocean', 'stairs'];
     vm.Popping = null;
     vm.ShowProjects = false;
-    vm.ShowProjectsSemaphore = false;
+    vm.ShowProjectsSemaphore = true;
     vm.Change = function(newTheme)
     {
         vm.Popping = true;
