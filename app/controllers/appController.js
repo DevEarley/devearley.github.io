@@ -19,7 +19,7 @@ function AppController($scope, $rootScope, $location, $timeout, $window) {
     vm.OpenProjects =function(e)
     {
         if (vm.ShowProjectsSemaphore == false) return;
-        $timeout(function () { vm.ShowProjectsSemaphore = true; }, 1000);
+        $timeout(function () { vm.ShowProjectsSemaphore = true; }, 500);
         vm.ShowProjectsSemaphore = false;
         e.preventDefault();
         vm.ShowProjects = !vm.ShowProjects;
