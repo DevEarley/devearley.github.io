@@ -1,13 +1,19 @@
 ﻿var layersToolBarElement = document.getElementById("LayersToolBar"),
     layersToolBarButtonElement = document.getElementById("LayersToolBarButton"),
-    toolsToolBarElement = document.getElementById("ToolsToolBar"),
-    toolsToolBarButtonElement = document.getElementById("ToolsToolBarButton"),
+    tilesToolBarElement = document.getElementById("TilesToolBar"),
+    tilesToolBarButtonElement = document.getElementById("TilesToolBarButton"),
+    optionsToolBarElement = document.getElementById("OptionsToolBar"),
+    optionsToolBarButtonElement = document.getElementById("OptionsToolBarButton"),
     mapToolBarElement = document.getElementById("MapToolBar"),
     mapToolBarButtonElement = document.getElementById("MapToolBarButton"),
     paintBrushInputX = document.getElementById("PaintBrushInputX"),
     paintBrushInputY = document.getElementById("PaintBrushInputY"),
+    renameLayerInput = document.getElementById("RenameLayerInput"),
+    reorderLayerInput = document.getElementById("ReorderLayerInput"),
     brushToolButton = document.getElementById("BrushToolButton"),
     eraserToolButton = document.getElementById("EraserToolButton"),
+    nineSliceToolButton = document.getElementById("NineSliceToolButton"),
+    wallSliceToolButton = document.getElementById("WallSliceToolButton"),
     eyedropperToolButton = document.getElementById("EyedropperToolButton"),
     paletteButton = document.getElementById("PaletteButton"),
     importMapButton = document.getElementById("ImportMap"),
@@ -21,7 +27,7 @@
     resourceName = document.getElementById("ResourceName"),
     lastTilePreview = document.getElementById("LastTilePreview"),
     showLayersToolBar = false,
-    showToolsToolBar = false,
+    showTilesToolBar = false,
     showMapToolBar = false,
     paletteMode = false,
     selectedTool = 0,
@@ -33,10 +39,13 @@
        palette = [],
        showFog = false,
        perspectiveView = false,
+       xRayView = false,
     sprites = new Image(),
     sprites2 = new Image(),
     mouseX = 0,
-    mouseY = 0;
+    mouseY = 0,
+    sliceTool = { state: 0, mode: 0, xPos1: 0, yPos1: 0, xPos2: 0, yPos2: 0 };
+
 
 var selectedBrushX = 0, selectedBrushY = 0;
 var sx, sy = 0;
@@ -52,8 +61,8 @@ ctx.canvas.height = cw;
 ctx.canvas.width = ch;
 
 function clickAddLayer() {
-    layers.push(createLayer("layer" + layers.length, layers.length));
-    currentLayer = layers.length - 1;
+    layers.splice(currentLayer+1,0,createLayer("layer" + layers.length, layers.length));
+    currentLayer = currentLayer+1;
     updateLayersPreview();
 }
 
@@ -85,11 +94,19 @@ function clickMoveDownLayerButton() {
     updateLayersPreview();
 }
 
+function clickToggleXRay() {
+    xRayView = !xRayView;
+    togglePaletteMode(false);
+}
+
 function clickTogglePerspective() {
     perspectiveView = !perspectiveView;
-    showFog = perspectiveView;
-} function clickToggleFog() {
+    togglePaletteMode(false);
+}
+
+function clickToggleFog() {
     showFog = !showFog;
+    togglePaletteMode(false);
 }
 
 function clickPaintTool() {
@@ -107,9 +124,29 @@ function clickEyedropperTool() {
     selectTool(2, eyedropperToolButton);
 }
 
+function clickNineSliceTool() {
+    togglePaletteMode(false);
+    selectTool(3, nineSliceToolButton);
+}
+
+function clickWallSliceTool() {
+    togglePaletteMode(false);
+    selectTool(4, wallSliceToolButton);
+}
+
 function clickPaletteButton() {
     paletteMode = !paletteMode;
     togglePaletteMode(paletteMode);
+}
+
+function clickRenameLayer() {
+    layers[currentLayer].name = renameLayerInput.value;
+    updateLayersPreview();
+}
+
+function clickReorderLayer() {
+    layers[currentLayer].order = reorderLayerInput.value;
+    updateLayersPreview();
 }
 
 function clickImportMapButton() {
@@ -138,15 +175,19 @@ function clickMapToolBarButton() {
     toggleToolBar(showMapToolBar, mapToolBarElement, mapToolBarButtonElement);
 }
 
-function clickToolsToolBarButton() {
-    showToolsToolBar = !showToolsToolBar;
-    toggleToolBar(showToolsToolBar, toolsToolBarElement, toolsToolBarButtonElement);
+function clickTilesToolBarButton() {
+    showTilesToolBar = !showTilesToolBar;
+    toggleToolBar(showTilesToolBar, tilesToolBarElement, tilesToolBarButtonElement);
 }
 
+function clickOptionsToolBarButton() {
+    showTilesToolBar = !showTilesToolBar;
+    toggleToolBar(showTilesToolBar, optionsToolBarElement, optionsToolBarButtonElement);
+}
 
 function clickSelectLayer(layerIndex) {
 
-    
+
     currentLayer = layerIndex;
     updateLayersPreview();
 }
@@ -163,15 +204,21 @@ function clickRenameAllMatchingTiles() {
             tile.resourceName = resourceName.value;
     });
 }
+
 function clickCopyLayer() {
     copiedLayer = currentLayer;
 }
+
 function clickPasteLayer() {
     layers[currentLayer].tiles = layers[copiedLayer].tiles.slice();
+    layers[currentLayer].name = layers[copiedLayer].name;
+    updateLayersPreview();
 }
+
 function renameTile(tile, name) {
 
 }
+
 function validateExportButton() {
     if (mapNameInput.value == null || mapNameInput.value == "") {
         mapNameInput.style.borderColor = 'red';
@@ -214,6 +261,8 @@ function toggleContextMenu() {
 
 function updateLayersPreview() {
     layersPreview.innerHTML = generateLayersPreviewHtml();
+    renameLayerInput.value = layers[currentLayer].name;
+    reorderLayerInput.value = layers[currentLayer].order;
     toggleToolBar(true, layersToolBarElement, layersToolBarButtonElement);
 }
 
@@ -227,7 +276,7 @@ function generateLayersPreviewHtml() {
 }
 
 function updateLastTilePreview() {
-    lastTilePreview.style.background = "url(" + sprites.src + ") -" + lastTile.tile.xIndex * 16 + "px -" + lastTile.tile.xIndex * 16 + "px";
+    lastTilePreview.style.background = "url(" + sprites.src + ") -" + lastTile.tile.xIndex * 16 + "px -" + lastTile.tile.yIndex * 16 + "px";
 }
 
 function updatePaintBrushPreview() {
@@ -260,6 +309,12 @@ function selectTool(toolIndex, selectedToolElement) {
         case 2:
             cursor = "help";
             break;
+        case 3:
+            cursor = "nwse-resize";
+            break;
+        case 4:
+            cursor = "nwse-resize";
+            break;
     }
     ctx.canvas.style.cursor = cursor;
     resetTools();
@@ -269,6 +324,8 @@ function selectTool(toolIndex, selectedToolElement) {
 function resetTools() {
     toggleClass(eraserToolButton, false, "selected");
     toggleClass(eyedropperToolButton, false, "selected");
+    toggleClass(wallSliceToolButton, false, "selected");
+    toggleClass(nineSliceToolButton, false, "selected");
     toggleClass(brushToolButton, false, "selected");
 }
 
@@ -291,6 +348,30 @@ function drawLoop() {
         ctx.fillStyle = "#33aa33";
         ctx.fillText("( " + mouseX + ", " + mouseY + " )", mouseX * 16 + 20, mouseY * 16 + 20);
     }
+    if (selectedTool == 3) {
+        if (sliceTool.state == 0) {
+
+            drawSprite(sprites, mouseX, mouseY, selectedBrushX, selectedBrushY);
+        }
+        else {
+            drawSprite(sprites, sliceTool.xPos1, sliceTool.yPos1, selectedBrushX, selectedBrushY);
+            drawSprite(sprites, mouseX, mouseY, selectedBrushX + 2, selectedBrushY + 2);
+        }
+        ctx.fillStyle = "#33aa33";
+        ctx.fillText("( " + mouseX + ", " + mouseY + " )", mouseX * 16 + 20, mouseY * 16 + 20);
+    }
+    if (selectedTool == 4) {
+        if (sliceTool.state == 0) {
+
+            drawSprite(sprites, mouseX + 1, mouseY + 1, selectedBrushX, selectedBrushY);
+        }
+        else {
+            drawSprite(sprites, sliceTool.xPos1 + 1, sliceTool.yPos1 + 1, selectedBrushX, selectedBrushY);
+            drawSprite(sprites, mouseX - 1, mouseY - 1, selectedBrushX + 2, selectedBrushY + 2);
+        }
+        ctx.fillStyle = "#33aa33";
+        ctx.fillText("( " + mouseX + ", " + mouseY + " )", mouseX * 16 + 20, mouseY * 16 + 20);
+    }
 }
 
 function drawLayers() {
@@ -298,8 +379,13 @@ function drawLayers() {
     var mouseXoffset = mouseX - (sx + (cw / 128));
     var mouseYoffset = mouseY - (sy + (ch / 128));
     if (layers == null || layers[currentLayer] == null) return;
+    ctx.globalAlpha = 1;
     layers.forEach(function (layer, index) {
         if (layers[currentLayer].order >= layer.order) {
+            if (layers[currentLayer].order == layer.order && xRayView)
+                ctx.globalAlpha = 0.5;
+            if (layers[currentLayer].order != layer.order && xRayView)
+                ctx.globalAlpha = 0.3;
             if (perspectiveView) {
                 var offsetIndex = layers[currentLayer].order - (layer.order);
                 drawTilesOff(layer, -mouseXoffset * offsetIndex / 5, -mouseYoffset * offsetIndex / 5);
@@ -307,22 +393,37 @@ function drawLayers() {
             else {
                 drawTiles(layer);
             }
-            if (layers[currentLayer].order != layer.order && showFog)
+            if (currentLayer != index && showFog)
                 drawLayerFog();
+          
         }
-
+        else if (xRayView) {
+            ctx.globalAlpha = ctx.globalAlpha * 0.3;
+            if (perspectiveView) {
+                var offsetIndex = (layer.order) - layers[currentLayer].order;
+                drawTilesOff(layer, mouseXoffset * offsetIndex / 5, mouseYoffset * offsetIndex / 5);
+            }
+            else {
+                drawTiles(layer);
+            }
+        }
     });
+    ctx.globalAlpha = 1;
 }
+
 function drawLayerFog() {
     ctx.fillStyle = "rgba(0,0,0,0.2)";
+
     ctx.fillRect(0, 0, cw, ch);
 }
+
 function drawTiles(layer) {
 
     layer.tiles.forEach(function (tile) {
         drawSprite(sprites, tile.xPosition, tile.yPosition, tile.xIndex, tile.yIndex);
     });
 }
+
 function drawTilesOff(layer, xoff, yoff) {
 
     layer.tiles.forEach(function (tile) {
@@ -330,6 +431,7 @@ function drawTilesOff(layer, xoff, yoff) {
         drawSpriteOff(sprites, tile.xPosition, tile.yPosition, tile.xIndex, tile.yIndex, xoff, yoff);
     });
 }
+
 function drawPalette() {
     palette.forEach(function (tile) {
         drawSprite(sprites, tile.xPosition, tile.yPosition, tile.xIndex, tile.yIndex);
@@ -436,25 +538,185 @@ function mouseClickHandler(e) {
         eraserClickHandler();
     else if (selectedTool == 2)
         eyedropperClick();
+    else if (selectedTool == 3)
+        nineSliceClickHandler();
+    else if (selectedTool == 4)
+        wallSliceClickHandler();
+}
+
+function nineSliceClickHandler() {
+    sliceTool.mode = 0;
+    sliceTool.state = sliceTool.state == 0 ? 1 : 0;
+
+    if (sliceTool.state == 1) {
+        sliceTool.xPos1 = mouseX;
+        sliceTool.yPos1 = mouseY;
+    }
+
+    if (sliceTool.state == 0) {
+        sliceTool.xPos2 = mouseX;
+        sliceTool.yPos2 = mouseY;
+        addSlicedTiles();
+    }
+
+}
+
+function wallSliceClickHandler() {
+
+    sliceTool.mode = 1;
+    sliceTool.state = sliceTool.state == 0 ? 1 : 0;
+
+    if (sliceTool.state == 1) {
+        sliceTool.xPos1 = mouseX;
+        sliceTool.yPos1 = mouseY;
+    }
+
+    if (sliceTool.state == 0) {
+        sliceTool.xPos2 = mouseX;
+        sliceTool.yPos2 = mouseY;
+        addSlicedTiles();
+    }
+
+}
+
+function addSlicedTiles() {
+    var upperBoundX = sliceTool.xPos1 > sliceTool.xPos2 ? sliceTool.xPos1 : sliceTool.xPos2;
+    var lowerBoundX = sliceTool.xPos1 < sliceTool.xPos2 ? sliceTool.xPos1 : sliceTool.xPos2;
+    var upperBoundY = sliceTool.yPos1 > sliceTool.yPos2 ? sliceTool.yPos1 : sliceTool.yPos2;
+    var lowerBoundY = sliceTool.yPos1 < sliceTool.yPos2 ? sliceTool.yPos1 : sliceTool.yPos2;
+
+    for (var x = lowerBoundX; x <= upperBoundX; x++) {
+        for (var y = lowerBoundY; y <= upperBoundY; y++) {
+            addSlicedTileToCurrentLayer(parseInt(paintBrushInputX.value), parseInt(paintBrushInputY.value), x, y, upperBoundX, lowerBoundX, upperBoundY, lowerBoundY)
+        }
+    }
+}
+
+function addSlicedTileToCurrentLayer(xIndex, yIndex, x, y, upperBoundX, lowerBoundX, upperBoundY, lowerBoundY) {
+
+    var offset;
+
+    if (sliceTool.mode == 0)
+        offset = getIndexOffsetForNineSlicedTile(x, y, upperBoundX, lowerBoundX, upperBoundY, lowerBoundY);
+    else if (sliceTool.mode == 1)
+        offset = getIndexOffsetForWallSlicedTile(x, y, upperBoundX, lowerBoundX, upperBoundY, lowerBoundY);
+    if (offset == null) return;
+    addTileToCurrentLayer(xIndex + offset[0], yIndex + offset[1], x, y);
+}
+function getIndexOffsetForWallSlicedTile(x, y, upperBoundX, lowerBoundX, upperBoundY, lowerBoundY) {
+
+
+    //empty corners - return null
+    if ((x == lowerBoundX && y == lowerBoundY) || (x == lowerBoundX + 1 && y == lowerBoundY) || (x == lowerBoundX && y == lowerBoundY + 1) ||
+        (x == upperBoundX && y == lowerBoundY) || (x == upperBoundX - 1 && y == lowerBoundY) || (x == upperBoundX && y == lowerBoundY + 1) ||
+        (x == lowerBoundX && y == upperBoundY) || (x == lowerBoundX && y == upperBoundY - 1) || (x == lowerBoundX + 1 && y == upperBoundY) ||
+        (x == upperBoundX && y == upperBoundY) || (x == upperBoundX - 1 && y == upperBoundY) || (x == upperBoundX && y == upperBoundY - 1)
+        ) { // upper left
+        return null;
+    }
+
+    //corners
+    if (x == lowerBoundX + 1 && y == lowerBoundY + 1) { // upper left
+        return [0, 0];
+    }
+    if (x == upperBoundX - 1 && y == lowerBoundY + 1) { //upper right
+        return [2, 0];
+    }
+    if (x == lowerBoundX + 1 && y == upperBoundY - 1) { //bottom left
+        return [0, 2];
+    }
+    if (x == upperBoundX - 1 && y == upperBoundY - 1) { //bottom right
+        return [2, 2];
+    }
+
+    //edges
+    if (x == lowerBoundX && y != lowerBoundY && y != upperBoundY) { //west
+        return [0, 1];
+    }
+    if (x == upperBoundX && y != lowerBoundY && y != upperBoundY) {//east
+        return [2, 1];
+    }
+    if (y == lowerBoundY && x != lowerBoundX && x != upperBoundX) {//north
+        return [1, 0];
+    }
+    if (y == upperBoundY && x != lowerBoundX && x != upperBoundX) {//south
+        return [1, 2];
+    }
+    //middle
+    if (x != lowerBoundX && x != upperBoundX && y != lowerBoundY && y != upperBoundY) {
+        return null;
+    }
+
+    return [xIndexOffset, yIndexOffset];
+}
+function getIndexOffsetForNineSlicedTile(x, y, upperBoundX, lowerBoundX, upperBoundY, lowerBoundY) {
+    var xIndexOffset, yIndexOffset;
+    //corners
+    if (x == lowerBoundX && y == lowerBoundY) { // upper left
+        xIndexOffset = 0;
+        yIndexOffset = 0;
+    }
+    if (x == upperBoundX && y == lowerBoundY) { //upper right
+        xIndexOffset = 2;
+        yIndexOffset = 0;
+    }
+    if (x == lowerBoundX && y == upperBoundY) { //bottom left
+        xIndexOffset = 0;
+        yIndexOffset = 2;
+    }
+    if (x == upperBoundX && y == upperBoundY) { //bottom right
+        xIndexOffset = 2;
+        yIndexOffset = 2;
+    }
+
+    //edges
+    if (x == lowerBoundX && y != lowerBoundY && y != upperBoundY) { //west
+        xIndexOffset = 0;
+        yIndexOffset = 1;
+    }
+    if (x == upperBoundX && y != lowerBoundY && y != upperBoundY) {//east
+        xIndexOffset = 2;
+        yIndexOffset = 1;
+    }
+    if (y == lowerBoundY && x != lowerBoundX && x != upperBoundX) {//north
+        xIndexOffset = 1;
+        yIndexOffset = 0;
+    }
+    if (y == upperBoundY && x != lowerBoundX && x != upperBoundX) {//south
+        xIndexOffset = 1;
+        yIndexOffset = 2;
+    }
+
+    //middle
+    if (x != lowerBoundX && x != upperBoundX && y != lowerBoundY && y != upperBoundY) {
+        xIndexOffset = 1;
+        yIndexOffset = 1;
+    }
+    return [xIndexOffset, yIndexOffset];
 }
 
 function brushClickHandler() {
+
+    addTileToCurrentLayer(paintBrushInputX.value, paintBrushInputY.value, mouseX, mouseY);
+
+}
+
+function addTileToCurrentLayer(xIndex, yIndex, xPosition, yPosition) {
     var matched = false;
     layers[currentLayer].tiles.forEach(function (tile) {
-        if (tile.xPosition == mouseX && tile.yPosition == mouseY) {
-            tile.xIndex = paintBrushInputX.value;
-            tile.yIndex = paintBrushInputY.value;
+        if (tile.xPosition == xPosition && tile.yPosition == yPosition) {
+            tile.xIndex = xIndex;
+            tile.yIndex = yIndex;
             updateLastTile(currentLayer, tile);
             matched = true;
         }
     });
     if (matched) return;
-
     var newTile = {
-        xIndex: paintBrushInputX.value,
-        yIndex: paintBrushInputY.value,
-        xPosition: mouseX,
-        yPosition: mouseY
+        xIndex: xIndex,
+        yIndex: yIndex,
+        xPosition: xPosition,
+        yPosition: yPosition
     };
 
     layers[currentLayer].tiles.push(newTile);
@@ -530,11 +792,26 @@ function keyPressHandler(event) {
         case 'P': case 'p':
             clickPaletteButton();
             break;
+        case 'X': case 'x':
+            clickToggleXRay();
+            break;
+        case 'F': case 'f':
+            clickToggleFog();
+            break;
+        case 'Z': case 'z':
+            clickTogglePerspective();
+            break;
         case 'E': case 'e':
             clickEraserTool();
             break;
         case 'I': case 'i':
             clickEyedropperTool();
+            break;
+        case 'W': case 'w':
+            clickWallSliceTool();
+            break;
+        case 'N': case 'n':
+            clickNineSliceTool();
             break;
     }
 }
@@ -564,6 +841,9 @@ function init() {
         sx = Math.floor(document.body.scrollLeft / 32);
     });
 
+    toggleToolBar(true, tilesToolBarElement, tilesToolBarButtonElement);
+    toggleToolBar(true, layersToolBarElement, layersToolBarButtonElement);
+    clickPaintTool();
     setInterval(loop, 16);
 }
 

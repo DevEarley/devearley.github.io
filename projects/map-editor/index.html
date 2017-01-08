@@ -9,91 +9,130 @@
 </head>
 <body>
     <canvas width="2048" height="2048"></canvas>
-    
     <div id="ToolBars">
-        <div id="LayersToolBarContainter">
-            <div class="tool-bar-button" id="LayersToolBarButton" onclick="clickLayersToolBarButton()"> + </div>
-            <div class="toolbar" id="LayersToolBar">
-                <h1 onclick="clickLayersToolBarButton()">Layers</h1>
-                <div id="LayersPreview"></div>
-                <hr />
-                <div class="button" onclick="clickAddLayer()">
-                    Add Layer
-                </div>
-                <div class="button" onclick="clickClearLayer()">
-                    Clear Current Layer
-                </div>
-                <div class="button" onclick="clickDeleteLayer()">
-                    Delete Current Layer
-                </div>
+        <div id="LeftToolBars">
+            <div id="TilesToolBarContainter">
+                <div class="toolbar-button" id="TilesToolBarButton" onclick="clickTilesToolBarButton()"> + </div>
+                <div class="toolbar" id="TilesToolBar">
+                    <h1 onclick="clickTilesToolBarButton()">Tiles</h1>
+                
+                    <div class="button" id="BrushToolButton" onclick="clickPaintTool()">
+                        Paint Brush (B)
+                        <input class="number-input" id="PaintBrushInputX" type="number" placeholder="X" />
 
-                <div class="button" onclick="clickCopyLayer()">
-                    Copy From Current Layer
+                        <input class="number-input" id="PaintBrushInputY" type="number" placeholder="Y" />
+
+                        <span id="PaintBrushPreview" />
+                    </div>
+                    <div class="button" id="EraserToolButton" onclick="clickEraserTool()">
+                        Eraser (E)
+                    </div>
+                    <div class="button" id="EyedropperToolButton" onclick="clickEyedropperTool()">
+                        Eyedropper (I)
+                    </div>
+                    <div class="button" id="NineSliceToolButton" onclick="clickNineSliceTool()">
+                        Nine Slice (N)
+                    </div>
+                    <div class="button" id="WallSliceToolButton" onclick="clickWallSliceTool()">
+                        Wall Slice (W)
+                    </div>
+
+                    <hr />
+                    <h2>Edit Selected Tile</h2>
+                    <div id="LastTilePreview"><br /></div>
+                    <div id="TileInfo"><br /></div>
+
+                    <div><input id="ResourceName" style="float:right;" /></div>
+
+                    <div class="button" style="width:100px;" onclick="clickRenameSelectedTile()">Rename  Tile</div>
+                    <div class="button" onclick="clickRenameAllMatchingTiles()">Rename All Matching</div>
+                    <hr />
                 </div>
-                <div class="button" onclick="clickPasteLayer()">
-                    Paste Into Current Layer
-                </div>
-                <div class="button" onclick="clickTogglePerspective()">
-                    Toggle Perspective Mode
-                </div>
-                <div class="button" onclick="clickToggleFog()">
-                    Toggle Fog Mode
+            </div>
+            <div id="MapToolBarContainter">
+                <div class="toolbar-button" id="MapToolBarButton" onclick="clickMapToolBarButton()"> + </div>
+                <div class="toolbar" id="MapToolBar">
+                    <h1 onclick="clickMapToolBarButton()">Map</h1>
+                    <div style="padding-bottom:40px;">
+                        <input id="File" onchange="validateImportButton()" type="file" />
+                    </div>
+                    <div class="button" id="ImportMap" onclick="clickImportMapButton()">
+                        Import Map
+                    </div>
+                    <hr />
+                    <div style="padding-bottom:40px ;">
+                        <input placeholder="Map Name" onchange="validateExportButton()" id="MapName" type="text" />
+                    </div>
+                    <div class="button" id="ExportMap" onclick="clickExportMapButton()">
+                        Export Map
+                    </div>
+                    <hr style="margin-top:20px;margin-bottom:40px;border:1px solid #33aa33 ;" />
+                    <div class="button" onclick="loadSample()">
+                        Load Sample
+                    </div>
+                    <hr />
                 </div>
             </div>
         </div>
-        <div id="ToolsToolBarContainter">
-            <div class="tool-bar-button" id="ToolsToolBarButton" onclick="clickToolsToolBarButton()"> + </div>
-            <div class="toolbar" id="ToolsToolBar">
-                <h1 onclick="clickToolsToolBarButton()">Tools</h1>
-                <div id="LastTilePreview"><br /></div>
-                <div><input id="ResourceName" style="float:right;" /></div>
-                <div id="TileInfo"><br /></div>
-                <div class="button" onclick="clickRenameSelectedTile()">Rename Selected Tile</div>
-                <div class="button" onclick="clickRenameAllMatchingTiles()">Rename All Matching Tiles</div>
-                <hr />
-                <div class="button" id="BrushToolButton" onclick="clickPaintTool()">
-                    Paint Brush (B)
-                    <input class="number-input" id="PaintBrushInputX" type="number" placeholder="X" />
+        <div id="RightToolBars">
+            <div id="LayersToolBarContainter">
+                <div class="toolbar-button-right" id="LayersToolBarButton" onclick="clickLayersToolBarButton()"> + </div>
+                <div class="toolbar-right" id="LayersToolBar">
+                    <h1 onclick="clickLayersToolBarButton()">Layers</h1>
+                    <div id="LayersPreview"></div>
+                    <hr />
+                    <div class="button" onclick="clickAddLayer()">
+                        Add Layer
+                    </div>
+                    <div class="button" onclick="clickClearLayer()">
+                        Clear Current Layer
+                    </div>
+                    <div class="button" onclick="clickDeleteLayer()">
+                        Delete Current Layer
+                    </div>
+                    <div class="button" onclick="clickCopyLayer()">
+                        Copy From Current Layer
+                    </div>
+                    <div class="button" onclick="clickPasteLayer()">
+                        Paste Into Current Layer
+                    </div>
+                    <hr />
+                    <h2>
+                        Edit Selected Layer
+                    </h2>
+                    <div>
+                        <input id="RenameLayerInput" placeholder="Name" style="float:right;" />
+                    </div>
+                    <div class="button" style="width:100px;" onclick="clickRenameLayer()">Rename </div>
+                    <div>
+                        <input id="ReorderLayerInput" placeholder="Order" style="float:right;" />
+                    </div>
+                    <div class="button" style="width:100px;" onclick="clickReorderLayer()">Reorder</div>
+                   
 
-                    <input class="number-input" id="PaintBrushInputY" type="number" placeholder="Y" />
-
-                    <span id="PaintBrushPreview" />
+                    <hr />
                 </div>
-                <div class="button" id="EraserToolButton" onclick="clickEraserTool()">
-                    Eraser (E)
-                </div>
-                <div class="button" id="EyedropperToolButton" onclick="clickEyedropperTool()">
-                    Eyedropper (I)
-                </div>
-
-                <div class="button" id="PaletteButton" onclick="clickPaletteButton()">
-                    Palette (P)
+            </div>
+            <div id="OptionsToolBarContainter">
+                <div class="toolbar-button-right" id="OptionsToolBarButton" onclick="clickOptionsToolBarButton()"> + </div>
+                <div class="toolbar-right" id="OptionsToolBar">
+                    <h1 onclick="clickOptionsToolBarButton()">Options</h1>
+                    <div class="button" onclick="clickTogglePerspective()">
+                        Toggle Perspective Mode (Z)
+                    </div>
+                    <div class="button" onclick="clickToggleXRay()">
+                        Toggle XRay Mode (X)
+                    </div>
+                    <div class="button" onclick="clickToggleFog()">
+                        Toggle Fog Mode (F)
+                    </div>
+                    <div class="button" id="PaletteButton" onclick="clickPaletteButton()">
+                        Toggle Palette Mode (P)
+                    </div>
                 </div>
             </div>
         </div>
-        <div id="MapToolBarContainter">
-            <div class="tool-bar-button" id="MapToolBarButton" onclick="clickMapToolBarButton()"> + </div>
-            <div class="toolbar" id="MapToolBar">
-                <h1 onclick="clickMapToolBarButton()">Map</h1>
-                <div style="padding-bottom:40px;">
-                    <input id="File" onchange="validateImportButton()" type="file" />
-                </div>
-                <div class="button" id="ImportMap" onclick="clickImportMapButton()">
-                    Import Map
-                </div>
-                <hr />
-                <div style="padding-bottom:40px ;">
-                    <input placeholder="Map Name" onchange="validateExportButton()" id="MapName" type="text" />
-                </div>
-                <div class="button" id="ExportMap" onclick="clickExportMapButton()">
-                    Export Map
-                </div>
-                <hr style="margin-top:20px;margin-bottom:40px;border:1px solid #33aa33 ;" />
-                <div class="button" onclick="loadSample()">
-                   Load Sample
-                </div>
-            </div>
-        </div>
+
     </div>
     <div id="Footer"><a href="http://devearley.github.io" target="_blank"><small>© Alex Earley | Shoshin Game Studio 2017 </small></a></div>
     <script src="app.js" type="text/javascript"></script>
