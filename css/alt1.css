@@ -215,14 +215,11 @@ body {
 
 
 .projects {
-   
-    
-        max-height: 0; 
-    opacity:0;
-      padding-top:0;
-      padding-bottom:0;
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
     overflow: hidden;
-    
     -webkit-transition: all 0.25s ease-in-out;
     -moz-transition: all 0.25s ease-in-out;
     -o-transition: all 0.25s ease-in-out;
@@ -230,10 +227,7 @@ body {
 }
 
     .projects.active {
-        
-    opacity:1;
-
-
+        opacity: 1;
         max-height: 2000px;
     }
 
@@ -344,7 +338,10 @@ body {
 }
 
     .stairs .copy b {
-        color: #22253C;
+        color: #FFF;
+        padding-left: 4px;
+        padding-right: 2px;
+        background-color: rgba(75,75,81,0.9);
     }
 
 .unpop-animation {
@@ -526,23 +523,21 @@ body {
 @media only screen and (max-width: 768px) {
     .title {
         margin-left: 75px;
-        margin-right:9%;
+        margin-right: 9%;
         width: auto;
-            padding-bottom:30px;
-        height:auto;
+        padding-bottom: 30px;
+        height: auto;
     }
 
         .title:after {
-
-            margin-top:30px;
-            margin-left:75px;
+            margin-top: 30px;
+            margin-left: 75px;
             width: auto;
-            margin-right:20px;
+            margin-right: 20px;
         }
 
         .title:before {
-          
-        left: -60px;
+            left: -60px;
         }
 
     .copy {
@@ -557,7 +552,7 @@ body {
 
         .nav-grid .nav-grid-item {
             width: 80px;
-            font-size:12px;
+            font-size: 12px;
         }
 
             .nav-grid .nav-grid-item .fa {
