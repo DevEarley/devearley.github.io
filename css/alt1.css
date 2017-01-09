@@ -78,6 +78,7 @@ body {
     height: 120vh;
     background-size: cover;
     background-position-y: center;
+    background-position-x: center;
     background-repeat: no-repeat;
     position: absolute;
     opacity: 1;
@@ -95,11 +96,21 @@ body {
 }
 
 .fish .img {
+    
+    background-position-y: bottom;
+    
+    background-position-x: center;
     background-image: url("../images/personalsite_fish.png");
 }
 
 .stairs .img {
+    
+    background-position-y: center;
     background-image: url("../images/personalsite_stairs.png");
+}.bushes .img {
+        
+    background-position-y: top;
+    background-image: url("../images/personalsite_bushes.png");
 }
 
 .title {
@@ -146,6 +157,7 @@ body {
 
 .stairs .title {
     background-color: rgba(75,75,81,0.7);
+}.bushes .title {   background-color: rgba(10,10,48,0.8);
 }
 
 .title:after {
@@ -175,43 +187,11 @@ body {
     background-image: url("../images/personalsite_stairs_title.png");
 }
 
-
-.shuffle {
-    z-index: 11;
-    position: absolute;
-    right: 10vw;
-    width: 300px;
-    top: 0;
-    height: 50px;
-    cursor: pointer;
+.bushes .title:after {
+    background-image: url("../images/personalsite_bushes_title.png");
 }
 
-    .shuffle:after {
-        margin-top: 10px;
-        margin-left: 20px;
-        width: 250px;
-        height: 30px;
-        display: block;
-        content: '';
-        background-size: contain;
-        background-repeat: no-repeat;
-    }
 
-.aura .shuffle {
-    background-color: rgba(66,57,76,0.5);
-}
-
-.ocean .shuffle {
-    background-color: rgba(255,255,255,0.8);
-}
-
-.fish .shuffle {
-    background-color: rgba(0,55,44,0.7);
-}
-
-.stairs .shuffle {
-    background-color: rgba(255,255,255,0.7);
-}
 
 
 .projects {
@@ -262,7 +242,7 @@ body {
         }
 
 .ocean .nav-grid .nav-grid-item:hover {
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(255,255,255,0.8);
 }
 
 .aura .nav-grid {
@@ -283,6 +263,10 @@ body {
 
 .stairs .nav-grid {
     background-color: rgba(75,75,81,0.7);
+}
+
+.bushes .nav-grid {
+    background-color: rgba(10,10,48,0.8);
 }
 
 .nav-grid .nav-grid-item .fa {
@@ -342,6 +326,17 @@ body {
         padding-left: 4px;
         padding-right: 2px;
         background-color: rgba(75,75,81,0.9);
+    }
+    .bushes .copy {
+       background-color: rgba(10,10,48,0.8);
+    color: #FFF;
+}
+
+    .bushes .copy b {
+        color: #FFF;
+        padding-left: 4px;
+        padding-right: 2px; 
+          background-color: rgba(10,10,48,0.8);
     }
 
 .unpop-animation {
@@ -522,43 +517,54 @@ body {
 
 @media only screen and (max-width: 768px) {
     .title {
-        margin-left: 75px;
-        margin-right: 9%;
+        margin-left: 5%;
+        margin-right: 5%;
         width: auto;
-        padding-bottom: 30px;
+        padding-bottom: 10px;
         height: auto;
     }
 
         .title:after {
             margin-top: 30px;
-            margin-left: 75px;
+            margin-left: 115px;
             width: auto;
+            max-width:400px;
             margin-right: 20px;
         }
 
         .title:before {
-            left: -60px;
+            left: -20px;
+            top: 13px;
         }
 
     .copy {
         margin-left: 5%;
-        width: 86%;
+        width: 90%;
     }
 
     .nav-grid {
         margin-left: 5%;
-        width: 86%;
+        width: 90%;
     }
 
         .nav-grid .nav-grid-item {
-            width: 80px;
+            width: 40%;
+            margin-right:4%;
+            text-align:left;
             font-size: 12px;
         }
 
             .nav-grid .nav-grid-item .fa {
-                margin: 10px;
+                margin:0;
                 font-size: 30px;
+                width:40%;
+                display:inline-block;
             }
+             .nav-grid .nav-grid-item .nav-label{
+                
+                display:inline-block;
+                width:40%;
+             }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
