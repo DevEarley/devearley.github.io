@@ -1,8 +1,8 @@
 ﻿canvas {
     
     -webkit-overflow-scrolling: touch;
-    margin:200px;
-    margin-left:370px;
+    margin:50vh;
+    margin-left:50vw;
     width:4096px;
     height:4096px;    
       background-color: #222;

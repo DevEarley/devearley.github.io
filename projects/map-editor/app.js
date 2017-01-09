@@ -376,24 +376,25 @@ function drawLoop() {
 
 function drawLayers() {
 
-    var mouseXoffset = mouseX - (sx + (cw / 128));
-    var mouseYoffset = mouseY - (sy + (ch / 128));
+    var mouseXoffset = mouseX - (sx);
+    var mouseYoffset = mouseY - (sy);
     if (layers == null || layers[currentLayer] == null) return;
     ctx.globalAlpha = 1;
     layers.forEach(function (layer, index) {
         if (layers[currentLayer].order >= layer.order) {
             if (layers[currentLayer].order == layer.order && xRayView)
-                ctx.globalAlpha = 0.5;
-            if (layers[currentLayer].order != layer.order && xRayView)
-                ctx.globalAlpha = 0.3;
+                ctx.globalAlpha = 0.9;
+            if (layers[currentLayer].order == layer.order && currentLayer != index && xRayView)
+                ctx.globalAlpha = 0.4;
+
             if (perspectiveView) {
                 var offsetIndex = layers[currentLayer].order - (layer.order);
-                drawTilesOff(layer, -mouseXoffset * offsetIndex / 5, -mouseYoffset * offsetIndex / 5);
+                drawTilesOff(layer, -(mouseXoffset * offsetIndex / 2), -mouseYoffset * offsetIndex /2);
             }
             else {
                 drawTiles(layer);
             }
-            if (currentLayer != index && showFog)
+            if (layers[currentLayer].order != layer.order && showFog)
                 drawLayerFog();
           
         }
@@ -401,7 +402,7 @@ function drawLayers() {
             ctx.globalAlpha = ctx.globalAlpha * 0.3;
             if (perspectiveView) {
                 var offsetIndex = (layer.order) - layers[currentLayer].order;
-                drawTilesOff(layer, mouseXoffset * offsetIndex / 5, mouseYoffset * offsetIndex / 5);
+                drawTilesOff(layer, (mouseXoffset * offsetIndex / 2), mouseYoffset * offsetIndex / 2);
             }
             else {
                 drawTiles(layer);
@@ -523,15 +524,18 @@ function createLayer(name, order) {
 }
 
 function mouseUpHandler() {
+    if (mouseX < 0 || mouseY < 0) return;
     isMouseDown = false;
 }
 
 function mouseDownHandler() {
+    if (mouseX < 0 || mouseY < 0) return;
     isMouseDown = true;
 
 }
 
 function mouseClickHandler(e) {
+    if (mouseX < 0 || mouseY < 0) return;
     if (selectedTool == 0)
         brushClickHandler();
     else if (selectedTool == 1)
@@ -768,13 +772,13 @@ function generateHTMLForTile(tile) {
 function mouseMoveHandler(e) {
     if (e.button != 0) return;
     if (isMouseDown) mouseClickHandler();
-    if (e.offsetX) {
-        mouseX = Math.floor(e.offsetX / 32);
-        mouseY = Math.floor(e.offsetY / 32);
+    if (e.screenX) {
+        mouseX = Math.floor((e.pageX-window.innerWidth/2) / 32);
+        mouseY = Math.floor((e.pageY-window.innerHeight/2) / 32);
     }
     else if (e.layerX) {
-        mouseX = Math.floor(e.layerX / 32);
-        mouseY = Math.floor(e.layerY / 32);
+        mouseX = Math.floor((e.layerX) / 32);
+        mouseY = Math.floor((e.layerY) / 32);
     }
 }
 
@@ -818,7 +822,7 @@ function keyPressHandler(event) {
 
 function init() {
     window.onload = function () {
-        ctx.canvas.addEventListener('mousemove', mouseMoveHandler);
+        document.addEventListener('mousemove', mouseMoveHandler);
         ctx.canvas.addEventListener('click', mouseClickHandler);
         var lastDownTarget = null;
 
