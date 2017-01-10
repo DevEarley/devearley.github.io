@@ -276,3 +276,12 @@ a {
     .layer-row{
         padding:10px;
     }
+    #ToolBars  #LayersPreview .button
+    {
+        width:200px;
+    }
+    #LayersPreview
+    {
+        max-height:250px;
+        overflow-y:auto;
+    }

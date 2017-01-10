@@ -158,13 +158,19 @@ function clickImportMapButton() {
 
 function clickExportMapButton() {
     if (!validateExportButton()) return;
-    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(layers));
+    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(createMapObject()));
     var dlAnchorElem = document.getElementById('HiddenDownloadAnchor');
     dlAnchorElem.setAttribute("href", dataStr);
     dlAnchorElem.setAttribute("download", mapNameInput.value + ".json");
     dlAnchorElem.click();
 }
-
+function createMapObject()
+{
+    return {
+        name:mapNameInput.value,
+        layers:layers
+    }
+}
 function clickLayersToolBarButton() {
     showLayersToolBar = !showLayersToolBar;
     toggleToolBar(showLayersToolBar, layersToolBarElement, layersToolBarButtonElement);
@@ -477,7 +483,7 @@ function startRead() {
     if (file) {
         getAsText(file);
     }
-    mapNameInput.value = fileInput.value.replace(/^.*[\\\/]/, '');
+    //mapNameInput.value = fileInput.value.replace(/^.*[\\\/]/, '');
 }
 
 function getAsText(readFile) {
@@ -504,7 +510,10 @@ function updateProgress(evt) {
 function loaded(evt) {
     // Obtain the read file data
     var fileString = evt.target.result;
-    layers = JSON.parse(fileString);
+   // layers = JSON.parse(fileString);
+    var map = JSON.parse(fileString);
+    layers = map.layers;
+    mapNameInput.value = map.name;
     updateLayersPreview();
 }
 
