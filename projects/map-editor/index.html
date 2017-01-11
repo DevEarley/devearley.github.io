@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, user-scalable=no" />
-<html>
+<html style="overflow:auto;">
 <head>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -8,18 +8,23 @@
     <meta charset="utf-8" />
 </head>
 <body>
-    <canvas width="2048" height="2048"></canvas>
+    <div id="CanvasContainer" style="position:absolute; top:0; left:0; width:100vw; height:100vh; overflow:scroll;">
+        <canvas width="2048" height="2048"></canvas>
+    </div>
+
     <div id="ToolBars">
         <div id="LeftToolBars">
             <div id="TilesToolBarContainter">
                 <div class="toolbar-button" id="TilesToolBarButton" onclick="clickTilesToolBarButton()"> + </div>
                 <div class="toolbar" id="TilesToolBar">
                     <h1 onclick="clickTilesToolBarButton()">Tiles</h1>
+                    <div id="LastTilePreview"><br /></div>
+                    <div id="TileInfo"><br /></div>
+
+                    <hr />
                     <div class="button" id="BrushToolButton" onclick="clickPaintTool()">
                         Paint Brush (B)
-                        <input class="number-input" id="PaintBrushInputX" type="number" placeholder="X" />
-                        <input class="number-input" id="PaintBrushInputY" type="number" placeholder="Y" />
-                        <span id="PaintBrushPreview" />
+
                     </div>
                     <div class="button" id="EraserToolButton" onclick="clickEraserTool()">
                         Eraser (E)
@@ -33,14 +38,27 @@
                     <div class="button" id="WallSliceToolButton" onclick="clickWallSliceTool()">
                         Wall Slice (W)
                     </div>
+                    <div class="button" id="PaletteButton" onclick="clickPaletteButton()">
+                        Toggle Palette (P)
+
+                    </div>
                     <hr />
-                    <h2>Edit Selected Tile</h2>
-                    <div id="LastTilePreview"><br /></div>
-                    <div id="TileInfo"><br /></div>
-                    <div><input id="ResourceName" style="float:right;" /></div>
-                    <div class="button" style="width:100px;" onclick="clickRenameSelectedTile()">Rename  Tile</div>
-                    <div class="button" onclick="clickRenameAllMatchingTiles()">Rename All Matching</div>
+                    <h2>Palette</h2>
+                    <div  class="button" onclick="clickEyedropperTool()" >
+                        &nbsp;
+                        <input onfocus="onFocusInput()" onblur="onBlurInput()" class="number-input" id="PaintBrushInputX" type="number" placeholder="X" />
+                        <input onfocus="onFocusInput()" onblur="onBlurInput()" class="number-input" id="PaintBrushInputY" type="number" placeholder="Y" />
+                        <span id="PaintBrushPreview" />
+                       
+                    </div>
+                   
+                    <div style="margin-bottom:60px;margin-top:20px;margin-left:10px;">
+
+                        <div><input onfocus="onFocusInput()" onblur="onBlurInput()" id="RenameTileInput" placeholder="Name" style="float:left;" /></div>
+                        <div class="button" style="width:100px; float:right;" onclick="clickRenameTile()">Rename</div>
+                    </div>
                     <hr />
+                   
                 </div>
             </div>
             <div id="MapToolBarContainter">
@@ -48,14 +66,14 @@
                 <div class="toolbar" id="MapToolBar">
                     <h1 onclick="clickMapToolBarButton()">Map</h1>
                     <div style="padding-bottom:40px;">
-                        <input id="File" onchange="validateImportButton()" type="file" />
+                        <input onfocus="onFocusInput()" onblur="onBlurInput()" id="File" onchange="validateImportButton()" type="file" />
                     </div>
                     <div class="button" id="ImportMap" onclick="clickImportMapButton()">
                         Import Map
                     </div>
                     <hr />
                     <div style="padding-bottom:40px ;">
-                        <input placeholder="Map Name" onchange="validateExportButton()" id="MapName" type="text" />
+                        <input onfocus="onFocusInput()" onblur="onBlurInput()" placeholder="Map Name" onchange="validateExportButton()" id="MapName" type="text" />
                     </div>
                     <div class="button" id="ExportMap" onclick="clickExportMapButton()">
                         Export Map
@@ -95,14 +113,14 @@
                         Edit Selected Layer
                     </h2>
                     <div>
-                        <input id="RenameLayerInput" placeholder="Name" style="float:right;" />
+                        <input onfocus="onFocusInput()" onblur="onBlurInput()" id="RenameLayerInput" placeholder="Name" style="float:right;" />
                     </div>
                     <div class="button" style="width:100px;" onclick="clickRenameLayer()">Rename </div>
                     <div>
-                        <input id="ReorderLayerInput" placeholder="Order" style="float:right;" />
+                        <input onfocus="onFocusInput()" onblur="onBlurInput()" id="ReorderLayerInput" placeholder="Order" style="float:right;" />
                     </div>
                     <div class="button" style="width:100px;" onclick="clickReorderLayer()">Reorder</div>
-                   
+
 
                     <hr />
                 </div>
@@ -120,16 +138,17 @@
                     <div class="button" onclick="clickToggleFog()">
                         Toggle Fog Mode (F)
                     </div>
-                    <div class="button" id="PaletteButton" onclick="clickPaletteButton()">
-                        Toggle Palette Mode (P)
-                    </div>
+
                 </div>
             </div>
         </div>
     </div>
-    <div id="Footer"><a href="http://devearley.github.io" target="_blank"><small>© Alex Earley | Shoshin Game Studio 2017 </small></a></div>
-    <script src="app.js" type="text/javascript"></script>
+    <div id="Footer"><small> © <a href="http://devearley.github.io" target="_blank">Shoshin Game Studio</a> | Alex Earley 2017 | All rights reserved</small></div>
+
+
     <script src="sample.js" type="text/javascript"></script>
+    <script src="autoscroll.js" type="text/javascript"></script>
+    <script src="app.js" type="text/javascript"></script>
     <a href="" id="HiddenDownloadAnchor"></a>
 </body>
 </html>

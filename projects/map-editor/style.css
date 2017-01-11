@@ -86,16 +86,19 @@ small, .font_small {
 a {
     color: #33aa33;
 }
-
+a:hover {
+    color: #FFF;
+}
 #Footer {
     text-align: center;
     position: fixed;
-    bottom: 0;
+    bottom: 20px;
+    padding-top:6px;
     height: 30px;
-    width: 100%;
-    background-color: #000;
+    width: 40%;
+    background-color: rgba(0,0,0,0.5);
     color: #33aa33;
-    left: 0;
+    left: 30%;
     z-index: 1000;
 }
 
@@ -169,7 +172,7 @@ a {
         width: 45px;
         padding-left: 10px;
         display: inline-block;
-        float: left;
+        float: right;
         margin-left: 5px;
     }
 
@@ -246,7 +249,7 @@ a {
 #LastTilePreview, #PaintBrushPreview {
     margin-left: 10px;
     margin-top: 4px;
-    float: left;
+    float: right;
     width: 16px;
     height: 16px;
     background-color: #FFF;

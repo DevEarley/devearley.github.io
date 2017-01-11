@@ -9,6 +9,7 @@
     paintBrushInputX = document.getElementById("PaintBrushInputX"),
     paintBrushInputY = document.getElementById("PaintBrushInputY"),
     renameLayerInput = document.getElementById("RenameLayerInput"),
+    renameTileInput = document.getElementById("RenameTileInput"),
     reorderLayerInput = document.getElementById("ReorderLayerInput"),
     brushToolButton = document.getElementById("BrushToolButton"),
     eraserToolButton = document.getElementById("EraserToolButton"),
@@ -24,8 +25,8 @@
     tileInfo = document.getElementById("TileInfo"),
     paintBrushPreview = document.getElementById("PaintBrushPreview"),
     layersPreview = document.getElementById("LayersPreview"),
-    resourceName = document.getElementById("ResourceName"),
     lastTilePreview = document.getElementById("LastTilePreview"),
+    scrollingElement = document.getElementById("CanvasContainer"),
     showLayersToolBar = false,
     showTilesToolBar = false,
     showMapToolBar = false,
@@ -33,8 +34,10 @@
     selectedTool = 0,
     lastTile = null,
     copiedLayer = null,
-    isMouseDown = false,
+    mouseDown = false,
+    inputLocked = false,
     currentLayer = 0,
+
     layers = [],
        palette = [],
        showFog = false,
@@ -61,8 +64,8 @@ ctx.canvas.height = cw;
 ctx.canvas.width = ch;
 
 function clickAddLayer() {
-    layers.splice(currentLayer+1,0,createLayer("layer" + layers.length, layers.length));
-    currentLayer = currentLayer+1;
+    layers.splice(currentLayer + 1, 0, createLayer("layer" + layers.length, layers.length));
+    currentLayer = currentLayer + 1;
     updateLayersPreview();
 }
 
@@ -121,6 +124,7 @@ function clickEraserTool() {
 }
 
 function clickEyedropperTool() {
+    updatePaintBrushPreview();
     selectTool(2, eyedropperToolButton);
 }
 
@@ -164,13 +168,7 @@ function clickExportMapButton() {
     dlAnchorElem.setAttribute("download", mapNameInput.value + ".json");
     dlAnchorElem.click();
 }
-function createMapObject()
-{
-    return {
-        name:mapNameInput.value,
-        layers:layers
-    }
-}
+
 function clickLayersToolBarButton() {
     showLayersToolBar = !showLayersToolBar;
     toggleToolBar(showLayersToolBar, layersToolBarElement, layersToolBarButtonElement);
@@ -192,23 +190,19 @@ function clickOptionsToolBarButton() {
 }
 
 function clickSelectLayer(layerIndex) {
-
-
     currentLayer = layerIndex;
     updateLayersPreview();
 }
 
-function clickRenameSelectedTile() {
-    if (lastTile == null) return;
-    lastTile.resourceName = resourceName.value;
-}
-
-function clickRenameAllMatchingTiles() {
-    if (lastTile == null) return;
-    tiles.forEach(function (tile, tileIndex) {
-        if (tile.xIndex == lastTile.xIndex && tile.yIndex == lastTile.yIndex)
-            tile.resourceName = resourceName.value;
+function clickRenameTile() {
+    var x =parseInt(paintBrushInputX.value);
+    var y =parseInt(paintBrushInputY.value);
+    palette.forEach(function (ptile, tileIndex) {
+        if (ptile.xIndex == x && ptile.yIndex == y)
+            palette[tileIndex].name = renameTileInput.value;
     });
+
+    tileInfo.innerHTML = generateHTMLForTile(tile);
 }
 
 function clickCopyLayer() {
@@ -216,13 +210,16 @@ function clickCopyLayer() {
 }
 
 function clickPasteLayer() {
-    layers[currentLayer].tiles = layers[copiedLayer].tiles.slice();
+    layers[currentLayer].tiles = JSON.parse(JSON.stringify(layers[copiedLayer].tiles));
     layers[currentLayer].name = layers[copiedLayer].name;
     updateLayersPreview();
 }
 
-function renameTile(tile, name) {
-
+function onFocusInput() {
+    inputLocked = true;
+}
+function onBlurInput() {
+    inputLocked = false;
 }
 
 function validateExportButton() {
@@ -251,7 +248,7 @@ function validateImportButton() {
 function togglePaletteMode(on) {
     paletteMode = on;
     if (on) {
-        initPalette();
+        movePalette();
         selectTool(2, eyedropperToolButton);
     }
 }
@@ -265,41 +262,17 @@ function toggleContextMenu() {
     }
 }
 
-function updateLayersPreview() {
-    layersPreview.innerHTML = generateLayersPreviewHtml();
-    renameLayerInput.value = layers[currentLayer].name;
-    reorderLayerInput.value = layers[currentLayer].order;
-    toggleToolBar(true, layersToolBarElement, layersToolBarButtonElement);
-}
-
-function generateLayersPreviewHtml() {
-    var rows = "";
-    layers.forEach(function (layer, index) {
-        var classes = "button" + (currentLayer == index ? " selected" : "");
-        rows += "<div class='" + classes + "' onclick='clickSelectLayer(" + index + ")'>" + layer.name + " (" + layer.order + ") </div>";
-    });
-    return "<div>" + rows + "</div>";
-}
-
-function updateLastTilePreview() {
-    lastTilePreview.style.background = "url(" + sprites.src + ") -" + lastTile.tile.xIndex * 16 + "px -" + lastTile.tile.yIndex * 16 + "px";
-}
-
-function updatePaintBrushPreview() {
-    selectedBrushX = paintBrushInputX.value == "" ? 0 : parseInt(paintBrushInputX.value);
-    selectedBrushY = paintBrushInputY.value == "" ? 0 : parseInt(paintBrushInputY.value);
-    paintBrushPreview.style.background = "url(" + sprites.src + ") -" + selectedBrushX * 16 + "px -" + selectedBrushY * 16 + "px";
-}
-
-function updatePaintBrushPreviewFromEyedropper(tile) {
-    paintBrushInputX.value = tile.xIndex;
-    paintBrushInputY.value = tile.yIndex;
-    updatePaintBrushPreview();
-}
-
 function toggleToolBar(show, toolBarElement, buttonElement) {
     buttonElement.innerHTML = show ? " - " : " + ";
     toolBarElement.style.height = show ? toolBarElement.scrollHeight + "px" : "34px";
+}
+
+function resetTools() {
+    toggleClass(eraserToolButton, false, "selected");
+    toggleClass(eyedropperToolButton, false, "selected");
+    toggleClass(wallSliceToolButton, false, "selected");
+    toggleClass(nineSliceToolButton, false, "selected");
+    toggleClass(brushToolButton, false, "selected");
 }
 
 function selectTool(toolIndex, selectedToolElement) {
@@ -325,14 +298,6 @@ function selectTool(toolIndex, selectedToolElement) {
     ctx.canvas.style.cursor = cursor;
     resetTools();
     toggleClass(selectedToolElement, true, "selected");
-}
-
-function resetTools() {
-    toggleClass(eraserToolButton, false, "selected");
-    toggleClass(eyedropperToolButton, false, "selected");
-    toggleClass(wallSliceToolButton, false, "selected");
-    toggleClass(nineSliceToolButton, false, "selected");
-    toggleClass(brushToolButton, false, "selected");
 }
 
 function clear() {
@@ -395,14 +360,14 @@ function drawLayers() {
 
             if (perspectiveView) {
                 var offsetIndex = layers[currentLayer].order - (layer.order);
-                drawTilesOff(layer, -(mouseXoffset * offsetIndex / 2), -mouseYoffset * offsetIndex /2);
+                drawTilesOff(layer, -(mouseXoffset * offsetIndex / 2), -mouseYoffset * offsetIndex / 2);
             }
             else {
                 drawTiles(layer);
             }
             if (layers[currentLayer].order != layer.order && showFog)
                 drawLayerFog();
-          
+
         }
         else if (xRayView) {
             ctx.globalAlpha = ctx.globalAlpha * 0.3;
@@ -478,118 +443,53 @@ function drawSpriteOff(spriteSheet, xpos, ypos, xindex, yindex, xoff, yoff) {
     ctx.drawImage(spriteSheet, xindex * 16, yindex * 16, 16, 16, x, y, 16, 16);
 }
 
-function startRead() {
-    var file = fileInput.files[0];
-    if (file) {
-        getAsText(file);
+function updatePaintBrushPreview() {
+    selectedBrushX = paintBrushInputX.value == "" ? 0 : parseInt(paintBrushInputX.value);
+    selectedBrushY = paintBrushInputY.value == "" ? 0 : parseInt(paintBrushInputY.value);
+    renameTileInput.value = getPaletteName(selectedBrushX, selectedBrushY);
+    paintBrushPreview.style.background = "url(" + sprites.src + ") -" + selectedBrushX * 16 + "px -" + selectedBrushY * 16 + "px";
+}
+
+function updatePaintBrushPreviewFromEyedropper(tile) {
+    paintBrushInputX.value = tile.xIndex;
+    paintBrushInputY.value = tile.yIndex;
+    updatePaintBrushPreview();
+}
+
+function updateLastTile(layerIndex, tile) {
+    lastTile = { layerIndex: layerIndex, tile: tile };
+    var name = getTileName(lastTile.tile);
+    if (name != null && name != undefined )
+        renameTileInput.value = name;
+    else
+        renameTileInput.value = "";
+    updateLastTilePreview();
+    tileInfo.innerHTML = generateHTMLForTile(tile);
+}
+
+function updateLayersPreview() {
+    layersPreview.innerHTML = generateHTMLForLayersPreview();
+    renameLayerInput.value = layers[currentLayer].name;
+    reorderLayerInput.value = layers[currentLayer].order;
+    toggleToolBar(true, layersToolBarElement, layersToolBarButtonElement);
+}
+
+function updateLastTilePreview() {
+  
+    lastTilePreview.style.background = "url(" + sprites.src + ") -" + lastTile.tile.xIndex * 16 + "px -" + lastTile.tile.yIndex * 16 + "px";
+}
+
+
+function createMapObject() {
+    return {
+        name: mapNameInput.value,
+        layers: layers,
+        palette:palette
     }
-    //mapNameInput.value = fileInput.value.replace(/^.*[\\\/]/, '');
-}
-
-function getAsText(readFile) {
-
-    var reader = new FileReader();
-
-    reader.readAsText(readFile, "UTF-8");
-
-    // Handle progress, success, and errors
-    reader.onprogress = updateProgress;
-    reader.onload = loaded;
-    reader.onerror = errorHandler;
-}
-
-function updateProgress(evt) {
-    if (evt.lengthComputable) {
-        // evt.loaded and evt.total are ProgressEvent properties
-        var loaded = (evt.loaded / evt.total);
-        if (loaded < 1) {
-        }
-    }
-}
-
-function loaded(evt) {
-    // Obtain the read file data
-    var fileString = evt.target.result;
-   // layers = JSON.parse(fileString);
-    var map = JSON.parse(fileString);
-    layers = map.layers;
-    mapNameInput.value = map.name;
-    updateLayersPreview();
-}
-
-function errorHandler(evt) {
-    if (evt.target.error.name == "NotReadableError") {
-        // The file could not be read
-    }
-}
-
-function toggleClass(element, on, className) {
-    if (on) element.classList.add(className);
-    else element.classList.remove(className);
 }
 
 function createLayer(name, order) {
     return { name: name, order: layers.length, tiles: [] };
-}
-
-function mouseUpHandler() {
-    if (mouseX < 0 || mouseY < 0) return;
-    isMouseDown = false;
-}
-
-function mouseDownHandler() {
-    if (mouseX < 0 || mouseY < 0) return;
-    isMouseDown = true;
-
-}
-
-function mouseClickHandler(e) {
-    if (mouseX < 0 || mouseY < 0) return;
-    if (selectedTool == 0)
-        brushClickHandler();
-    else if (selectedTool == 1)
-        eraserClickHandler();
-    else if (selectedTool == 2)
-        eyedropperClick();
-    else if (selectedTool == 3)
-        nineSliceClickHandler();
-    else if (selectedTool == 4)
-        wallSliceClickHandler();
-}
-
-function nineSliceClickHandler() {
-    sliceTool.mode = 0;
-    sliceTool.state = sliceTool.state == 0 ? 1 : 0;
-
-    if (sliceTool.state == 1) {
-        sliceTool.xPos1 = mouseX;
-        sliceTool.yPos1 = mouseY;
-    }
-
-    if (sliceTool.state == 0) {
-        sliceTool.xPos2 = mouseX;
-        sliceTool.yPos2 = mouseY;
-        addSlicedTiles();
-    }
-
-}
-
-function wallSliceClickHandler() {
-
-    sliceTool.mode = 1;
-    sliceTool.state = sliceTool.state == 0 ? 1 : 0;
-
-    if (sliceTool.state == 1) {
-        sliceTool.xPos1 = mouseX;
-        sliceTool.yPos1 = mouseY;
-    }
-
-    if (sliceTool.state == 0) {
-        sliceTool.xPos2 = mouseX;
-        sliceTool.yPos2 = mouseY;
-        addSlicedTiles();
-    }
-
 }
 
 function addSlicedTiles() {
@@ -616,6 +516,7 @@ function addSlicedTileToCurrentLayer(xIndex, yIndex, x, y, upperBoundX, lowerBou
     if (offset == null) return;
     addTileToCurrentLayer(xIndex + offset[0], yIndex + offset[1], x, y);
 }
+
 function getIndexOffsetForWallSlicedTile(x, y, upperBoundX, lowerBoundX, upperBoundY, lowerBoundY) {
 
 
@@ -662,6 +563,7 @@ function getIndexOffsetForWallSlicedTile(x, y, upperBoundX, lowerBoundX, upperBo
 
     return [xIndexOffset, yIndexOffset];
 }
+
 function getIndexOffsetForNineSlicedTile(x, y, upperBoundX, lowerBoundX, upperBoundY, lowerBoundY) {
     var xIndexOffset, yIndexOffset;
     //corners
@@ -708,12 +610,6 @@ function getIndexOffsetForNineSlicedTile(x, y, upperBoundX, lowerBoundX, upperBo
     return [xIndexOffset, yIndexOffset];
 }
 
-function brushClickHandler() {
-
-    addTileToCurrentLayer(paintBrushInputX.value, paintBrushInputY.value, mouseX, mouseY);
-
-}
-
 function addTileToCurrentLayer(xIndex, yIndex, xPosition, yPosition) {
     var matched = false;
     layers[currentLayer].tiles.forEach(function (tile) {
@@ -734,6 +630,72 @@ function addTileToCurrentLayer(xIndex, yIndex, xPosition, yPosition) {
 
     layers[currentLayer].tiles.push(newTile);
     updateLastTile(currentLayer, newTile);
+}
+
+function mouseUpHandler() {
+    if (mouseX < 0 || mouseY < 0) return;
+    mouseDown = false;
+}
+
+function mouseDownHandler() {
+    if (mouseX < 0 || mouseY < 0) return;
+    mouseDown = true;
+
+}
+
+function mouseClickHandler(e) {
+    if (mouseX < 0 || mouseY < 0) return;
+    if (selectedTool == 0)
+        brushClickHandler();
+    else if (selectedTool == 1)
+        eraserClickHandler();
+    else if (selectedTool == 2)
+        eyedropperClick();
+    else if (selectedTool == 3)
+        nineSliceClickHandler();
+    else if (selectedTool == 4)
+        wallSliceClickHandler();
+}
+
+function brushClickHandler() {
+
+    addTileToCurrentLayer(paintBrushInputX.value, paintBrushInputY.value, mouseX, mouseY);
+
+}
+
+function nineSliceClickHandler() {
+    sliceTool.mode = 0;
+    sliceTool.state = sliceTool.state == 0 ? 1 : 0;
+
+    if (sliceTool.state == 1) {
+        sliceTool.xPos1 = mouseX;
+        sliceTool.yPos1 = mouseY;
+    }
+
+    if (sliceTool.state == 0) {
+        sliceTool.xPos2 = mouseX;
+        sliceTool.yPos2 = mouseY;
+        addSlicedTiles();
+    }
+
+}
+
+function wallSliceClickHandler() {
+
+    sliceTool.mode = 1;
+    sliceTool.state = sliceTool.state == 0 ? 1 : 0;
+
+    if (sliceTool.state == 1) {
+        sliceTool.xPos1 = mouseX;
+        sliceTool.yPos1 = mouseY;
+    }
+
+    if (sliceTool.state == 0) {
+        sliceTool.xPos2 = mouseX;
+        sliceTool.yPos2 = mouseY;
+        addSlicedTiles();
+    }
+
 }
 
 function eraserClickHandler() {
@@ -762,36 +724,17 @@ function eyedropperClick() {
     }
 }
 
-function updateLastTile(layerIndex, tile) {
-    lastTile = { layerIndex: layerIndex, tile: tile };
-    updateLastTilePreview();
-    tileInfo.innerHTML = generateHTMLForTile(tile);
-}
-
-function generateHTMLForTile(tile) {
-    return "<table>" +
-        "<tr><td> x: " + tile.xPosition +
-        "</td><td> y: " + tile.yPosition + "</td></tr>" +
-        "<tr></td>" +
-        "</td><td>" +
-    "</td></tr>" +
-    "</table>";
-}
-
 function mouseMoveHandler(e) {
     if (e.button != 0) return;
-    if (isMouseDown) mouseClickHandler();
-    if (e.screenX) {
-        mouseX = Math.floor((e.pageX-window.innerWidth/2) / 32);
-        mouseY = Math.floor((e.pageY-window.innerHeight/2) / 32);
-    }
-    else if (e.layerX) {
+    if (mouseDown) mouseClickHandler();
+    if (e.layerX) {
         mouseX = Math.floor((e.layerX) / 32);
         mouseY = Math.floor((e.layerY) / 32);
     }
 }
 
 function keyPressHandler(event) {
+    if (inputLocked) return;
     var key = String.fromCharCode(event.keyCode || event.charCode);
     var shift = event.shiftKey;
     var ctrl = event.ctrlKey;
@@ -829,55 +772,91 @@ function keyPressHandler(event) {
     }
 }
 
-function init() {
-    window.onload = function () {
-        document.addEventListener('mousemove', mouseMoveHandler);
-        ctx.canvas.addEventListener('click', mouseClickHandler);
-        var lastDownTarget = null;
-
-        document.addEventListener('keypress', function (event) {
-            keyPressHandler(event);
-        }, false);
-
-        ctx.canvas.addEventListener('mouseup', mouseUpHandler);
-        ctx.canvas.addEventListener('mousedown', mouseDownHandler);
+function startRead() {
+    var file = fileInput.files[0];
+    if (file) {
+        getAsText(file);
     }
-
-    initPalette();
-    layers.push(createLayer("layer 0", 0));
-    updateLayersPreview();
-    sy = Math.floor(document.body.scrollTop / 32);
-    sx = Math.floor(document.body.scrollLeft / 32);
-
-    addEvent(window, "scroll", function () {
-        sy = Math.floor(document.body.scrollTop / 32);
-        sx = Math.floor(document.body.scrollLeft / 32);
-    });
-
-    toggleToolBar(true, tilesToolBarElement, tilesToolBarButtonElement);
-    toggleToolBar(true, layersToolBarElement, layersToolBarButtonElement);
-    clickPaintTool();
-    setInterval(loop, 16);
+    //mapNameInput.value = fileInput.value.replace(/^.*[\\\/]/, '');
 }
 
-function initPalette() {
-    palette = [];
-    var w = 37;
-    var h = 28;
-    for (var y = 0; y < h; y++) {
-        for (var x = 0; x < w; x++) {
-            palette.push({
-                xIndex: x,
-                yIndex: y,
-                xPosition: x + sx,
-                yPosition: y + sy
-            });
+function getAsText(readFile) {
+
+    var reader = new FileReader();
+
+    reader.readAsText(readFile, "UTF-8");
+
+    // Handle progress, success, and errors
+    reader.onprogress = updateProgress;
+    reader.onload = loaded;
+    reader.onerror = errorHandler;
+}
+
+function updateProgress(evt) {
+    if (evt.lengthComputable) {
+        // evt.loaded and evt.total are ProgressEvent properties
+        var loaded = (evt.loaded / evt.total);
+        if (loaded < 1) {
         }
     }
 }
 
-var loop = function () {
-    drawLoop();
+function loaded(evt) {
+    // Obtain the read file data
+    var fileString = evt.target.result;
+    // layers = JSON.parse(fileString);
+    var map = JSON.parse(fileString);
+    layers = map.layers;
+    if(map.palette!= undefined)
+        palette = map.palette;
+    mapNameInput.value = map.name;
+    updateLayersPreview();
+}
+
+function errorHandler(evt) {
+    if (evt.target.error.name == "NotReadableError") {
+        // The file could not be read
+    }
+}
+
+function generateHTMLForLayersPreview() {
+    var rows = "";
+    layers.forEach(function (layer, index) {
+        var classes = "button" + (currentLayer == index ? " selected" : "");
+        rows += "<div class='" + classes + "' onclick='clickSelectLayer(" + index + ")'>" + layer.name + " (" + layer.order + ") </div>";
+    });
+    return "<div>" + rows + "</div>";
+}
+
+function generateHTMLForTile(tile) {
+    return "<table>" +
+        "<tr><td> x: " + tile.xPosition +
+        "</td><td> y: " + tile.yPosition + "</td></tr>" +
+        "</td><td> name: " + getTileName(tile) + "</td></tr>" +
+        "<tr></td>" +
+        "</td><td>" +
+    "</td></tr>" +
+    "</table>";
+}
+
+function getPaletteName(x,y)
+{
+    var result = "";
+    palette.forEach(function (ptile, tileIndex) {
+        if (ptile.xIndex == x && ptile.yIndex == y)
+            result = ptile.name;
+    });
+    return result;
+}
+
+function getTileName(tile) {
+  
+    return getPaletteName(tile.xIndex,tile.yIndex);
+}
+
+function toggleClass(element, on, className) {
+    if (on) element.classList.add(className);
+    else element.classList.remove(className);
 }
 
 var addEvent = function (object, type, callback) {
@@ -890,5 +869,68 @@ var addEvent = function (object, type, callback) {
         object["on" + type] = callback;
     }
 };
+
+var loop = function () {
+    drawLoop();
+}
+
+function initPalette() {
+    palette = [];
+    var w = 37;
+    var h = 28;
+    for (var y = 0; y < h; y++) {
+        for (var x = 0; x < w; x++) {
+            palette.push({
+                xIndex: x,
+                yIndex: y,
+                xPosition: x,
+                yPosition: y,
+                name:""
+            });
+        }
+    }
+}
+
+function movePalette()
+{
+    palette.forEach(function (ptile) {
+        ptile.xPosition = ptile.xIndex + (sx<=12?0:sx-12);
+        ptile.yPosition = ptile.yIndex + (sy<=12?0:sy-12);
+    });
+
+}
+
+function init() {
+    window.onload = function () {
+        ctx.canvas.addEventListener('mousemove', mouseMoveHandler);
+        ctx.canvas.addEventListener('click', mouseClickHandler);
+        var lastDownTarget = null;
+
+        document.addEventListener('keypress', function (event) {
+            keyPressHandler(event);
+        }, false);
+
+        ctx.canvas.addEventListener('mouseup', mouseUpHandler);
+        ctx.canvas.addEventListener('mousedown', mouseDownHandler);
+        AutoScrollOnload();
+    }
+
+    initPalette();
+    layers.push(createLayer("layer 0", 0));
+    updateLayersPreview();
+    sy = Math.floor(scrollingElement.scrollTop / 32);
+    sx = Math.floor(scrollingElement.scrollLeft / 32);
+
+    addEvent(scrollingElement, "scroll", function () {
+        sy = Math.floor(scrollingElement.scrollTop / 32);
+        sx = Math.floor(scrollingElement.scrollLeft / 32);
+    });
+    paintBrushInputX.value = 0;
+    paintBrushInputY.value = 0;
+    toggleToolBar(true, tilesToolBarElement, tilesToolBarButtonElement);
+    toggleToolBar(true, layersToolBarElement, layersToolBarButtonElement);
+    clickPaintTool();
+    setInterval(loop, 16);
+}
 
 init();
