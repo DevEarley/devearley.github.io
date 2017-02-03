@@ -42,13 +42,13 @@ function drawTriggerWithOffset(trigger, selected) {
     if (perspectiveView) {
         var order = thisLayerObj.order;
         var currentOrder = layers[currentLayer].order;
-        var offsetIndex = layer.order - currentOrder;
-        var direction = currentOrder >= layer.order;
+        var offsetIndex = thisLayerObj.order - currentOrder;
+        var direction = currentOrder >= thisLayerObj.order;
         var mouseXoffset = mouseX - (sx);
         var mouseYoffset = mouseY - (sy);
         var offX = (mouseXoffset * offsetIndex / 2) * (direction ? 1 : -1);
         var offY = (mouseYoffset * offsetIndex / 2) * (direction ? 1 : -1);
-        drawTigger(trigger, selected, offx, offy, thisLayerObj, error);
+        drawTigger(trigger, selected, offX, offY, thisLayerObj, error);
     }
     else {
         drawTigger(trigger, selected, 0, 0, thisLayerObj, error);
