@@ -68,8 +68,19 @@ h4 {
 small, .font_small {
     font-size: 0.889em;
 }
-
-
+#Footer {
+    text-align: center;
+    position: fixed;
+    bottom: 20px;
+    padding-top:6px;
+    height: 30px;
+    width: 40%;
+    background-color: rgba(0,0,0,0.5);
+    color: #33aa33;
+    left: 30%;
+    z-index: 1000;
+}
+#Footer a {color:#FFF;}
 #LeftToolBars
 {
       position: fixed;
@@ -83,24 +94,6 @@ small, .font_small {
     z-index: 1000;
 }
 
-a {
-    color: #33aa33;
-}
-a:hover {
-    color: #FFF;
-}
-#Footer {
-    text-align: center;
-    position: fixed;
-    bottom: 20px;
-    padding-top:6px;
-    height: 30px;
-    width: 40%;
-    background-color: rgba(0,0,0,0.5);
-    color: #33aa33;
-    left: 30%;
-    z-index: 1000;
-}
 
 .toolbar {
     display: inline-block;
@@ -246,13 +239,12 @@ a:hover {
         color: #FFF;
     }
 
-#LastTilePreview, #PaintBrushPreview {
+.preview {
     margin-left: 10px;
     margin-top: 4px;
-    float: right;
-    width: 16px;
-    height: 16px;
-    background-color: #FFF;
+
+
+    background-color: #000;
 }
 
 #PaletteButtonContainer {
@@ -285,6 +277,17 @@ a:hover {
     }
     #LayersPreview
     {
-        max-height:250px;
+        height:250px;
         overflow-y:auto;
+    } #TriggersPreview
+    {
+        height:250px;
+          overflow-y: auto;
+    overflow-x: hidden;
+    margin-left: -20px;
     }
+    #LastTilePreview
+     {
+         width:16px;
+         height:16px;
+     }

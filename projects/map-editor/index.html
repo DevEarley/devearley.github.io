@@ -20,11 +20,9 @@
                     <h1 onclick="clickTilesToolBarButton()">Tiles</h1>
                     <div id="LastTilePreview"><br /></div>
                     <div id="TileInfo"><br /></div>
-
                     <hr />
                     <div class="button" id="BrushToolButton" onclick="clickPaintTool()">
                         Paint Brush (B)
-
                     </div>
                     <div class="button" id="EraserToolButton" onclick="clickEraserTool()">
                         Eraser (E)
@@ -40,25 +38,73 @@
                     </div>
                     <div class="button" id="PaletteButton" onclick="clickPaletteButton()">
                         Toggle Palette (P)
-
                     </div>
                     <hr />
                     <h2>Palette</h2>
-                    <div  class="button" onclick="clickEyedropperTool()" >
+                    <div class="button" onclick="clickEyedropperTool()">
                         &nbsp;
                         <input onfocus="onFocusInput()" onblur="onBlurInput()" class="number-input" id="PaintBrushInputX" type="number" placeholder="X" />
                         <input onfocus="onFocusInput()" onblur="onBlurInput()" class="number-input" id="PaintBrushInputY" type="number" placeholder="Y" />
-                        <span id="PaintBrushPreview" />
-                       
+                        <span id="PaintBrushPreview" class="preview" />
+
                     </div>
-                   
+
                     <div style="margin-bottom:60px;margin-top:20px;margin-left:10px;">
 
                         <div><input onfocus="onFocusInput()" onblur="onBlurInput()" id="RenameTileInput" placeholder="Name" style="float:left;" /></div>
                         <div class="button" style="width:100px; float:right;" onclick="clickRenameTile()">Rename</div>
                     </div>
                     <hr />
-                   
+
+                </div>
+            </div>
+            <div id="TriggersToolBarContainter">
+                <div class="toolbar-button" id="TriggersToolBarButton" onclick="clickTriggersToolBarButton()"> + </div>
+                <div class="toolbar" id="TriggersToolBar">
+                    <h1 onclick="clickTriggersToolBarButton()">Triggers</h1>
+                    <div id="TriggersPreview"></div>
+                    <hr />
+                    <div>
+                        <input onfocus="onFocusInput()" onblur="onBlurInput()" id="RenameTriggerInput" placeholder="Name" style="float:right;" />
+                    </div>
+                    <div class="button" style="width:100px;" onclick="clickRenameTrigger()">Rename </div>
+                    <hr />
+                    <div class="button" id="TriggerToolButton" onclick="clickTriggerBrushTool()">
+                        Create Trigger Area (T)
+                    </div>
+                    <div class="button" onclick="clickCreateTriggerPoint()">
+                        Create Trigger Point (Q)
+                    </div>
+                    <div class="button" onclick="clickRemoveSelectedTrigger()">
+                        Remove Selected Trigger
+                    </div>
+                    <div class="button" onclick="clickToggleTiggerViewMode()">
+                        Toggle Tigger View Mode (Y)
+                    </div>
+                </div>
+            </div>
+            <div id="EventsToolBarContainter">
+                <div class="toolbar-button" id="EventsToolBarButton" onclick="clickEventsToolBarButton()"> + </div>
+                <div class="toolbar" id="EventsToolBar">
+                    <h1 onclick="clickEventsToolBarButton()">Events</h1>
+                    <div class="button" onclick="clickAddEventToSelectedTrigger()">
+                        Add Event To Selected Trigger
+                    </div>
+                    <div class="button" onclick="clickRemoveSelectedEvent()">
+                        Remove Selected Event
+                    </div>
+                </div>
+            </div>
+            <div id="ActionsToolBarContainter">
+                <div class="toolbar-button" id="ActionsToolBarButton" onclick="clickActionsToolBarButton()"> + </div>
+                <div class="toolbar" id="ActionsToolBar">
+                    <h1 onclick="clickActionsToolBarButton()">Actions</h1>
+                    <div class="button" onclick="clickAddActionToSelectedEvent()">
+                        Add Action To Selected Event
+                    </div>
+                    <div class="button" onclick="clickRemoveSelectedAction()">
+                        Remove Selected Action
+                    </div>
                 </div>
             </div>
             <div id="MapToolBarContainter">
@@ -91,7 +137,7 @@
                 <div class="toolbar-button-right" id="LayersToolBarButton" onclick="clickLayersToolBarButton()"> + </div>
                 <div class="toolbar-right" id="LayersToolBar">
                     <h1 onclick="clickLayersToolBarButton()">Layers</h1>
-                    <div id="LayersPreview"></div>
+                    <div id="LayersPreview" class="preview"></div>
                     <hr />
                     <div class="button" onclick="clickAddLayer()">
                         Add Layer
@@ -120,11 +166,10 @@
                         <input onfocus="onFocusInput()" onblur="onBlurInput()" id="ReorderLayerInput" placeholder="Order" style="float:right;" />
                     </div>
                     <div class="button" style="width:100px;" onclick="clickReorderLayer()">Reorder</div>
-
-
                     <hr />
                 </div>
             </div>
+          
             <div id="OptionsToolBarContainter">
                 <div class="toolbar-button-right" id="OptionsToolBarButton" onclick="clickOptionsToolBarButton()"> + </div>
                 <div class="toolbar-right" id="OptionsToolBar">
@@ -138,7 +183,6 @@
                     <div class="button" onclick="clickToggleFog()">
                         Toggle Fog Mode (F)
                     </div>
-
                 </div>
             </div>
         </div>
@@ -148,7 +192,10 @@
 
     <script src="sample.js" type="text/javascript"></script>
     <script src="autoscroll.js" type="text/javascript"></script>
-    <script src="app.js" type="text/javascript"></script>
+    <script src="appInterface.js" type="text/javascript"></script>
+    <script src="mapEditor.js" type="text/javascript"></script>
+    <script src="triggerEditor.js" type="text/javascript"></script>
+    <script src="appLoop.js" type="text/javascript"></script>
     <a href="" id="HiddenDownloadAnchor"></a>
 </body>
 </html>
