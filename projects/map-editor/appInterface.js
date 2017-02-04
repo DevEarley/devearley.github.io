@@ -17,6 +17,9 @@
     renameLayerInput = document.getElementById("RenameLayerInput"),
     renameTileInput = document.getElementById("RenameTileInput"),
     renameTriggerInput = document.getElementById("RenameTriggerInput"),
+    renameEventInput = document.getElementById("RenameEventInput"),
+    renameActionInput = document.getElementById("RenameActionInput"),
+    renameActionParamInput = document.getElementById("RenameActionParamInput"),
     reorderLayerInput = document.getElementById("ReorderLayerInput"),
     brushToolButton = document.getElementById("BrushToolButton"),
     eraserToolButton = document.getElementById("EraserToolButton"),
@@ -33,6 +36,9 @@
     tileInfo = document.getElementById("TileInfo"),
     paintBrushPreview = document.getElementById("PaintBrushPreview"),
     layersPreview = document.getElementById("LayersPreview"),
+    eventsPreview = document.getElementById("EventsPreview"),
+    actionsPreview = document.getElementById("ActionsPreview"),
+    actionParamsPreview = document.getElementById("ActionParamsPreview"),
     lastTilePreview = document.getElementById("LastTilePreview"),
     triggersPreview = document.getElementById("TriggersPreview"),
     scrollingElement = document.getElementById("CanvasContainer"),
@@ -54,40 +60,7 @@ var c = document.getElementsByTagName('canvas')[0],
     my = 0;
 ctx.canvas.height = cw;
 ctx.canvas.width = ch;
-
-function clickAddLayer() {
-    layers.splice(currentLayer + 1, 0, createLayer("layer" + layers.length, layers.length));
-    currentLayer = currentLayer + 1;
-    updateLayersPreview();
-}
-
-function clickDeleteLayer() {
-    if (layers.length <= 1) return;
-    layers.splice(currentLayer, 1);
-    currentLayer--;
-    updateLayersPreview();
-}
-
-function clickClearLayer() {
-    layers[currentLayer].tiles = [];
-    updateLayersPreview();
-}
-
-function clickMoveUpLayerButton() {
-    if (currentLayer + 1 >= layers.length) {
-        return;
-    }
-    currentLayer++;
-    updateLayersPreview();
-}
-
-function clickMoveDownLayerButton() {
-    if (currentLayer - 1 < 0) {
-        return;
-    }
-    currentLayer--;
-    updateLayersPreview();
-}
+ctx.font = "10px Lucida Console";
 
 function clickToggleXRay() {
     xRayView = !xRayView;
@@ -129,30 +102,21 @@ function clickWallSliceTool() {
     togglePaletteMode(false);
     selectTool(4, wallSliceToolButton);
 }
+
 function clickTriggerBrushTool() {
     togglePaletteMode(false);
     selectTool(5, triggerToolButton);
 }
+
 function clickPaletteButton() {
     paletteMode = !paletteMode;
     togglePaletteMode(paletteMode);
-}
-
-function clickRenameLayer() {
-    layers[currentLayer].name = renameLayerInput.value;
-    updateLayersPreview();
-}
-
-function clickReorderLayer() {
-    layers[currentLayer].order = reorderLayerInput.value;
-    updateLayersPreview();
 }
 
 function clickImportMapButton() {
 
     if (!validateImportButton()) return;
     startRead();
-
 }
 
 function clickExportMapButton() {
@@ -199,31 +163,6 @@ function clickActionsToolBarButton() {
     toggleToolBar(showActionsToolBar, actionsToolBarElement, actionsToolBarButtonElement);
 }
 
-function clickSelectLayer(layerIndex) {
-    currentLayer = layerIndex;
-    updateLayersPreview();
-}
-
-function clickRenameTile() {
-    var x = parseInt(paintBrushInputX.value);
-    var y = parseInt(paintBrushInputY.value);
-    palette.forEach(function (ptile, tileIndex) {
-        if (ptile.xIndex == x && ptile.yIndex == y)
-            palette[tileIndex].name = renameTileInput.value;
-    });
-
-    tileInfo.innerHTML = generateHTMLForTile(tile);
-}
-
-function clickCopyLayer() {
-    copiedLayer = currentLayer;
-}
-
-function clickPasteLayer() {
-    layers[currentLayer].tiles = JSON.parse(JSON.stringify(layers[copiedLayer].tiles));
-    layers[currentLayer].name = layers[copiedLayer].name;
-    updateLayersPreview();
-}
 
 function onFocusInput() {
     inputLocked = true;
@@ -242,8 +181,7 @@ function validateExportButton() {
         mapNameInput.style.borderColor = '#33aa33';
         return true;
     }
-
-}
+    }
 
 function validateImportButton() {
     if (fileInput.value == null || fileInput.value == "") {
@@ -352,82 +290,6 @@ function resetBrushTool() {
     brushTool.state = 0;
 }
 
-function brushClickHandler() {
-    resetBrushTool();
-    addTileToCurrentLayer(paintBrushInputX.value, paintBrushInputY.value, mouseX, mouseY);
-}
-
-function nineSliceClickHandler() {
-    brushTool.mode = 1;
-    brushTool.state = brushTool.state == 0 ? 1 : 0;
-
-    if (brushTool.state == 1) {
-        brushTool.xPos1 = mouseX;
-        brushTool.yPos1 = mouseY;
-    }
-
-    if (brushTool.state == 0) {
-        brushTool.xPos2 = mouseX;
-        brushTool.yPos2 = mouseY;
-        addSlicedTiles();
-    }
-}
-
-function wallSliceClickHandler() {
-
-    brushTool.mode = 2;
-    brushTool.state = brushTool.state == 0 ? 1 : 0;
-
-    if (brushTool.state == 1) {
-        brushTool.xPos1 = mouseX;
-        brushTool.yPos1 = mouseY;
-    }
-
-    if (brushTool.state == 0) {
-        brushTool.xPos2 = mouseX;
-        brushTool.yPos2 = mouseY;
-        addSlicedTiles();
-    }
-
-}
-
-function triggerBrushClickHandler() {
-    brushTool.mode = 3;
-    brushTool.state = brushTool.state == 0 ? 1 : 0;
-
-    if (brushTool.state == 1) {
-        brushTool.xPos1 = mouseX;
-        brushTool.yPos1 = mouseY;
-    }
-
-    if (brushTool.state == 0) {
-        brushTool.xPos2 = mouseX;
-        brushTool.yPos2 = mouseY;
-        clickCreateTriggerArea();
-    }
-}
-
-
-function eventBrushClickHandler() {
-
-}
-
-
-function actionBrushClickHandler() {
-
-
-}
-
-
-
-function eraserClickHandler() {
-    resetBrushTool();
-    layers[currentLayer].tiles.forEach(function (tile, index) {
-        if (tile.xPosition == mouseX && tile.yPosition == mouseY) {
-            layers[currentLayer].tiles.splice(index, 1);
-        }
-    });
-}
 
 function eyedropperClick() {
     resetBrushTool();
@@ -505,21 +367,24 @@ function keyPressHandler(event) {
     }
 }
 
+function createMapObject() {
+    return {
+        name: mapNameInput.value,
+        layers: layers,
+        palette: palette
+    }
+}
+
 function startRead() {
     var file = fileInput.files[0];
     if (file) {
         getAsText(file);
     }
-    //mapNameInput.value = fileInput.value.replace(/^.*[\\\/]/, '');
 }
 
 function getAsText(readFile) {
-
     var reader = new FileReader();
-
     reader.readAsText(readFile, "UTF-8");
-
-    // Handle progress, success, and errors
     reader.onprogress = updateProgress;
     reader.onload = loaded;
     reader.onerror = errorHandler;
@@ -527,7 +392,6 @@ function getAsText(readFile) {
 
 function updateProgress(evt) {
     if (evt.lengthComputable) {
-        // evt.loaded and evt.total are ProgressEvent properties
         var loaded = (evt.loaded / evt.total);
         if (loaded < 1) {
         }
@@ -535,9 +399,7 @@ function updateProgress(evt) {
 }
 
 function loaded(evt) {
-    // Obtain the read file data
     var fileString = evt.target.result;
-    // layers = JSON.parse(fileString);
     var map = JSON.parse(fileString);
     layers = map.layers;
     if (map.palette != undefined)

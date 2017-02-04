@@ -83,30 +83,6 @@
                     </div>
                 </div>
             </div>
-            <div id="EventsToolBarContainter">
-                <div class="toolbar-button" id="EventsToolBarButton" onclick="clickEventsToolBarButton()"> + </div>
-                <div class="toolbar" id="EventsToolBar">
-                    <h1 onclick="clickEventsToolBarButton()">Events</h1>
-                    <div class="button" onclick="clickAddEventToSelectedTrigger()">
-                        Add Event To Selected Trigger
-                    </div>
-                    <div class="button" onclick="clickRemoveSelectedEvent()">
-                        Remove Selected Event
-                    </div>
-                </div>
-            </div>
-            <div id="ActionsToolBarContainter">
-                <div class="toolbar-button" id="ActionsToolBarButton" onclick="clickActionsToolBarButton()"> + </div>
-                <div class="toolbar" id="ActionsToolBar">
-                    <h1 onclick="clickActionsToolBarButton()">Actions</h1>
-                    <div class="button" onclick="clickAddActionToSelectedEvent()">
-                        Add Action To Selected Event
-                    </div>
-                    <div class="button" onclick="clickRemoveSelectedAction()">
-                        Remove Selected Action
-                    </div>
-                </div>
-            </div>
             <div id="MapToolBarContainter">
                 <div class="toolbar-button" id="MapToolBarButton" onclick="clickMapToolBarButton()"> + </div>
                 <div class="toolbar" id="MapToolBar">
@@ -131,6 +107,38 @@
                     <hr />
                 </div>
             </div>
+        </div>
+        <div id="CenterToolBars">
+        
+            <div id="EventsToolBarContainter">
+                <div class="toolbar-button" id="EventsToolBarButton" onclick="clickEventsToolBarButton()"> + </div>
+                <div class="toolbar" id="EventsToolBar">
+                    <h1 onclick="clickEventsToolBarButton()">Events</h1>
+                    <div id="EventsPreview"></div>
+                    <div class="button" onclick="clickAddEventToSelectedTrigger()">
+                        Add Event To Selected Trigger
+                    </div>
+                    <div class="button" onclick="clickRemoveSelectedEvent()">
+                        Remove Selected Event
+                    </div>
+                </div>
+            </div>
+            <div id="ActionsToolBarContainter">
+                <div class="toolbar-button" id="ActionsToolBarButton" onclick="clickActionsToolBarButton()"> + </div>
+                <div class="toolbar" id="ActionsToolBar">
+                    <h1 onclick="clickActionsToolBarButton()">Actions</h1>
+                    <div id="ActionsPreview"></div>
+                    <div class="button" onclick="clickAddActionToSelectedEvent()">
+                        Add Action To Selected Event
+                    </div>
+                    <div class="button" onclick="clickRemoveSelectedAction()">
+                        Remove Selected Action
+                    </div>
+                    <hr />
+                    <div id="ActionParamsPreview"></div>
+                </div>
+            </div>
+            
         </div>
         <div id="RightToolBars">
             <div id="LayersToolBarContainter">
@@ -169,7 +177,7 @@
                     <hr />
                 </div>
             </div>
-          
+
             <div id="OptionsToolBarContainter">
                 <div class="toolbar-button-right" id="OptionsToolBarButton" onclick="clickOptionsToolBarButton()"> + </div>
                 <div class="toolbar-right" id="OptionsToolBar">
@@ -195,6 +203,8 @@
     <script src="appInterface.js" type="text/javascript"></script>
     <script src="mapEditor.js" type="text/javascript"></script>
     <script src="triggerEditor.js" type="text/javascript"></script>
+    <script src="eventEditor.js" type="text/javascript"></script>
+    <script src="actionEditor.js" type="text/javascript"></script>
     <script src="appLoop.js" type="text/javascript"></script>
     <a href="" id="HiddenDownloadAnchor"></a>
 </body>

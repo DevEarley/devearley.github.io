@@ -14,6 +14,60 @@ mouseY = 0, selectedBrushX = 0, selectedBrushY = 0
 brushTool = { state: 0, mode: 0, xPos1: 0, yPos1: 0, xPos2: 0, yPos2: 0 };
 sprites.src = './spritesheet.png';
 
+function clickSelectLayer(layerIndex) {
+    currentLayer = layerIndex;
+    updateLayersPreview();
+}
+
+function clickRenameTile() {
+    var x = parseInt(paintBrushInputX.value);
+    var y = parseInt(paintBrushInputY.value);
+    palette.forEach(function (ptile, tileIndex) {
+        if (ptile.xIndex == x && ptile.yIndex == y)
+            palette[tileIndex].name = renameTileInput.value;
+    });
+
+    tileInfo.innerHTML = generateHTMLForTile(tile);
+}
+
+function clickCopyLayer() {
+    copiedLayer = currentLayer;
+}
+
+function clickPasteLayer() {
+    layers[currentLayer].tiles = JSON.parse(JSON.stringify(layers[copiedLayer].tiles));
+    layers[currentLayer].name = layers[copiedLayer].name;
+    updateLayersPreview();
+}
+
+function clickAddLayer() {
+    layers.splice(currentLayer + 1, 0, createLayer("layer" + layers.length, layers.length));
+    currentLayer = currentLayer + 1;
+    updateLayersPreview();
+}
+
+function clickDeleteLayer() {
+    if (layers.length <= 1) return;
+    layers.splice(currentLayer, 1);
+    currentLayer--;
+    updateLayersPreview();
+}
+
+function clickClearLayer() {
+    layers[currentLayer].tiles = [];
+    updateLayersPreview();
+}
+
+function clickRenameLayer() {
+    layers[currentLayer].name = renameLayerInput.value;
+    updateLayersPreview();
+}
+
+function clickReorderLayer() {
+    layers[currentLayer].order = reorderLayerInput.value;
+    updateLayersPreview();
+}
+
 function drawMapLoop() {
     clear();
     if (paletteMode) {
@@ -55,7 +109,7 @@ function drawMapLoop() {
 
 function drawLayers() {
 
-    
+
     if (layers == null || layers[currentLayer] == null) return;
     ctx.globalAlpha = 1;
     layers.forEach(function (layer, index) {
@@ -78,8 +132,7 @@ function drawLayers() {
     ctx.globalAlpha = 1;
 }
 
-function drawLayer(layer)
-{
+function drawLayer(layer) {
     if (perspectiveView) {
         var currentOrder = layers[currentLayer].order;
         var offsetIndex = layer.order - currentOrder;
@@ -94,8 +147,6 @@ function drawLayer(layer)
         drawTiles(layer);
     }
 }
-
-
 
 function drawLayerFog() {
     ctx.fillStyle = "rgba(0,0,0,0.2)";
@@ -123,8 +174,6 @@ function drawPalette() {
         drawSprite(sprites, tile.xPosition, tile.yPosition, tile.xIndex, tile.yIndex);
     });
 }
-
-
 
 function drawSprite(spriteSheet, x, y, xindex, yindex) {
     ctx.drawImage(spriteSheet, xindex * 16, yindex * 16, 16, 16, x * 16, y * 16, 16, 16);
@@ -169,18 +218,56 @@ function updateLayersPreview() {
     toggleToolBar(true, layersToolBarElement, layersToolBarButtonElement);
 }
 
+function brushClickHandler() {
+    resetBrushTool();
+    addTileToCurrentLayer(paintBrushInputX.value, paintBrushInputY.value, mouseX, mouseY);
+}
+
+function nineSliceClickHandler() {
+    brushTool.mode = 1;
+    brushTool.state = brushTool.state == 0 ? 1 : 0;
+
+    if (brushTool.state == 1) {
+        brushTool.xPos1 = mouseX;
+        brushTool.yPos1 = mouseY;
+    }
+
+    if (brushTool.state == 0) {
+        brushTool.xPos2 = mouseX;
+        brushTool.yPos2 = mouseY;
+        addSlicedTiles();
+    }
+}
+
+function wallSliceClickHandler() {
+
+    brushTool.mode = 2;
+    brushTool.state = brushTool.state == 0 ? 1 : 0;
+
+    if (brushTool.state == 1) {
+        brushTool.xPos1 = mouseX;
+        brushTool.yPos1 = mouseY;
+    }
+
+    if (brushTool.state == 0) {
+        brushTool.xPos2 = mouseX;
+        brushTool.yPos2 = mouseY;
+        addSlicedTiles();
+    }
+}
+
+function eraserClickHandler() {
+    resetBrushTool();
+    layers[currentLayer].tiles.forEach(function (tile, index) {
+        if (tile.xPosition == mouseX && tile.yPosition == mouseY) {
+            layers[currentLayer].tiles.splice(index, 1);
+        }
+    });
+}
 
 function updateLastTilePreview() {
 
     lastTilePreview.style.background = "url(" + sprites.src + ") -" + lastTile.tile.xIndex * 16 + "px -" + lastTile.tile.yIndex * 16 + "px";
-}
-
-function createMapObject() {
-    return {
-        name: mapNameInput.value,
-        layers: layers,
-        palette: palette
-    }
 }
 
 function createLayer(name, order) {

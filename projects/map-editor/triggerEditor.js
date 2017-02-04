@@ -10,8 +10,6 @@ function drawTriggersLoop() {
 }
 
 function drawTigger(trigger, selected, offx, offy, thisLayerObj, error) {
- 
-  
     var thisLayer = currentLayer == trigger.layer;
     var label = trigger.name + (error?"Missing Layer" :(!thisLayer ? " " + thisLayerObj.name : ""));
     var x = (trigger.transform.x * 16) + offx,
@@ -35,15 +33,14 @@ function drawTigger(trigger, selected, offx, offy, thisLayerObj, error) {
     ctx.fillText(label, x + 1, y + height + 15);
 }
 
-
 function drawTriggerWithOffset(trigger, selected) {
     var thisLayerObj = layers[trigger.layer];
     var error = thisLayerObj == null;
     if (perspectiveView) {
-        var order = thisLayerObj.order;
+        var order = thisLayerObj != null ? thisLayerObj.order:0;
         var currentOrder = layers[currentLayer].order;
-        var offsetIndex = thisLayerObj.order - currentOrder;
-        var direction = currentOrder >= thisLayerObj.order;
+        var offsetIndex = order - currentOrder;
+        var direction = currentOrder >= order;
         var mouseXoffset = mouseX - (sx);
         var mouseYoffset = mouseY - (sy);
         var offX = (mouseXoffset * offsetIndex / 2) * (direction ? 1 : -1);
@@ -54,7 +51,6 @@ function drawTriggerWithOffset(trigger, selected) {
         drawTigger(trigger, selected, 0, 0, thisLayerObj, error);
     }
 }
-
 
 function generateHTMLForTriggersPreview() {
     var rows = "";
@@ -70,6 +66,10 @@ function clickSelectTrigger(index) {
     updateTriggersPreview();
 }
 
+function clickRenameTrigger() {
+    triggers[currentTrigger].name = renameTriggerInput.value;
+    updateTriggersPreview();
+}
 function updateTriggersPreview() {
     if (currentTrigger == null) return;
     viewTriggers = true;
@@ -101,6 +101,23 @@ function clickCreateTriggerPoint() {
     updateTriggersPreview();
 }
 
+
+function triggerBrushClickHandler() {
+    brushTool.mode = 3;
+    brushTool.state = brushTool.state == 0 ? 1 : 0;
+
+    if (brushTool.state == 1) {
+        brushTool.xPos1 = mouseX;
+        brushTool.yPos1 = mouseY;
+    }
+
+    if (brushTool.state == 0) {
+        brushTool.xPos2 = mouseX;
+        brushTool.yPos2 = mouseY;
+        clickCreateTriggerArea();
+    }
+}
+
 function clickRemoveSelectedTrigger() {
     if (triggers.length == 0) return;
     triggers.splice(currentTrigger, 1);
@@ -112,21 +129,6 @@ function clickToggleTiggerViewMode() {
     viewTriggers = !viewTriggers;
 }
 
-function clickAddEventToSelectedTrigger() {
-
-}
-
-function clickRemoveSelectedEvent() {
-
-}
-
-function clickAddActionToSelectedEvent() {
-
-}
-
-function clickRemoveSelectedAction() {
-
-}
 
 function createTrigger(name, transform, type) {
     return {
@@ -138,22 +140,3 @@ function createTrigger(name, transform, type) {
     };
 }
 
-function createEvent(name, transform, type) {
-    return {
-        actions: [],
-        type: type,
-        name: name,
-        layer: currentLayer,
-        transform: transform
-    };
-}
-
-function createAction(name, transform, type) {
-    return {
-        params: [],
-        type: type,
-        name: name,
-        layer: currentLayer,
-        transform: transform
-    };
-}
