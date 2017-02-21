@@ -12,6 +12,10 @@
     eventsToolBarButtonElement = document.getElementById("EventsToolBarButton"),
     actionsToolBarElement = document.getElementById("ActionsToolBar"),
     actionsToolBarButtonElement = document.getElementById("ActionsToolBarButton"),
+    conditionsToolBarElement = document.getElementById("ConditionsToolBar"),
+    conditionsToolBarButtonElement = document.getElementById("ConditionsToolBarButton"),
+    actionParamsToolBarElement = document.getElementById("ActionParamsToolBar"),
+    actionParamsToolBarButtonElement = document.getElementById("ActionParamsToolBarButton"),
     paintBrushInputX = document.getElementById("PaintBrushInputX"),
     paintBrushInputY = document.getElementById("PaintBrushInputY"),
     renameLayerInput = document.getElementById("RenameLayerInput"),
@@ -19,6 +23,7 @@
     renameTriggerInput = document.getElementById("RenameTriggerInput"),
     renameEventInput = document.getElementById("RenameEventInput"),
     renameActionInput = document.getElementById("RenameActionInput"),
+    renameConditionInput = document.getElementById("RenameConditionInput"),
     renameActionParamInput = document.getElementById("RenameActionParamInput"),
     reorderLayerInput = document.getElementById("ReorderLayerInput"),
     brushToolButton = document.getElementById("BrushToolButton"),
@@ -38,15 +43,18 @@
     layersPreview = document.getElementById("LayersPreview"),
     eventsPreview = document.getElementById("EventsPreview"),
     actionsPreview = document.getElementById("ActionsPreview"),
+    conditionsPreview = document.getElementById("ConditionsPreview"),
     actionParamsPreview = document.getElementById("ActionParamsPreview"),
     lastTilePreview = document.getElementById("LastTilePreview"),
     triggersPreview = document.getElementById("TriggersPreview"),
     scrollingElement = document.getElementById("CanvasContainer"),
-    showLayersToolBar = false,
+    showLayersToolBar = true,
     showTilesToolBar = false,
     showTriggersToolBar = false,
     showEventsToolBar = false,
     showActionsToolBar = false,
+    showConditionsToolBar = false,
+    showActionParamsToolBar = false,
     showMapToolBar = false,
     selectedTool = 0,
     mouseDown = false,
@@ -163,6 +171,15 @@ function clickActionsToolBarButton() {
     toggleToolBar(showActionsToolBar, actionsToolBarElement, actionsToolBarButtonElement);
 }
 
+function clickConditionsToolBarButton() {
+    showConditionsToolBar = !showConditionsToolBar;
+    toggleToolBar(showConditionsToolBar, conditionsToolBarElement, conditionsToolBarButtonElement);
+}
+
+function clickActionParamsToolBarButton() {
+    showActionParamsToolBar = !showActionParamsToolBar;
+    toggleToolBar(showActionParamsToolBar, actionParamsToolBarElement, actionParamsToolBarButtonElement);
+}
 
 function onFocusInput() {
     inputLocked = true;
@@ -285,11 +302,11 @@ function mouseClickHandler(e) {
     else if (selectedTool == 7)
         actionBrushClickHandler();
 }
+
 function resetBrushTool() {
     brushTool.mode = 0;
     brushTool.state = 0;
 }
-
 
 function eyedropperClick() {
     resetBrushTool();
@@ -358,12 +375,12 @@ function keyPressHandler(event) {
         case 'T': case 't':
             clickTriggerBrushTool();
             break;
-        case 'V': case 'v':
-            clickEventBrushTool();
-            break;
-        case 'A': case 'a':
-            clickActionBrushTool();
-            break;
+        //case 'V': case 'v':
+        //    clickEventBrushTool();
+        //    break;
+        //case 'A': case 'a':
+        //    clickActionBrushTool();
+        //    break;
     }
 }
 
@@ -371,7 +388,8 @@ function createMapObject() {
     return {
         name: mapNameInput.value,
         layers: layers,
-        palette: palette
+        palette: palette,
+        triggers: triggers
     }
 }
 
@@ -404,7 +422,8 @@ function loaded(evt) {
     layers = map.layers;
     if (map.palette != undefined)
         palette = map.palette;
-    mapNameInput.value = map.name;
+    mapNameInput.placeholder = map.name;
+    mapNameInput.value = "";
     updateLayersPreview();
 }
 
@@ -412,6 +431,10 @@ function errorHandler(evt) {
     if (evt.target.error.name == "NotReadableError") {
         // The file could not be read
     }
+}
+
+function genID() {
+    Math.random().toString(36).substr(2, 9);
 }
 
 function toggleClass(element, on, className) {

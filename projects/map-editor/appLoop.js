@@ -1,10 +1,7 @@
-﻿
-var loop = function () {
+﻿var loop = function () {
     drawMapLoop();
     drawTriggersLoop();
 }
-
-
 
 function init() {
     window.onload = function () {
@@ -33,8 +30,6 @@ function init() {
     });
     paintBrushInputX.value = 0;
     paintBrushInputY.value = 0;
-  //  toggleToolBar(true, tilesToolBarElement, tilesToolBarButtonElement);
-   // toggleToolBar(true, layersToolBarElement, layersToolBarButtonElement);
     clickPaintTool();
     setInterval(loop, 16);
 }

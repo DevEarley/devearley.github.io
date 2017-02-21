@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <meta name="viewport" content="initial-scale=0.5, maximum-scale=0.5">
-<html lang="en" data-framework="angularjs" >
+<html lang="en" data-framework="angularjs">
 
 <head>
     <meta charset="utf-8">
@@ -34,21 +34,15 @@
 
 </head>
 
-<body ng-app="DEVE" class="dark-text"  ng-controller="AppController as vm" >
-
-  
+<body ng-app="DEVE" class="dark-text" ng-controller="AppController as vm">
     <div id="DEVEContent" class="{{vm.Theme}}">
         <!-- Page Content -->
         <div perfect-parallax parallax-ratio="0.1">
-           
-            <div perfect-parallax parallax-ratio="0.5" class="img-bg">    </div>
-
-                <div perfect-parallax parallax-ratio="0.5" class="img">
-
-                </div>
-            </div>
-            <ng-view style="display:inline-block;width:100vw!important;height:100vh!important" autoscroll="true" />
+            <div perfect-parallax parallax-ratio="0.5" class="img-bg"></div>
+            <div perfect-parallax parallax-ratio="0.5" class="img"></div>
         </div>
+        <ng-view style="display:inline-block;width:100vw!important;height:100vh!important" autoscroll="true" />
+    </div>
 
     <div id="Footer"><a href="http://devearley.github.io"><small>© Alex Earley | Shoshin Game Studio 2017 </small></a> | <a href="#" ng-click="vm.Shuffle()"><small><i class="fa fa-random"></i> Shuffle Themes</small></a> | <a target="_blank" href="http://devearley.github.io/projects/live-voting"><small>Theme Vote!</small></a></div>
     <!-- Dependencies -->

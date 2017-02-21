@@ -1,14 +1,13 @@
 ﻿canvas {
-    
     -webkit-overflow-scrolling: touch;
-    margin:50vh;
-    margin-left:50vw;
-    width:4096px;
-    height:4096px;    
-      background-color: #222;
-      image-rendering: -moz-crisp-edges;
-  image-rendering: -webkit-crisp-edges;
-  image-rendering: pixelated;
+    margin: 50vh;
+    margin-left: 50vw;
+    width: 4096px;
+    height: 4096px;
+    background-color: #222;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
     /*image-rendering: -moz-crisp-edges;
   image-rendering: -webkit-crisp-edges;
   image-rendering: pixelated;
@@ -27,15 +26,17 @@ html {
 }
 
 body {
-
     background-color: #111;
     font-family: 'Source Sans Pro', serif;
     font-weight: 400;
     line-height: 1.45;
     color: #33aa33;
 }
-hr{
-    margin-top:20px;margin-bottom:40px;border:1px solid #33aa33 
+
+hr {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    border: 1px solid #33aa33;
 }
 
 p {
@@ -68,49 +69,36 @@ h4 {
 small, .font_small {
     font-size: 0.889em;
 }
+
 #Footer {
     text-align: center;
     position: fixed;
     top: 5px;
-    padding-top:6px;
-    height: 30px;
+    padding-top: 6px;
+    height: auto;
     width: 40%;
     background-color: rgba(0,0,0,0.5);
     color: #33aa33;
     left: 30%;
     z-index: 1000;
 }
-#Footer a {color:#FFF;}
-#ToolBars
-{
-     position: fixed;
-     top:0;
-     bottom:0;
-     width:100vw;
-     min-width:1200px;
-     pointer-events:none;
-}
-#LeftToolBars
-{
-      position: absolute;
-    bottom: 30px;
-    z-index: 1000;
-     pointer-events:all;
-}
-#CenterToolBars
-{
-      position: absolute;
-    bottom: 30px;
-    left:400px;
-    z-index: 1000;
-     pointer-events:all;
-}
-#RightToolBars {
-    position: absolute;
-    bottom: 30px;
-    right:30px;
-    z-index: 1000;
-     pointer-events:all;
+
+    #Footer a {
+        color: #FFF;
+    }
+
+#ToolBars {
+    max-height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: fixed;
+    top: 0;
+    bottom: 17px;
+    right: 15px;
+    left: 15px;
+    width: 100vw;
+    min-width: 1500px;
+    pointer-events: none;
 }
 
 
@@ -126,6 +114,7 @@ small, .font_small {
     background-color: #000;
     height: 34px;
 }
+
 .toolbar-right {
     display: inline-block;
     -webkit-transition: all 0.25s ease-out;
@@ -134,78 +123,16 @@ small, .font_small {
     transition: all 0.25s ease-out;
     overflow: hidden;
     right: 70px;
-    left:auto;
+    left: auto;
     width: 300px;
     background-color: #000;
     height: 34px;
 }
 
-#ToolBars h1 ,#ToolBars h2 {
+#ToolBars h1, #ToolBars h2 {
     text-align: center;
     cursor: default;
 }
-
-#ToolBars input {
-    text-align: left;
-    margin-top: 4px;
-    float: left;
-    background-color: #000;
-    border: none;
-    border-bottom: 1px solid #33aa33;
-    color: #33aa33;
-}
-#ToolBars input:focus{
-   
-    color: #FFF;
-    border-bottom: 1px solid #FFF;
-    outline-color:transparent;
-}
-#ToolBars .button {
-    cursor: pointer;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    width: 291px;
-    color: #33aa33;
-    background-color: #000;
-}
-#ToolBars #LeftToolBars .button
-{
-    text-align: right;
-     padding-right: 5px;
-    border-right: 4px rgba(0,0,0,0) solid;
-}
-#ToolBars #RightToolBars .button
-{
-    text-align: left;
-     padding-left: 5px;
-    border-left: 4px rgba(0,0,0,0) solid;
-}
-    #ToolBars .button .number-input {
-        width: 45px;
-        padding-left: 10px;
-        display: inline-block;
-        float: right;
-        margin-left: 5px;
-    }
-
-    #ToolBars  #LeftToolBars .button:hover {
-      
-        border-right: 4px #33aa33 solid;
-    }
-
-    #ToolBars  #LeftToolBars .button:active {
-        border-right: 4px #FFF solid;
-        color: #FFF;
-    }
-    #ToolBars  #RightToolBars .button:hover {
-      
-        border-left: 4px #33aa33 solid;
-    }
-
-    #ToolBars  #RightToolBars .button:active {
-        border-left: 4px #FFF solid;
-        color: #FFF;
-    }
 
 #ToolBars h1 {
     height: 34px;
@@ -221,11 +148,79 @@ small, .font_small {
         color: #FFF;
     }
 
-#ToolBars #RightToolBars .button.selected {
-    color: #FFF;
-    border-left: 4px #FFF solid;
+#ToolBars input {
+    text-align: left;
+    margin-top: 4px;
+    float: left;
+    background-color: #000;
+    border: none;
+    border-bottom: 1px solid #33aa33;
+    color: #33aa33;
 }
-#ToolBars #LeftToolBars .button.selected {
+
+    #ToolBars input:focus {
+        color: #FFF;
+        border-bottom: 1px solid #FFF;
+        outline-color: transparent;
+    }
+
+#ToolBars .button {
+    cursor: pointer;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    /*width: 291px;*/
+    color: #33aa33;
+    background-color: #000;
+}
+
+#ToolBars #ToolBarsA .button {
+    text-align: right;
+    padding-right: 5px;
+    border-right: 4px rgba(0,0,0,0) solid;
+}
+
+
+
+#ToolBars .button .number-input {
+    width: 45px;
+    padding-left: 10px;
+    display: inline-block;
+    float: right;
+    margin-left: 5px;
+}
+
+#ToolBars #ToolBarsA .button:hover {
+    border-right: 4px #33aa33 solid;
+}
+
+#ToolBars #ToolBarsA .button:active {
+    border-right: 4px #FFF solid;
+    color: #FFF;
+}
+
+
+
+#ToolBars #ToolBarsD .button:hover, #ToolBars #ToolBarsC .button:hover, #ToolBars #ToolBarsB .button:hover {
+    border-left: 4px #33aa33 solid;
+}
+
+#ToolBars #ToolBarsD .button:active, #ToolBars #ToolBarsC .button:active, #ToolBars #ToolBarsB .button:active {
+    border-left: 4px #FFF solid;
+    color: #FFF;
+}
+
+#ToolBars #ToolBarsD .button, #ToolBars #ToolBarsB .button, #ToolBars #ToolBarsC .button {
+    text-align: left;
+    padding-left: 5px;
+    border-left: 4px rgba(0,0,0,0) solid;
+}
+
+    #ToolBars #ToolBarsD .button.selected, #ToolBars #ToolBarsB .button.selected, #ToolBars #ToolBarsC .button.selected {
+        color: #FFF;
+        border-left: 4px #FFF solid;
+    }
+
+#ToolBars #ToolBarsA .button.selected {
     color: #FFF;
     border-right: 4px #FFF solid;
 }
@@ -237,18 +232,19 @@ small, .font_small {
     overflow: hidden;
     width: 50px;
     color: #33aa33;
-    display:inline-block;
+    display: inline-block;
     background-color: #000;
     left: 310px;
     height: 29px;
     position: absolute;
     z-index: 1000;
 }
- .toolbar-button-right
-{
-     right: 310px;
-     left:auto;
+
+.toolbar-button-right {
+    right: 440px;
+    left: auto;
 }
+
     .toolbar-button:hover, .toolbar-button-right:hover {
         background-color: #33aa33;
         color: #000;
@@ -261,8 +257,6 @@ small, .font_small {
 .preview {
     margin-left: 10px;
     margin-top: 4px;
-
-
     background-color: #000;
 }
 
@@ -273,40 +267,248 @@ small, .font_small {
     transition: all 0.25s ease-out;
     width: 240px;
     height: 68px;
-    background-color:rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,0.2);
     overflow: hidden;
     position: fixed;
     top: 0px;
     left: 10px;
-    z-index:1002;
+    z-index: 1002;
 }
 
     #PaletteButtonContainer:hover {
         width: auto;
         height: auto;
-        
-    overflow: visible;
+        overflow: visible;
     }
-    .layer-row{
-        padding:10px;
-    }
-    #ToolBars  #LayersPreview .button
-    {
-        width:200px;
-    }
-    #LayersPreview
-    {
-        height:250px;
-        overflow-y:auto;
-    } #TriggersPreview,#ActionsPreview,#EventsPreview
-    {
-        height:250px;
-          overflow-y: auto;
+
+.layer-row {
+    padding: 10px;
+}
+
+
+#LayersPreview {
+    height: 250px;
+    overflow-y: auto;
+}
+
+#TriggersPreview, #ActionsPreview,#ConditionsPreview, #ActionParamsPreview, #EventsPreview {
+    height: 250px;
+    width: 290px;
+    overflow-y: auto;
     overflow-x: hidden;
-    margin-left: -20px;
+    padding-right: 10px;
+}
+
+#LastTilePreview {
+    width: 16px;
+    height: 16px;
+}
+
+#KeyboardHelp {
+    -webkit-transition: width 0.25s ease-out;
+    -moz-transition: width 0.25s ease-out;
+    -o-transition: width 0.25s ease-out;
+    transition: width 0.25s ease-out;
+    padding: 10px;
+    cursor: pointer;
+    position: fixed;
+    overflow: hidden;
+    left: 18px;
+    bottom: 18px;
+    font-size: 12px;
+    line-height: 20px;
+    width: 50px;
+    height: 54px;
+    background: rgba(0,0,0,0.9);
+    pointer-events: all;
+}
+
+    #KeyboardHelp a {
+        width: 300px;
+        display: block;
+        color: #FFF;
     }
-    #LastTilePreview
-     {
-         width:16px;
-         height:16px;
-     }
+
+    #KeyboardHelp:hover {
+        color: #FFF;
+        width: 300px;
+        height: auto;
+    }
+
+    #KeyboardHelp ul {
+        padding-left: 10px;
+        list-style: none;
+        width: 300px;
+        font-size: 12px;
+    }
+
+    #KeyboardHelp i {
+        font-size: 60px;
+    }
+
+    #KeyboardHelp #Shoshin {
+        position: absolute;
+        width: 100px;
+        top: 20px;
+        left: 25px;
+        color: #FFF;
+        font-size: 20px;
+    }
+
+
+@media only screen and (max-width: 1650px) {
+    .toolbar-button-right {
+        right: auto;
+        left: 310px;
+    }
+
+    #ToolBars {
+        min-width: 0;
+        left: auto;
+        width: 400px;
+    }
+
+    #ToolBarsA {
+        width: 430px;
+        position: relative;
+        display: block;
+        float: none;
+        bottom: 0;
+        left: 0;
+        /*bottom: auto;
+        left: auto;*/
+        z-index: 1000;
+        pointer-events: all;
+    }
+
+    #ToolBarsB {
+        width: 430px;
+        position: relative;
+        display: block;
+        float: none;
+        bottom: 0;
+        left: 0;
+        /*bottom: auto;
+        left: auto;*/
+        z-index: 1000;
+        pointer-events: all;
+    }
+
+    #ToolBarsB {
+        width: 430px;
+        position: relative;
+        display: block;
+        float: none;
+        bottom: 0;
+        left: 0;
+        /*bottom: auto;
+        left: auto;*/
+        z-index: 1000;
+        pointer-events: all;
+    }
+
+    #ToolBarsC {
+        width: 430px;
+        position: relative;
+        display: block;
+        float: none;
+        bottom: 0;
+        left: 0;
+        /*bottom: auto;
+        left: auto;
+        right: auto;*/
+        z-index: 1000;
+        pointer-events: all;
+    }
+
+    #ToolBarsD {
+        width: 430px;
+        position: relative;
+        display: block;
+        float: none;
+        bottom: 0;
+        left: 0;
+        /*bottom: auto;
+        left: auto;
+        right: auto;*/
+        z-index: 1000;
+        pointer-events: all;
+    }
+}
+
+@media only screen and (min-width: 1650px) {
+    .toolbar-button-right {
+        right: 440px;
+        left: auto;
+    }
+
+    #ToolBars {
+        left: 15px;
+        min-width: 1500px;
+        width: 100vw;
+    }
+
+    #ToolBarsA {
+        width: 430px;
+        position: relative;
+        display: block;
+        float: left;
+        bottom: 0;
+        /*bottom: 30px;*/
+        z-index: 1000;
+        pointer-events: all;
+    }
+
+    #ToolBarsB {
+        width: 430px;
+        position: relative;
+        display: block;
+        float: left;
+        bottom: 0;
+        /*bottom: 30px;
+        left: 430px;*/
+        z-index: 1000;
+        pointer-events: all;
+    }
+
+    #ToolBarsB {
+        width: 430px;
+        position: relative;
+        display: block;
+        float: left;
+        bottom: 0;
+        /*bottom: 30px;
+        left: 430px;*/
+        z-index: 1000;
+        pointer-events: all;
+    }
+
+    #ToolBarsC {
+        width: 430px;
+        position: relative;
+        display: block;
+        float: left;
+        bottom: 0;
+        /*bottom: 30px;
+        right: 400px;*/
+        z-index: 1000;
+        pointer-events: all;
+    }
+
+    #ToolBarsD {
+        width: 330px;
+        position: relative;
+        display: block;
+        float: right;
+        bottom: 0;
+        /*bottom: 30px;
+        right: 30px;*/
+        z-index: 1000;
+        pointer-events: all;
+    }
+
+        #ToolBarsD .toolbar-button-right {
+            right: 340px;
+            left: auto;
+        }
+}

@@ -4,12 +4,38 @@ var viewTriggers = true;
 
 function drawTriggersLoop() {
     if (!viewTriggers) return;
+    if (selectedTool == 5) {
+        if (brushTool.state == 1)
+        {
+            var upperBoundX = brushTool.xPos1 > mouseX ? brushTool.xPos1 : mouseX;
+            var lowerBoundX = brushTool.xPos1 < mouseX ? brushTool.xPos1 : mouseX;
+            var upperBoundY = brushTool.yPos1 > mouseY ? brushTool.yPos1 : mouseY;
+            var lowerBoundY = brushTool.yPos1 < mouseY ? brushTool.yPos1 : mouseY;
+            var fakeTrigger = {
+                name: "",
+                layer: currentLayer,
+                transform: { x: lowerBoundX, y: lowerBoundY, width: 1+upperBoundX - lowerBoundX, height: 1+upperBoundY - lowerBoundY }
+            }
+
+            drawTrigger(fakeTrigger, false, 0, 0, layers[currentLayer], false);
+        }
+        else {
+            var fakeTrigger = {
+                name: "",
+                layer: currentLayer,
+                transform: { x: mouseX, y: mouseY, width: 1, height:1 }
+            }
+
+            drawTrigger(fakeTrigger, false, 0, 0, layers[currentLayer], false);
+        }
+
+    }
     triggers.forEach(function (trigger,index) {
         drawTriggerWithOffset(trigger, index == currentTrigger);
     });
 }
 
-function drawTigger(trigger, selected, offx, offy, thisLayerObj, error) {
+function drawTrigger(trigger, selected, offx, offy, thisLayerObj, error) {
     var thisLayer = currentLayer == trigger.layer;
     var label = trigger.name + (error?"Missing Layer" :(!thisLayer ? " " + thisLayerObj.name : ""));
     var x = (trigger.transform.x * 16) + offx,
@@ -45,10 +71,10 @@ function drawTriggerWithOffset(trigger, selected) {
         var mouseYoffset = mouseY - (sy);
         var offX = (mouseXoffset * offsetIndex / 2) * (direction ? 1 : -1);
         var offY = (mouseYoffset * offsetIndex / 2) * (direction ? 1 : -1);
-        drawTigger(trigger, selected, offX, offY, thisLayerObj, error);
+        drawTrigger(trigger, selected, offX, offY, thisLayerObj, error);
     }
     else {
-        drawTigger(trigger, selected, 0, 0, thisLayerObj, error);
+        drawTrigger(trigger, selected, 0, 0, thisLayerObj, error);
     }
 }
 
@@ -64,18 +90,24 @@ function generateHTMLForTriggersPreview() {
 function clickSelectTrigger(index) {
     currentTrigger = index;
     updateTriggersPreview();
+  
 }
 
 function clickRenameTrigger() {
     triggers[currentTrigger].name = renameTriggerInput.value;
     updateTriggersPreview();
 }
+
 function updateTriggersPreview() {
     if (currentTrigger == null) return;
+    var trigger = getCurrentTrigger();
+    updateEventsPreview(trigger);
     viewTriggers = true;
+    refreshTileInfo(lastTile.tile);
     triggersPreview.innerHTML = generateHTMLForTriggersPreview();
-    renameTriggerInput.value = triggers[currentTrigger].name;
-
+    renameTriggerInput.placeholder = triggers[currentTrigger].name;
+    renameTriggerInput.value = "";
+    showTriggersToolBar = true;
     toggleToolBar(true, triggersToolBarElement, triggersToolBarButtonElement);
 }
 
@@ -86,17 +118,7 @@ function clickCreateTriggerArea() {
     var lowerBoundY = brushTool.yPos1 < brushTool.yPos2 ? brushTool.yPos1 : brushTool.yPos2;
     triggers.push(createTrigger(
         "area trigger " + triggers.length,
-        { x: lowerBoundX, y: lowerBoundY, width: (upperBoundX - lowerBoundX) + 1, height: (upperBoundY - lowerBoundY) + 1, },
-        "Area"));
-    currentTrigger = triggers.length - 1;
-    updateTriggersPreview();
-}
-
-function clickCreateTriggerPoint() {
-    triggers.push(createTrigger(
-      "point trigger " + triggers.length,
-      { x: mouseX, y: mouseY, width: 1, height: 1 },
-      "Point"));
+        { x: lowerBoundX, y: lowerBoundY, width: (upperBoundX - lowerBoundX) + 1, height: (upperBoundY - lowerBoundY) + 1, }));
     currentTrigger = triggers.length - 1;
     updateTriggersPreview();
 }
@@ -129,14 +151,12 @@ function clickToggleTiggerViewMode() {
     viewTriggers = !viewTriggers;
 }
 
-
-function createTrigger(name, transform, type) {
+function createTrigger(name, transform) {
     return {
+        id: "trigger",
         events: [],
-        type: type,
         name: name,
         layer:currentLayer,
         transform: transform
     };
 }
-

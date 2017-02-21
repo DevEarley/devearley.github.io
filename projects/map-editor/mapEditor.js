@@ -1,6 +1,14 @@
 ﻿var currentLayer = 0,
 paletteMode = false,
-lastTile = null,
+
+    lastTile = {
+        layerIndex: 0, tile: {
+            name: '', xIndex: 0,
+            yIndex: 0,
+            xPosition: 0,
+            yPosition: 0,
+        }
+    },
 copiedLayer = null,
 layers = [],
 palette = [],
@@ -26,7 +34,11 @@ function clickRenameTile() {
         if (ptile.xIndex == x && ptile.yIndex == y)
             palette[tileIndex].name = renameTileInput.value;
     });
+    refreshTileInfo(tile);
+}
 
+function refreshTileInfo(tile)
+{
     tileInfo.innerHTML = generateHTMLForTile(tile);
 }
 
@@ -83,8 +95,7 @@ function drawMapLoop() {
     }
     if (selectedTool == 3) {
         if (brushTool.state == 0) {
-
-            drawSprite(sprites, mouseX, mouseY, selectedBrushX, selectedBrushY);
+                        drawSprite(sprites, mouseX, mouseY, selectedBrushX, selectedBrushY);
         }
         else {
             drawSprite(sprites, brushTool.xPos1, brushTool.yPos1, selectedBrushX, selectedBrushY);
@@ -108,8 +119,6 @@ function drawMapLoop() {
 }
 
 function drawLayers() {
-
-
     if (layers == null || layers[currentLayer] == null) return;
     ctx.globalAlpha = 1;
     layers.forEach(function (layer, index) {
@@ -122,7 +131,6 @@ function drawLayers() {
             drawLayer(layer);
             if (layers[currentLayer].order != layer.order && showFog)
                 drawLayerFog();
-
         }
         else if (xRayView) {
             ctx.globalAlpha = ctx.globalAlpha * 0.3;
@@ -150,21 +158,17 @@ function drawLayer(layer) {
 
 function drawLayerFog() {
     ctx.fillStyle = "rgba(0,0,0,0.2)";
-
     ctx.fillRect(0, 0, cw, ch);
 }
 
 function drawTiles(layer) {
-
-    layer.tiles.forEach(function (tile) {
-        drawSprite(sprites, tile.xPosition, tile.yPosition, tile.xIndex, tile.yIndex);
+        layer.tiles.forEach(function (tile) {
+       drawSprite(sprites, tile.xPosition, tile.yPosition, tile.xIndex, tile.yIndex);
     });
 }
 
 function drawTilesOff(layer, xoff, yoff) {
-
-    layer.tiles.forEach(function (tile) {
-
+        layer.tiles.forEach(function (tile) {
         drawSpriteOff(sprites, tile.xPosition, tile.yPosition, tile.xIndex, tile.yIndex, xoff, yoff);
     });
 }
@@ -188,7 +192,8 @@ function drawSpriteOff(spriteSheet, xpos, ypos, xindex, yindex, xoff, yoff) {
 function updatePaintBrushPreview() {
     selectedBrushX = paintBrushInputX.value == "" ? 0 : parseInt(paintBrushInputX.value);
     selectedBrushY = paintBrushInputY.value == "" ? 0 : parseInt(paintBrushInputY.value);
-    renameTileInput.value = getPaletteName(selectedBrushX, selectedBrushY);
+    renameTileInput.placeholder = getPaletteName(selectedBrushX, selectedBrushY);
+    renameTileInput.value = "";
     paintBrushPreview.style.background = "url(" + sprites.src + ") -" + selectedBrushX * 16 + "px -" + selectedBrushY * 16 + "px";
 }
 
@@ -201,20 +206,26 @@ function updatePaintBrushPreviewFromEyedropper(tile) {
 function updateLastTile(layerIndex, tile) {
     lastTile = { layerIndex: layerIndex, tile: tile };
     var name = getTileName(lastTile.tile);
-    if (name != null && name != undefined)
-        renameTileInput.value = name;
-    else
+    if (name != null && name != undefined) {
+        renameTileInput.placeholder = name;
         renameTileInput.value = "";
+    }
+    else
+    {
+        renameTileInput.placeholder = "Name";
+        renameTileInput.value = "";
+    }
     updateLastTilePreview();
-    tileInfo.innerHTML = generateHTMLForTile(tile);
+    refreshTileInfo(tile);
 }
 
 function updateLayersPreview() {
     layersPreview.innerHTML = generateHTMLForLayersPreview();
-    renameLayerInput.value = layers[currentLayer].name;
-    reorderLayerInput.value = layers[currentLayer].order;
-
-    toggleToolBar(false, layersToolBarElement, layersToolBarButtonElement);
+    renameLayerInput.placeholder = layers[currentLayer].name;
+    reorderLayerInput.placeholder = layers[currentLayer].order;
+    reorderLayerInput.value = "";
+    renameLayerInput.value = "";
+    showLayersToolBar = true;
     toggleToolBar(true, layersToolBarElement, layersToolBarButtonElement);
 }
 
@@ -424,13 +435,19 @@ function generateHTMLForLayersPreview() {
 }
 
 function generateHTMLForTile(tile) {
-    return "<table>" +
-    "<tr><td> x: " + tile.xPosition +
-    "</td><td> y: " + tile.yPosition + "</td></tr>" +
-    "</td><td> name: " + getTileName(tile) + "</td></tr>" +
-    "<tr></td>" +
-    "</td><td>" +
-    "</td></tr>" +
+    var tileRow = "<tr><td style='width:40px'> x: " + tile.xPosition +
+    "</td><td style='width:40px'> y: " + tile.yPosition + "</td>" +
+    "<td style='width:320px; text-align:left;'> name: " + getTileName(tile) + "</td></tr>";
+    var trigger = getCurrentTrigger();
+    var triggerRow = (trigger == undefined) ? "" : (
+    "<tr><td> x: " + trigger.transform.x +
+    "</td><td> y: " + trigger.transform.y + "</td>" +
+
+    "<td>" + "Trigger: " + trigger.name +
+    "</td></tr>");
+
+    return "<table style='table-layout:fixed;width:400px;text-align:left;'>" +
+    tileRow + triggerRow +
     "</table>";
 }
 
