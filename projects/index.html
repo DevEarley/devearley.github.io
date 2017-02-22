@@ -10,7 +10,7 @@
 	background-color: #DFDFDF;
 	color: #000;
 	font-family: 'Calibri';
-	text-align: justify;
+	text-align: center;
 }
 
 #Mockups {
@@ -26,7 +26,7 @@ h1 {
 a {
 	text-align: left;
 	font-size: 18px;
-	color: #000;
+	color: #FFF;
 	padding:5px;
 }
 
@@ -41,7 +41,6 @@ img {
 
 .mockup
 {
-
 	cursor:pointer;
 	text-align: left;
 	color: #FFF;
@@ -63,13 +62,11 @@ img {
 	position:relative;
 }
 
-.active {
-position:absolute;
-	
-}
+
 
 #Header
 {
+    text-align:left;
 		background-color: #444;
 	padding:15px;	color: #FFF; 
 	width:auto;display:block;
@@ -108,11 +105,11 @@ position:absolute;
     </style>
 </head>
 <body>
-    <a style="font-size:12px;" href="https://devearley.github.io/"><< home</a>
     <div id="Header">
 
         <h1>Alex Earley's Website Mockups</h1>
         <b style="display:block;">2016 - 2017</b>
+        <a style="font-size:12px;" href="https://devearley.github.io/"><< home</a>
     </div>
     <div id="Overlay" onclick="clickOverlay()"></div>
     <div id="Mockups">
@@ -173,7 +170,7 @@ position:absolute;
         function init() {
             var mockupHTML = "";
             mockups.forEach(function (mockup, index) {
-                mockupHTML += "<div onclick='expand(\"" + index + "\")' class='mockup'>" + mockup.name + "<img id='mockup" + index + "' src='" + mockup.url + "'/></div>"
+                mockupHTML += "<div onclick='toggle(\"" + index + "\")' class='mockup'>" + mockup.name + "<img id='mockup" + index + "' src='" + mockup.url + "'/></div>"
             });
             mockupsElem.innerHTML = mockupHTML;
         }
@@ -182,32 +179,40 @@ position:absolute;
             var overlay = document.getElementById("Overlay");
             mockups.forEach(function (mockup, index) {
                 var mockup = document.getElementById("mockup" + index);
-                mockup.style.position = "relative";
-                mockup.style.left = "auto";
-                mockup.style.zIndex = 0;
-                overlay.style.height = "0";
+                resetMockup(mockup, overlay);
             });
         }
 
-        function expand(id) {
+        function toggle(id) {
             var overlay = document.getElementById("Overlay");
             var mockup = document.getElementById("mockup" + id);
             if (mockup.style.zIndex == 0) {
-                mockup.style.position = "absolute";
-                mockup.style.left = "0";
-                mockup.style.zIndex = 10;
-                overlay.style.height = "100vh";
+                expandMockup(mockup, overlay);
 
             }
             else {
-                mockup.style.position = "relative";
-                mockup.style.left = "auto";
-                mockup.style.right = "auto";
-                mockup.style.zIndex = 0;
-                overlay.style.height = "0";
+                resetMockup(mockup, overlay);
             }
         }
 
+        function expandMockup(mockup, overlay)
+        {
+            mockup.style.position = "absolute";
+            mockup.style.left = "10%";
+            mockup.style.width = "80%";
+            mockup.style.zIndex = 10;
+            overlay.style.height = "100vh";
+        }
+
+        function resetMockup(mockup,overlay)
+        {
+            mockup.style.position = "relative";
+            mockup.style.left = "auto";
+            mockup.style.right = "auto";
+            mockup.style.width = "100%";
+            mockup.style.zIndex = 0;
+            overlay.style.height = "0";
+        }
         init();
     </script>
 </body>
