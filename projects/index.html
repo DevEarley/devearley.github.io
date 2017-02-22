@@ -1,86 +1,215 @@
-﻿<!DOCTYPE html><meta name="viewport" content="initial-scale=0.5, maximum-scale=0.5">
+﻿<!DOCTYPE html>
+<meta name="viewport" content="initial-scale=0.5, maximum-scale=0.5">
 <html>
 <head>
     <title></title>
-	<meta charset="utf-8" />
+    <meta charset="utf-8" />
     <style>
-        body{
-            background-color:#5b5b5b;
-            color:#FFF;
-            font-family:'Calibri'       }
-        div
-        {
-            color:#FFF;
-            background-color:#444;
-            padding:50px;
-        }
-        h1{
-            margin-top:0;
-            margin-bottom:0;
-        }
-        a{
-            font-size:24px;
-            color:#FFF;
-        }
-        a:hover
-        {
-            color:#f5f5f5;
-        }
-        img{
-             margin-top:20px;
-            max-width:100%;
-        }
+        body {
+	margin: 0;
+	background-color: #DFDFDF;
+	color: #000;
+	font-family: 'Calibri';
+	text-align: justify;
+}
+
+#Mockups {
+padding-bottom:33vh;
+}
+
+h1 {
+	text-align: left;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+a {
+	text-align: left;
+	font-size: 18px;
+	color: #000;
+	padding:5px;
+}
+
+a:hover {
+	color: #f5f5f5;
+}
+
+img {
+	margin-top: 20px;
+	width: 100%;
+}
+
+.mockup
+{
+
+	cursor:pointer;
+	text-align: left;
+	color: #FFF;
+	background-color: #444;
+	padding: 10px;
+	display: inline-table;
+	width: 15vw;
+	margin: 10px;
+	min-width: 200px;
+}
+.mockup:hover
+{
+	
+	background-color: #5b5b5b;
+}
+
+.mockup img
+{	
+	position:relative;
+}
+
+.active {
+position:absolute;
+	
+}
+
+#Header
+{
+		background-color: #444;
+	padding:15px;	color: #FFF; 
+	width:auto;display:block;
+}
+#Overlay
+{
+	background-color:rgba(0,0,0,0.9);
+	position:fixed;
+	top:0;
+	width:100%;
+	z-index:1;
+}
+@media only screen and (max-width: 800px) {
+	.mockup {
+		display: block;
+		width: 80vw;
+	}
+
+	a {
+		padding: 10px;
+	}
+}
+
+@media only screen and (min-width: 1200px) {
+	.mockup {
+		text-align: left;
+		color: #FFF;
+		background-color: #444;
+		padding: 10px;
+		display: inline-table;
+		width: 25vw;
+		margin: 10px;
+		min-width: 200px;
+	}
+}
     </style>
 </head>
 <body>
-
     <a style="font-size:12px;" href="https://devearley.github.io/"><< home</a>
-    <div style="margin-bottom:20px;margin-top:20px;">
+    <div id="Header">
 
         <h1>Alex Earley's Website Mockups</h1>
-       <b style="display:block;">2016 - 2017</b> 
+        <b style="display:block;">2016 - 2017</b>
     </div>
-    <div>
-        <a href="https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/ecannex.png?alt=media&token=b8878cd8-3531-4619-bde0-e815e6e40978">eCannex Homepage Redesign</a>
-        <img src="https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/ecannex.png?alt=media&token=b8878cd8-3531-4619-bde0-e815e6e40978" />
-    </div>
-    <div>
-        <a href="https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/ecann2.PNG?alt=media&token=8250eca7-c813-4222-a7c3-1b81e127b936">eCannex Info site mockup</a>
-        <img src="https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/ecann2.PNG?alt=media&token=8250eca7-c813-4222-a7c3-1b81e127b936" />
-    </div>
-    
-   <div>
-       <a href="https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/mock2.png?alt=media&token=482e5ea2-aea7-4988-94b0-a18e6467bf26">Signal Vault Project - Mock up 2</a>
-
-       <img src="https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/mock2.png?alt=media&token=482e5ea2-aea7-4988-94b0-a18e6467bf26" />
+    <div id="Overlay" onclick="clickOverlay()"></div>
+    <div id="Mockups">
 
     </div>
-    <div>
-        <a href="https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/mock.png?alt=media&token=e08ac440-8d42-49e6-88ec-8a5bbf142d06">Signal Vault Project - Mock up 1</a>
+    <script type="text/javascript">
+        var mockups = [
+        {
+            "name": "eCannex Homepage",
+            "url": "https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/home.PNG?alt=media&token=22458108-c740-4c5d-9bfe-cae5386b536a"
+        },
+        {
+            "name": "eCannex Login",
+            "url": "https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/login.PNG?alt=media&token=cbd58e7d-5c05-47e4-b729-5984dde749db"
+        },
+        {
+            "name": "eCannex Forgot Password",
+            "url": "https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/forgot%20password.PNG?alt=media&token=7f5222a9-5aee-4d34-8102-eeb5c0f9a5b3"
+        },
+        {
+            "name": "eCannex Create Account",
+            "url": "https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/createAccount.PNG?alt=media&token=ca9601a7-1525-4589-a1bc-9de2061bdad6"
+        },
+        {
+            "name": "eCannex Info site mockup",
+            "url": "https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/ecann2.PNG?alt=media&token=8250eca7-c813-4222-a7c3-1b81e127b936"
+        },
+        {
+            "name": "DevEarley's Personal Site - Greens Concept",
+            "url": "https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/deve.PNG?alt=media&token=98b0b073-59b1-4aae-937e-23da3a4aac00"
+        },
+        {
+            "name": "DevEarley's Personal Site - Koi Concept",
+            "url": "https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/personalsite_fish_concept.png?alt=media&token=4a947387-3f35-475a-904f-ac2b2afb1a75"
+        },
+        {
+            "name": "DevEarley's Personal Site - Reflection Concept",
+            "url": "https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/personalsite_reflectionBridge_concept.png?alt=media&token=2ef69d5b-11a0-47a1-acc0-86692c444808"
+        },
+        {
+            "name": "DevEarley's Personal Site - Stairs Concept",
+            "url": "https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/personalsite_stairs_concept.png?alt=media&token=532041af-0761-49f2-b0aa-3ff74383e244"
+        },
+        {
+            "name": "DevEarley's Personal Site - Ocean Concept",
+            "url": "https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/personalsite_ocean_concept.png?alt=media&token=ab861e30-4c97-401f-8c46-44fb733cc2c7"
+        },
+        {
+            "name": "Signal Vault Project - Mock up 1",
+            "url": "https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/mock.png?alt=media&token=e08ac440-8d42-49e6-88ec-8a5bbf142d06"
+        },
+        {
+            "name": "Signal Vault Project - Mock up 2",
+            "url": "https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/mock2.png?alt=media&token=482e5ea2-aea7-4988-94b0-a18e6467bf26"
+        }];
+        var mockupsElem = document.getElementById("Mockups");
 
-        <img src="https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/mock.png?alt=media&token=e08ac440-8d42-49e6-88ec-8a5bbf142d06" />
+        function init() {
+            var mockupHTML = "";
+            mockups.forEach(function (mockup, index) {
+                mockupHTML += "<div onclick='expand(\"" + index + "\")' class='mockup'>" + mockup.name + "<img id='mockup" + index + "' src='" + mockup.url + "'/></div>"
+            });
+            mockupsElem.innerHTML = mockupHTML;
+        }
 
-    </div>
-    <div>
-        <a href="https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/personalsite_aura_concept.png?alt=media&token=a6ea5ba4-a3cd-4fb3-8f21-fca3741882e0">DevEarley's Personal Site - Aura Concept</a>
-        <img src="https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/personalsite_aura_concept.png?alt=media&token=a6ea5ba4-a3cd-4fb3-8f21-fca3741882e0" />
-    </div>
-    <div>
-        <a href="https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/personalsite_fish_concept.png?alt=media&token=4a947387-3f35-475a-904f-ac2b2afb1a75">DevEarley's Personal Site - Koi Concept</a>
-        <img src="https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/personalsite_fish_concept.png?alt=media&token=4a947387-3f35-475a-904f-ac2b2afb1a75" />
-    </div>
-    <div>
-        <a href="https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/personalsite_fish_timeline_concept.png?alt=media&token=eaeddad6-d6dc-4a83-9ddb-18d0d1f3a79f">DevEarley's Personal Site - Timeline Concept</a>
-        <img src="https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/personalsite_fish_timeline_concept.png?alt=media&token=eaeddad6-d6dc-4a83-9ddb-18d0d1f3a79f" />
-    </div>
-    <div>
-        <a href="https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/personalsite_ocean_concept.png?alt=media&token=ab861e30-4c97-401f-8c46-44fb733cc2c7">DevEarley's Personal Site - Ocean Concept</a>
-        <img src="https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/personalsite_ocean_concept.png?alt=media&token=ab861e30-4c97-401f-8c46-44fb733cc2c7" />
-    </div>
-    <div>
-        <a href="https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/personalsite_reflectionBridge_concept.png?alt=media&token=2ef69d5b-11a0-47a1-acc0-86692c444808">DevEarley's Personal Site - Reflection Concept</a>
-        <img src="https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/personalsite_reflectionBridge_concept.png?alt=media&token=2ef69d5b-11a0-47a1-acc0-86692c444808" />
-    </div>
+        function clickOverlay() {
+            var overlay = document.getElementById("Overlay");
+            mockups.forEach(function (mockup, index) {
+                var mockup = document.getElementById("mockup" + index);
+                mockup.style.position = "relative";
+                mockup.style.left = "auto";
+                mockup.style.zIndex = 0;
+                overlay.style.height = "0";
+            });
+        }
 
+        function expand(id) {
+            var overlay = document.getElementById("Overlay");
+            var mockup = document.getElementById("mockup" + id);
+            if (mockup.style.zIndex == 0) {
+                mockup.style.position = "absolute";
+                mockup.style.left = "0";
+                mockup.style.zIndex = 10;
+                overlay.style.height = "100vh";
+
+            }
+            else {
+                mockup.style.position = "relative";
+                mockup.style.left = "auto";
+                mockup.style.right = "auto";
+                mockup.style.zIndex = 0;
+                overlay.style.height = "0";
+            }
+        }
+
+        init();
+    </script>
 </body>
+
 </html>
