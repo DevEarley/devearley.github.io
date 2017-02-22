@@ -7,12 +7,7 @@
         </div>
         <div class="nav-grid">
 
-            <a href="https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/resume.pdf?alt=media&token=e473af16-1580-4624-8aa3-6431b952472f" target="_blank" class="nav-grid-item">
-                <i class="fa fa-file-text-o"></i>
-                <div class="nav-label">
-                    Resume
-                </div>
-            </a>
+           
             <a href="mailto:alexearley@me.com" target="_self" class="nav-grid-item">
                 <i class="fa fa-envelope-o"></i>
                 <div class="nav-label">
@@ -29,6 +24,43 @@
                     Projects
                 </div>
             </div>
+            <div ng-click="vm.OpenResumes($event)" class="nav-grid-item">
+                <i class="fa fa-coffee"></i>
+                <div class="nav-label">
+                    Resumes
+                </div>
+            </div>
+            <div class="projects" ng-class="{'active':vm.ShowResumes}">
+                <a href="https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/resume.pdf?alt=media&token=e473af16-1580-4624-8aa3-6431b952472f" target="_blank" class="nav-grid-item">
+                    <i class="fa fa-file-text-o"></i>
+                    <div class="nav-label">
+                        Alex Earley Game Developer Resume
+                        <br />Adobe PDF
+                    </div>
+                </a>
+                <a href="https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/resume.pdf?alt=media&token=e473af16-1580-4624-8aa3-6431b952472f" target="_blank" class="nav-grid-item">
+                    <i class="fa fa-file-text-o"></i>
+                    <div class="nav-label">
+                        Alex Earley Game Developer Resume
+                        <br />Microsoft Word
+                    </div>
+                </a>
+                <a href="https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/resume.pdf?alt=media&token=e473af16-1580-4624-8aa3-6431b952472f" target="_blank" class="nav-grid-item">
+                    <i class="fa fa-file-text-o"></i>
+                    <div class="nav-label">
+                      Alex Earley Game Developer Resume
+                      <br />Adobe PDF
+                    </div>
+                </a>
+
+                <a href="https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/resume.pdf?alt=media&token=e473af16-1580-4624-8aa3-6431b952472f" target="_blank" class="nav-grid-item">
+                    <i class="fa fa-file-text-o"></i>
+                    <div class="nav-label">
+                        Alex Earley Game Developer Resume
+                        <br />Microsoft Word
+                    </div>
+                </a>
+            </div>
             <div class="projects" ng-class="{'active':vm.ShowProjects}">
                 <a class="nav-grid-item" target="_blank" href="projects/map-editor/">
                     <i class="fa fa-coffee"></i>
@@ -42,10 +74,10 @@
                         Live Vote
                     </div>
                 </a>
-                <a class="nav-grid-item" target="_blank" href="projects/">
-                    <i class="fa fa-picture-o"></i>
+                <a href="https://shoshingamestudio.itch.io/" target="_blank" class="nav-grid-item">
+                    <i class="fa fa-gamepad"></i>
                     <div class="nav-label">
-                        Mockups
+                        itch.io
                     </div>
                 </a>
                 <a href="https://devearley.itch.io/trilub" target="_blank" class="nav-grid-item">
@@ -55,13 +87,13 @@
                     </div>
                 </a>
             </div>
-            <a href="https://shoshingamestudio.itch.io/" target="_blank" class="nav-grid-item">
-                <i class="fa fa-gamepad"></i>
+
+            <a class="nav-grid-item" target="_blank" href="projects/">
+                <i class="fa fa-picture-o"></i>
                 <div class="nav-label">
-                    itch.io
+                    Mockups
                 </div>
             </a>
-
             <a href="https://codepen.io/DevEarley/" target="_blank" class="nav-grid-item">
                 <i class="fa fa-codepen"></i>
                 <div class="nav-label">
