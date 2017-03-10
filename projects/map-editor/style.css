@@ -9,9 +9,9 @@
     image-rendering: -webkit-crisp-edges;
     image-rendering: pixelated;
     /*image-rendering: -moz-crisp-edges;
-  image-rendering: -webkit-crisp-edges;
-  image-rendering: pixelated;
-  image-rendering: crisp-edges*/
+image-rendering: -webkit-crisp-edges;
+image-rendering: pixelated;
+image-rendering: crisp-edges*/
 }
 
 html {
@@ -147,6 +147,13 @@ small, .font_small {
     #ToolBars h1:active {
         color: #FFF;
     }
+
+input {
+    background-color: #000;
+    border: none;
+    border-bottom: 1px solid #33aa33;
+    color: #33aa33;
+}
 
 #ToolBars input {
     text-align: left;
@@ -291,7 +298,7 @@ small, .font_small {
     overflow-y: auto;
 }
 
-#TriggersPreview, #ActionsPreview,#ConditionsPreview, #ActionParamsPreview, #EventsPreview {
+#TriggersPreview, #ActionsPreview, #ConditionsPreview, #ParamsPreview, #EventsPreview {
     height: 250px;
     width: 290px;
     overflow-y: auto;
@@ -355,6 +362,85 @@ small, .font_small {
         font-size: 20px;
     }
 
+#PopupContainer {
+    position: fixed;
+    left: 10vw;
+    right: 10vw;
+    top: 10vh;
+    bottom: auto;
+    z-index: 101;
+    display: none;
+    background-color: #33aa33;
+    padding: 5px;
+    overflow-y: visible;
+    overflow-x: visible;
+}
+
+#CloseX {
+    background-color: #000;
+    height: 24px;
+    width: auto;
+    position: fixed;
+    top: 9.5vh;
+    right: 9.5vw;
+    cursor: pointer;
+    color: #33aa33;
+    padding-left: 6px;
+    padding-right: 6px;
+    line-height: 20px;
+    text-align: center;
+    border-left: 4px solid #33aa33;
+}
+
+    #CloseX:hover {
+        cursor: pointer;
+        color: #FFF;
+        border-left: 4px solid #FFF;
+    }
+
+#GameStatePopup, #PlayerStatePopup {
+    display: none;
+    background-color: #000;
+    padding-left:5vw;
+    padding-right:5vw;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#PopupOverlay {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(50,50,50,0.8);
+    z-index: 100;
+    display: none;
+}
+
+.edit-node-button
+{
+    border-left: 4px solid #33aa33;
+  padding-left:10px;
+   cursor:pointer;
+}
+
+.add-node-button
+{  
+    border-left: 4px solid #33aa33;
+    padding:5px;
+    text-align:center;
+   cursor:pointer;  width:20px;
+}
+.add-node-button:hover{
+    background-color:#fff;
+  
+}
+
+.ps-name{
+    width:100%;
+    height:50px;
+}
 
 @media only screen and (max-width: 1650px) {
     .toolbar-button-right {
@@ -365,6 +451,7 @@ small, .font_small {
     #ToolBars {
         min-width: 0;
         left: auto;
+        right: -15px;
         width: 400px;
     }
 
@@ -376,7 +463,7 @@ small, .font_small {
         bottom: 0;
         left: 0;
         /*bottom: auto;
-        left: auto;*/
+    left: auto;*/
         z-index: 1000;
         pointer-events: all;
     }
@@ -389,7 +476,7 @@ small, .font_small {
         bottom: 0;
         left: 0;
         /*bottom: auto;
-        left: auto;*/
+    left: auto;*/
         z-index: 1000;
         pointer-events: all;
     }
@@ -402,7 +489,7 @@ small, .font_small {
         bottom: 0;
         left: 0;
         /*bottom: auto;
-        left: auto;*/
+    left: auto;*/
         z-index: 1000;
         pointer-events: all;
     }
@@ -415,8 +502,8 @@ small, .font_small {
         bottom: 0;
         left: 0;
         /*bottom: auto;
-        left: auto;
-        right: auto;*/
+    left: auto;
+    right: auto;*/
         z-index: 1000;
         pointer-events: all;
     }
@@ -429,8 +516,8 @@ small, .font_small {
         bottom: 0;
         left: 0;
         /*bottom: auto;
-        left: auto;
-        right: auto;*/
+    left: auto;
+    right: auto;*/
         z-index: 1000;
         pointer-events: all;
     }
@@ -466,7 +553,7 @@ small, .font_small {
         float: left;
         bottom: 0;
         /*bottom: 30px;
-        left: 430px;*/
+    left: 430px;*/
         z-index: 1000;
         pointer-events: all;
     }
@@ -478,7 +565,7 @@ small, .font_small {
         float: left;
         bottom: 0;
         /*bottom: 30px;
-        left: 430px;*/
+    left: 430px;*/
         z-index: 1000;
         pointer-events: all;
     }
@@ -487,10 +574,10 @@ small, .font_small {
         width: 430px;
         position: relative;
         display: block;
-        float: left;
+        float: right;
         bottom: 0;
         /*bottom: 30px;
-        right: 400px;*/
+    right: 400px;*/
         z-index: 1000;
         pointer-events: all;
     }
@@ -502,7 +589,7 @@ small, .font_small {
         float: right;
         bottom: 0;
         /*bottom: 30px;
-        right: 30px;*/
+    right: 30px;*/
         z-index: 1000;
         pointer-events: all;
     }

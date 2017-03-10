@@ -14,8 +14,8 @@
     actionsToolBarButtonElement = document.getElementById("ActionsToolBarButton"),
     conditionsToolBarElement = document.getElementById("ConditionsToolBar"),
     conditionsToolBarButtonElement = document.getElementById("ConditionsToolBarButton"),
-    actionParamsToolBarElement = document.getElementById("ActionParamsToolBar"),
-    actionParamsToolBarButtonElement = document.getElementById("ActionParamsToolBarButton"),
+    paramsToolBarElement = document.getElementById("ParamsToolBar"),
+    paramsToolBarButtonElement = document.getElementById("ParamsToolBarButton"),
     paintBrushInputX = document.getElementById("PaintBrushInputX"),
     paintBrushInputY = document.getElementById("PaintBrushInputY"),
     renameLayerInput = document.getElementById("RenameLayerInput"),
@@ -23,10 +23,17 @@
     renameTriggerInput = document.getElementById("RenameTriggerInput"),
     renameEventInput = document.getElementById("RenameEventInput"),
     renameActionInput = document.getElementById("RenameActionInput"),
-    renameConditionInput = document.getElementById("RenameConditionInput"),
-    renameActionParamInput = document.getElementById("RenameActionParamInput"),
+    renameParamNameInput = document.getElementById("RenameParamNameInput"),
+    renameParamValueInput = document.getElementById("RenameParamValueInput"),
+    conditionNameInput = document.getElementById("ConditionNameInput"),
+    conditionLHSInput = document.getElementById("ConditionLHSInput"),
+    conditionOperationInput = document.getElementById("ConditionOperationInput"),
+    conditionRHSInput = document.getElementById("ConditionRHSInput"),
+    conditionTrueActionInput = document.getElementById("ConditionTrueActionInput"),
+    conditionFalseActionInput = document.getElementById("ConditionFalseActionInput"),
     reorderLayerInput = document.getElementById("ReorderLayerInput"),
     brushToolButton = document.getElementById("BrushToolButton"),
+    subtileBrushToolButton = document.getElementById("SubtileBrushToolButton"),
     eraserToolButton = document.getElementById("EraserToolButton"),
     nineSliceToolButton = document.getElementById("NineSliceToolButton"),
     triggerToolButton = document.getElementById("TriggerToolButton"),
@@ -35,6 +42,10 @@
     paletteButton = document.getElementById("PaletteButton"),
     importMapButton = document.getElementById("ImportMap"),
     exportMapButton = document.getElementById("ExportMap"),
+    popupOverlay = document.getElementById("PopupOverlay"),
+    popupContainer = document.getElementById("PopupContainer"),
+    gameStatePopup = document.getElementById("GameStatePopup"),
+    playerStatePopup = document.getElementById("PlayerStatePopup"),
     fileInput = document.getElementById("File"),
     mapNameInput = document.getElementById("MapName"),
     contextMenu = document.getElementById("ContextMenu"),
@@ -44,7 +55,7 @@
     eventsPreview = document.getElementById("EventsPreview"),
     actionsPreview = document.getElementById("ActionsPreview"),
     conditionsPreview = document.getElementById("ConditionsPreview"),
-    actionParamsPreview = document.getElementById("ActionParamsPreview"),
+    paramsPreview = document.getElementById("ParamsPreview"),
     lastTilePreview = document.getElementById("LastTilePreview"),
     triggersPreview = document.getElementById("TriggersPreview"),
     scrollingElement = document.getElementById("CanvasContainer"),
@@ -54,7 +65,7 @@
     showEventsToolBar = false,
     showActionsToolBar = false,
     showConditionsToolBar = false,
-    showActionParamsToolBar = false,
+    showParamsToolBar = false,
     showMapToolBar = false,
     selectedTool = 0,
     mouseDown = false,
@@ -83,6 +94,17 @@ function clickTogglePerspective() {
 function clickToggleFog() {
     showFog = !showFog;
     togglePaletteMode(false);
+}
+
+function clickOpenGameStateEditor() {
+    openPopup(gameStatePopup);
+}
+function clickClosePopups() {
+    closePopups();
+}
+
+function clickOpenPlayerStateEditor() {
+    openPopup(playerStatePopup);
 }
 
 function clickPaintTool() {
@@ -176,9 +198,9 @@ function clickConditionsToolBarButton() {
     toggleToolBar(showConditionsToolBar, conditionsToolBarElement, conditionsToolBarButtonElement);
 }
 
-function clickActionParamsToolBarButton() {
-    showActionParamsToolBar = !showActionParamsToolBar;
-    toggleToolBar(showActionParamsToolBar, actionParamsToolBarElement, actionParamsToolBarButtonElement);
+function clickParamsToolBarButton() {
+    showParamsToolBar = !showParamsToolBar;
+    toggleToolBar(showParamsToolBar, paramsToolBarElement, paramsToolBarButtonElement);
 }
 
 function onFocusInput() {
@@ -198,7 +220,7 @@ function validateExportButton() {
         mapNameInput.style.borderColor = '#33aa33';
         return true;
     }
-    }
+}
 
 function validateImportButton() {
     if (fileInput.value == null || fileInput.value == "") {
@@ -328,7 +350,7 @@ function eyedropperClick() {
 }
 
 function mouseMoveHandler(e) {
-    if (e.button != 0 ) return;
+    if (e.button != 0) return;
     if (mouseDown && brushTool.mode == 0) mouseClickHandler();
     if (e.layerX) {
         mouseX = Math.floor((e.layerX) / 32);
@@ -338,49 +360,47 @@ function mouseMoveHandler(e) {
 
 function keyPressHandler(event) {
     if (inputLocked) return;
-    var key = String.fromCharCode(event.keyCode || event.charCode);
+    var key = String.fromCharCode(event.keyCode || event.charCode).toUpperCase();
     var shift = event.shiftKey;
     var ctrl = event.ctrlKey;
     switch (key) {
-        case 'Q': case 'q':
+        case 'Q':
             toggleContextMenu();
             break;
-        case 'B': case 'b':
+        case 'B':
             clickPaintTool();
             break;
-        case 'P': case 'p':
+        case 'P': 
             clickPaletteButton();
             break;
-        case 'X': case 'x':
+        case 'X': 
             clickToggleXRay();
             break;
-        case 'F': case 'f':
+        case 'F': 
             clickToggleFog();
             break;
-        case 'Z': case 'z':
+        case 'Z':
             clickTogglePerspective();
             break;
-        case 'E': case 'e':
+        case 'E': 
             clickEraserTool();
             break;
-        case 'I': case 'i':
+        case 'I': 
             clickEyedropperTool();
             break;
-        case 'W': case 'w':
+        case 'W': 
             clickWallSliceTool();
             break;
-        case 'N': case 'n':
+        case 'N': 
             clickNineSliceTool();
             break;
-        case 'T': case 't':
+        case 'T':
             clickTriggerBrushTool();
             break;
-        //case 'V': case 'v':
-        //    clickEventBrushTool();
-        //    break;
-        //case 'A': case 'a':
-        //    clickActionBrushTool();
-        //    break;
+        case 'S':
+            clickSubtileTool();
+            break;
+          
     }
 }
 
@@ -389,7 +409,9 @@ function createMapObject() {
         name: mapNameInput.value,
         layers: layers,
         palette: palette,
-        triggers: triggers
+        triggers: triggers,
+        gameState: gameState,
+        playerState:playerState
     }
 }
 
@@ -420,17 +442,18 @@ function loaded(evt) {
     var fileString = evt.target.result;
     var map = JSON.parse(fileString);
     layers = map.layers;
-    if (map.palette != undefined)
-        palette = map.palette;
+    palette = map.palette;
+    triggers = map.triggers;
+    playerState = map.playerState;
+    gameState = map.gameState;
     mapNameInput.placeholder = map.name;
     mapNameInput.value = "";
     updateLayersPreview();
 }
 
 function errorHandler(evt) {
-    if (evt.target.error.name == "NotReadableError") {
-        // The file could not be read
-    }
+    alert("Error reading file. " + evt.target.error.name);
+    
 }
 
 function genID() {

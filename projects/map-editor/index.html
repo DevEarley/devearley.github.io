@@ -35,6 +35,9 @@
                     <div class="button" id="BrushToolButton" onclick="clickPaintTool()">
                         Tile Brush (B)
                     </div>
+                    <div class="button" id="BrushToolButton" onclick="clickPaintTool()">
+                        Subtile Brush (B)
+                    </div>
                     <div class="button" id="EraserToolButton" onclick="clickEraserTool()">
                         Tile Eraser (E)
                     </div>
@@ -49,24 +52,22 @@
                     </div>
                 </div>
             </div>
-            <div id="TriggersToolBarContainter">
-                <div class="toolbar-button" id="TriggersToolBarButton" onclick="clickTriggersToolBarButton()"> + </div>
-                <div class="toolbar" id="TriggersToolBar">
-                    <h1 onclick="clickTriggersToolBarButton()">Triggers</h1>
-                    <div id="TriggersPreview"></div>
+            <div id="EventsToolBarContainter">
+                <div class="toolbar-button" id="EventsToolBarButton" onclick="clickEventsToolBarButton()"> + </div>
+                <div class="toolbar" id="EventsToolBar">
+                    <h1 onclick="clickEventsToolBarButton()">Events</h1>
+                    <div id="EventsPreview"></div>
+
                     <div>
-                        <input onfocus="onFocusInput()" onblur="onBlurInput()" id="RenameTriggerInput" placeholder="Name" style="float:right;" />
+                        <input onfocus="onFocusInput()" onblur="onBlurInput()" id="RenameEventInput" placeholder="Name" style="float:right;" />
                     </div>
-                    <div class="button" style="width:100px;" onclick="clickRenameTrigger()">Rename </div>
+                    <div class="button" style="width:100px;" onclick="clickRenameEvent()">Rename </div>
                     <hr />
-                    <div class="button" id="TriggerToolButton" onclick="clickTriggerBrushTool()">
-                        Create Trigger Area (T)
-                    </div>                  
-                    <div class="button" onclick="clickRemoveSelectedTrigger()">
-                        Remove Selected Trigger
+                    <div class="button" onclick="clickAddEventToSelectedTrigger()">
+                        Add Event To Selected Trigger
                     </div>
-                    <div class="button" onclick="clickToggleTiggerViewMode()">
-                        Toggle Tigger View Mode
+                    <div class="button" onclick="clickRemoveSelectedEvent()">
+                        Remove Selected Event
                     </div>
                 </div>
             </div>
@@ -95,55 +96,45 @@
             </div>
         </div>
         <div id="ToolBarsB">
-            <div id="EventsToolBarContainter">
-                <div class="toolbar-button-right" id="EventsToolBarButton" onclick="clickEventsToolBarButton()"> + </div>
-                <div class="toolbar-right" id="EventsToolBar">
-                    <h1 onclick="clickEventsToolBarButton()">Events</h1>
-                    <div id="EventsPreview"></div>
-
+            <div id="TriggersToolBarContainter">
+                <div class="toolbar-button" id="TriggersToolBarButton" onclick="clickTriggersToolBarButton()"> + </div>
+                <div class="toolbar" id="TriggersToolBar">
+                    <h1 onclick="clickTriggersToolBarButton()">Triggers</h1>
+                    <div id="TriggersPreview"></div>
                     <div>
-                        <input onfocus="onFocusInput()" onblur="onBlurInput()" id="RenameEventInput" placeholder="Name" style="float:right;" />
+                        <input onfocus="onFocusInput()" onblur="onBlurInput()" id="RenameTriggerInput" placeholder="Name" style="float:right;" />
                     </div>
-                    <div class="button" style="width:100px;" onclick="clickRenameEvent()">Rename </div>
+                    <div class="button" style="width:100px;" onclick="clickRenameTrigger()">Rename </div>
                     <hr />
-                    <div class="button" onclick="clickAddEventToSelectedTrigger()">
-                        Add Event To Selected Trigger
+                    <div class="button" id="TriggerToolButton" onclick="clickTriggerBrushTool()">
+                        Create Trigger Area (T)
                     </div>
-                    <div class="button" onclick="clickRemoveSelectedEvent()">
-                        Remove Selected Event
+                    <div class="button" onclick="clickRemoveSelectedTrigger()">
+                        Remove Selected Trigger
                     </div>
-                </div>
-            </div>
-        </div>
-        <div id="ToolBarsC">
-            <div id="ActionsToolBarContainter">
-                <div class="toolbar-button-right" id="ActionsToolBarButton" onclick="clickActionsToolBarButton()"> + </div>
-                <div class="toolbar-right" id="ActionsToolBar">
-                    <h1 onclick="clickActionsToolBarButton()">Actions</h1>
-                    <div id="ActionsPreview"></div>
-                    <div>
-                        <input onfocus="onFocusInput()" onblur="onBlurInput()" id="RenameActionInput" placeholder="Name" style="float:right;" />
-                    </div>
-                    <div class="button" style="width:100px;" onclick="clickRenameAction()">Rename </div>
-                    <hr />
-
-                    <div class="button" onclick="clickAddActionToSelectedEvent()">
-                        Add Action To Selected Event
-                    </div>
-                    <div class="button" onclick="clickRemoveSelectedAction()">
-                        Remove Selected Action
+                    <div class="button" onclick="clickToggleTiggerViewMode()">
+                        Toggle Tigger View Mode
                     </div>
                 </div>
             </div>
             <div id="ConditionsToolBarContainter">
-                <div class="toolbar-button-right" id="ConditionsToolBarButton" onclick="clickConditionsToolBarButton()"> + </div>
-                <div class="toolbar-right" id="ConditionsToolBar">
+                <div class="toolbar-button" id="ConditionsToolBarButton" onclick="clickConditionsToolBarButton()"> + </div>
+                <div class="toolbar" id="ConditionsToolBar">
                     <h1 onclick="clickConditionsToolBarButton()">Conditions</h1>
                     <div id="ConditionsPreview"></div>
                     <div>
-                        <input onfocus="onFocusInput()" onblur="onBlurInput()" id="RenameConditionInput" placeholder="Name" style="float:right;" />
+                        <div class="button" style="width:150px;" onclick="clickUpdateCondition()">Update Condition</div>
+                        <input onfocus="onFocusInput()" onblur="onBlurInput()" id="ConditionNameInput" placeholder="Name" style="float:right;" />
+
                     </div>
-                    <div class="button" style="width:100px;" onclick="clickRenameCondition()">Rename </div>
+                    <div style="height:130px">
+                        <input onfocus="onFocusInput()" onblur="onBlurInput()" id="ConditionLHSInput" placeholder="LHS" style="float:right;" />
+                        <input onfocus="onFocusInput()" onblur="onBlurInput()" id="ConditionOperationInput" placeholder="Operation" style="float:right;" />
+                        <input onfocus="onFocusInput()" onblur="onBlurInput()" id="ConditionRHSInput" placeholder="RHS" style="float:right;" />
+                        <input onfocus="onFocusInput()" onblur="onBlurInput()" id="ConditionTrueActionInput" placeholder="True Action" style="float:right;" />
+                        <input onfocus="onFocusInput()" onblur="onBlurInput()" id="ConditionFalseActionInput" placeholder="False Action" style="float:right;" />
+                    </div>
+
                     <hr />
 
                     <div class="button" onclick="clickAddConditionToSelectedEvent()">
@@ -155,6 +146,7 @@
                 </div>
             </div>
         </div>
+
         <div id="ToolBarsD">
             <div id="LayersToolBarContainter">
                 <div class="toolbar-button-right" id="LayersToolBarButton" onclick="clickLayersToolBarButton()"> + </div>
@@ -193,9 +185,13 @@
                     <h1 onclick="clickParamsToolBarButton()">Params</h1>
                     <div id="ParamsPreview"></div>
                     <div>
-                        <input onfocus="onFocusInput()" onblur="onBlurInput()" id="RenameParamInput" placeholder="Name" style="float:right;" />
+                        <input onfocus="onFocusInput()" onblur="onBlurInput()" id="RenameParamNameInput" placeholder="Name" style="float:right;" />
                     </div>
-                    <div class="button" style="width:100px;" onclick="clickRenameParam()">Rename </div>
+                    <div>
+                        <input onfocus="onFocusInput()" onblur="onBlurInput()" id="RenameParamValueInput" placeholder="Value" style="float:right;" />
+                    </div>
+
+                    <div class="button" style="width:100px;" onclick="clickUpdateParam()">Update </div>
                     <hr />
                     <div class="button" onclick="clickAddParamToSelectedAction()">
                         Add Param To Selected Action
@@ -219,8 +215,44 @@
                     <div class="button" onclick="clickToggleFog()">
                         Toggle Fog Mode (F)
                     </div>
+
                 </div>
             </div>
+        </div>
+
+        <div id="ToolBarsC">
+            <div>
+                <div class="toolbar-button-right" onclick="clickOpenGameStateEditor()"> + </div>
+                <div class="toolbar-right">
+                    <h1 onclick="clickOpenGameStateEditor()">Game State</h1>
+                </div>
+            </div>
+            <div>
+                <div class="toolbar-button-right" onclick="clickOpenPlayerStateEditor()"> + </div>
+                <div class="toolbar-right">
+                    <h1 onclick="clickOpenPlayerStateEditor()">Player State</h1>
+                </div>
+            </div>
+            <div id="ActionsToolBarContainter">
+                <div class="toolbar-button-right" id="ActionsToolBarButton" onclick="clickActionsToolBarButton()"> + </div>
+                <div class="toolbar-right" id="ActionsToolBar">
+                    <h1 onclick="clickActionsToolBarButton()">Actions</h1>
+                    <div id="ActionsPreview"></div>
+                    <div>
+                        <input onfocus="onFocusInput()" onblur="onBlurInput()" id="RenameActionInput" placeholder="Name" style="float:right;" />
+                    </div>
+                    <div class="button" style="width:100px;" onclick="clickRenameAction()">Rename </div>
+                    <hr />
+
+                    <div class="button" onclick="clickAddActionToSelectedEvent()">
+                        Add Action To Selected Event
+                    </div>
+                    <div class="button" onclick="clickRemoveSelectedAction()">
+                        Remove Selected Action
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
     <div id="KeyboardHelp">
@@ -230,6 +262,7 @@
             <br />
             心
         </span>
+        Map Editor
         <div>
             <div>
                 <a href="http://devearley.github.io" target="_blank">  <small> © Shoshin Game Studio | Alex Earley 2017 | All rights reserved</small></a>
@@ -274,7 +307,13 @@
         </div>
 
     </div>
-    <div id="ContextMenu"></div>
+    <div id="PopupContainer">
+        <div id="CloseX" onclick="clickClosePopups()">Close</div>
+        <div id="GameStatePopup"></div>
+        <div id="PlayerStatePopup"></div>
+    </div>
+
+    <div id="PopupOverlay" onclick="clickClosePopups()"></div>
     <script src="sample.js" type="text/javascript"></script>
     <script src="autoscroll.js" type="text/javascript"></script>
     <script src="appInterface.js" type="text/javascript"></script>
@@ -283,6 +322,8 @@
     <script src="conditionEditor.js" type="text/javascript"></script>
     <script src="eventEditor.js" type="text/javascript"></script>
     <script src="actionEditor.js" type="text/javascript"></script>
+    <script src="paramEditor.js" type="text/javascript"></script>
+    <script src="stateEditor.js" type="text/javascript"></script>
     <script src="appLoop.js" type="text/javascript"></script>
     <a href="" id="HiddenDownloadAnchor"></a>
 </body>

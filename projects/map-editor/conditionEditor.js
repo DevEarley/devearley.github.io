@@ -3,7 +3,7 @@
 function clickAddConditionToSelectedEvent() {
     var event = getCurrentEvent();
     if (event == null) return;
-    var name = renameConditionInput.value == "" ? "condition " + event.conditions.length : renameConditionInput.value;
+    var name = conditionNameInput.value == "" ? "condition " + event.conditions.length : conditionNameInput.value;
     event.conditions.push(createCondition(name));
     currentCondition = event.conditions.length - 1;
     updateConditionsPreview(event);
@@ -13,9 +13,14 @@ function clickRemoveSelectedCondition() {
 
 }
 
-function clickRenameCondition() {
+function clickUpdateCondition() {
     var condition = getCurrentCondition();
-    condition.name = renameConditionInput.value;
+    condition.name = conditionNameInput.value;
+    condition.lhs = conditionLHSInput.value;
+    condition.operation = conditionOperationInput.value;
+    condition.rhs = conditionRHSInput.value;
+    condition.trueAction = conditionTrueActionInput.value;
+    condition.falseAction = conditionFalseActionInput.value;
     updateConditionsPreview(event);
 }
 
@@ -27,8 +32,19 @@ function updateConditionsPreview(event) {
     var currentConditionObj = getCurrentCondition();
     viewConditions = true;
     conditionsPreview.innerHTML = generateHTMLForConditionsPreview(event.conditions);
-    renameConditionInput.placeholder = currentConditionObj == null ? '' : currentConditionObj.name;
-    renameConditionInput.value = "";
+    if( currentConditionObj == null)return;
+    conditionNameInput.placeholder =  currentConditionObj.name;
+    conditionNameInput.value = "";
+    conditionRHSInput.placeholder =  currentConditionObj.rhs;
+    conditionRHSInput.value = "";
+    conditionLHSInput.placeholder = currentConditionObj.lhs;
+    conditionLHSInput.value = "";
+    conditionOperationInput.placeholder = currentConditionObj.operation;
+    conditionOperationInput.value = "";
+    conditionTrueActionInput.placeholder = currentConditionObj.trueAction;
+    conditionTrueActionInput.value = "";
+    conditionFalseActionInput.placeholder = currentConditionObj.falseAction;
+    conditionFalseActionInput.value = "";
 }
 
 function getCurrentCondition() {
@@ -64,5 +80,10 @@ function createCondition(name) {
         id: genID(),
         type:"Condition",
         name: name,
+        rhs: 'RHS',
+        lhs: 'LHS',
+        operation: 'Operation',
+        trueAction: 'True Action',
+        falseAction:'False Action'
     };
 }

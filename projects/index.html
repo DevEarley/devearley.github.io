@@ -50,6 +50,8 @@ img {
 	width: 15vw;
 	margin: 10px;
 	min-width: 200px;
+    max-height:100px;
+    overflow-y:hidden;
 }
 .mockup:hover
 {
@@ -197,6 +199,7 @@ img {
 
         function expandMockup(mockup, overlay)
         {
+            window.scrollTo(0, mockup.scrollTop);
             mockup.style.position = "absolute";
             mockup.style.left = "10%";
             mockup.style.width = "80%";

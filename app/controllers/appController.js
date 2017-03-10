@@ -6,6 +6,7 @@ function AppController($scope, $rootScope, $location, $timeout, $window) {
     vm.Themes = ['fish', 'aura', 'ocean', 'stairs','bushes'];
     vm.Popping = null;
     vm.ShowProjects = false;
+    vm.ShowResumes = false;
     vm.ShowProjectsSemaphore = true;
     vm.Change = function(newTheme)
     {
@@ -16,13 +17,20 @@ function AppController($scope, $rootScope, $location, $timeout, $window) {
         }, 300);
     }
 
-    vm.OpenProjects =function(e)
-    {
+    vm.OpenProjects = function (e) {
         if (vm.ShowProjectsSemaphore == false) return;
         $timeout(function () { vm.ShowProjectsSemaphore = true; }, 500);
         vm.ShowProjectsSemaphore = false;
         e.preventDefault();
         vm.ShowProjects = !vm.ShowProjects;
+    }
+
+    vm.OpenResumes = function (e) {
+        if (vm.ShowProjectsSemaphore == false) return;
+        $timeout(function () { vm.ShowProjectsSemaphore = true; }, 500);
+        vm.ShowProjectsSemaphore = false;
+        e.preventDefault();
+        vm.ShowResumes = !vm.ShowResumes;
     }
 
     vm.Email = function (emailId, subject, message) {
