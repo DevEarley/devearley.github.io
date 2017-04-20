@@ -4,11 +4,11 @@
     bottom: 0;
     height: 30px;
     width: 100%;
-    background-color: rgba(0,0,20,0.2);
+    background-color: rgba(0,0,20,0.8);
     padding-top:5px;
     left: 0;
     color:#FFF;
-    z-index: 0;
+    z-index: 100;
 }
 #Footer a{
     color: #FFF;

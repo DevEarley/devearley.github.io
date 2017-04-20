@@ -418,21 +418,18 @@ input {
     display: none;
 }
 
-.edit-node-button
-{
-    border-left: 4px solid #33aa33;
-  padding-left:10px;
-   cursor:pointer;
-}
 
-.add-node-button
+
+.node-button
 {  
     border-left: 4px solid #33aa33;
     padding:5px;
+    padding-left:10px;
+    padding-right:10px;
     text-align:center;
-   cursor:pointer;  width:20px;
+   cursor:pointer;  width:auto;
 }
-.add-node-button:hover{
+.node-button:hover{
     background-color:#fff;
   
 }
