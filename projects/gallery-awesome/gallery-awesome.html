@@ -1,3 +1,7 @@
 ﻿<div class="gallery-awesome-container">
-    <img ng-repeat="img in vm.Images" src="{{img.thumb}}" ng-click="vm.ShowFull($event)" class="gallery-awesome-thumb" />
+    <img ng-repeat="img in vm.Images"
+         src="{{img.thumb}}"
+         ng-click="vm.ShowFull($event,img)"
+         style="width:18vw;height:18vw;"
+         class="gallery-awesome-thumb" />
 </div>
