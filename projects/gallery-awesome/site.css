@@ -11,6 +11,7 @@ html{
 
 #Header
 {
+    padding:10px;
     background-color:#777;
 }
 
@@ -22,7 +23,8 @@ html{
 .gallery-awesome-container
 {
     padding-left:10vw;
-    padding-right:10vw;
+  
+    width:80vw;
     text-align:center;
 }
 
@@ -42,11 +44,14 @@ html{
 }
 .gallery-awesome-thumb 
 {
-    
-     transition: all 250ms linear;
-     -webkit-transition:all 250ms linear;
-     clip-path: circle(5vw at 9vw 9vw);
-     -webkit-clip-path: circle(5vw at 9vw 9vw);
+    max-height:200px;
+    max-width:200px;
+       min-height:120px;
+    min-width:120px;
+     transition: clip-path 250ms linear;
+     -webkit-transition:-webkit-clip-path 250ms linear;
+     clip-path: circle(5vw at 50% 50%);
+     -webkit-clip-path: circle(5vw at  50% 50%);
    
     opacity:1;
     cursor:pointer;
@@ -61,8 +66,8 @@ html{
 .gallery-awesome-thumb:hover,.gallery-awesome-thumb:active
 {
      opacity:0.7;  
-     clip-path: circle(18vw at 9vw 9vw);
-     -webkit-clip-path: circle(18vw at 9vw 9vw);
+     clip-path: circle(100% at 50% 50%)!important;
+     -webkit-clip-path: circle(100% at  50% 50%)!important;
  
 }
 
@@ -75,6 +80,7 @@ html{
 }
 
 md-dialog{
+    background-color:#000;
     min-width:60vw;
     max-height:100vh;
 }
@@ -88,4 +94,22 @@ md-dialog{
     top:0;
     right:0;
     z-index:1;
+}
+
+.close-dialog{
+    position:absolute;
+    right:20px;
+    top:5px;
+    border-radius:5px;
+    font-size:60px;
+    color:#DDD;
+    cursor:pointer;
+    padding-left:20px;
+    padding-right:20px;
+    background-color:rgba(0,0,0,0.4);
+}
+
+.close-dialog:hover,.close-dialog:active{
+    color:#FFF;
+    background-color:rgba(0,0,0,0.9);
 }

@@ -9,7 +9,8 @@ angular.module('GalleryAwesomeApp').controller('GalleryAwesomeController',
 function AppController($scope, $rootScope, $mdDialog, $timeout, $window) {
     var vm = this;
     vm.Images = staticImageList;
-    vm.Columns = 2;
+    vm.Columns = 3;
+    vm.Radius = 5;
    
 
 });
@@ -19,26 +20,35 @@ angular.module('GalleryAwesomeApp').directive('galleryAwesome', function ($timeo
         restrict: 'EA',
         scope: {
             images: '=',
-            columns:'='
+            columns:'=',
+            radius:'='
         },
         controllerAs: 'vm',
         link:function ($scope,element)
         {
             $scope.$watch('columns', function () {
-                //divide  80vw by n, n being columns
-                var newColWidth = parseInt((80 / parseInt($scope.columns)))-2;
-               // var elem = angular.element(document.querySelector(".gallery-awesome-thumb"));
-                // elem.attr("style", "height:" + newColWidth + "vw;width:" + newColWidth + "vw;");
-                angular.forEach(document.getElementsByClassName('gallery-awesome-thumb'),function(elem){
-                    elem.setAttribute("style", "height:" + newColWidth + "vw;width:" + newColWidth + "vw;");
-                });
-
-
+                updateThumbs();
             });
+
+            $scope.$watch('radius', function () {
+                updateThumbs();
+            });
+
+            function updateThumbs()
+            {
+                var newColWidth = parseInt((80 / parseInt($scope.columns))) - 2;
+                var newStyle = "height:" + newColWidth + "vw;width:" + newColWidth + "vw;" +
+                    "clip-path:clip-path: circle(" + $scope.radius + "vw at 50% 50%);" +
+     "-webkit-clip-path: circle(" + $scope.radius + "vw at  50% 50%);";
+                angular.forEach(document.getElementsByClassName('gallery-awesome-thumb'), function (elem) {
+                    elem.setAttribute("style", newStyle);
+                });
+            }
+
         },
         controller: function ($scope, $element, $mdDialog) {
             var vm = this;
-            vm.Images = $scope.images;
+            vm.Images = $scope.images;           
             vm.ShowFull = function (ev,img) {
                 $mdDialog.show({
                     
@@ -58,7 +68,7 @@ angular.module('GalleryAwesomeApp').directive('galleryAwesome', function ($timeo
 
             function GalleryAwesomeDialogController($scope, $mdDialog, imageUrl) {
                 var vm = this;
-                vm.hide = function () {
+                vm.Close = function () {
                     $mdDialog.hide();
                 };
                 vm.Image = imageUrl;

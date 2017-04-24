@@ -15,14 +15,16 @@
     </div>
     <div id="Content" ng-controller="GalleryAwesomeController as vm">
         <div id="Options">
-
             <md-input-container>
                 <label>Columns</label>
                 <input type="text" ng-model="vm.Columns" />
             </md-input-container>
-
+            <md-input-container>
+                <label>Radius</label>
+                <input type="text" ng-model="vm.Radius" />
+            </md-input-container>
         </div>
-        <gallery-awesome images="vm.Images" columns="vm.Columns"></gallery-awesome>
+        <gallery-awesome images="vm.Images" columns="vm.Columns" radius="vm.Radius"></gallery-awesome>
     </div>
 
     <script src="../../libs/angular.min.js"></script>
