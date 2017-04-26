@@ -90,6 +90,7 @@ md-dialog{
     border-radius:10px;
     padding:10px;margin:5px;
     width:15vw; 
+        min-width:140px;
     position:fixed;
     top:0;
     right:0;
