@@ -20,10 +20,9 @@ angular.module('perfectParallax', []).directive('perfectParallax', [
                 parallaxInitVal,
                 cssValArray;
 
-              //$scope.IsMobile = $rootScope.IsMobile;
               $rootScope.$watch('IsMobile', function (newData, oldData) {
                   $scope.IsMobile = newData;
-
+                 
 
                   parallaxCssVal = $scope.parallaxCss ? $scope.parallaxCss : 'top';
                   cssValArray = parallaxCssVal.split(':');

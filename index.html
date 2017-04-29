@@ -39,7 +39,7 @@
         <!-- Page Content -->
         <div perfect-parallax parallax-ratio="0.1">
             <div perfect-parallax parallax-ratio="0.95" class="img-bg"></div>
-            <div perfect-parallax parallax-ratio="0.95" class="img"></div>
+            <div perfect-parallax parallax-ratio="0.95" class="img" ng-class="{'no-parallax':vm.IsMobile==true}"></div>
         </div>
         <ng-view style="display:inline-block;width:100vw!important;height:100vh!important" autoscroll="true" />
     </div>

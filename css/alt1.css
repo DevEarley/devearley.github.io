@@ -24,7 +24,13 @@ body {
 #Header {
     padding: 10px;
 }
-
+.img.no-parallax{
+    position:fixed!important;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+}
 .themes {
     z-index: 1000;
     position: fixed;

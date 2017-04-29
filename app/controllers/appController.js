@@ -1,7 +1,10 @@
 ﻿angular.module('DEVE').controller('AppController',
 function AppController($scope, $rootScope, $location, $timeout, $window) {
     var vm = this;
-  
+    vm.IsMobile = $rootScope.IsMobile;
+    $rootScope.$watch('IsMobile', function (newData, oldData) {
+        vm.IsMobile = $rootScope.IsMobile;
+    });
     vm.Themes = ['fish', 'aura', 'ocean', 'stairs','bushes'];
     vm.Popping = null;
     vm.ShowProjects = false;
