@@ -9,7 +9,9 @@ html {
 body {
     background-color: #000 !important;
 }
-
+.content{
+    background-color:#222;
+}
 #DEVEContent {
     position: absolute;
     top: 0;
@@ -82,9 +84,9 @@ body {
     background-repeat: no-repeat;
     position: absolute;
     opacity: 1;
-    -webkit-box-shadow: 0px 10px 12px -5px rgba(0,0,0,0.38);
-    -moz-box-shadow: 0px 10px 12px -5px rgba(0,0,0,0.38);
-    box-shadow: 0px 10px 12px -5px rgba(0,0,0,0.38);
+    -webkit-box-shadow: 0px 10px 12px -5px rgba(0,0,0,0.8);
+    -moz-box-shadow: 0px 10px 12px -5px rgba(0,0,0,0.8);
+    box-shadow: 0px 10px 12px -5px rgba(0,0,0,0.8);
 }
 
 .aura .img {
