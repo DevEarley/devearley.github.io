@@ -1,7 +1,6 @@
 ﻿
 html {
     /*-webkit-transform: translateZ(0);*/
-
     min-height: 1200px;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -11,9 +10,11 @@ html {
 body {
     background-color: #000 !important;
 }
-.content{
-    background-color:#222;
+
+.content {
+    background-color: #222;
 }
+
 #DEVEContent {
     position: absolute;
     top: 0;
@@ -24,13 +25,15 @@ body {
 #Header {
     padding: 10px;
 }
-.img.no-parallax{
-    position:fixed!important;
-    top:0;
-    bottom:0;
-    left:0;
-    right:0;
+
+.img.no-parallax {
+    position: fixed !important;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
+
 .themes {
     z-index: 1000;
     position: fixed;
@@ -106,19 +109,17 @@ body {
 }
 
 .fish .img {
-    
     background-position-y: bottom;
-    
     background-position-x: center;
     background-image: url("../images/personalsite_fish.png");
 }
 
 .stairs .img {
-    
     background-position-y: center;
     background-image: url("../images/personalsite_stairs.png");
-}.bushes .img {
-        
+}
+
+.bushes .img {
     background-position-y: top;
     background-image: url("../images/personalsite_bushes.png");
 }
@@ -165,7 +166,10 @@ body {
 
 .stairs .title {
     background-color: rgba(75,75,81,0.7);
-}.bushes .title {   background-color: rgba(10,10,48,0.8);
+}
+
+.bushes .title {
+    background-color: rgba(10,10,48,0.8);
 }
 
 .title:after {
@@ -290,6 +294,9 @@ body {
     border-right: 0px solid rgba(255,255,255,0);
 }
 
+
+
+
 .aura .copy {
     background-color: rgba(66,57,76,0.5);
     color: #FFF;
@@ -328,17 +335,24 @@ body {
         padding-right: 2px;
         background-color: rgba(75,75,81,0.9);
     }
-    .bushes .copy {
-       background-color: rgba(10,10,48,0.8);
+
+.bushes .copy {
+    background-color: rgba(10,10,48,0.8);
     color: #FFF;
 }
 
     .bushes .copy b {
         color: #FFF;
         padding-left: 4px;
-        padding-right: 2px; 
-          background-color: rgba(10,10,48,0.8);
+        padding-right: 2px;
+        background-color: rgba(10,10,48,0.8);
     }
+
+.mobile .copy {
+    padding: 20px !important;
+    /*width: auto !important;*/
+    font-size:18px;
+}
 
 .unpop-animation {
     opacity: 1;
@@ -365,22 +379,21 @@ body {
     -o-animation: pop-anim 0.5s;
     animation: pop-anim 0.5s;
 }
-.nav-grid .nav-grid-item .fa.fa-file-pdf-o
-{
-    color:#FF5b5b!important;
 
+.nav-grid .nav-grid-item .fa.fa-file-pdf-o {
+    color: #FF5b5b !important;
 }
-.nav-grid .nav-grid-item .fa.fa-twitter-square
-{
-    color:#1DA1F2!important;
-        width: 30px;
+
+.nav-grid .nav-grid-item .fa.fa-twitter-square {
+    color: #1DA1F2 !important;
+    width: 30px;
     height: 30px;
     line-height: 27px;
 }
-.nav-grid .nav-grid-item .fa.fa-linkedin-square
-{
-    color:#0077B5!important;
-        width: 30px;
+
+.nav-grid .nav-grid-item .fa.fa-linkedin-square {
+    color: #0077B5 !important;
+    width: 30px;
     height: 30px;
     line-height: 27px;
 }
@@ -549,7 +562,7 @@ body {
             margin-top: 30px;
             margin-left: 115px;
             width: auto;
-            max-width:400px;
+            max-width: 400px;
             margin-right: 20px;
         }
 
@@ -569,23 +582,30 @@ body {
     }
 
         .nav-grid .nav-grid-item {
-            width: 40%;
-            margin-right:4%;
-            text-align:left;
+            width: 92%;
+            margin-right: 4%;
+            text-align: left;
             font-size: 12px;
+            margin-bottom:18px;
         }
 
             .nav-grid .nav-grid-item .fa {
-                margin:0;
+                margin: 0;
                 font-size: 30px;
-                width:40%;
-                display:inline-block;
+                /*padding-right:10px;*/
+                width: 30px;
+                /*height: 30px;*/
+                /*line-height: 7px;*/
+                display: inline-block;
             }
-             .nav-grid .nav-grid-item .nav-label{
-                
-                display:inline-block;
-                width:40%;
-             }
+
+            .nav-grid .nav-grid-item .nav-label {
+                margin: 0;
+                float:right;
+                padding-top:4px;
+                display: inline-block;
+                width: 70%; font-size:20px;
+            }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
