@@ -1,7 +1,7 @@
 ﻿//Source: https://github.com/hidefsk/angular-perfect-parallax/blob/master/src/angular-perfect-parallax.js
 
 angular.module('perfectParallax', []).directive('perfectParallax', [
-  '$window', function ($window) {
+  '$window', '$rootScope', function ($window, $rootScope) {
 
       return {
           restrict: 'A',
@@ -10,7 +10,7 @@ angular.module('perfectParallax', []).directive('perfectParallax', [
               parallaxInitVal: '@',
               parallaxRatio: '@'
           },
-          link: function (iScope, iElem, iAttr) {
+          link: function ($scope, $element, $attr) {
               var cssKey,
                 cssValue,
                 isSpecialVal,
@@ -20,32 +20,43 @@ angular.module('perfectParallax', []).directive('perfectParallax', [
                 parallaxInitVal,
                 cssValArray;
 
-              parallaxCssVal = iScope.parallaxCss ? iScope.parallaxCss : 'top';
-              cssValArray = parallaxCssVal.split(':');
-              cssKey = cssValArray[0];
-              cssValue = cssValArray[1];
+              //$scope.IsMobile = $rootScope.IsMobile;
+              $rootScope.$watch('IsMobile', function (newData, oldData) {
+                  $scope.IsMobile = newData;
 
-              isSpecialVal = cssValue ? true : false;
-              if (!cssValue) cssValue = cssKey;
 
-              parallaxRatio = iScope.parallaxRatio ? +iScope.parallaxRatio : 1.1;
-              parallaxInitVal = iScope.parallaxInitVal ? +iScope.parallaxInitVal : 0;
+                  parallaxCssVal = $scope.parallaxCss ? $scope.parallaxCss : 'top';
+                  cssValArray = parallaxCssVal.split(':');
+                  cssKey = cssValArray[0];
+                  cssValue = cssValArray[1];
 
-              iElem.css(cssKey, parallaxInitVal + 'px');
+                  isSpecialVal = cssValue ? true : false;
+                  if (!cssValue) cssValue = cssKey;
 
-              function _onScroll() {
-                  var resultVal;
-                  var calcVal = $window.pageYOffset * parallaxRatio + parallaxInitVal;
+                  parallaxRatio = $scope.parallaxRatio ? +$scope.parallaxRatio : 1.1;
+                  parallaxInitVal = $scope.parallaxInitVal ? +$scope.parallaxInitVal : 0;
 
-                  if (isSpecialVal) {
-                      resultVal = '' + cssValue + '(' + calcVal + 'px)';
-                  } else {
-                      resultVal = calcVal + 'px';
-                  }
-                  iElem.css(cssKey, resultVal);
-              };
+                  if (!$scope.IsMobile)
+                      $element.css(cssKey, parallaxInitVal + 'px');
 
-              $window.addEventListener('scroll', _onScroll);
+                  function _onScroll() {
+                      if ($scope.IsMobile) return;
+                      var resultVal;
+                      var calcVal = $window.pageYOffset * parallaxRatio + parallaxInitVal;
+
+                      if (isSpecialVal) {
+                          resultVal = '' + cssValue + '(' + calcVal + 'px)';
+                      } else {
+                          resultVal = calcVal + 'px';
+                      }
+                      $element.css(cssKey, resultVal);
+                  };
+
+
+
+                  $window.addEventListener('scroll', _onScroll);
+
+              });
 
           }
       };
