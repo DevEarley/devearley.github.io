@@ -3,9 +3,7 @@ angular.module('LegendaryMap').directive('legendaryMapDropdown', function ($time
     return {
         restrict: 'EA',
         scope: {
-            images: '=',
-            columns: '=',
-            radius: '='
+            
         },
         controllerAs: 'vm',
         link: function ($scope, element) {
@@ -30,35 +28,10 @@ angular.module('LegendaryMap').directive('legendaryMapDropdown', function ($time
         },
         controller: function ($scope, $element, $mdDialog) {
             var vm = this;
-            vm.Images = $scope.images;
-            vm.ShowFull = function (ev, img) {
-                $mdDialog.show({
-
-                    controller: GalleryAwesomeDialogController,
-                    controllerAs: "vm",
-                    templateUrl: 'gallery-awesome-dialog.html',
-                    parent: angular.element(document.body),
-                    targetEvent: ev,
-                    clickOutsideToClose: true,
-                    fullscreen: true,
-                    locals: {
-                        imageUrl: img.full
-                    }
-                });
-
-            };
-
-            function GalleryAwesomeDialogController($scope, $mdDialog, imageUrl) {
-                var vm = this;
-                vm.Close = function () {
-                    $mdDialog.hide();
-                };
-                vm.Image = imageUrl;
-            };
 
 
         },
-        templateUrl: 'gallery-awesome.html'
+        replace:false
     };
 });
 

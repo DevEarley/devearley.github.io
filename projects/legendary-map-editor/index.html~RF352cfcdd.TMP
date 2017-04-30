@@ -25,16 +25,11 @@
                 <canvas legenday-map-canvas
                         canvas-container="CanvasContainer"
                         current-layer="vm.currentLayer"
-                        layers="LegendaryMapLayerService.layers"
-                        palette="vm.palette"
                         sprites="vm.sprites"
                         sy="vm.sy"
                         sx="vm.sx"
-                        mousey="vm.mouseY"
-                        mousex="vm.mouseX"
-                        perspective-view="vm.perspectiveView"
-                        x-ray-view="vm.xRayView"
-                        show-fog="vm.showFog"
+                        mousey="vm.mousey"
+                        mousex="vm.mousex"
                         width="2048"
                         height="2048"></canvas>
             </div>
@@ -87,13 +82,10 @@
     <script src="../../libs/angular-aria.min.js"></script>
     <script src="../../libs/angular-touch.min.js"></script>
     <script src="../../libs/angular-material.min.js"></script>
-    
-
-    <script src="directives/legendary-map-canvas.js"></script>
-
     <script src="app/app.js"></script>
-    <script src="services/legendary-map-layer-service.js"></script>
-    <script src="services/legendary-map-state-service.js"></script>
-    <script src="app/legendary-map-controller.js"></script>
+    <script src="directives/legendary-map-canvas.js"></script>
+    <script src="directives/legendary-map-dropdown.js"></script>
+    <script src="directives/legendary-map-popup.js"></script>
+
 </body>
 </html>
