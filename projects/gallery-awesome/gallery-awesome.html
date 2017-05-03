@@ -1,7 +1,14 @@
 ﻿<div class="gallery-awesome-container">
-    <img ng-repeat="img in vm.Images"
-         src="{{img.thumb}}"
-         ng-click="vm.ShowFull($event,img)"
-         style="width:18vw;height:18vw;"
-         class="gallery-awesome-thumb" />
-</div>
+    <div ng-repeat="img in vm.Images" class="gallery-awesome-thumb-container"   ng-click="vm.ShowFull($event,img)"
+          ng-class="{'empty':img.thumb==undefined||img.thumb==null||img.thumb==''}" >
+        <img ng-if="img.thumb!=undefined&&img.thumb!=null&&img.thumb!=''"
+             src="{{img.thumb}}"           
+          
+             class="gallery-awesome-thumb"
+             ng-class="img.style"
+           />
+        <span class="gallery-awesome-caption">
+            {{img.caption}}
+        </span>
+    </div>
+    </div>
