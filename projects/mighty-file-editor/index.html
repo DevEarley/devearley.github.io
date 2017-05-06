@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="./site.css" type="text/css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
+  <title></title>
+	<meta charset="utf-8" />
+</head>
+<body ng-app="MightyFileEditApp" style="padding-bottom:200px;">
+        <div class="container-fluid" ng-controller="MFEController as vm">
+            <div class="row">
+                <div id="Content" class="col-md-10 offset-md-1">
+                    <div class="row" style="padding-top:40px;">
+                        <div class="col text-center">
+                            <h1>Mighty-File-Edit</h1>
+                            <p>
+                                Using FileSystemAPI and AngularJS to create a MIGHTY File Editor.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top:40px;">
+                        <div class="col text-center">
+                            <div class="box">
+                                <h1>Data</h1>
+                                <textarea ng-model="vm.Data"></textarea>
+                            </div>
+
+
+                            <mighty-file-edit data="vm.Data"
+                                              button-template="vm.ButtonTemplate"
+                                              content="vm.Data"
+                                              message="vm.Message"></mighty-file-edit>
+                            <div class="box">
+                                <h1>Message</h1> {{vm.Message}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="container-fluid" ng-controller="MAFEController as vm">
+            <div class="row">
+                <div id="Content" class="col-md-10 offset-md-1">
+                    <div class="row" style="padding-top:40px;">
+                        <div class="col text-center">
+                            <h1>Mighty-<span style="color:#CC2222;">Awesome</span>-File-Edit</h1>
+                            <p>
+                                Using FileSystemAPI and AngularJS to create a MIGHTY File Editor.
+                            </p>
+                            <p style="color:#CC2222;">
+                                <i class="fa fa-flag"></i>
+                                NOW WITH FONT AWESOME
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top:40px;">
+                        <div class="col text-center">
+                            <div class="box">
+                                <h1>Data</h1>
+                                <textarea ng-model="vm.Data"></textarea>
+                            </div>
+
+
+                            <mighty-awesome-file-edit data="vm.Data"
+                                                      button-template="vm.ButtonTemplate"
+                                                      content="vm.Data"
+                                                      message="vm.Message">
+                                </mighty-file-edit>
+                                <div class="box">
+                                    <h1>Message</h1> {{vm.Message}}
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

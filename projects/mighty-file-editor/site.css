@@ -1,0 +1,38 @@
+﻿mighty-file-edit,mighty-awesome-file-edit,.box{
+	display:block;
+	padding:10px; border-radius:10px;margin:40px;background-color:#f5f5f5;
+}
+textarea
+{
+	width:100%;
+	min-height:150px;
+}
+.mighty-file-edit-button{
+	display:inline-block;
+	background-color:#5b5b5b;
+	color:#FFF;
+	margin-right:10px;
+	margin-top:5px;
+	margin-bottom:5px;
+	cursor:pointer;
+	padding:10px;
+	padding-top:6px;
+	border-radius:4px;
+}
+
+ .mighty-file-edit-button:hover{
+	background-color:#777;
+}
+ .mighty-file-edit-button:last-child
+{
+	margin-right:0;
+}
+.fa{
+	padding-right:10px
+}
+
+.custom-class
+{
+	background-color:#222;
+	font-weight:bold;
+}
