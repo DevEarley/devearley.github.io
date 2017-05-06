@@ -7,11 +7,11 @@
   <title></title>
 	<meta charset="utf-8" />
 </head>
-<body ng-app="MightyFileEditApp" style="padding-bottom:200px;">
-        <div class="container-fluid" ng-controller="MFEController as vm">
+<body ng-app="MightyFileEditApp" >
+        <div class="container-fluid">
             <div class="row">
-                <div id="Content" class="col-md-10 offset-md-1">
-                    <div class="row" style="padding-top:40px;">
+                <div id="Content"  ng-controller="MFEController as vm" class="col-xs-12 col-sm-10 col-md-6  col-lg-5  offset-xs-0  offset-sm-1 offset-md-0 offset-lg-1">
+                    <div class="row"  style="padding-top:40px;">
                         <div class="col text-center">
                             <h1>Mighty-File-Edit</h1>
                             <p>
@@ -19,31 +19,25 @@
                             </p>
                         </div>
                     </div>
-                    <div class="row" style="padding-top:40px;">
+                    <div class="row">
                         <div class="col text-center">
                             <div class="box">
                                 <h1>Data</h1>
                                 <textarea ng-model="vm.Data"></textarea>
+                                <br />{{vm.Message}}
                             </div>
 
 
                             <mighty-file-edit data="vm.Data"
                                               button-template="vm.ButtonTemplate"
-                                              content="vm.Data"
                                               message="vm.Message"></mighty-file-edit>
-                            <div class="box">
-                                <h1>Message</h1> {{vm.Message}}
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <hr>
-        <div class="container-fluid" ng-controller="MAFEController as vm">
-            <div class="row">
-                <div id="Content" class="col-md-10 offset-md-1">
-                    <div class="row" style="padding-top:40px;">
+      
+                <div id="Content" class="col-xs-12 col-sm-10 col-md-6  col-lg-5 offset-xs-0  offset-sm-1 offset-md-0 offset-lg-0"  ng-controller="MAFEController as vm">
+                    <div class="row"  style="padding-top:40px;">
                         <div class="col text-center">
                             <h1>Mighty-<span style="color:#CC2222;">Awesome</span>-File-Edit</h1>
                             <p>
@@ -55,22 +49,21 @@
                             </p>
                         </div>
                     </div>
-                    <div class="row" style="padding-top:40px;">
+                    <div class="row" >
                         <div class="col text-center">
                             <div class="box">
                                 <h1>Data</h1>
                                 <textarea ng-model="vm.Data"></textarea>
+                                <br />
+                                {{vm.Message}}
                             </div>
 
 
                             <mighty-awesome-file-edit data="vm.Data"
                                                       button-template="vm.ButtonTemplate"
-                                                      content="vm.Data"
                                                       message="vm.Message">
-                                </mighty-file-edit>
-                                <div class="box">
-                                    <h1>Message</h1> {{vm.Message}}
-                                </div>
+                            </mighty-awesome-file-edit>
+                            
                         </div>
                     </div>
                 </div>
