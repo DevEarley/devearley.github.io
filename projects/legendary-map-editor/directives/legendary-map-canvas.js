@@ -22,8 +22,8 @@ angular.module('LegendaryMap',[]).directive('legendaryMapCanvas', function ($tim
             showFog: '=',
         },
         controllerAs: 'vm',
-        link: function ($scope, element) {
-            $scope.ctx = element[0].getContext('2d');
+        link: function ($scope, $element) {
+            $scope.ctx = $element[0].getContext('2d');
             $scope.cw = 2048;
             $scope.ch = 2048;
             $scope.mx = 0;
@@ -79,19 +79,19 @@ angular.module('LegendaryMap',[]).directive('legendaryMapCanvas', function ($tim
                 $scope.ctx.globalAlpha = 1;
             }
 
-            $scope.drawLayer = function (layer) {
+            $scope.drawLayer = function (_layer) {
                 if ($scope.perspectiveView) {
-                    var currentOrder = $scope.layers[$scope.currentLayer].order;
-                    var offsetIndex = layer.order - currentOrder;
-                    var direction = currentOrder >= layer.order;
-                    var mouseXoffset = $scope.mouseX - ($scope.sx);
-                    var mouseYoffset = $scope.mouseY - ($scope.sy);
-                    var offX = (mouseXoffset * offsetIndex / 2) * (direction ? 1 : -1);
-                    var offY = (mouseYoffset * offsetIndex / 2) * (direction ? 1 : -1);
-                    $scope.drawTilesOff(layer, offX, offY);
+                    var _currentOrder = $scope.layers[$scope.currentLayer].order;
+                    var _offsetIndex = _layer.order - _currentOrder;
+                    var _direction = _currentOrder >= _layer.order;
+                    var _mouseXoffset = $scope.mouseX - ($scope.sx);
+                    var _mouseYoffset = $scope.mouseY - ($scope.sy);
+                    var _offX = (_mouseXoffset * _offsetIndex / 2) * (_direction ? 1 : -1);
+                    var _offY = (_mouseYoffset * _offsetIndex / 2) * (_direction ? 1 : -1);
+                    $scope.drawTilesOff(_layer, _offX, _offY);
                 }
                 else {
-                    $scope.drawTiles(layer);
+                    $scope.drawTiles(_layer);
                 }
             }
 
@@ -100,32 +100,32 @@ angular.module('LegendaryMap',[]).directive('legendaryMapCanvas', function ($tim
                 $scope.ctx.fillRect(0, 0, $scope.cw, $scope.ch);
             }
 
-            $scope.drawTiles = function (layer) {
-                layer.tiles.forEach(function (tile) {
-                    $scope.drawSprite($scope.sprites, tile.xPosition, tile.yPosition, tile.xIndex, tile.yIndex);
+            $scope.drawTiles = function (_layer) {
+                _layer.tiles.forEach(function (_tile) {
+                    $scope.drawSprite($scope.sprites, _tile.xPosition, _tile.yPosition, _tile.xIndex, _tile.yIndex);
                 });
             }
 
-            $scope.drawTilesOff = function (layer, xoff, yoff) {
-                layer.tiles.forEach(function (tile) {
-                    $scope.drawSpriteOff($scope.sprites, tile.xPosition, tile.yPosition, tile.xIndex, tile.yIndex, xoff, yoff);
+            $scope.drawTilesOff = function (_layer, _xoff, _yoff) {
+                _layer.tiles.forEach(function (_tile) {
+                    $scope.drawSpriteOff($scope.sprites, _tile.xPosition, _tile.yPosition, _tile.xIndex, _tile.yIndex, _xoff, _yoff);
                 });
             }
 
             $scope.drawPalette = function () {
-                $scope.palette.forEach(function (tile) {
-                    $scope.drawSprite($scope.sprites, tile.xPosition, tile.yPosition, tile.xIndex, tile.yIndex);
+                $scope.palette.forEach(function (_tile) {
+                    $scope.drawSprite($scope.sprites, _tile.xPosition, _tile.yPosition, _tile.xIndex, _tile.yIndex);
                 });
             }
 
-            $scope.drawSprite = function (spriteSheet, x, y, xindex, yindex) {
-                $scope.ctx.drawImage(spriteSheet, xindex * 16, yindex * 16, 16, 16, x * 16, y * 16, 16, 16);
+            $scope.drawSprite = function (_spriteSheet, _x, _y, _xindex, _yindex) {
+                $scope.ctx.drawImage(_spriteSheet, _xindex * 16, _yindex * 16, 16, 16, _x * 16, _y * 16, 16, 16);
             }
 
-            $scope.drawSpriteOff = function (spriteSheet, xpos, ypos, xindex, yindex, xoff, yoff) {
-                var x = Math.floor(xpos * 16 + xoff);
-                var y = Math.floor(ypos * 16 + yoff);
-                $scope.ctx.drawImage(spriteSheet, xindex * 16, yindex * 16, 16, 16, x, y, 16, 16);
+            $scope.drawSpriteOff = function (_spriteSheet, _xpos, _ypos, _xindex, _yindex, _xoff, _yoff) {
+                var _x = Math.floor(_xpos * 16 + _xoff);
+                var _y = Math.floor(_ypos * 16 + _yoff);
+                $scope.ctx.drawImage(_spriteSheet, _xindex * 16, _yindex * 16, 16, 16, _x, _y, 16, 16);
             }
 
             setInterval(function () {
