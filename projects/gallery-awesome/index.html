@@ -21,12 +21,7 @@
                 <label>Column Size</label>
                 <md-slider flex md-invert  ng-model="vm.Columns" step="1" min="1" max="9" aria-label="columns">
                 </md-slider>
-            </div>                
-            <div>
-                <label>Radius</label>
-                <md-slider flex ng-model="vm.Radius" step="0.5" min="1" max="10" aria-label="radius">
-                </md-slider>
-            </div>
+            </div>  
         </div>
         <gallery-awesome images="vm.Images" columns="vm.Columns" radius="vm.Radius"></gallery-awesome>
     </div>

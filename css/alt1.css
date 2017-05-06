@@ -221,6 +221,7 @@ body {
     }
 
 .nav-grid {
+    min-height:250px;
     background-color: rgba(255,255,255,0.1);
     position: relative;
     display: block;
@@ -240,6 +241,11 @@ body {
         margin: 0;
         padding: 10px;
         background-color: rgba(255,255,255,0.0);
+    }
+        .nav-grid .nav-grid-item.nav-grid-item-auto {
+      
+        width: auto!important;
+        
     }
 
         .nav-grid .nav-grid-item:hover {
@@ -588,7 +594,11 @@ body {
             font-size: 12px;
             margin-bottom:18px;
         }
-
+        .nav-grid .nav-grid-item.nav-grid-item-auto {
+      
+        /*width: 92%!important;*/
+        
+    }
             .nav-grid .nav-grid-item .fa {
                 margin: 0;
                 font-size: 30px;
