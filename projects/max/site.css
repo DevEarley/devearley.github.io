@@ -212,16 +212,40 @@ md-dialog {
     position: absolute;
     right: 20px;
     top: 5px;
-    border-radius: 5px;
+    opacity: 0.5;
+    text-shadow: 0px 5px 5px rgba(0,0,0,0.5);
     font-size: 60px;
-    color: #DDD;
+    color: #CCC;
     cursor: pointer;
-    padding-left: 20px;
-    padding-right: 20px;
-    background-color: rgba(0,0,0,0.4);
 }
 
-    .close-dialog:hover, .close-dialog:active {
+.next-chevron {
+    position: absolute;
+    right: 20px;
+    top: 45%;
+    opacity: 0.5;
+    text-shadow: 0px 5px 5px rgba(0,0,0,0.5);
+    font-size: 60px;
+    color: #CCC;
+    cursor: pointer;
+}
+
+
+.prev-chevron {
+    position: absolute;
+    left: 20px;
+    top: 45%;
+    opacity:0.5;
+    text-shadow: 0px 5px 5px rgba(0,0,0,0.5);
+    font-size: 60px;
+    color: #CCC;
+    cursor: pointer;
+}
+
+
+
+    .close-dialog:hover, .close-dialog:active, .next-chevron:hover, .next-chevron:active, .prev-chevron:hover, .prev-chevron:active {
+        opacity: 0.9;
         color: #FFF;
-        background-color: rgba(0,0,0,0.9);
     }
+
