@@ -17,7 +17,7 @@ html {
 }
 
 #Resume {
-    background-image: url(./images/_resume_max.png);
+    background-image: url(./images/resume_max.png);
     background-repeat: no-repeat;
     background-size: contain;
     height:855px; 
