@@ -1,5 +1,4 @@
 ﻿<!DOCTYPE html>
-
 <html>
 <head>
     <title>GalleryAwesomeApp</title>
@@ -9,11 +8,9 @@
     <link href="site.css" type="text/css" rel="stylesheet">
 </head>
 <body ng-app="GalleryAwesomeApp">
-
     <div id="Header">
         <h1>Gallery-Awesome</h1>
         <h2>Image Gallery Built on the AngularJS Material Framework.</h2>
-      
     </div>
     <div id="Content" ng-controller="GalleryAwesomeController as vm">
         <div id="Options">
@@ -21,7 +18,7 @@
                 <label>Column Size</label>
                 <md-slider flex md-invert  ng-model="vm.Columns" step="1" min="1" max="9" aria-label="columns">
                 </md-slider>
-            </div>  
+            </div>
         </div>
         <gallery-awesome images="vm.Images" columns="vm.Columns" radius="vm.Radius"></gallery-awesome>
     </div>
