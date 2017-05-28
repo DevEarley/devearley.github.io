@@ -1,0 +1,85 @@
+@import '../styles/colours';
+
+body {
+    padding: 0;
+    margin: 0;
+    color: #fff;
+    background-color: $ash;
+    border: 1px solid $ash;
+    position: absolute;
+    top: 32px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-flow: column;
+}
+
+window,
+window .content,
+window .content * {
+    display: flex;
+    flex-flow: column;
+    flex: 1;
+}
+
+#title-bar {
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    background-color:$ash;
+    -webkit-app-region: drag;
+    height: 32px;
+    padding: 0;
+    margin: 0;
+}
+#title-bar button
+{
+        outline: none!important;
+}
+#title-bar  #close-btn:hover
+{background-color: $red;
+}
+#title {
+    position: fixed;
+    top: 0;
+    left: 12px;
+    line-height: 32px;
+    font-size: 14px;
+}
+
+#title-bar-btns {
+    -webkit-app-region: no-drag;
+    position: fixed;
+    top: 1px;
+    right: 0;
+}
+
+#title-bar-btns button {
+    height: 32px;
+    width: 32px;
+    background-color: transparent;
+    border: none;
+    color: #F1F1F1;
+    font-size: 16px;
+}
+
+#title-bar-btns button:hover {
+    background-color: $steel-light;
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+@media print {
+    body {
+        border: none;
+    }
+    #title-bar {
+        display: none;
+    }
+}

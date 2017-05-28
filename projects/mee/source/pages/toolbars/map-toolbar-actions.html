@@ -1,0 +1,14 @@
+<template>
+    <div title="Actions Preview"></div>
+    <div>
+        <input title="Rename Action" placeholder="Name" style="float:right;" />
+    </div>
+    <div class="button" style="width:100px;" click.delegate="clickRenameAction()">Rename </div>
+    <hr>
+    <div class="button" click.delegate="clickAddActionToSelectedEvent()">
+        Add Action To Selected Event
+    </div>
+    <div class="button" click.delegate="clickRemoveSelectedAction()">
+        Remove Selected Action
+    </div>
+</template>

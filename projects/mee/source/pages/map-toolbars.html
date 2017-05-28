@@ -1,0 +1,311 @@
+<template>
+    <div class="toolbars">
+        <div class="toolbar" click.delegate="clickToolbar('map')">Map</div>
+        <div class="toolbar" click.delegate="clickToolbar('tiles')">Tiles</div>
+        <div class="toolbar" click.delegate="clickToolbar('layers')">Layers</div>
+        <div class="toolbar" click.delegate="clickToolbar('events')">Events</div>
+        <div class="toolbar" click.delegate="clickToolbar('triggers')">Triggers</div>
+        <div class="toolbar" click.delegate="clickToolbar('conditions')">Conditions</div>
+        <div class="toolbar" click.delegate="clickToolbar('actions')">Actions</div>
+        <div class="toolbar" click.delegate="clickToolbar('params')">Params</div>
+        <div class="toolbar" click.delegate="clickToolbar('game-state')">Game-State</div>
+        <div class="toolbar" click.delegate="clickToolbar('player-state')">Player-State</div>
+        <div class="toolbar" click.delegate="clickToolbar('options')">Options</div>
+        <div style="display:inline-block;width:100%;"></div>
+    </div>
+    
+    <div class="dropdown" if.bind="currentToolbar == 'map'">         
+        <compose view-model="pages/toolbars/map-toolbar-file"></compose>         
+    </div>
+
+    <div class="dropdown" if.bind="currentToolbar == 'tiles'"> 
+        <compose view-model="pages/toolbars/map-toolbar-tiles"></compose>           
+    </div>
+
+    <div class="dropdown" if.bind="currentToolbar == 'layers'">  
+        <compose view-model="pages/toolbars/map-toolbar-layers"></compose>          
+    </div>
+
+     <div class="dropdown" if.bind="currentToolbar == 'events'">        
+         <compose view-model="pages/toolbars/map-toolbar-events"></compose>    
+    </div>
+
+     <div class="dropdown" if.bind="currentToolbar == 'triggers'">        
+         <compose view-model="pages/toolbars/map-toolbar-triggers"></compose>    
+    </div>
+
+     <div class="dropdown" if.bind="currentToolbar == 'conditions'">        
+         <compose view-model="pages/toolbars/map-toolbar-conditions"></compose>    
+    </div>
+
+     <div class="dropdown" if.bind="currentToolbar == 'actions'">        
+         <compose view-model="pages/toolbars/map-toolbar-actions"></compose>    
+    </div>
+
+     <div class="dropdown" if.bind="currentToolbar == 'params'">        
+         <compose view-model="pages/toolbars/map-toolbar-params"></compose>    
+    </div>
+
+     <div class="dropdown" if.bind="currentToolbar == 'game-state'">        
+         <compose view-model="pages/toolbars/map-toolbar-game-state"></compose>    
+    </div>
+
+     <div class="dropdown" if.bind="currentToolbar == 'player-state'">        
+         <compose view-model="pages/toolbars/map-toolbar-player-state"></compose>    
+    </div>
+
+     <div class="dropdown" if.bind="currentToolbar == 'options'">        
+         <compose view-model="pages/toolbars/map-toolbar-options"></compose>    
+    </div>
+
+    <!--   <div id="ToolBars">
+        <div id="ToolBarsA">
+            <div id="TilesToolBarContainter">
+                <div class="toolbar-button" id="TilesToolBarButton" click.delegate="clickTilesToolBarButton()"> + </div>
+                <div class="toolbar" id="TilesToolBar">
+                    <h1 click.delegate="clickTilesToolBarButton()">Tiles</h1>
+                    <div class="button" click.delegate="clickEyedropperTool()">
+                        <div id="PaintBrushPreview" style="width:16px;height:16px;"></div>
+                        <input class="number-input" id="PaintBrushInputX" type="number" placeholder="X"
+                        />
+                        <input class="number-input" id="PaintBrushInputY" type="number" placeholder="Y"
+                        />
+                    </div>
+                    <div style="margin-bottom:60px;margin-top:20px;margin-left:10px;">
+                        <div><input id="RenameTileInput" placeholder="Name" style="float:left;"
+                            /></div>
+                        <div class="button" style="width:100px; float:right;" click.delegate="clickRenameTile()">Rename</div>
+                    </div>
+                    <hr />
+                    <div class="button" id="PaletteButton" click.delegate="clickPaletteButton()">
+                        Toggle Palette (P)
+                    </div>
+                    <div class="button" id="BrushToolButton" click.delegate="clickPaintTool()">
+                        Tile Brush (B)
+                    </div>
+                    <div class="button" id="BrushToolButton" click.delegate="clickPaintTool()">
+                        Subtile Brush (B)
+                    </div>
+                    <div class="button" id="EraserToolButton" click.delegate="clickEraserTool()">
+                        Tile Eraser (E)
+                    </div>
+                    <div class="button" id="EyedropperToolButton" click.delegate="clickEyedropperTool()">
+                        Eyedropper (I)
+                    </div>
+                    <div class="button" id="NineSliceToolButton" click.delegate="clickNineSliceTool()">
+                        Nine Slice (N)
+                    </div>
+                    <div class="button" id="WallSliceToolButton" click.delegate="clickWallSliceTool()">
+                        Wall Slice (W)
+                    </div>
+                </div>
+            </div>
+            <div id="EventsToolBarContainter">
+                <div class="toolbar-button" id="EventsToolBarButton" click.delegate="clickEventsToolBarButton()"> + </div>
+                <div class="toolbar" id="EventsToolBar">
+                    <h1 click.delegate="clickEventsToolBarButton()">Events</h1>
+                    <div id="EventsPreview"></div>
+
+                    <div>
+                        <input id="RenameEventInput" placeholder="Name"  />
+                    </div>
+                    <div class="button" style="width:100px;" click.delegate="clickRenameEvent()">Rename </div>
+                    <hr />
+                    <div class="button" click.delegate="clickAddEventToSelectedTrigger()">
+                        Add Event To Selected Trigger
+                    </div>
+                    <div class="button" click.delegate="clickRemoveSelectedEvent()">
+                        Remove Selected Event
+                    </div>
+                </div>
+            </div>
+            <div id="MapToolBarContainter">
+                <div class="toolbar-button" id="MapToolBarButton" click.delegate="clickMapToolBarButton()"> + </div>
+                <div class="toolbar" id="MapToolBar">
+                    <h1 click.delegate="clickMapToolBarButton()">Map</h1>
+                    <div style="padding-bottom:40px;">
+                        <input id="File" onchange="validateImportButton()" type="file" />
+                    </div>
+                    <div class="button" id="ImportMap" click.delegate="clickImportMapButton()">
+                        Import Map
+                    </div>
+                    <hr />
+                    <div style="padding-bottom:40px ;">
+                        <input placeholder="Map Name" onchange="validateExportButton()" id="MapName"
+                            type="text" />
+                    </div>
+                    <div class="button" id="ExportMap" click.delegate="clickExportMapButton()">
+                        Export Map
+                    </div>
+                    <hr style="margin-top:20px;margin-bottom:40px;border:1px solid #33aa33 ;" />
+                    <div class="button" click.delegate="loadSample()">
+                        Load Sample
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="ToolBarsB">
+            <div id="TriggersToolBarContainter">
+                <div class="toolbar-button" id="TriggersToolBarButton" click.delegate="clickTriggersToolBarButton()"> + </div>
+                <div class="toolbar" id="TriggersToolBar">
+                    <h1 click.delegate="clickTriggersToolBarButton()">Triggers</h1>
+                    <div id="TriggersPreview"></div>
+                    <div>
+                        <input id="RenameTriggerInput" placeholder="Name"  />
+                    </div>
+                    <div class="button" style="width:100px;" click.delegate="clickRenameTrigger()">Rename </div>
+                    <hr />
+                    <div class="button" id="TriggerToolButton" click.delegate="clickTriggerBrushTool()">
+                        Create Trigger Area (T)
+                    </div>
+                    <div class="button" click.delegate="clickRemoveSelectedTrigger()">
+                        Remove Selected Trigger
+                    </div>
+                    <div class="button" click.delegate="clickToggleTiggerViewMode()">
+                        Toggle Tigger View Mode
+                    </div>
+                </div>
+            </div>
+            <div id="ConditionsToolBarContainter">
+                <div class="toolbar-button" id="ConditionsToolBarButton" click.delegate="clickConditionsToolBarButton()"> + </div>
+                <div class="toolbar" id="ConditionsToolBar">
+                    <h1 click.delegate="clickConditionsToolBarButton()">Conditions</h1>
+                    <div id="ConditionsPreview"></div>
+                    <div>
+                        <div class="button" style="width:150px;" click.delegate="clickUpdateCondition()">Update Condition</div>
+                        <input id="ConditionNameInput" placeholder="Name"  />
+
+                    </div>
+                    <div style="height:130px">
+                        <input id="ConditionLHSInput" placeholder="LHS"  />
+                        <input id="ConditionOperationInput" placeholder="Operation" 
+                        />
+                        <input id="ConditionRHSInput" placeholder="RHS"  />
+                        <input id="ConditionTrueActionInput" placeholder="True Action" 
+                        />
+                        <input id="ConditionFalseActionInput" placeholder="False Action" 
+                        />
+                    </div>
+
+                    <hr />
+
+                    <div class="button" click.delegate="clickAddConditionToSelectedEvent()">
+                        Add Condition To Selected Event
+                    </div>
+                    <div class="button" click.delegate="clickRemoveSelectedCondition()">
+                        Remove Selected Condition
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="ToolBarsD">
+            <div id="LayersToolBarContainter">
+                <div class="toolbar-button-right" id="LayersToolBarButton" click.delegate="clickLayersToolBarButton()"> + </div>
+                <div class="toolbar-right" id="LayersToolBar">
+                    <h1 click.delegate="clickLayersToolBarButton()">Layers</h1>
+                    <div id="LayersPreview" class="preview"></div>
+                    <div>
+                        <input id="RenameLayerInput" placeholder="Name"  />
+                    </div>
+                    <div class="button" style="width:100px;" click.delegate="clickRenameLayer()">Rename </div>
+                    <div>
+                        <input id="ReorderLayerInput" placeholder="Order"  />
+                    </div>
+                    <div class="button" style="width:100px;" click.delegate="clickReorderLayer()">Reorder</div>
+                    <hr />
+                    <div class="button" click.delegate="clickAddLayer()">
+                        Add Layer
+                    </div>
+                    <div class="button" click.delegate="clickClearLayer()">
+                        Clear Current Layer
+                    </div>
+                    <div class="button" click.delegate="clickDeleteLayer()">
+                        Delete Current Layer
+                    </div>
+                    <div class="button" click.delegate="clickCopyLayer()">
+                        Copy From Current Layer
+                    </div>
+                    <div class="button" click.delegate="clickPasteLayer()">
+                        Paste Into Current Layer
+                    </div>
+                </div>
+            </div>
+            <div id="ParamsToolBarContainter">
+                <div class="toolbar-button-right" id="ParamsToolBarButton" click.delegate="clickParamsToolBarButton()"> + </div>
+                <div class="toolbar-right" id="ParamsToolBar">
+                    <h1 click.delegate="clickParamsToolBarButton()">Params</h1>
+                    <div id="ParamsPreview"></div>
+                    <div>
+                        <input id="RenameParamNameInput" placeholder="Name" 
+                        />
+                    </div>
+                    <div>
+                        <input id="RenameParamValueInput" placeholder="Value" 
+                        />
+                    </div>
+
+                    <div class="button" style="width:100px;" click.delegate="clickUpdateParam()">Update </div>
+                    <hr />
+                    <div class="button" click.delegate="clickAddParamToSelectedAction()">
+                        Add Param To Selected Action
+                    </div>
+                    <div class="button" click.delegate="clickAddParamToSelectedCondition()">
+                        Add Param To Selected Condition
+                    </div>
+
+                </div>
+            </div>
+            <div id="OptionsToolBarContainter">
+                <div class="toolbar-button-right" id="OptionsToolBarButton" click.delegate="clickOptionsToolBarButton()"> + </div>
+                <div class="toolbar-right" id="OptionsToolBar">
+                    <h1 click.delegate="clickOptionsToolBarButton()">Options</h1>
+                    <div class="button" click.delegate="clickTogglePerspective()">
+                        Toggle Perspective Mode (Z)
+                    </div>
+                    <div class="button" click.delegate="clickToggleXRay()">
+                        Toggle XRay Mode (X)
+                    </div>
+                    <div class="button" click.delegate="clickToggleFog()">
+                        Toggle Fog Mode (F)
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="ToolBarsC">
+            <div>
+                <div class="toolbar-button-right" click.delegate="clickOpenGameStateEditor()"> + </div>
+                <div class="toolbar-right">
+                    <h1 click.delegate="clickOpenGameStateEditor()">Game State</h1>
+                </div>
+            </div>
+            <div>
+                <div class="toolbar-button-right" click.delegate="clickOpenPlayerStateEditor()"> + </div>
+                <div class="toolbar-right">
+                    <h1 click.delegate="clickOpenPlayerStateEditor()">Player State</h1>
+                </div>
+            </div>
+            <div id="ActionsToolBarContainter">
+                <div class="toolbar-button-right" id="ActionsToolBarButton" click.delegate="clickActionsToolBarButton()"> + </div>
+                <div class="toolbar-right" id="ActionsToolBar">
+                    <h1 click.delegate="clickActionsToolBarButton()">Actions</h1>
+                    <div id="ActionsPreview"></div>
+                    <div>
+                        <input id="RenameActionInput" placeholder="Name"  />
+                    </div>
+                    <div class="button" style="width:100px;" click.delegate="clickRenameAction()">Rename </div>
+                    <hr />
+
+                    <div class="button" click.delegate="clickAddActionToSelectedEvent()">
+                        Add Action To Selected Event
+                    </div>
+                    <div class="button" click.delegate="clickRemoveSelectedAction()">
+                        Remove Selected Action
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+</template>

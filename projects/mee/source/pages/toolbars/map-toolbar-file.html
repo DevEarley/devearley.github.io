@@ -1,0 +1,19 @@
+<template>
+    <div style="padding-bottom:40px;">
+        <input title="File" onchange="validateImportButton()" type="file" />
+    </div>
+    <div class="button" title="Import Map" click.delegate="clickImportMapButton()">
+        Import Map
+    </div>
+    <hr />
+    <div style="padding-bottom:40px ;">
+        <input placeholder="Map Name" onchange="validateExportButton()" title="Map Name" type="text" />
+    </div>
+    <div class="button" title="Export Map" click.delegate="clickExportMapButton()">
+        Export Map
+    </div>
+    <hr style="margin-top:20px;margin-bottom:40px;border:1px solid #33aa33 ;" />
+    <div class="button" click.delegate="loadSample()">
+        Load Sample
+    </div>
+</template>

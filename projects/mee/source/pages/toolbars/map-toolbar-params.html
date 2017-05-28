@@ -1,0 +1,17 @@
+<template>
+    <div title="Params Preview"></div>
+    <div>
+        <input title="Rename Param Name" placeholder="Name" />
+    </div>
+    <div>
+        <input title="Change Param Value" placeholder="Value" />
+    </div>
+    <div class="button" style="width:100px;" click.delegate="clickUpdateParam()">Update </div>
+    <hr />
+    <div class="button" click.delegate="clickAddParamToSelectedAction()">
+        Add Param To Selected Action
+    </div>
+    <div class="button" click.delegate="clickAddParamToSelectedCondition()">
+        Add Param To Selected Condition
+    </div>
+</template>

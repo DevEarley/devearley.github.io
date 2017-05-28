@@ -1,0 +1,76 @@
+@import './colours';
+.toolbars
+{
+    position: fixed;
+    left:0;
+    right:0;
+    text-align: justify;
+    overflow: hidden;
+    background-color: #000;
+}
+.toolbar
+{
+    display: inline-block;
+    padding:4px;
+     padding-left:10px;
+     padding-right:10px;
+    margin-right:1px;
+    color:$white;
+    
+    background-color: $green;
+    cursor: pointer;
+}
+.toolbar:hover
+{
+    background-color: $green-bright;
+}
+.dropdown
+{
+    position: fixed;
+    top:auto;bottom:60px;
+    max-height:50vh;
+    left:0;
+    right:0;
+    overflow: scroll;
+    background-color: #000;
+}
+
+#console
+{
+    background-color:#000;
+    color:#FFF;
+    position: fixed;
+    bottom:0;
+    left: 0;
+    right:0;
+    top:auto;
+    height:32px;
+    font-family: 'source-code-pro',monospace,courier;
+}
+#console.active
+{
+    height: 300px;
+}
+#console input
+{
+    border: 0;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    background-color:#000;
+    color:#FFF;
+    position: absolute;
+    left: 0;right: 0;
+    width:100%;
+    bottom: 0;
+    font-family: 'source-code-pro',monospace,courier;
+}
+#canvas-container
+{
+    position:absolute;
+    top:30px;
+    left:0;
+    width:100vw;
+    height:100vh;
+    overflow:scroll;
+}

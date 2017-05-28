@@ -1,0 +1,36 @@
+<template>
+ <div class="button" click.delegate="clickEyedropperTool()">
+                        <div title="PaintBrushPreview" style="width:16px;height:16px;"></div>
+                        <input class="number-input" title="PaintBrushInputX" type="number" placeholder="X"
+                        />
+                        <input class="number-input" title="PaintBrushInputY" type="number" placeholder="Y"
+                        />
+                    </div>
+                    <div style="margin-bottom:60px;margin-top:20px;margin-left:10px;">
+                        <div><input title="RenameTileInput" placeholder="Name" style="float:left;"
+                            /></div>
+                        <div class="button" style="width:100px; float:right;" click.delegate="clickRenameTile()">Rename</div>
+                    </div>
+                    <hr />
+                    <div class="button" title="Palette Tool" click.delegate="clickPaletteButton()">
+                        Toggle Palette (P)
+                    </div>
+                    <div class="button" title="Brush Tool" click.delegate="clickPaintTool()">
+                        Tile Brush (B)
+                    </div>
+                    <div class="button" title="Brush Tool" click.delegate="clickPaintTool()">
+                        Subtile Brush (B)
+                    </div>
+                    <div class="button" title="Eraser Tool" click.delegate="clickEraserTool()">
+                        Tile Eraser (E)
+                    </div>
+                    <div class="button" title="Eyedropper Tool" click.delegate="clickEyedropperTool()">
+                        Eyedropper (I)
+                    </div>
+                    <div class="button" title="NineSlice Tool" click.delegate="clickNineSliceTool()">
+                        Nine Slice (N)
+                    </div>
+                    <div class="button" title="WallSlice Tool" click.delegate="clickWallSliceTool()">
+                        Wall Slice (W)
+                    </div>
+</template>

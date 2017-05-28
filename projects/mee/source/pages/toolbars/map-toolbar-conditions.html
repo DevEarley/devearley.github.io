@@ -1,0 +1,26 @@
+<template>
+    <div title="Conditions Preview"></div>
+    <div>
+        <div class="button" style="width:150px;" click.delegate="clickUpdateCondition()">Update Condition</div>
+        <input title="Condition Name" placeholder="Name"  />
+
+    </div>
+    <div style="height:130px">
+        <input title="Condition LHS" placeholder="LHS"  />
+        <input title="Condition Operation" placeholder="Operation" />
+        <input title="Condition RHS" placeholder="RHS"  />
+        <input title="Condition True Action" placeholder="True Action"         />
+        <input title="Condition False Action" placeholder="False Action"         />
+    </div>
+
+    <hr />
+
+    <div class="button" click.delegate="clickAddConditionToSelectedEvent()">
+        Add Condition To Selected Event
+    </div>
+    <div class="button" click.delegate="clickRemoveSelectedCondition()">
+        Remove Selected Condition
+    </div>
+    
+
+</template>

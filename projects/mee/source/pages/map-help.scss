@@ -1,0 +1,68 @@
+
+#map-help {
+    -webkit-transition: width 0.25s ease-out;
+    -moz-transition: width 0.25s ease-out;
+    -o-transition: width 0.25s ease-out;
+    transition: width 0.25s ease-out;
+    padding: 10px;
+    cursor: pointer;
+    position: fixed;
+    overflow: hidden;
+    left: 18px;
+    bottom: 18px;
+    font-size: 12px;
+    line-height: 20px;
+    width: 50px;
+    height: 54px;
+    background: rgba(0,0,0,0.9);
+    pointer-events: all;
+}
+
+    #map-help a {
+        width: 300px;
+        display: block;
+        color: #FFF;
+    }
+
+    #map-help:hover {
+        color: #FFF;
+        width: 300px;
+        height: auto;
+    }
+
+    #map-help ul {
+        padding-left: 10px;
+        list-style: none;
+        width: 300px;
+        font-size: 12px;
+    }
+    #map-help-content {
+       margin-top:100px;
+    }
+
+    
+    
+ #map-help #shoshin-logo{
+position: absolute;
+bottom: 15px;
+        left: 20px;
+    }
+    #map-help #shoshin-logo #shoshin{
+        position: absolute;
+        width: 200px;   
+        height: 200px;
+        top: 15px;
+        left: 20px;
+        color: #fff;
+        font-size: 20px;
+    }
+   
+    #map-help #shoshin-logo .fa {
+        position: absolute;
+        width: 200px;   
+        height: 200px;
+        top: 5px;
+        left:5px;
+        color: #33aa33;
+        font-size: 60px;
+    }

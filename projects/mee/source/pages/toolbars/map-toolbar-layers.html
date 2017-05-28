@@ -1,0 +1,27 @@
+<template>
+    <div title="Layers Preview" class="preview"></div>
+    <div>
+        <input title="Rename Layer" placeholder="Name" />
+    </div>
+    <div class="button" style="width:100px;" click.delegate="clickRenameLayer()">Rename </div>
+    <div>
+        <input title="Reorder Layer" placeholder="Order" />
+    </div>
+    <div class="button" style="width:100px;" click.delegate="clickReorderLayer()">Reorder</div>
+    <hr />
+    <div class="button" click.delegate="clickAddLayer()">
+        Add Layer
+    </div>
+    <div class="button" click.delegate="clickClearLayer()">
+        Clear Current Layer
+    </div>
+    <div class="button" click.delegate="clickDeleteLayer()">
+        Delete Current Layer
+    </div>
+    <div class="button" click.delegate="clickCopyLayer()">
+        Copy From Current Layer
+    </div>
+    <div class="button" click.delegate="clickPasteLayer()">
+        Paste Into Current Layer
+    </div>
+</template>

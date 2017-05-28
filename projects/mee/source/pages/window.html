@@ -1,0 +1,28 @@
+<template>
+    <require from="./window.css"></require>
+
+    <div id="title-bar">
+        <div id="title">${title}</div>
+        <div id="title-bar-btns">
+            <!--<button id="config-btn">
+				<i class="fa fa-cog"></i>
+			</button>
+            <button id="help-btn" click.delegate="showHelp()">			
+					<i class="fa fa-question"></i>			
+			</button>-->
+            <button id="min-btn" click.delegate="minimizeWindow()">				
+					<i class="fa  fa-window-minimize"></i>				
+			</button>
+            <button id="max-btn" click.delegate="maximizeWindow()">
+				<i class="fa  fa-window-maximize"></i>
+			</button>
+            <button id="close-btn" click.delegate="tryCloseWindow()">
+		    	<i class="fa  fa-times"></i>
+			</button>
+        </div>
+    </div>
+    <section id="content">
+        <slot>
+        </slot>
+    </section>
+</template>
