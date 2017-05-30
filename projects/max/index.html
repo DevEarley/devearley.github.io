@@ -7,41 +7,16 @@
     <meta charset="utf-8" />
 
     <link href="node_modules/angular-material/angular-material.min.css" type="text/css" rel="stylesheet">
+    <link href="node_modules/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+    <link href="directives/gallery-awesome/gallery-awesome.css" type="text/css" rel="stylesheet">
     <link href="site.css" type="text/css" rel="stylesheet">
 </head>
 
 <body ng-app="GalleryAwesomeApp">
-    <div id="Header">
-        <h1>Max Kagno</h1>
-    </div>
-    <div id="Profile"></div>
-    <div id="Resume">
-        <div>
-            <h2>Experience</h2>
-            <p><b>Graphic Designer: Web &amp; Print</b>
-                <br/> Jet Marketing LLC</p>
-        </div>
-        <div>
-            <h2>Skills</h2>
-            <p><b>Proficent in: Photoshop, Illustrator, Lightroom</b></p>
-            <p><b>Also knows: inDesign</b></p>
-            <p><b>Technical knowledge in various print forms</b>
-                <br/>Digital print, Silkscreen, Woodblock, Silver Gelitin</p>
-            <p><b>Digital and film photography experience</b></p>
-            <p><b>Fine artist with studio experience</b></p>
-        </div>
-        <div>
-            <h2>Education</h2>
-            <p><b>West Boca Raton Community High School</b>
-                <br/>Communication Technology Acadamy
-                <br/>Graduated 2013</p>
-            <p><b>Florida Atlantic Univeristy</b>
-                <br/>Currently enrolled (BFA in Printmaking)</p>
-        </div>
+    <ng-include src="'./pages/header.html'"></ng-include>
+    <ng-include src="'./pages/resume.html'"></ng-include>
 
-    </div>
     <div id="Content" ng-controller="GalleryAwesomeController as vm">
-
         <gallery-awesome images="vm.Images" columns="vm.Columns" radius="vm.Radius"></gallery-awesome>
     </div>
 
@@ -50,6 +25,9 @@
     <script src="node_modules/angular-aria/angular-aria.min.js"></script>
     <script src="node_modules/angular-touch/angular-touch.min.js"></script>
     <script src="node_modules/angular-material/angular-material.min.js"></script>
+
+    <script src="directives/gallery-awesome/gallery-awesome.js"></script>
+
     <script src="app.js"></script>
 </body>
 
