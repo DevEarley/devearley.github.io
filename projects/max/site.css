@@ -1,7 +1,12 @@
-﻿body {
+﻿@font-face{
+    font-style: 'regular';
+    font-family: 'lato';
+    src:url('./fonts/lato-regular.ttf')
+}
+body {
     background-color: #FFF;
-  
-
+  margin: 0;
+font-family: 'lato'
 }
 
 html {
@@ -10,27 +15,57 @@ html {
 }
 
 #Header {
-    padding: 10px;
-    background-color: #095A6D;
+  
+      background-image: url(./images/bg_long.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom;
+ position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height: 40vw;
+}
 
-    height: 200px;
+#Profile {
+    background-image: url(./images/profile.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+     height: 25vw;   width: 25vw;
+    
+    position:fixed;
+    top:5vw;
+    left:5vw;
+    
 }
 
 #Resume {
-    background-image: url(./images/resume_max.png);
-    background-repeat: no-repeat;
-    background-size: contain;
+   
     height:855px; 
     width:100%;
     position:fixed;
-    top:0;
-    left:0;
+    top: 50vw;
+    padding-top:4px;
+    left:200px;
     
 }
 
 #Content {
     position: absolute;
+    left:40vw;
+}
+
+h1{
+    color:#FFF;
+    margin:0;
+    position: absolute;
     left:500px;
+
+}
+h2{
+    display: inline-block;
+    width: auto;
+    border-bottom:4px solid #f3ac1d;
 }
 
 .gallery-awesome-container {
