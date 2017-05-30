@@ -1,5 +1,12 @@
 # First, ignore everything
-node_modules/**
+node_modules/angular/**
+node_modules/angular-animate/**
+node_modules/angular-aria/**
+node_modules/angular-material/**
+node_modules/angular-touch/**
+node_modules/font-awesome/less/**
+node_modules/font-awesome/sass/**
+node_modules/font-awesome/scss/**
 
 # And all the file types you're interested in.
 !node_modules/**/angular.min.js
@@ -8,4 +15,4 @@ node_modules/**
 !node_modules/**/angular-material.min.js
 !node_modules/**/angular-touch.min.js
 !node_modules/**/angular-material.min.css
-!node_modules/font-awesome/**
+
