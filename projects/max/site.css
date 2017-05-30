@@ -1,286 +1,224 @@
-﻿@font-face{
-    font-style: 'regular';
-    font-family: 'lato';
-    src:url('./fonts/lato-regular.ttf')
-}
+@font-face {
+  font-style: 'regular';
+  font-family: 'lato';
+  src: url("./fonts/lato-regular.ttf"); }
+
 body {
-    background-color: #FFF;
+  background-color: #FFF;
   margin: 0;
-font-family: 'lato'
-}
+  font-family: 'lato'; }
 
 html {
-    overflow-y: scroll !important;
-    background-color: #FFF;
-}
+  overflow-y: scroll !important;
+  background-color: #FFF; }
 
 #Header {
-  
-      background-image: url(./images/bg_long.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: bottom;
- position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    height: 40vw;
-}
+  background-image: url(./images/bg_long.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40vw; }
 
 #Profile {
-    background-image: url(./images/profile.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-     height: 25vw;   width: 25vw;
-    
-    position:fixed;
-    top:5vw;
-    left:5vw;
-    
-}
+  background-image: url(./images/profile.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 25vw;
+  width: 25vw;
+  position: fixed;
+  top: 5vw;
+  left: 5vw; }
 
 #Resume {
-   
-    height:855px; 
-    width:100%;
-    position:fixed;
-    top: 50vw;
-    padding-top:4px;
-    left:200px;
-    
-}
+  height: 855px;
+  width: 100%;
+  position: absolute;
+  top: 50vw;
+  padding-top: 4px;
+  left: 200px; }
 
 #Content {
-    position: absolute;
-    left:40vw;
-}
+  position: absolute;
+  left: 40vw; }
 
-h1{
-    color:#FFF;
-    margin:0;
-    position: absolute;
-    left:500px;
+h1 {
+  color: #FFF;
+  margin: 0;
+  position: absolute;
+  left: 500px; }
 
-}
-h2{
-    display: inline-block;
-    width: auto;
-    border-bottom:4px solid #f3ac1d;
-}
+h2 {
+  display: inline-block;
+  width: auto;
+  border-bottom: 4px solid #f3ac1d; }
 
 .gallery-awesome-container {
-    padding-left: 10vw;
-    /*width: 80vw;*/
-    text-align: center;
-}
+  padding-left: 10vw;
+  /*width: 80vw;*/
+  text-align: center; }
 
 .animate {
-    -webkit-transition: all 100ms ease-in-out;
-    -moz-transition: all 100ms ease-in-out;
-    -o-transition: all 100ms ease-in-out;
-    transition: all 100ms ease-in-out;
-}
+  -webkit-transition: all 100ms ease-in-out;
+  -moz-transition: all 100ms ease-in-out;
+  -o-transition: all 100ms ease-in-out;
+  transition: all 100ms ease-in-out; }
 
 .gallery-awesome-full {
-    width: 100%;
-    height: 90vh;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center center;
-}
-.gallery-awesome-thumb-container{
-     
-      display:inline-block;
-   
-    cursor: pointer;  max-height: 600px;
-    max-width: 600px;
-    min-height: 100px;
-    min-width: 100px; 
-    position:relative;
-  margin-right:20px;
-  overflow:hidden;
-}
+  width: 100%;
+  height: 90vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center; }
 
-.gallery-awesome-caption
-{
-    position:absolute;
-    bottom:10px;
-    left:10px;
-    right:10px;
-    text-align:center;
-    background-color:rgba(0,0,0,0.5);
-    color:#FFF;
-    
-}
-.empty .gallery-awesome-caption
-{
-    top:40%;
-     bottom:10px;
-    left:10px;
-    right:10px;
-    text-align:center;
-     background-color:rgba(0,0,0,0.0);
-   font-size:24px;
-     color:#000;
-    overflow:hidden;
-}
+.gallery-awesome-thumb-container {
+  display: inline-block;
+  cursor: pointer;
+  max-height: 600px;
+  max-width: 600px;
+  min-height: 100px;
+  min-width: 100px;
+  position: relative;
+  margin-right: 20px;
+  overflow: hidden; }
+
+.gallery-awesome-caption {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #FFF; }
+
+.empty .gallery-awesome-caption {
+  top: 40%;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  text-align: center;
+  background-color: transparent;
+  font-size: 24px;
+  color: #000;
+  overflow: hidden; }
 
 .gallery-awesome-thumb {
+  display: inline-block;
+  max-height: 600px;
+  max-width: 600px;
+  min-height: 100px;
+  min-width: 100px;
+  transition: clip-path 100ms linear;
+  -webkit-transition: -webkit-clip-path 100ms linear;
+  opacity: 0.9;
+  z-index: 100; }
 
-      display:inline-block;
-         max-height: 600px;
-    max-width: 600px;
-    min-height: 100px;
-    min-width: 100px; 
-    transition: clip-path 100ms linear;
-    -webkit-transition: -webkit-clip-path 100ms linear;opacity: 0.9;
-       z-index:100;
-   
-}
+.gallery-awesome-thumb:hover, .gallery-awesome-thumb:active {
+  opacity: 1;
+  z-index: 100; }
 
-    
-    .gallery-awesome-thumb:hover, .gallery-awesome-thumb:active {
-       opacity:1;
-       z-index:100;
-    }
+.gallery-awesome-thumb:active {
+  opacity: 1;
+  z-index: 100; }
 
-    .gallery-awesome-thumb:active {
-        opacity:1;
-       z-index:100;
-    }
+.gallery-awesome-thumb.circle {
+  clip-path: circle(5vw at 50% 50%);
+  -webkit-clip-path: circle(5vw at 50% 50%); }
 
+.gallery-awesome-thumb.circle:hover, .gallery-awesome-thumb.circle:active {
+  clip-path: circle(100% at 50% 50%) !important;
+  -webkit-clip-path: circle(100% at 50% 50%) !important; }
 
+.gallery-awesome-thumb.chev {
+  -webkit-clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+  clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%); }
 
-    .gallery-awesome-thumb.circle {   
-    clip-path: circle(5vw at 50% 50%);
-    -webkit-clip-path: circle(5vw at 50% 50%);   
-   
-}
-    
-    .gallery-awesome-thumb.circle:hover, .gallery-awesome-thumb.circle:active {     
-        clip-path: circle(100% at 50% 50%) !important;
-        -webkit-clip-path: circle(100% at 50% 50%) !important;
-    }
-    
-    .gallery-awesome-thumb.chev {   
-       -webkit-clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
-clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
-   
-}
-    
-    .gallery-awesome-thumb.chev:hover, .gallery-awesome-thumb.chev:active {     
-           -webkit-clip-path: polygon(100% 0%, 200% 100%, 100% 200%, 0% 200%, 0% 0%, 0% 0%);
-clip-path:polygon(100% 0%, 200% 100%, 100% 200%, 0% 200%, 0% 0%, 0% 0%);
-    }
+.gallery-awesome-thumb.chev:hover, .gallery-awesome-thumb.chev:active {
+  -webkit-clip-path: polygon(100% 0%, 200% 100%, 100% 200%, 0% 200%, 0% 0%, 0% 0%);
+  clip-path: polygon(100% 0%, 200% 100%, 100% 200%, 0% 200%, 0% 0%, 0% 0%); }
 
-        .gallery-awesome-thumb.hex {   
-      -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-   
-}
-    
-    .gallery-awesome-thumb.hex:hover, .gallery-awesome-thumb.hex:active {     
--webkit-clip-path: polygon(50% 0%, 100% 0, 100% 100%, 50% 100%, 0 100%, 0 0);
-clip-path: polygon(50% 0%, 100% 0, 100% 100%, 50% 100%, 0 100%, 0 0);
-    }
-         .gallery-awesome-thumb.cross {   
-      -webkit-clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
-clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+.gallery-awesome-thumb.hex {
+  -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); }
 
-   
-}
-    
-    .gallery-awesome-thumb.cross:hover, .gallery-awesome-thumb.cross:active {     
-     -webkit-clip-path: polygon(20% 0%, 0 0, 0 50%, 0 100%, 20% 100%, 49% 100%, 80% 100%, 100% 100%, 100% 48%, 100% 0, 80% 0%, 50% 0);
-clip-path: polygon(20% 0%, 0 0, 0 50%, 0 100%, 20% 100%, 49% 100%, 80% 100%, 100% 100%, 100% 48%, 100% 0, 80% 0%, 50% 0);
-    }
-   
-           .gallery-awesome-thumb.up {   
-          -webkit-clip-path: polygon(51% 0, 51% 0, 100% 100%, 0% 100%);
-clip-path: polygon(51% 0, 51% 0, 100% 100%, 0% 100%);
-   
-}
-    
-    .gallery-awesome-thumb.up:hover, .gallery-awesome-thumb.up:active {     
-     -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+.gallery-awesome-thumb.hex:hover, .gallery-awesome-thumb.hex:active {
+  -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 100%, 50% 100%, 0 100%, 0 0);
+  clip-path: polygon(50% 0%, 100% 0, 100% 100%, 50% 100%, 0 100%, 0 0); }
 
+.gallery-awesome-thumb.cross {
+  -webkit-clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+  clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%); }
 
-    }
+.gallery-awesome-thumb.cross:hover, .gallery-awesome-thumb.cross:active {
+  -webkit-clip-path: polygon(20% 0%, 0 0, 0 50%, 0 100%, 20% 100%, 49% 100%, 80% 100%, 100% 100%, 100% 48%, 100% 0, 80% 0%, 50% 0);
+  clip-path: polygon(20% 0%, 0 0, 0 50%, 0 100%, 20% 100%, 49% 100%, 80% 100%, 100% 100%, 100% 48%, 100% 0, 80% 0%, 50% 0); }
 
-        .gallery-awesome-thumb.msg {   
-           -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
-clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
-   
-}
-    
-    .gallery-awesome-thumb.msg:hover, .gallery-awesome-thumb.msg:active {     
-   -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 100% 100%, 75% 100%, 0 100%, 0% 75%);
-clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 100% 100%, 75% 100%, 0 100%, 0% 75%);
+.gallery-awesome-thumb.up {
+  -webkit-clip-path: polygon(51% 0, 51% 0, 100% 100%, 0% 100%);
+  clip-path: polygon(51% 0, 51% 0, 100% 100%, 0% 100%); }
 
-    }
- 
+.gallery-awesome-thumb.up:hover, .gallery-awesome-thumb.up:active {
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); }
 
+.gallery-awesome-thumb.msg {
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%); }
 
-
+.gallery-awesome-thumb.msg:hover, .gallery-awesome-thumb.msg:active {
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 100% 100%, 75% 100%, 0 100%, 0% 75%);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 100% 100%, 75% 100%, 0 100%, 0% 75%); }
 
 md-dialog {
-    background-color: #000;
-    min-width: 60vw;
-    max-height: 100vh;
-}
+  background-color: #000;
+  min-width: 60vw;
+  max-height: 100vh; }
 
 #Options {
-    background-color: #FFF;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 5px;
-    width: 15vw;
-    min-width: 140px;
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: 1;
-}
+  background-color: #FFF;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 5px;
+  width: 15vw;
+  min-width: 140px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1; }
 
 .close-dialog {
-    position: absolute;
-    right: 20px;
-    top: 5px;
-    opacity: 0.5;
-    text-shadow: 0px 5px 5px rgba(0,0,0,0.5);
-    font-size: 60px;
-    color: #CCC;
-    cursor: pointer;
-}
+  position: absolute;
+  right: 20px;
+  top: 5px;
+  opacity: 0.5;
+  text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+  font-size: 60px;
+  color: #CCC;
+  cursor: pointer; }
 
 .next-chevron {
-    position: absolute;
-    right: 20px;
-    top: 45%;
-    opacity: 0.5;
-    text-shadow: 0px 5px 5px rgba(0,0,0,0.5);
-    font-size: 60px;
-    color: #CCC;
-    cursor: pointer;
-}
-
+  position: absolute;
+  right: 20px;
+  top: 45%;
+  opacity: 0.5;
+  text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+  font-size: 60px;
+  color: #CCC;
+  cursor: pointer; }
 
 .prev-chevron {
-    position: absolute;
-    left: 20px;
-    top: 45%;
-    opacity:0.5;
-    text-shadow: 0px 5px 5px rgba(0,0,0,0.5);
-    font-size: 60px;
-    color: #CCC;
-    cursor: pointer;
-}
+  position: absolute;
+  left: 20px;
+  top: 45%;
+  opacity: 0.5;
+  text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+  font-size: 60px;
+  color: #CCC;
+  cursor: pointer; }
 
-
-
-    .close-dialog:hover, .close-dialog:active, .next-chevron:hover, .next-chevron:active, .prev-chevron:hover, .prev-chevron:active {
-        opacity: 0.9;
-        color: #FFF;
-    }
-
+.close-dialog:hover, .close-dialog:active, .next-chevron:hover, .next-chevron:active, .prev-chevron:hover, .prev-chevron:active {
+  opacity: 0.9;
+  color: #FFF; }
