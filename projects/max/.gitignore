@@ -1,7 +1,7 @@
 # First, ignore everything
-/node_modules/*
+node_modules
 # Now, whitelist anything that's a directory
-!*/
+!*node_modules/
 # And all the file types you're interested in.
 !angular.min.js
 !angular-animate.min.js
