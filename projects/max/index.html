@@ -14,8 +14,16 @@
 
 <body ng-app="GalleryAwesomeApp">
     <ng-include src="'./pages/header.html'"></ng-include>
-    <ng-include src="'./pages/resume.html'"></ng-include>
-
+    <div class="mobile-only">
+        <div id="ResumeButton" ng-click="vm.showResume = !vm.showResume">Resume</div>
+        <div ng-if="vm.showResume == true">
+            <ng-include src="'./pages/resume.html'"></ng-include>
+        </div>
+    </div>
+    <div class="desktop-only">
+        <ng-include src="'./pages/resume.html'"></ng-include>
+    </div>
+    <!--Randomize the thumbnails-->
     <div id="Content" ng-controller="GalleryAwesomeController as vm">
         <gallery-awesome images="vm.Images" columns="vm.Columns" radius="vm.Radius"></gallery-awesome>
     </div>
