@@ -25,7 +25,12 @@
     </div>
     <!--Randomize the thumbnails-->
     <div id="Content" ng-controller="GalleryAwesomeController as vm">
-        <gallery-awesome images="vm.Images" columns="vm.Columns" radius="vm.Radius"></gallery-awesome>
+        <div class="desktop-only">
+            <gallery-awesome images="vm.Images" columns="vm.Columns" radius="vm.Radius"></gallery-awesome>
+        </div>
+        <div class="mobile-only">
+            <gallery-awesome images="vm.Images" columns="vm.MobileColumns" radius="vm.MobileRadius"></gallery-awesome>
+        </div>
     </div>
 
     <script src="node_modules/angular/angular.min.js"></script>

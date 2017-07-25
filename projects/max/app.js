@@ -9,9 +9,14 @@ angular.module('GalleryAwesome').controller('GalleryAwesomeController',
     function AppController($scope, $rootScope, $mdDialog, $timeout, $window) {
         var vm = this;
         vm.Images = staticImageList;
-        vm.Columns = 3;
+        vm.Columns = 4;
         vm.Radius = 5;
-        $timeout(function () { vm.Columns = 4; }, 0);
+        vm.ModileColumns = 10;
+        vm.MobileRadius = 5;
+        $timeout(function () { 
+              vm.Columns = 4;
+        vm.ModileColumns = 10;
+        }, 0);
     });
     
 var staticImageList = [

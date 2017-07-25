@@ -17,28 +17,33 @@ angular.module('GalleryAwesome').directive('galleryAwesome', function ($timeout,
         },
         controllerAs: 'vm',
         link: function ($scope, element) {
-            $scope.$watch('columns', function () {
-                updateThumbs($scope.columns);
-            });
+            // $scope.$watch('columns', function () {
+            //     updateThumbs($scope.columns);
+            // });
 
-            $scope.$watch('radius', function () {
-                updateThumbs($scope.columns);
-            });
+            // $scope.$watch('radius', function () {
+            //     updateThumbs($scope.columns);
+            // });
 
             function updateThumbs(size) {
+                if (size == undefined) size = 1; 
                 var newColWidth = parseInt((80 / parseInt(size))) - 2;
                 var newStyle = "height:" + newColWidth + "vw;width:" + newColWidth + "vw;";
-                angular.forEach(document.getElementsByClassName('gallery-awesome-thumb-container'), function (elem) {
+                var containers = document.getElementsByClassName($scope.id + 'gatc');
+                angular.forEach(containers, function (elem) {
                     elem.setAttribute("style", newStyle);
                 });
-                angular.forEach(document.getElementsByClassName('gallery-awesome-thumb'), function (elem) {
+                var thumbs = document.getElementsByClassName($scope.id + 'gat');
+                angular.forEach(thumbs, function (elem) {
                     elem.setAttribute("style", newStyle);
                 });
             }
+            $timeout(function () { updateThumbs($scope.columns); }, 0);
         },
 
         controller: function ($scope, $element, $mdDialog) {
             var vm = this;
+            $scope.id = Math.floor(Math.random()*100);
             vm.Images = $scope.images;
             vm.ShowFull = function (ev, img) {
                 $mdDialog.show({

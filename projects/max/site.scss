@@ -170,7 +170,7 @@ html {
 
 @media (min-width: 1200px) {
     .mobile-only{display: none;}
-    .desktop-only{display: initial;}
+    .desktop-only{display: block;}
     #Header {
         height: $block/2;
         font-size: $font-size-body;
@@ -207,7 +207,7 @@ html {
 
 @media (min-width: 992px) and (max-width: 1199px) {
     .mobile-only{display: none;}
-    .desktop-only{display: initial;}
+    .desktop-only{display: block;}
     #Header {
         height: $block/2;
         font-size: $font-size-body;
@@ -243,7 +243,7 @@ html {
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-    .mobile-only{display: initial;}
+    .mobile-only{display: block;}
 
     .desktop-only{display: none;}
     #Header {
@@ -275,13 +275,13 @@ html {
         width: $block/2+$block/10;
     }
     #Content {
-        left: $block+$block/20;
+        left: $block/20;
         top: $block/2 + $block/15;
     }
 }
 
 @media (max-width: 767px) {
-    .mobile-only{display: initial;}
+    .mobile-only{display: block;}
     .desktop-only{display: none;}
     #Header {
         height: $block*3/5;
@@ -312,12 +312,12 @@ html {
         width: $block/2+$block/10;
     }
     #Content {
-        left: $block+$block/20;
+        left: $block/20;
         top: $block*3/5 + $block/15;
     }
 }
 
 @media (max-width: 480px) {
-    .mobile-only { display: initial;}
+    .mobile-only { display: block;}
     .desktop-only{display: none;}
 }

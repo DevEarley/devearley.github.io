@@ -138,7 +138,7 @@ html {
   .mobile-only {
     display: none; }
   .desktop-only {
-    display: initial; }
+    display: block; }
   #Header {
     height: 20vw;
     font-size: 18px;
@@ -170,7 +170,7 @@ html {
   .mobile-only {
     display: none; }
   .desktop-only {
-    display: initial; }
+    display: block; }
   #Header {
     height: 20vw;
     font-size: 18px;
@@ -200,7 +200,7 @@ html {
 
 @media (min-width: 768px) and (max-width: 991px) {
   .mobile-only {
-    display: initial; }
+    display: block; }
   .desktop-only {
     display: none; }
   #Header {
@@ -227,12 +227,12 @@ html {
     left: 20vw;
     width: 24vw; }
   #Content {
-    left: 42vw;
+    left: 2vw;
     top: 22.66667vw; } }
 
 @media (max-width: 767px) {
   .mobile-only {
-    display: initial; }
+    display: block; }
   .desktop-only {
     display: none; }
   #Header {
@@ -259,11 +259,11 @@ html {
     left: 20vw;
     width: 24vw; }
   #Content {
-    left: 42vw;
+    left: 2vw;
     top: 26.66667vw; } }
 
 @media (max-width: 480px) {
   .mobile-only {
-    display: initial; }
+    display: block; }
   .desktop-only {
     display: none; } }
