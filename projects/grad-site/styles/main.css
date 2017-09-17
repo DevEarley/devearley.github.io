@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  padding: 0; }
+
+#bg-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0; }
+
+#bg1 {
+  background: url("images/bg1.png");
+  background-attachment: fixed;
+  height: 40vh;
+  width: 100vw; }
+
+#bg2 {
+  background: url("images/bg2.png");
+  background-attachment: fixed;
+  height: 20vh;
+  width: 100vw; }
+
+#bg3 {
+  background: url("images/bg4.png");
+  background-attachment: fixed;
+  height: 20vh;
+  width: 100vw; }
+
+#bg4 {
+  background: url("images/bg3.png");
+  background-attachment: fixed;
+  height: 20vh;
+  width: 100vw; }
+
+.bg {
+  z-index: initial;
+  transition: height 100ms linear; }
+
+.bg:hover {
+  height: 50vh !important;
+  z-index: 1; }
