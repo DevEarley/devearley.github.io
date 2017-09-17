@@ -1,0 +1,68 @@
+I think this is a good starting point. If you want to pick from the provided pieces here. The character animations are a big must as I only have directional walking with the sprite I am using atm.
+
+World Objects (https://i.gyazo.com/e5d9b842eb49904e5bbb4339133be149.png)
+
+Lamp
+Generator
+Shelf
+Books
+Computers
+Trash cans
+fence
+Stairs
+Tree
+Mailbox
+Road Sign
+
+
+Items(https://i.gyazo.com/1fd931597596eb8e92f7781ed050184e.png)
+
+Handgun
+Bottle 
+Torch
+Campfire
+sharp sticks
+signs
+bones
+Machete
+Axe
+Knife
+Flashlight
+lighter
+
+Generic male character, 4 directions. You can use the character off the fb page as a reference if you want.
+  Moving
+    Crouching
+      idle
+      sneaking
+    Standing
+      idle
+      walking
+      jogging/running
+      push object (both success moving it fowards and failing not moving)
+      pull object (both success moving it backwards and failing not moving)
+  Interactions
+    Crouching
+      fiddle with object in front
+    Standing
+      fiddle with object in front
+      open door
+  Combat
+    Standing
+      Melee
+        swing object(baseball bat)
+        punch
+        kick
+        block
+        push (a person from a standing position)
+      Ranged
+        Standing
+          aim (handgun)
+          fire (handgun)
+          reload (handgun)
+          throw (rock)
+        Crouching
+          aim (handgun)
+          fire (handgun)
+          reload (handgun)
+          throw (rock)
