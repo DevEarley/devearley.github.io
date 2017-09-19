@@ -1,8 +1,8 @@
 angular.module('CC0Gallery', ['ngRoute']).config(function ($routeProvider, $locationProvider) {
     $routeProvider
         .when('/', {
-            templateUrl: 'content/views/login/landing.html',
-            controller: 'landingController',
+            templateUrl: 'app/views/landing.html',
+            controller: 'LandingController',
             controllerAs: 'vm'
         });
 

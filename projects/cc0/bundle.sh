@@ -9,6 +9,5 @@ uglifyjs \
     --source-map url=main.min.js.map;
 
 uglifycss \
-    ./styles/idea-space.css \
-    ./node_modules/font-awesome/css/font-awesome.css \
-    --output idea-space.min.css;
+    ./styles/main.css \
+    --output main.min.css;
