@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  background-color: #222; }
+
+.download-link {
+  height: 100vh;
+  padding-top: 20px;
+  width: 100%;
+  color: #FFF;
+  text-align: center;
+  font-family: sans-serif, Arial, Helvetica, sans-serif; }
+  .download-link a {
+    color: #FFF; }
