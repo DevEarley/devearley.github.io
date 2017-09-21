@@ -1,6 +1,7 @@
 body {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  background: url("images/paper.png"); }
 
 #bg-container {
   position: absolute;
@@ -10,6 +11,7 @@ body {
   right: 0; }
 
 #bg1 {
+  margin-top: 400px;
   background: url("images/bg1.png");
   background-attachment: fixed;
   height: 40vh;
@@ -35,7 +37,8 @@ body {
 
 .bg {
   z-index: initial;
-  transition: height 100ms linear; }
+  transition: height 100ms linear;
+  margin-bottom: 40px; }
 
 .bg:hover {
   height: 50vh !important;
