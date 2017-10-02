@@ -1,3 +1,11 @@
-<div>
-    {{vm.student}}
+<div style="position"></div>
+<div style="padding:40px; text-align:center; max-width:1000px; margin:auto auto; min-height:2000px;">
+    <h1 style="text-align:left;">{{vm.student.name}}</h1>
+    <p style="text-align:justify">{{vm.student.desc}}</p>
+    <div ng-repeat="image in vm.images">
+        <img class="bg" ng-src="{{image.url}}" ng-click="vm.currentImage != image?vm.currentImage = image:vm.currentImage= null" ng-class="{'active':vm.currentImage == image}"  />
+    </div>
+    <div ng-click="vm.clickHome()" style="position:fixed; bottom:10px;right:10px;background:rgba(255,255,255,0.5);padding:40px;">
+        <i class="fa fa-chevron-left"></i><i class="fa fa-chevron-left"></i> BACK
+    </div>
 </div>

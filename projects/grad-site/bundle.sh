@@ -14,4 +14,5 @@ uglifyjs \
 
 uglifycss \
 ./styles/main.css \
+./node_modules/font-awesome/css/font-awesome.css \
 --output main.min.css;

@@ -1,5 +1,5 @@
-angular.module('GradSite').controller('LandingController',['$scope', '$rootScope', '$location', 'studentNames',
-    function ($scope, $rootScope, $location, studentNames) {
+angular.module('GradSite').controller('LandingController', ['$scope', '$rootScope', '$location','StudentDataService',
+    function ($scope, $rootScope, $location, StudentDataService) {
         var vm = this;
-        vm.studentNames = studentNames;
+        vm.studentNames = StudentDataService.getStudentNames();
     }]);

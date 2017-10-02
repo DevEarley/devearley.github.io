@@ -4,21 +4,17 @@ angular.module('GradSite', ['ngRoute']).config(function ($routeProvider, $locati
             templateUrl: 'app/views/landing.html',
             controller: 'LandingController',
             controllerAs: 'vm',
-            resolve: {
-                studentNames: function (StudentDataService) {
-                    return StudentDataService.getStudentNames();
-                }
-            }
+           
         })
         .when('/students/:studentId', {
             templateUrl: 'app/views/student.html',
             controller: 'StudentController',
             controllerAs: 'vm',
-            resolve: {
-             student: function(StudentDataService, $routeParams) {
-                    return StudentDataService.getStudentInfo($routeParams.studentId);
-                }
-            }
+            //resolve: {
+            //    student: function (StudentDataService, $routeParams) {
+            //        return StudentDataService.getStudentName($routeParams.studentId);
+            //    }
+            //}
         })
         .when('/students/:studentId/gallery', {
             templateUrl: 'app/views/studentGallery.html',
@@ -29,3 +25,4 @@ angular.module('GradSite', ['ngRoute']).config(function ($routeProvider, $locati
     $locationProvider.html5mode = true;
 
 });
+  
