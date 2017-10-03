@@ -47,17 +47,16 @@ a {
     background-image: url('images/bg3.png');
 }
 .fixed-bg {
-    background-attachment: fixed;
+    // background-attachment: fixed;
     background-position-y: center;
     background-position-x: center;
     background-size: cover;
-    background-repeat: repeat-y;
+    // background-repeat: repeat-y;
     width: 100%;
 }
 
 .bg {
-    z-index: initial;
-   
+    z-index: initial;   
     transition: height 100ms ease-in, margin-bottom 100ms ease-in;
     height: 80vh;
     width: auto;
