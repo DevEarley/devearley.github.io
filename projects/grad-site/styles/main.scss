@@ -1,53 +1,87 @@
 body {
+    font-family: Lato;
+    font-weight: 300;
     margin: 0;
     padding: 0;
-    background:  url('images/paper.png');
+    background-size: cover;
+    background: url('images/paper.png');
+    
 }
 
-#bg-container {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left:0;
-    right:0;
+h1 {
+    font-family: Lato;
+    font-weight: 900;
+    background-color: rgba(255,255,255,0.8);
+    padding: 40px;
+    margin-bottom: 0;
+    margin-top: 0;
 }
 
-#bg1 {
-    margin-top:400px;
-    background: url('images/bg1.png');
-    background-attachment: fixed;
-    height: 40vh;
-    width: 100vw;
+p {
+    background-color: rgba(255,255,255,0.5);
+    padding: 40px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
+a {
+    color: #000;
+    text-decoration: none;
+}
+.bg-container {
+    -webkit-box-shadow: 0px 25px 53px -27px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 25px 53px -27px rgba(0,0,0,0.75);
+    box-shadow: 0px 25px 53px -27px rgba(0,0,0,0.75);
+   .fixed-bg{
+    background-color: rgba(0,0,0,0.5);
+}}
 #bg2 {
-    background: url('images/bg2.png');
-    background-attachment: fixed;
-    height: 20vh;
-    width: 100vw;
+    background-image: url('images/bg2.png');
 }
 
 #bg3 {
-    background: url('images/bg4.png');
-    background-attachment: fixed;
-    height: 20vh;
-    width: 100vw;
+    background-image: url('images/bg4.png');
 }
 
 #bg4 {
-    background: url('images/bg3.png');
+    background-image: url('images/bg3.png');
+}
+.fixed-bg {
     background-attachment: fixed;
-    height: 20vh;
-    width: 100vw;
+    background-position-y: center;
+    background-position-x: center;
+    background-size: cover;
+    background-repeat: repeat-y;
+    width: 100%;
 }
 
 .bg {
     z-index: initial;
-    transition: height 100ms linear;
-    margin-bottom:40px;
+   
+    transition: height 100ms ease-in, margin-bottom 100ms ease-in;
+    height: 80vh;
+    width: auto;
+    max-height: 40vw;
+    /*max-width: 50vh;*/
+    margin-bottom: 20vh;
+    margin-top: 10vh;
+    margin-left: auto;
+    margin-right: auto;
+  
+    z-index: 1;
 }
 
-.bg:hover {
-    height: 50vh!important;
-    z-index: 1;
+ /*.bg:hover {
+    height: 90vh !important;
+    margin-bottom: 10vh !important;
+}
+.bg:active {
+    height: 100vh !important;
+    margin-bottom:0;
+    z-index:99;
+}*/
+.shadow {
+    -webkit-box-shadow: 0px 25px 53px -27px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 25px 53px -27px rgba(0,0,0,0.75);
+    box-shadow: 0px 25px 53px -27px rgba(0,0,0,0.75);
 }
