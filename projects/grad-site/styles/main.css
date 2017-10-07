@@ -41,11 +41,9 @@ a {
   background-image: url("images/bg3.png"); }
 
 .fixed-bg {
-  background-attachment: fixed;
   background-position-y: center;
   background-position-x: center;
   background-size: cover;
-  background-repeat: repeat-y;
   width: 100%; }
 
 .bg {
