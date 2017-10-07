@@ -1,0 +1,18 @@
+newmtl material0
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Tr 1.000000
+illum 0
+Ns 0.000000
+map_Kd ship_0.png
+map_d ship_0.png
+newmtl material1
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Tr 1.000000
+illum 0
+Ns 0.000000
+map_Kd ship_1.png
+map_d ship_1.png
