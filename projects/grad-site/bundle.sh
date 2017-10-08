@@ -7,7 +7,6 @@ uglifyjs \
 ./node_modules/angular-route/angular-route.min.js \
 ./app/app.js \
 ./app/views/landingController.js \
-./app/views/studentGalleryController.js \
 ./app/views/studentController.js \
 ./app/services/studentDataService.js \
 -o ./main.min.js \
