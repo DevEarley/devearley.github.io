@@ -9,6 +9,7 @@ uglifyjs \
 ./app/views/landingController.js \
 ./app/views/studentController.js \
 ./app/services/studentDataService.js \
+./app/directives/affix.js \
 -o ./main.min.js \
 --source-map url=main.min.js.map;
 

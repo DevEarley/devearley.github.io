@@ -1,40 +1,58 @@
+@font-face {
+  font-family: 'Lato Black';
+  src: url("../fonts/Lato-Black.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Lato';
+  src: url("../fonts/Lato-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Lato Light';
+  src: url("../fonts/Lato-Light.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
 body {
-  font-family: Lato;
+  font-family: 'Lato';
   font-weight: 300;
   margin: 0;
   padding: 0;
   background-size: cover;
   background: url("images/paper.png"); }
 
-h1 {
-  font-family: Lato;
-  font-weight: 900;
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 40px;
-  margin-bottom: 0;
-  margin-top: 0; }
-
-p {
-  background-color: rgba(255, 255, 255, 0.5);
-  padding: 40px;
-  margin-top: 0;
-  margin-bottom: 0; }
+#artist-page {
+  text-align: center;
+  min-width: 1360px;
+  min-height: 2000px; }
+  #artist-page h1 {
+    font-family: 'Lato';
+    font-weight: 900;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 40px;
+    margin-bottom: 0;
+    margin-top: 0; }
+  #artist-page p {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 40px;
+    margin-top: 0;
+    margin-bottom: 0; }
+  #artist-page .bg {
+    z-index: initial;
+    height: auto;
+    max-width: 50vw;
+    margin-bottom: 20vh;
+    margin-top: 10vh;
+    margin-left: 180px;
+    margin-right: auto;
+    z-index: 1; }
 
 a {
   color: #000;
   text-decoration: none; }
-
-.bg {
-  z-index: initial;
-  transition: height 100ms ease-in, margin-bottom 100ms ease-in;
-  height: 80vh;
-  width: auto;
-  max-height: 40vw;
-  margin-bottom: 20vh;
-  margin-top: 10vh;
-  margin-left: auto;
-  margin-right: auto;
-  z-index: 1; }
 
 .section {
   background-color: rgba(255, 255, 255, 0.5);
@@ -44,3 +62,115 @@ a {
   -webkit-box-shadow: 0px 25px 53px -27px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 25px 53px -27px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 25px 53px -27px rgba(0, 0, 0, 0.75); }
+
+#splash {
+  position: absolute;
+  bottom: 100px;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  background-color: #454545; }
+
+#splash-copy {
+  padding: 40px;
+  text-align: justify;
+  position: absolute;
+  bottom: 140px;
+  top: 40px;
+  right: 40px;
+  width: 40vw;
+  background-color: rgba(255, 255, 255, 0.5); }
+
+#header-title {
+  position: absolute;
+  bottom: 0;
+  height: 100px;
+  background-color: #222222;
+  color: #FFF;
+  z-index: 2;
+  width: 100%; }
+  #header-title .letter {
+    position: absolute;
+    top: 35px;
+    transition: top 1000ms ease-in, height 100ms ease-in;
+    font-size: 20px; }
+  #header-title .disconnect1 {
+    top: 50px; }
+  #header-title .disconnect2 {
+    top: 20px; }
+  #header-title .disconnect3 {
+    top: 65px; }
+  #header-title .disconnect4 {
+    top: 27.5px; }
+  #header-title .disconnect5 {
+    top: 57.5px; }
+  #header-title .disconnect6 {
+    top: 42.5px; }
+  #header-title .disconnect7 {
+    top: 27.5px; }
+  #header-title .disconnect8 {
+    top: 50px; }
+  #header-title .disconnect9 {
+    top: 20px; }
+  #header-title .disconnect10 {
+    top: 50px; }
+  #header-title .letter1 {
+    left: 25px; }
+  #header-title .letter2 {
+    left: 75px; }
+  #header-title .letter3 {
+    left: 125px; }
+  #header-title .letter4 {
+    left: 175px; }
+  #header-title .letter5 {
+    left: 225px; }
+  #header-title .letter6 {
+    left: 275px; }
+  #header-title .letter7 {
+    left: 325px; }
+  #header-title .letter8 {
+    left: 375px; }
+  #header-title .letter9 {
+    left: 425px; }
+  #header-title .letter10 {
+    left: 475px; }
+
+#header-title.affix {
+  position: fixed;
+  top: 0; }
+
+#header-navigation a {
+  padding: 10px;
+  border-bottom: #222222 4px solid; }
+
+#header-navigation a:hover {
+  border-bottom: #454545 4px solid; }
+
+#artists {
+  padding: 40px;
+  text-align: center;
+  width: 80vw;
+  margin: 0 auto;
+  margin-top: 100vh;
+  min-height: 2000px;
+  overflow: hidden; }
+  #artists .profile-picture {
+    position: absolute;
+    left: 0;
+    width: 300px;
+    height: 340px;
+    top: 0;
+    bottom: 0; }
+    #artists .profile-picture img {
+      width: 300px; }
+  #artists .profile-bg {
+    position: absolute;
+    left: 340px;
+    height: 340px;
+    width: auto;
+    right: 0;
+    top: 0;
+    bottom: 0; }
+    #artists .profile-bg img {
+      width: 100%; }

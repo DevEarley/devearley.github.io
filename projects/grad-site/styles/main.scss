@@ -1,32 +1,66 @@
-$theme: #8D191B;
-$off-theme: #D4BAAE;
+$theme: #222222;
+$off-theme: #454545;
 $off-white: #FFF1E8;
-$off-theme-rgba: rgba(255,241,232,0.8);
-$off-white-rgba:  rgba(212,186,174,0.5);
+$off-theme-rgba: rgba(255, 241, 232, 0.8);
+$off-white-rgba: rgba(212, 186, 174, 0.5);
+@font-face {
+    font-family: 'Lato Black';
+    src: url('../fonts/Lato-Black.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../fonts/Lato-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato Light';
+    src: url('../fonts/Lato-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
-    font-family: Lato;
+    font-family: 'Lato';
     font-weight: 300;
     margin: 0;
     padding: 0;
     background-size: cover;
     background: url('images/paper.png');
-    
 }
 
-h1 {
-    font-family: Lato;
-    font-weight: 900;
-    background-color: rgba(255,255,255,0.8);
-    padding: 40px;
-    margin-bottom: 0;
-    margin-top: 0;
-}
-
-p {
-    background-color: rgba(255,255,255,0.5);
-    padding: 40px;
-    margin-top: 0;
-    margin-bottom: 0;
+#artist-page {
+    text-align: center;
+    min-width: 1360px;
+    min-height: 2000px;
+    h1 {
+        font-family: 'Lato';
+        font-weight: 900;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 40px;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+    p {
+        background-color: rgba(255, 255, 255, 0.5);
+        padding: 40px;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .bg {
+        z-index: initial;
+        height: auto;
+        max-width: 50vw;
+        margin-bottom: 20vh;
+        margin-top: 10vh;
+        margin-left: 180px;
+        margin-right: auto;
+        z-index: 1;
+    }
 }
 
 a {
@@ -34,29 +68,162 @@ a {
     text-decoration: none;
 }
 
-
-
-.bg {
-    z-index: initial;   
-    transition: height 100ms ease-in, margin-bottom 100ms ease-in;
-    height: 80vh;
-    width: auto;
-    max-height: 40vw;
-    margin-bottom: 20vh;
-    margin-top: 10vh;
-    margin-left: auto;
-    margin-right: auto;
-  
-    z-index: 1;
-}
-
 .section {
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgba(255, 255, 255, 0.5);
     padding: 40px;
 }
 
 .shadow {
-    -webkit-box-shadow: 0px 25px 53px -27px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 25px 53px -27px rgba(0,0,0,0.75);
-    box-shadow: 0px 25px 53px -27px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 25px 53px -27px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 25px 53px -27px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 25px 53px -27px rgba(0, 0, 0, 0.75);
+}
+
+#splash {
+    position: absolute;
+    bottom: 100px;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+    background-color: $off-theme;
+}
+
+#splash-copy {
+    padding: 40px;
+    text-align: justify;
+    position: absolute;
+    bottom: 140px;
+    top: 40px;
+    right: 40px;
+    width: 40vw;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+$topOffset:35px;
+$letterSize:50px;
+$leftOffset:25px;
+$letterOffsetSize:15px;
+#header-title {
+    position: absolute;
+    bottom: 0;
+    height: 100px;
+    background-color: $theme;
+    color: #FFF;
+    z-index: 2;
+    width: 100%;
+    .letter {
+        position: absolute;
+        top: 35px;
+        transition: top 1000ms ease-in, height 100ms ease-in;
+        font-size: 20px;
+    }
+    .disconnect1 {
+        top: $topOffset + $letterOffsetSize;
+    }
+    .disconnect2 {
+        top: $topOffset - $letterOffsetSize;
+    }
+    .disconnect3 {
+        top: $topOffset + $letterOffsetSize*2;
+    }
+    .disconnect4 {
+        top: $topOffset - $letterOffsetSize*0.5;
+    }
+    .disconnect5 {
+        top: $topOffset + $letterOffsetSize*1.5;
+    }
+    .disconnect6 {
+        top: $topOffset + $letterOffsetSize*0.5;
+    }
+    .disconnect7 {
+        top: $topOffset - $letterOffsetSize*0.5;
+    }
+    .disconnect8 {
+        top: $topOffset + $letterOffsetSize;
+    }
+    .disconnect9 {
+        top: $topOffset - $letterOffsetSize;
+    }
+    .disconnect10 {
+        top: $topOffset + $letterOffsetSize;
+    }
+    .letter1 {
+        left: $leftOffset;
+    }
+    .letter2 {
+        left: $leftOffset + $letterSize;
+    }
+    .letter3 {
+        left: $leftOffset + $letterSize*2;
+    }
+    .letter4 {
+        left: $leftOffset + $letterSize*3;
+    }
+    .letter5 {
+        left: $leftOffset + $letterSize*4;
+    }
+    .letter6 {
+        left: $leftOffset + $letterSize*5;
+    }
+    .letter7 {
+        left: $leftOffset + $letterSize*6;
+    }
+    .letter8 {
+        left: $leftOffset + $letterSize*7;
+    }
+    .letter9 {
+        left: $leftOffset + $letterSize*8;
+    }
+    .letter10 {
+        left: $leftOffset + $letterSize*9;
+    }
+}
+
+#header-title.affix {
+    position: fixed;
+    top: 0;
+}
+
+#header-navigation {
+    a {
+        padding: 10px;
+        border-bottom: $theme 4px solid;
+    }
+    a:hover {
+        border-bottom: $off-theme 4px solid;
+    }
+}
+
+#artists {
+    padding: 40px;
+    text-align: center;
+    width: 80vw;
+    margin: 0 auto;
+    margin-top: 100vh;
+    min-height: 2000px;
+    overflow: hidden;
+    .profile-picture {
+        position: absolute;
+        left: 0;
+        width: 300px;
+        height: 340px;
+        top: 0;
+        bottom: 0;
+        img {
+            width: 300px;
+        }
+    }
+    .profile-bg {
+        position: absolute;
+        left: 340px;
+        height: 340px;
+        width: auto;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        img {
+            width: 100%;
+        }
+    }
 }

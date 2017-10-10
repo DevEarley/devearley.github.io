@@ -1,48 +1,75 @@
-<div style="padding:40px; text-align:center; width:80vw; margin:auto auto; min-height:2000px;">
-
-    <div id="splash">
-
+<div id="splash">
+    <div id="splash-copy">
+        <p> Bacon ipsum dolor amet frankfurter meatloaf porchetta, landjaeger ribeye pastrami swine ham hock cow. Ham ham hock
+            chuck cow venison pork loin drumstick doner ribeye pancetta boudin picanha shank meatball. Drumstick pancetta
+            short ribs, swine salami meatloaf rump cow. Fatback strip steak capicola brisket short ribs ribeye ball tip.
+            Ball tip kevin drumstick, shank hamburger ground round venison meatloaf ribeye porchetta leberkas jerky cow.
+            Turducken corned beef cow ham hock strip steak venison chuck capicola turkey pork belly shank. T-bone shankle
+            tri-tip flank cupim cow biltong bacon beef ribs tail hamburger sirloin turkey pig. Kevin pastrami sirloin flank
+            landjaeger, ribeye salami spare ribs pork loin. Doner sirloin tri-tip andouille porchetta cupim tail pork chop
+            landjaeger filet mignon burgdoggen capicola.
+        </p>
+        <p> Shankle tenderloin ham hock pork, flank swine fatback chicken short ribs sausage boudin capicola. Jerky bacon tenderloin
+            ham, sirloin doner drumstick pastrami spare ribs meatloaf ham hock swine. Pork loin jowl chuck bacon ribeye fatback.
+        </p>
+        <p> Jerky alcatra beef ribs, ham hock frankfurter chuck prosciutto turducken. Picanha alcatra short loin turkey tenderloin.
+            Rump salami bacon short ribs. Hamburger rump fatback picanha pork belly sausage. Cupim tenderloin kevin, swine
+            pork ham hock strip steak shoulder boudin hamburger landjaeger. Hamburger burgdoggen kielbasa cupim tenderloin.
+            Shank chuck ground round fatback, burgdoggen bresaola spare ribs ball tip kevin frankfurter sirloin. Biltong
+            doner porchetta, bresaola pork ribeye strip steak shank ham hock pastrami chicken ham turducken turkey. Strip
+            steak picanha capicola boudin. Tongue leberkas drumstick t-bone kevin, pancetta ham hock picanha ribeye cupim.
+            Bresaola hamburger filet mignon shoulder leberkas strip steak jerky fatback biltong short ribs shank pork loin
+            pork belly drumstick tri-tip.
+        </p>
     </div>
-    <div id="header">
-        <div id="header-title">
-            <div>D</div>
-            <div>I</div>
-            <div>S</div>
-            <div>C</div>
-            <div>O</div>
-            <div>N</div>
-            <div>N</div>
-            <div>E</div>
-            <div>C</div>
-            <div>T</div>
+</div>
+<div id="header">
+
+    <div id="header-title" simple-affix on-affix="vm.affixed = true" on-unaffix="vm.affixed = false" ng-class="{'affix':vm.affixed}">
+        <div class="letter letter1" ng-class="{'disconnect1':!vm.affixed}">D</div>
+        <div class="letter letter2" ng-class="{'disconnect2':!vm.affixed}">I</div>
+        <div class="letter letter3" ng-class="{'disconnect3':!vm.affixed}">S</div>
+        <div class="letter letter4" ng-class="{'disconnect4':!vm.affixed}">C</div>
+        <div class="letter letter5" ng-class="{'disconnect5':!vm.affixed}">O</div>
+        <div class="letter letter6" ng-class="{'disconnect6':!vm.affixed}">N</div>
+        <div class="letter letter7" ng-class="{'disconnect7':!vm.affixed}">N</div>
+        <div class="letter letter8" ng-class="{'disconnect8':!vm.affixed}">E</div>
+        <div class="letter letter9" ng-class="{'disconnect9':!vm.affixed}">C</div>
+        <div class="letter letter10" ng-class="{'disconnect10':!vm.affixed}">T</div>
+    </div>
+    <div id="header-navigation">
+        <a class="header-navigation-item">Event Info</a>
+        <a class="header-navigation-item">Go Fund Me</a>
+        <a class="header-navigation-item">Artists</a>
+        <a class="header-navigation-item">Location</a>
+        <a class="header-navigation-item">Contact Us</a>
+    </div>
+</div>
+<div id="gofundme" class="section shadow">
+</div>
+<div id="artists">
+    <div class="" style="position:relative; height: 300px; margin-bottom:240px; cursor: pointer; " ng-click="vm.clickStudent(1)">
+        <div class="profile-picture">
+            <img src="images/dicosola_2.png" class="shadow" />
+            <h1>Jordan DiCosola</h1>
         </div>
-        <a class="header-navigation">Event Info</a>
-        <a class="header-navigation">Go Fund Me</a>
-        <a class="header-navigation">Artists</a>
-        <a class="header-navigation">Location</a>
-        <a class="header-navigation">Contact Us</a>
+        <div class="profile-bg">
+            <img src="images/dicosola.png"class="shadow" />
+        </div>
     </div>
-    <div id="gofundme" class="section shadow">
+    <div class="" style="position:relative; height: 300px; margin-bottom:240px; cursor: pointer; " ng-click="vm.clickStudent(2)">
+        <div class="profile-picture">
+            <img src="images/smitty.png" class="shadow" />
+            <h1>Ashley Lindo</h1>
+        </div>
+        <div class="profile-bg">
+            <img src="images/ashley.png"class="shadow" />
+        </div>
     </div>
-    <div id="artists">
-        <a href="#!/students/2" class="shadow" style="position:relative;">
-            <h1>Ashley Lindo</h1>
-            <div class="fixed-bg" style="background-image:url('images/ashley.png');height:80vh;max-height:30vw; margin-bottom:40px;"></div>
-        </a>
-        <a href="#!/students/2" class="shadow" style="position:relative;">
-            <h1>Ashley Lindo</h1>
-            <div class="fixed-bg" style="background-image:url('images/beam.png');height:80vh;max-height:30vw; margin-bottom:40px;"></div>
-        </a>
-        <a href="#!/students/2" class="shadow" style="position:relative;">
-            <h1>Ashley Lindo</h1>
-            <div class="fixed-bg" style="background-image:url('images/lindo.png');height:80vh;max-height:30vw; margin-bottom:40px;"></div>
-        </a>
-    </div>
-    <div id="location" class="section shadow">
+</div>
+<div id="location" class="section shadow">
 
-    </div>
-    <div id="contact us" class="section shadow">
-
-    </div>
+</div>
+<div id="contact us" class="section shadow">
 
 </div>
