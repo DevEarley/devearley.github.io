@@ -2,9 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\app",
+    "\\app\\services",
     "\\app\\views",
+    "\\images",
     "\\styles"
   ],
-  "SelectedNode": "\\bundle.sh",
+  "SelectedNode": "\\app\\app.js",
   "PreviewInSolutionExplorer": false
 }

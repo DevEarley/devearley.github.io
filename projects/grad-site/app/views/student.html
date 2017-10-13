@@ -1,14 +1,17 @@
 
 <div id="artist-page">
-    <div class="shadow" style="position:fixed; left:0; width:400px; margin-top:10vh;margin-left:40px;margin-right:40px;margin-bottom:40px; ">
-        <h1 style="text-align:left;">{{vm.student.name}}</h1>
+    <div id="artist-info" class="shadow" style=" ">
+        <h1 style="text-align:left;" ng-bind-html="vm.student.name"></h1>
         <p style="text-align:justify" ng-bind-html="vm.student.desc"></p>
     </div>
-    <div ng-repeat="image in vm.images" style="position: relative" >
-        <div class="shadow" style="position:absolute;right:40px;width:200px; margin-top:10vh;  background:rgba(255,255,255,0.8);padding:20px;">{{image.desc}}</div>
-        <img class="bg shadow" ng-src="{{image.url}}" ng-click="vm.currentImage != image?vm.currentImage = image:vm.currentImage= null" 
-        ng-class="{'active':vm.currentImage == image}" />
-    </div>
+    <div id="artist-gallery">
+        <div ng-repeat="image in vm.images" style="position: relative; margin-bottom: 200px;">          
+            <img class="bg shadow" ng-src="{{image.url}}"
+                 ng-click="vm.currentImage != image?vm.currentImage = image:vm.currentImage= null"
+                 ng-class="{'active':vm.currentImage == image}" />
+            <div class="shadow image-tag">{{image.desc}}</div>
+        </div>
+    </div>   
     <div ng-click="vm.clickHome()" class="shadow" style="position:fixed; cursor:pointer; bottom:10px;right:10px;background:rgba(255,255,255,0.5);padding:20px;">
         <i class="fa fa-chevron-left"></i><i class="fa fa-chevron-left"></i> BACK
     </div>

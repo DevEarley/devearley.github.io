@@ -10,12 +10,30 @@ angular.module('GradSite').service('StudentDataService', function () {
             ]),
         studentCTOR(2, "Ashley Lindo", "<div>&nbsp;&nbsp;Ashley Lindo is a representational oil painter based in South Florida and was born in Queens, New York to Jamaican parents.She attends Florida Atlantic University in Boca Raton where she will be receiving her BFA in Studio Art. </div><div> &nbsp;&nbsp;My work reflects on subtle moments of everyday life through a journalistic approach.As a homebody and introvert, establishing a sentiment of home and security has been my automatic response to change and unfamiliarity.Within these intimate and often mundane moments, a sense of peace,             acceptance, and exploration is found.This is represented in portraits, objects, and interior spaces,             though when the sunlight embraces my subject is most prevalent.The warmth and light of the sun create the weightless energy of clarity and openness, while the darkness of doubt and insecurity     still remain.The desire to feel grounded is found in textured strokes of oil paint, also met by softer     qualities.</div>",
             [
-                studentImageCTOR("beam.png", "oil on canvas - lorem ipsum - 2017"),
-                studentImageCTOR("lindo.png", "oil on canvas - lorem ipsum - 2017"),
-                studentImageCTOR("smitty.png", "oil on canvas - lorem ipsum - 2017")
+                studentImageCTOR("ashley1.png", "lorem ipsum - 2017"),
+                studentImageCTOR("ashley2.png", "lorem ipsum - 2017"),
+                studentImageCTOR("ashley3.png", "lorem ipsum - 2017")
             ]),
-        studentCTOR(3, "Student2", "awesome",
-            [studentImageCTOR("art3.png", "ARRRRT")])
+        studentCTOR(3, "Maggie Pinkien", "<div>&nbsp;&nbsp;Maggie Pinkien is from Davie Florida and studies studio art at Florida Atlantic University. She is interested in painting, sculpture, and mixed media art, but mostly works with paint.Her other interests are animals, nature, and books and these themes are reflected in her art.</div>",
+            [
+                studentImageCTOR("maggie1.png", "lorem ipsum - 2017"),
+                studentImageCTOR("maggie2.png", "lorem ipsum - 2017"),
+                studentImageCTOR("maggie3.png", "lorem ipsum - 2017")
+            ]),
+        studentCTOR(4, "Florencia Soto", "<div>&nbsp;&nbsp;Florencia Soto is a Bachelor of Fine Arts student who currently resides in South Florida and has for the majority of her life.Florencia is of Peruvian descent and considers herself a Peruvian- American as she was raised with both cultures.Growing up in South Florida has given her the opportunity to explore her Latina ethnicity from a personal and external perspective.Her work focuses heavily on the South American culture of Peru and its neighboring countries.Their cultures have a large impact on her life as inspiration and influence.Her oil paintings evolved from traditional influences but are now transforming into abstract visions of her dreams and memories.Her visions encompass the Latino culture, which includes fruit, luxurious environments and the female figure in an attempt to inspire those unfamiliar with these topics and motifs.</div>",
+            [
+                studentImageCTOR("florencia1.png", "lorem ipsum - 2017"),
+                studentImageCTOR("florencia2.png", "lorem ipsum - 2017"),
+                studentImageCTOR("florencia3.png", "lorem ipsum - 2017"),
+                studentImageCTOR("florencia4.png", "lorem ipsum - 2017")
+            ]),
+        studentCTOR(5, "Caitlin Nobil&#233;", "<div>&nbsp;&nbsp;</div>",
+            [
+                studentImageCTOR("caitlinnobile1.png", "lorem ipsum - 2017"),
+                studentImageCTOR("caitlinnobile2.png", "lorem ipsum - 2017"),
+                studentImageCTOR("caitlinnobile3.png", "lorem ipsum - 2017"),
+                studentImageCTOR("caitlinnobile4.png", "lorem ipsum - 2017")
+            ]),
     ];
 
     function studentImageCTOR(_url, _desc) {

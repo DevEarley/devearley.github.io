@@ -1,4 +1,4 @@
-<div id="splash">
+<!--<div id="splash">
     <div id="splash-copy">
         <p> Bacon ipsum dolor amet frankfurter meatloaf porchetta, landjaeger ribeye pastrami swine ham hock cow. Ham ham hock
             chuck cow venison pork loin drumstick doner ribeye pancetta boudin picanha shank meatball. Drumstick pancetta
@@ -12,19 +12,22 @@
         <p> Shankle tenderloin ham hock pork, flank swine fatback chicken short ribs sausage boudin capicola. Jerky bacon tenderloin
             ham, sirloin doner drumstick pastrami spare ribs meatloaf ham hock swine. Pork loin jowl chuck bacon ribeye fatback.
         </p>
-        <p> Jerky alcatra beef ribs, ham hock frankfurter chuck prosciutto turducken. Picanha alcatra short loin turkey tenderloin.
-            Rump salami bacon short ribs. Hamburger rump fatback picanha pork belly sausage. Cupim tenderloin kevin, swine
-            pork ham hock strip steak shoulder boudin hamburger landjaeger. Hamburger burgdoggen kielbasa cupim tenderloin.
-            Shank chuck ground round fatback, burgdoggen bresaola spare ribs ball tip kevin frankfurter sirloin. Biltong
-            doner porchetta, bresaola pork ribeye strip steak shank ham hock pastrami chicken ham turducken turkey. Strip
-            steak picanha capicola boudin. Tongue leberkas drumstick t-bone kevin, pancetta ham hock picanha ribeye cupim.
-            Bresaola hamburger filet mignon shoulder leberkas strip steak jerky fatback biltong short ribs shank pork loin
-            pork belly drumstick tri-tip.
-        </p>
-    </div>
-</div>
-<div id="header">
 
+    </div>
+</div>-->
+<div id="header">
+    <div id="gofundme" class="section shadow">
+        <img src="images/group.png" style="max-width:100%" /><br />
+        <div style="max-width:900px; margin:auto auto">
+            <div style="width:70%; display:inline-block;">
+                <p>We are a class of eight fine arts students looking to raise money to fund our final project/show of our college careers. Every aspect of the show will be arranged by us including invitations, promoting, set up, food and beverage. In order to make this event possible and successful we need all the financial help we can get. Thank you in advance for your support!</p>
+            </div><div style="width:30%; display:inline-block;">
+                <a style="white-space:nowrap" href="https://www.gofundme.com/fall2017bfa/donate" id="donate-button">Donate To Fall 2017 BFA   </a>
+                <br />
+                <div><div style="margin-bottom:-30px;margin-left:-100px; margin-top:40px;">Powered by</div><br /> <img src="images/gofundme.png" /></div>
+            </div>
+        </div>
+    </div>
     <div id="header-title" simple-affix on-affix="vm.affixed = true" on-unaffix="vm.affixed = false" ng-class="{'affix':vm.affixed}">
         <div class="letter letter1" ng-class="{'disconnect1':!vm.affixed}">D</div>
         <div class="letter letter2" ng-class="{'disconnect2':!vm.affixed}">I</div>
@@ -36,34 +39,62 @@
         <div class="letter letter8" ng-class="{'disconnect8':!vm.affixed}">E</div>
         <div class="letter letter9" ng-class="{'disconnect9':!vm.affixed}">C</div>
         <div class="letter letter10" ng-class="{'disconnect10':!vm.affixed}">T</div>
+        <!--<div id="header-navigation">
+            <a class="header-navigation-item">Event Info</a>
+            <a class="header-navigation-item">Go Fund Me</a>
+            <a class="header-navigation-item">Artists</a>
+            <a class="header-navigation-item">Location</a>
+            <a class="header-navigation-item">Contact Us</a>
+        </div>-->
     </div>
-    <div id="header-navigation">
-        <a class="header-navigation-item">Event Info</a>
-        <a class="header-navigation-item">Go Fund Me</a>
-        <a class="header-navigation-item">Artists</a>
-        <a class="header-navigation-item">Location</a>
-        <a class="header-navigation-item">Contact Us</a>
-    </div>
+
 </div>
-<div id="gofundme" class="section shadow">
-</div>
+
 <div id="artists">
-    <div class="" style="position:relative; height: 300px; margin-bottom:240px; cursor: pointer; " ng-click="vm.clickStudent(1)">
+    <h1 style="font-family:'Lato Light'; font-size:46px; margin-top:140px; margin-bottom:140px;">Artists</h1>
+    <div class="artist" ng-click="vm.clickStudent(1)">
         <div class="profile-picture">
             <img src="images/dicosola_2.png" class="shadow" />
             <h1>Jordan DiCosola</h1>
         </div>
         <div class="profile-bg">
-            <img src="images/dicosola.png"class="shadow" />
+            <img src="images/dicosola.png" class="shadow" />
         </div>
     </div>
-    <div class="" style="position:relative; height: 300px; margin-bottom:240px; cursor: pointer; " ng-click="vm.clickStudent(2)">
+    <div class="artist" ng-click="vm.clickStudent(2)">
         <div class="profile-picture">
-            <img src="images/smitty.png" class="shadow" />
+            <img src="images/ashley1.png" class="shadow" />
             <h1>Ashley Lindo</h1>
         </div>
         <div class="profile-bg">
-            <img src="images/ashley.png"class="shadow" />
+            <img src="images/ashley.png" class="shadow" />
+        </div>
+    </div>
+    <div class="artist" ng-click="vm.clickStudent(3)">
+        <div class="profile-picture">
+            <img src="images/maggie1.png" class="shadow" />
+            <h1>Maggie Pinkien</h1>
+        </div>
+        <div class="profile-bg">
+            <img src="images/maggie.png" class="shadow" />
+        </div>
+    </div>
+    <div class="artist" ng-click="vm.clickStudent(4)">
+        <div class="profile-picture">
+            <img src="images/florencia1.png" class="shadow" />
+            <h1>Florencia Soto</h1>
+        </div>
+        <div class="profile-bg">
+            <img src="images/florencia.png" class="shadow" />
+        </div>
+    </div>
+    <div class="artist" ng-click="vm.clickStudent(5)">
+        <div class="profile-picture">
+            <img src="images/caitlinnobile1.png" class="shadow" />
+            <h1>Caitlin Nobil&#233;</h1>
+        </div>
+        <div class="profile-bg">
+            <img src="images/caitlinnobile.png" class="shadow" />
         </div>
     </div>
 </div>
