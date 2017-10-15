@@ -30,4 +30,3 @@ angular.module('GradSite').filter('trusted', ['$sce', function ($sce) {
         return $sce.trustAsHtml(text);
     };
 }]);
-  
