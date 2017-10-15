@@ -28,53 +28,65 @@ body {
   height: 100vh; }
 
 #gofundme {
+  position: relative;
   text-align: center;
   background: #FFF;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  width: 80vw;
-  margin: auto auto; }
+  width: 100%;
+  height: 100vh; }
   #gofundme p {
     text-align: justify; }
+  #gofundme #group-photo {
+    position: absolute;
+    top: 0;
+    bottom: 270px;
+    left: 0;
+    right: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("images/group.png"); }
+  #gofundme #gofundme-info {
+    position: absolute;
+    right: 100px;
+    left: 100px;
+    background-color: #FFF;
+    bottom: 100px;
+    height: 170px; }
   #gofundme #gofundme-button-container {
+    position: absolute;
+    right: 0;
+    width: 301px;
     padding-top: 40px;
-    width: 30%;
-    display: inline-block; }
-    #gofundme #gofundme-button-container #gofundme-donate-button {
-      white-space: nowrap; }
+    display: block; }
     #gofundme #gofundme-button-container #gofundme-powered-by {
       margin-bottom: -30px;
       margin-left: -100px;
       margin-top: 40px; }
+    #gofundme #gofundme-button-container #gofundme-donate-button {
+      white-space: nowrap;
+      display: inline;
+      color: #FFF;
+      border-radius: 10px;
+      font-family: 'Lato Black';
+      padding: 20px;
+      margin: 40px;
+      background-color: #F29810;
+      box-shadow: rgba(0, 0, 0, 0.5) 0 10px 10px -10px; }
+    #gofundme #gofundme-button-container #gofundme-donate-button:hover {
+      background-color: #F5AE44; }
+    #gofundme #gofundme-button-container #gofundme-donate-button:active {
+      background-color: #F2A52F; }
   #gofundme #gofundme-copy {
-    width: 70%;
-    display: inline-block; }
-  #gofundme #gofundme-info {
-    max-width: 900px;
-    margin: auto auto; }
-  #gofundme #group-photo {
-    max-width: 100%;
-    max-height: 50vh; }
-  #gofundme #gofundme-donate-button {
-    height: 100px;
-    color: #FFF;
-    border-radius: 10px;
-    font-family: 'Lato Black';
-    padding: 20px;
-    margin: 40px;
-    background-color: #F29810;
-    box-shadow: rgba(0, 0, 0, 0.5) 0 10px 10px -10px; }
-  #gofundme #gofundme-donate-button:hover {
-    background-color: #F5AE44; }
-  #gofundme #gofundme-donate-button:active {
-    background-color: #F2A52F; }
+    position: absolute;
+    right: 300px;
+    left: 0; }
 
 a {
   color: #000;
   text-decoration: none; }
 
 .section {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: #fff;
   padding: 40px; }
 
 .shadow {
@@ -245,6 +257,16 @@ a {
   position: fixed;
   top: 0; }
 
+@media screen and (max-width: 800px) {
+  #gofundme #group-photo {
+    position: absolute;
+    bottom: 500px; }
+  #gofundme #gofundme-info {
+    right: 50px;
+    left: 50px;
+    bottom: 100px;
+    height: 400px; } }
+
 @media screen and (max-width: 1200px) {
   #artist-page {
     text-align: center; }
@@ -293,7 +315,7 @@ a {
   #artists .artist {
     position: relative;
     height: 300px;
-    margin-bottom: 640px;
+    margin-bottom: 200px;
     cursor: pointer; }
   #artists .profile-picture {
     left: 0;
@@ -311,8 +333,7 @@ a {
     height: 340px;
     width: auto;
     right: 0;
-    top: 450px;
-    bottom: -400px; }
+    top: 100px; }
     #artists .profile-bg img {
       width: 100%; }
   #header-title .disconnect1 {
