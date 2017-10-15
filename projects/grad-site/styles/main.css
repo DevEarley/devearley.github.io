@@ -36,7 +36,26 @@ body {
   margin: auto auto; }
   #gofundme p {
     text-align: justify; }
-  #gofundme #donate-button {
+  #gofundme #gofundme-button-container {
+    padding-top: 40px;
+    width: 30%;
+    display: inline-block; }
+    #gofundme #gofundme-button-container #gofundme-donate-button {
+      white-space: nowrap; }
+    #gofundme #gofundme-button-container #gofundme-powered-by {
+      margin-bottom: -30px;
+      margin-left: -100px;
+      margin-top: 40px; }
+  #gofundme #gofundme-copy {
+    width: 70%;
+    display: inline-block; }
+  #gofundme #gofundme-info {
+    max-width: 900px;
+    margin: auto auto; }
+  #gofundme #group-photo {
+    max-width: 100%;
+    max-height: 50vh; }
+  #gofundme #gofundme-donate-button {
     height: 100px;
     color: #FFF;
     border-radius: 10px;
@@ -45,9 +64,9 @@ body {
     margin: 40px;
     background-color: #F29810;
     box-shadow: rgba(0, 0, 0, 0.5) 0 10px 10px -10px; }
-  #gofundme #donate-button:hover {
+  #gofundme #gofundme-donate-button:hover {
     background-color: #F5AE44; }
-  #gofundme #donate-button:active {
+  #gofundme #gofundme-donate-button:active {
     background-color: #F2A52F; }
 
 a {

@@ -11,7 +11,6 @@ $topOffsetSmall: 35px;
 $letterSizeSmall: 30px;
 $leftOffsetSmall: 15px;
 $letterOffsetSizeSmall: 10px;
-
 @font-face {
     font-family: 'Lato Black';
     src: url('../fonts/Lato-Black.ttf') format('truetype');
@@ -58,7 +57,34 @@ body {
         text-align: justify;
     }
 
-    #donate-button {
+    #gofundme-button-container {
+        padding-top:40px;
+        width: 30%;
+        display: inline-block;
+
+        #gofundme-donate-button {
+            white-space: nowrap
+        }
+
+        #gofundme-powered-by {
+            margin-bottom: -30px;
+            margin-left: -100px;
+            margin-top: 40px;
+        }
+    }
+    #gofundme-copy {
+        width: 70%;
+        display: inline-block;
+    }
+    #gofundme-info {
+        max-width: 900px;
+        margin: auto auto
+    }
+    #group-photo {
+        max-width: 100%;
+        max-height: 50vh;
+    }
+    #gofundme-donate-button {
         height: 100px;
         color: #FFF;
         border-radius: 10px;
@@ -66,14 +92,12 @@ body {
         padding: 20px;
         margin: 40px;
         background-color: #F29810;
-        box-shadow: rgba(0,0,0,0.5) 0 10px 10px -10px;
+        box-shadow: rgba(0, 0, 0, 0.5) 0 10px 10px -10px;
     }
-
-    #donate-button:hover {
+    #gofundme-donate-button:hover {
         background-color: #F5AE44;
     }
-
-    #donate-button:active {
+    #gofundme-donate-button:active {
         background-color: #F2A52F;
     }
 }
@@ -107,17 +131,14 @@ a {
 #header-navigation {
     position: absolute;
     right: 0;
-    bottom:20px;
+    bottom: 20px;
     z-index: 1;
-    cursor:pointer;
-
+    cursor: pointer;
     a {
         color: #FFF;
         padding: 10px;
         border-bottom: $theme 4px solid;
-       
     }
-
     a:hover {
         border-bottom: $off-theme 4px solid;
     }
@@ -125,16 +146,13 @@ a {
 
 #artist-page {
     text-align: center;
-
-
     .image-tag {
         width: 200px;
         margin-top: 20px;
-        background: rgba(255,255,255,0.8);
+        background: rgba(255, 255, 255, 0.8);
         padding: 20px;
         margin-left: 180px;
     }
-
     #artist-info {
         position: fixed;
         width: 400px;
@@ -142,7 +160,6 @@ a {
         left: 40px;
         right: 40px;
         background-color: rgba(255, 255, 255, 0.5);
-
         h1 {
             font-family: 'Lato';
             font-weight: 900;
@@ -151,19 +168,16 @@ a {
             margin-bottom: 0;
             margin-top: 0;
         }
-
         p {
             padding: 40px;
             margin-top: 0;
             margin-bottom: 0;
         }
     }
-
     #artist-gallery {
         position: absolute;
         top: 0;
         left: 400px;
-
         .bg {
             z-index: initial;
             height: auto;
@@ -196,14 +210,12 @@ a {
     margin: 0 auto;
     min-height: 2000px;
     overflow: hidden;
-
     .artist {
         position: relative;
         height: 300px;
         margin-bottom: 240px;
         cursor: pointer;
     }
-
     .profile-picture {
         position: absolute;
         left: 0;
@@ -211,12 +223,10 @@ a {
         height: 340px;
         top: 0;
         bottom: 0;
-
         img {
             width: 300px;
         }
     }
-
     .profile-bg {
         position: absolute;
         left: 340px;
@@ -225,7 +235,6 @@ a {
         right: 0;
         top: 0;
         bottom: 0;
-
         img {
             width: 100%;
         }
@@ -240,90 +249,69 @@ a {
     color: #FFF;
     z-index: 2;
     width: 100%;
-
     .letter {
         position: absolute;
         top: 35px;
         transition: top 1000ms ease-in, height 100ms ease-in;
         font-size: 20px;
     }
-
     .disconnect1 {
         top: $topOffset + $letterOffsetSize;
     }
-
     .disconnect2 {
         top: $topOffset - $letterOffsetSize;
     }
-
     .disconnect3 {
         top: $topOffset + $letterOffsetSize*2;
     }
-
     .disconnect4 {
         top: $topOffset - $letterOffsetSize*0.5;
     }
-
     .disconnect5 {
         top: $topOffset + $letterOffsetSize*1.5;
     }
-
     .disconnect6 {
         top: $topOffset + $letterOffsetSize*0.5;
     }
-
     .disconnect7 {
         top: $topOffset - $letterOffsetSize*0.5;
     }
-
     .disconnect8 {
         top: $topOffset + $letterOffsetSize;
     }
-
     .disconnect9 {
         top: $topOffset - $letterOffsetSize;
     }
-
     .disconnect10 {
         top: $topOffset + $letterOffsetSize;
     }
-
     .letter1 {
         left: $leftOffset;
     }
-
     .letter2 {
         left: $leftOffset + $letterSize;
     }
-
     .letter3 {
         left: $leftOffset + $letterSize*2;
     }
-
     .letter4 {
         left: $leftOffset + $letterSize*3;
     }
-
     .letter5 {
         left: $leftOffset + $letterSize*4;
     }
-
     .letter6 {
         left: $leftOffset + $letterSize*5;
     }
-
     .letter7 {
         left: $leftOffset + $letterSize*6;
     }
-
     .letter8 {
         left: $leftOffset + $letterSize*7;
     }
-
     .letter9 {
         left: $leftOffset + $letterSize*8;
     }
-
     .letter10 {
         left: $leftOffset + $letterSize*9;
     }
@@ -335,16 +323,11 @@ a {
 }
 
 @media screen and (max-width: 1200px) {
-
     #artist-page {
         text-align: center;
-
-
         .image-tag {
-          
             margin-left: 0px;
         }
-
         #artist-info {
             position: absolute;
             width: auto;
@@ -355,7 +338,6 @@ a {
             bottom: auto;
             overflow-y: auto;
             background-color: rgba(255, 255, 255, 0.5);
-
             h1 {
                 font-family: 'Lato';
                 font-weight: 900;
@@ -364,19 +346,16 @@ a {
                 margin-bottom: 0;
                 margin-top: 0;
             }
-
             p {
                 padding: 40px;
                 margin-top: 0;
                 margin-bottom: 0;
             }
         }
-
         #artist-gallery {
             position: absolute;
             top: 600px;
             left: 40px;
-
             .bg {
                 z-index: initial;
                 height: auto;
@@ -388,7 +367,6 @@ a {
             }
         }
     }
-
     #splash-copy {
         padding: 40px;
         bottom: 20px;
@@ -397,16 +375,13 @@ a {
         left: 20px;
         width: auto;
     }
-
     #artists {
-
         .artist {
             position: relative;
             height: 300px;
             margin-bottom: 640px;
             cursor: pointer;
         }
-
         .profile-picture {
             left: 0;
             right: 0;
@@ -414,13 +389,11 @@ a {
             height: 340px;
             top: 0;
             bottom: 0;
-
             img {
                 height: 340px;
                 width: auto;
             }
         }
-
         .profile-bg {
             position: absolute;
             left: 0;
@@ -429,91 +402,69 @@ a {
             right: 0;
             top: 450px;
             bottom: -400px;
-
             img {
                 width: 100%;
             }
         }
     }
-
     #header-title {
-
         .disconnect1 {
             top: $topOffsetSmall + $letterOffsetSizeSmall;
         }
-
         .disconnect2 {
             top: $topOffsetSmall - $letterOffsetSizeSmall;
         }
-
         .disconnect3 {
             top: $topOffsetSmall + $letterOffsetSizeSmall *2;
         }
-
         .disconnect4 {
             top: $topOffsetSmall - $letterOffsetSizeSmall *0.5;
         }
-
         .disconnect5 {
             top: $topOffsetSmall + $letterOffsetSizeSmall *1.5;
         }
-
         .disconnect6 {
             top: $topOffsetSmall + $letterOffsetSizeSmall *0.5;
         }
-
         .disconnect7 {
             top: $topOffsetSmall - $letterOffsetSizeSmall *0.5;
         }
-
         .disconnect8 {
             top: $topOffsetSmall + $letterOffsetSizeSmall;
         }
-
         .disconnect9 {
             top: $topOffsetSmall - $letterOffsetSizeSmall;
         }
-
         .disconnect10 {
             top: $topOffsetSmall + $letterOffsetSizeSmall;
         }
-
         .letter1 {
             left: $leftOffsetSmall;
         }
-
         .letter2 {
             left: $leftOffsetSmall + $letterSizeSmall;
         }
-
         .letter3 {
             left: $leftOffsetSmall + $letterSizeSmall *2;
         }
-
         .letter4 {
             left: $leftOffsetSmall + $letterSizeSmall *3;
         }
-
         .letter5 {
             left: $leftOffsetSmall + $letterSizeSmall *4;
         }
-
         .letter6 {
             left: $leftOffsetSmall + $letterSizeSmall *5;
         }
-
         .letter7 {
             left: $leftOffsetSmall + $letterSizeSmall *6;
         }
-
         .letter8 {
             left: $leftOffsetSmall + $letterSizeSmall *7;
         }
-
         .letter9 {
             left: $leftOffsetSmall + $letterSizeSmall *8;
         }
-
         .letter10 {
             left: $leftOffsetSmall + $letterSizeSmall *9;
         }
