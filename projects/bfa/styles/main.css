@@ -17,6 +17,7 @@
   font-style: normal; }
 
 body {
+  font-size: 1em;
   font-family: 'Lato';
   font-weight: 300;
   margin: 0;
@@ -125,9 +126,9 @@ a {
     padding: 20px;
     margin-left: 180px; }
   #artist-page #artist-info {
-    position: fixed;
-    width: 400px;
-    top: 10vh;
+    position: absolute;
+    width: 500px;
+    top: 40px;
     left: 40px;
     right: 40px;
     background-color: rgba(255, 255, 255, 0.5); }
@@ -142,6 +143,8 @@ a {
       padding: 40px;
       margin-top: 0;
       margin-bottom: 0; }
+    #artist-page #artist-info img {
+      width: 400px; }
   #artist-page #artist-gallery {
     position: absolute;
     top: 0;
@@ -151,7 +154,7 @@ a {
       height: auto;
       display: block;
       max-width: 50vw;
-      margin-top: 200px;
+      margin-top: 40px;
       margin-left: 180px;
       margin-right: auto;
       z-index: 1; }
@@ -211,7 +214,7 @@ a {
     position: absolute;
     top: 35px;
     transition: top 1000ms ease-in, height 100ms ease-in;
-    font-size: 20px; }
+    font-size: 1em; }
   #header-title .disconnect1 {
     top: 50px; }
   #header-title .disconnect2 {
@@ -273,14 +276,9 @@ a {
     #artist-page .image-tag {
       margin-left: 0px; }
     #artist-page #artist-info {
-      position: absolute;
-      width: auto;
-      top: 10vh;
-      left: 40px;
-      right: 40px;
-      height: 500px;
-      bottom: auto;
-      overflow-y: auto;
+      position: relative;
+      width: 90vw;
+      right: 80px;
       background-color: rgba(255, 255, 255, 0.5); }
       #artist-page #artist-info h1 {
         font-family: 'Lato';
@@ -294,16 +292,16 @@ a {
         margin-top: 0;
         margin-bottom: 0; }
     #artist-page #artist-gallery {
-      position: absolute;
-      top: 600px;
+      position: relative;
+      top: 80px;
       left: 40px; }
       #artist-page #artist-gallery .bg {
         z-index: initial;
         height: auto;
         max-width: 90vw;
-        margin-top: 10vh;
+        margin-top: 0;
         margin-left: 0;
-        margin-right: auto;
+        margin-right: 0;
         z-index: 1; }
   #splash-copy {
     padding: 40px;
@@ -314,7 +312,7 @@ a {
     width: auto; }
   #artists .artist {
     position: relative;
-    height: 300px;
+    height: 700px;
     margin-bottom: 200px;
     cursor: pointer; }
   #artists .profile-picture {
@@ -333,7 +331,7 @@ a {
     height: 340px;
     width: auto;
     right: 0;
-    top: 100px; }
+    top: 440px; }
     #artists .profile-bg img {
       width: 100%; }
   #header-title .disconnect1 {
