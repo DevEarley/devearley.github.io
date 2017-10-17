@@ -43,7 +43,12 @@ angular.module('GradSite').service('StudentDataService', function () {
                 studentImage("gio_full.png", "2017")
             ],
             studentProfileImage("Gio")),
-        student(7, "Max Kagno", "<div>&nbsp;&nbsp;</div>",
+        student(7, "Tayler Macy", "<div>&nbsp;&nbsp;</div>",
+            [
+                studentImage("tayler_full.png", "2017")
+            ],
+            studentProfileImage("Tayler")),
+        student(8, "Max Kagno", "<div>&nbsp;&nbsp;</div>",
             [
                 studentImage("gio_full.png", "2017")
             ],

@@ -22,6 +22,7 @@ body {
   font-weight: 300;
   margin: 0;
   padding: 0;
+  min-width: 600px;
   background-size: cover;
   background: url("images/paper.png"); }
 
@@ -42,17 +43,18 @@ body {
     bottom: 270px;
     left: 0;
     right: 0;
-    background-position: center;
+    background-position-x: center;
+    background-position-y: top;
     background-repeat: no-repeat;
     background-size: contain;
     background-image: url("images/group.png"); }
   #gofundme #gofundme-info {
     position: absolute;
-    right: 100px;
-    left: 100px;
+    right: 0;
+    left: 0;
     background-color: #FFF;
     bottom: 100px;
-    height: 170px; }
+    height: 270px; }
   #gofundme #gofundme-button-container {
     position: absolute;
     right: 0;
@@ -80,7 +82,10 @@ body {
   #gofundme #gofundme-copy {
     position: absolute;
     right: 300px;
-    left: 0; }
+    left: auto;
+    padding-left: 40px;
+    font-size: 1.2em;
+    max-width: 1190px; }
 
 a {
   color: #000;
@@ -265,10 +270,12 @@ a {
     position: absolute;
     bottom: 500px; }
   #gofundme #gofundme-info {
-    right: 50px;
-    left: 50px;
+    right: 00px;
+    left: 00px;
     bottom: 100px;
-    height: 400px; } }
+    height: 400px; }
+    #gofundme #gofundme-info #gofundme-copy {
+      font-size: 1em; } }
 
 @media screen and (max-width: 1200px) {
   #artist-page {
