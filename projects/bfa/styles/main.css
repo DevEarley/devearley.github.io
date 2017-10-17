@@ -270,15 +270,20 @@ a {
   #gofundme #group-photo {
     position: absolute;
     bottom: 500px; }
+  #gofundme #gofundme-info #gofundme-copy {
+    font-size: 1em; } }
+
+@media screen and (max-width: 1200px) {
+  #gofundme #group-photo {
+    position: absolute;
+    bottom: 500px; }
   #gofundme #gofundme-info {
     right: 00px;
     left: 00px;
     bottom: 100px;
     height: 400px; }
     #gofundme #gofundme-info #gofundme-copy {
-      font-size: 1em; } }
-
-@media screen and (max-width: 1200px) {
+      font-size: 1.2em; }
   #artist-page {
     text-align: center; }
     #artist-page .image-tag {
