@@ -1,386 +1,178 @@
-        $theme: #222222;
-        $off-theme: #454545;
-        $off-white: #FFF1E8;
-        $off-theme-rgba: rgba(255, 241, 232, 0.8);
-        $off-white-rgba: rgba(212, 186, 174, 0.5);
-        $topOffset: 35px;
-        $letterSize: 50px;
-        $leftOffset: 25px;
-        $letterOffsetSize: 15px;
-        $topOffsetSmall: 35px;
-        $letterSizeSmall: 30px;
-        $leftOffsetSmall: 15px;
-        $letterOffsetSizeSmall: 10px;
-        @font-face {
-            font-family: 'Lato Black';
-            src: url('../fonts/Lato-Black.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        @font-face {
-            font-family: 'Lato';
-            src: url('../fonts/Lato-Regular.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        @font-face {
-            font-family: 'Lato Light';
-            src: url('../fonts/Lato-Light.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        body {
-            font-size: 1em;
-            font-family: 'Lato';
-            font-weight: 300;
-            margin: 0;
-            padding: 0;
-            min-width: 600px;
-            background-size: cover;
-            background: url('images/paper.png');
-        }
-
-        #header {
-            height: 100vh;
-        }
-
-        #gofundme {
-            position: relative;
-            text-align: center; // background: #FFF;
-            width: 100%;
-            height: 100vh;
-            max-width: 1500px;
-            margin: auto auto;
-            p {
-                text-align: justify;
+            $theme: #222222;
+            $off-theme: #454545;
+            $off-white: #FFF1E8;
+            $off-theme-rgba: rgba(255, 241, 232, 0.8);
+            $off-white-rgba: rgba(212, 186, 174, 0.5);
+            $topOffset: 35px;
+            $letterSize: 50px;
+            $leftOffset: 25px;
+            $letterOffsetSize: 15px;
+            $topOffsetSmall: 35px;
+            $letterSizeSmall: 30px;
+            $leftOffsetSmall: 15px;
+            $letterOffsetSizeSmall: 10px;
+            @font-face {
+                font-family: 'Lato Black';
+                src: url('../fonts/Lato-Black.ttf') format('truetype');
+                font-weight: normal;
+                font-style: normal;
             }
-            #group-photo {
-                position: absolute;
-                top: 0;
-                bottom: 270px;
-                left: 0;
-                right: 0;
-                background-position-x: center;
-                background-position-y: bottom;
-                background-repeat: no-repeat;
-                background-size: contain;
-                background-image: url('images/group.png');
-            }
-            #gofundme-info {
-                position: absolute;
-                right: 0;
-                left: 0;
-                background-color: #FFF;
-                bottom: 100px;
-                height: 270px;
-            }
-            #gofundme-button-container {
-                position: absolute;
-                right: 0;
-                width: 301px;
-                padding-top: 40px;
-                display: block;
-                #gofundme-powered-by {
-                    margin-bottom: -30px;
-                    margin-left: -100px;
-                    margin-top: 40px;
-                }
-                #gofundme-donate-button {
-                    white-space: nowrap;
-                    display: inline;
-                    color: #FFF;
-                    border-radius: 10px;
-                    font-family: 'Lato Black';
-                    padding: 20px;
-                    margin: 40px;
-                    background-color: #F29810;
-                    box-shadow: rgba(0, 0, 0, 0.5) 0 10px 10px -10px;
-                }
-                #gofundme-donate-button:hover {
-                    background-color: #F5AE44;
-                }
-                #gofundme-donate-button:active {
-                    background-color: #F2A52F;
-                }
-            }
-            #gofundme-copy {
-                position: absolute;
-                right: 300px;
-                left: auto;
-                padding-left: 40px;
-                font-size: 1.2em;
-                max-width: 1190px;
-            }
-        }
 
-        a {
-            color: #000;
-            text-decoration: none;
-        }
-
-        .section {
-            background-color: #fff;
-            padding: 40px;
-        }
-
-        .shadow {
-            -webkit-box-shadow: 0px 25px 53px -27px rgba(0, 0, 0, 0.75);
-            -moz-box-shadow: 0px 25px 53px -27px rgba(0, 0, 0, 0.75);
-            box-shadow: 0px 25px 53px -27px rgba(0, 0, 0, 0.75);
-        }
-
-        #splash {
-            position: absolute;
-            bottom: 100px;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: auto;
-            background-color: $off-theme;
-        }
-
-        #header-navigation {
-            position: absolute;
-            right: 0;
-            bottom: 20px;
-            z-index: 1;
-            cursor: pointer;
-            a {
-                color: #FFF;
-                padding: 10px;
-                border-bottom: $theme 4px solid;
+            @font-face {
+                font-family: 'Lato';
+                src: url('../fonts/Lato-Regular.ttf') format('truetype');
+                font-weight: normal;
+                font-style: normal;
             }
-            a:hover {
-                border-bottom: $off-theme 4px solid;
-            }
-        }
 
-        #artist-page {
-            text-align: center;
-            .image-tag {
-                width: 200px;
-                margin-top: 20px;
-                background: rgba(255, 255, 255, 0.8);
-                padding: 20px;
-                margin-left: 180px;
+            @font-face {
+                font-family: 'Lato Light';
+                src: url('../fonts/Lato-Light.ttf') format('truetype');
+                font-weight: normal;
+                font-style: normal;
             }
-            #artist-info {
-                position: absolute;
-                width: 500px;
-                top: 40px;
-                left: 40px;
-                right: 40px; //  bottom:40px;
-                // overflow-y: auto;
-                background-color: rgba(255, 255, 255, 0.5);
-                h1 {
-                    font-family: 'Lato';
-                    font-weight: 900;
-                    background-color: rgba(255, 255, 255, 0.8);
-                    padding: 40px;
-                    margin-bottom: 0;
-                    margin-top: 0;
-                }
-                p {
-                    padding: 40px;
-                    margin-top: 0;
-                    margin-bottom: 0;
-                }
-                img {
-                    width: 400px;
-                }
-            }
-            #artist-gallery {
-                position: absolute;
-                top: 0;
-                left: 400px;
-                .bg {
-                    z-index: initial;
-                    height: auto;
-                    display: block;
-                    max-width: 50vw;
-                    margin-top: 40px;
-                    margin-left: 180px;
-                    margin-right: auto;
-                    z-index: 1;
-                }
-            }
-        }
 
-        #splash-copy {
-            padding: 40px;
-            text-align: justify;
-            position: absolute;
-            bottom: 140px;
-            top: 40px;
-            right: 40px;
-            width: 40vw;
-            background-color: rgba(255, 255, 255, 0.5);
-            overflow-y: auto;
-        }
-
-        #artists {
-            padding: 40px;
-            text-align: center;
-            width: 80vw;
-            margin: 0 auto;
-            min-height: 2000px;
-            overflow: hidden;
-            .artist {
-                position: relative;
-                height: 300px;
-                margin-bottom: 240px;
-                cursor: pointer;
-            }
-            .profile-picture {
-                position: absolute;
-                left: 0;
-                width: 300px;
-                height: 340px;
-                top: 0;
-                bottom: 0;
-                img {
-                    width: 300px;
-                }
-            }
-            .profile-bg {
-                position: absolute;
-                left: 340px;
-                height: 340px;
-                width: auto;
-                right: 0;
-                top: 0;
-                bottom: 0;
-                img {
-                    width: 100%;
-                }
-            }
-        }
-
-        #header-title {
-            position: absolute;
-            bottom: 0;
-            height: 100px;
-            background-color: $theme;
-            color: #FFF;
-            z-index: 2;
-            width: 100%;
-            .letter {
-                position: absolute;
-                top: 35px;
-                transition: top 1000ms ease-in, height 100ms ease-in;
+            body {
                 font-size: 1em;
+                font-family: 'Lato';
+                font-weight: 300;
+                margin: 0;
+                padding: 0;
+                min-width: 600px;
+                background-size: cover;
+                background: url('images/paper.png');
             }
-            .disconnect1 {
-                top: $topOffset + $letterOffsetSize;
-            }
-            .disconnect2 {
-                top: $topOffset - $letterOffsetSize;
-            }
-            .disconnect3 {
-                top: $topOffset + $letterOffsetSize*2;
-            }
-            .disconnect4 {
-                top: $topOffset - $letterOffsetSize*0.5;
-            }
-            .disconnect5 {
-                top: $topOffset + $letterOffsetSize*1.5;
-            }
-            .disconnect6 {
-                top: $topOffset + $letterOffsetSize*0.5;
-            }
-            .disconnect7 {
-                top: $topOffset - $letterOffsetSize*0.5;
-            }
-            .disconnect8 {
-                top: $topOffset + $letterOffsetSize;
-            }
-            .disconnect9 {
-                top: $topOffset - $letterOffsetSize;
-            }
-            .disconnect10 {
-                top: $topOffset + $letterOffsetSize;
-            }
-            .letter1 {
-                left: $leftOffset;
-            }
-            .letter2 {
-                left: $leftOffset + $letterSize;
-            }
-            .letter3 {
-                left: $leftOffset + $letterSize*2;
-            }
-            .letter4 {
-                left: $leftOffset + $letterSize*3;
-            }
-            .letter5 {
-                left: $leftOffset + $letterSize*4;
-            }
-            .letter6 {
-                left: $leftOffset + $letterSize*5;
-            }
-            .letter7 {
-                left: $leftOffset + $letterSize*6;
-            }
-            .letter8 {
-                left: $leftOffset + $letterSize*7;
-            }
-            .letter9 {
-                left: $leftOffset + $letterSize*8;
-            }
-            .letter10 {
-                left: $leftOffset + $letterSize*9;
-            }
-        }
 
-        #header-title.affix {
-            position: fixed;
-            top: 0;
-        }
+            #header {
+                height: 100vh;
+            }
 
-        @media screen and (max-width: 800px) {
             #gofundme {
+                position: relative;
+                text-align: center; // background: #FFF;
+                width: 100%;
+                height: 100vh;
+                max-width: 1500px;
+                margin: auto auto;
+                p {
+                    text-align: justify;
+                }
                 #group-photo {
                     position: absolute;
-                    bottom: 500px;
+                    top: 0;
+                    bottom: 270px;
+                    left: 0;
+                    right: 0;
+                    background-position-x: center;
+                    background-position-y: bottom;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    background-image: url('images/group.png');
                 }
                 #gofundme-info {
-                    #gofundme-copy {
-                        font-size: 1em;
-                    }
-                }
-            }
-        }
-
-        @media screen and (max-width: 1200px) {
-            #gofundme {
-                #group-photo {
                     position: absolute;
-                    bottom: 500px;
-                }
-                #gofundme-info {
-                    right: 00px;
-                    left: 00px;
+                    right: 0;
+                    left: 0;
+                    background-color: #FFF;
                     bottom: 100px;
-                    height: 400px;
-                    #gofundme-copy {
-                        font-size: 1.2em;
+                    height: 270px;
+                }
+                #gofundme-button-container {
+                    position: absolute;
+                    right: 0;
+                    width: 301px;
+                    padding-top: 40px;
+                    display: block;
+                    #gofundme-powered-by {
+                        margin-bottom: -30px;
+                        margin-left: -100px;
+                        margin-top: 40px;
+                    }
+                    #gofundme-donate-button {
+                        white-space: nowrap;
+                        display: inline;
+                        color: #FFF;
+                        border-radius: 10px;
+                        font-family: 'Lato Black';
+                        padding: 20px;
+                        margin: 40px;
+                        background-color: #F29810;
+                        box-shadow: rgba(0, 0, 0, 0.5) 0 10px 10px -10px;
+                    }
+                    #gofundme-donate-button:hover {
+                        background-color: #F5AE44;
+                    }
+                    #gofundme-donate-button:active {
+                        background-color: #F2A52F;
                     }
                 }
+                #gofundme-copy {
+                    position: absolute;
+                    right: 300px;
+                    left: auto;
+                    padding-left: 40px;
+                    font-size: 1.2em;
+                    max-width: 1190px;
+                }
             }
+
+            a {
+                color: #000;
+                text-decoration: none;
+            }
+
+            .section {
+                background-color: #fff;
+                padding: 40px;
+            }
+
+            .shadow {
+                -webkit-box-shadow: 0px 25px 53px -27px rgba(0, 0, 0, 0.75);
+                -moz-box-shadow: 0px 25px 53px -27px rgba(0, 0, 0, 0.75);
+                box-shadow: 0px 25px 53px -27px rgba(0, 0, 0, 0.75);
+            }
+
+            #splash {
+                position: absolute;
+                bottom: 100px;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: auto;
+                background-color: $off-theme;
+            }
+
+            #header-navigation {
+                position: absolute;
+                right: 0;
+                bottom: 20px;
+                z-index: 1;
+                cursor: pointer;
+                a {
+                    color: #FFF;
+                    padding: 10px;
+                    border-bottom: $theme 4px solid;
+                }
+                a:hover {
+                    border-bottom: $off-theme 4px solid;
+                }
+            }
+
             #artist-page {
                 text-align: center;
                 .image-tag {
+                    width: 200px;
+                    margin-top: 20px;
+                    background: rgba(255, 255, 255, 0.8);
+                    padding: 20px;
                     margin-left: 0px;
                 }
                 #artist-info {
-                    position: relative;
-                    width: 90vw; // top: 10vh;
-                    // left: 40px;
-                    right: 80px; // height: 500px;
-                    // bottom: auto;
+                    position: fixed;
+                    width: 500px;
+                    top: 140px;
+                    left: 40px;
+                    right: 40px; //  bottom:40px;
                     // overflow-y: auto;
                     background-color: rgba(255, 255, 255, 0.5);
                     h1 {
@@ -396,121 +188,336 @@
                         margin-top: 0;
                         margin-bottom: 0;
                     }
+                    img {
+                        width: 400px;
+                    }
                 }
                 #artist-gallery {
-                    position: relative;
-                    top: 80px;
-                    left: 40px;
+                    position: absolute;
+                    top: 140px;
+                    left: 580px;
+                    p {
+                        padding: 40px;
+                        margin-top: 0;
+                        margin-bottom: 0;
+                        background-color: rgba(255, 255, 255, 0.5);
+                        text-align: left;
+                    }
                     .bg {
                         z-index: initial;
                         height: auto;
-                        max-width: 90vw;
-                        margin-top: 0;
-                        margin-left: 0;
-                        margin-right: 0;
+                        display: block;
+                        max-width: 50vw;
+                        margin-top: 40px;
+                        margin-left: 0px;
+                        margin-right: auto;
                         z-index: 1;
                     }
                 }
             }
+
             #splash-copy {
                 padding: 40px;
-                bottom: 20px;
-                top: 350px;
-                right: 20px;
-                left: 20px;
-                width: auto;
+                text-align: justify;
+                position: absolute;
+                bottom: 140px;
+                top: 40px;
+                right: 40px;
+                width: 40vw;
+                background-color: rgba(255, 255, 255, 0.5);
+                overflow-y: auto;
             }
+
             #artists {
+                padding: 40px;
+                text-align: center;
+                width: 80vw;
+                margin: 0 auto;
+                min-height: 2000px;
+                overflow: hidden;
                 .artist {
                     position: relative;
-                    height: 700px;
-                    margin-bottom: 200px;
+                    height: 300px;
+                    margin-bottom: 240px;
                     cursor: pointer;
                 }
                 .profile-picture {
+                    position: absolute;
                     left: 0;
-                    right: 0;
-                    width: auto;
+                    width: 300px;
                     height: 340px;
                     top: 0;
                     bottom: 0;
                     img {
-                        height: 340px;
-                        width: auto;
+                        width: 300px;
                     }
                 }
                 .profile-bg {
                     position: absolute;
-                    left: 0;
+                    left: 340px;
                     height: 340px;
                     width: auto;
                     right: 0;
-                    top: 440px; // bottom: -400px;
+                    top: 0;
+                    bottom: 0;
                     img {
                         width: 100%;
                     }
                 }
             }
+
             #header-title {
+                position: absolute;
+                bottom: 0;
+                height: 100px;
+                background-color: $theme;
+                color: #FFF;
+                z-index: 2;
+                width: 100%;
+                .letter {
+                    position: absolute;
+                    top: 35px;
+                    transition: top 1000ms ease-in, height 100ms ease-in;
+                    font-size: 1em;
+                }
                 .disconnect1 {
-                    top: $topOffsetSmall + $letterOffsetSizeSmall;
+                    top: $topOffset + $letterOffsetSize;
                 }
                 .disconnect2 {
-                    top: $topOffsetSmall - $letterOffsetSizeSmall;
+                    top: $topOffset - $letterOffsetSize;
                 }
                 .disconnect3 {
-                    top: $topOffsetSmall + $letterOffsetSizeSmall *2;
+                    top: $topOffset + $letterOffsetSize*2;
                 }
                 .disconnect4 {
-                    top: $topOffsetSmall - $letterOffsetSizeSmall *0.5;
+                    top: $topOffset - $letterOffsetSize*0.5;
                 }
                 .disconnect5 {
-                    top: $topOffsetSmall + $letterOffsetSizeSmall *1.5;
+                    top: $topOffset + $letterOffsetSize*1.5;
                 }
                 .disconnect6 {
-                    top: $topOffsetSmall + $letterOffsetSizeSmall *0.5;
+                    top: $topOffset + $letterOffsetSize*0.5;
                 }
                 .disconnect7 {
-                    top: $topOffsetSmall - $letterOffsetSizeSmall *0.5;
+                    top: $topOffset - $letterOffsetSize*0.5;
                 }
                 .disconnect8 {
-                    top: $topOffsetSmall + $letterOffsetSizeSmall;
+                    top: $topOffset + $letterOffsetSize;
                 }
                 .disconnect9 {
-                    top: $topOffsetSmall - $letterOffsetSizeSmall;
+                    top: $topOffset - $letterOffsetSize;
                 }
                 .disconnect10 {
-                    top: $topOffsetSmall + $letterOffsetSizeSmall;
+                    top: $topOffset + $letterOffsetSize;
                 }
                 .letter1 {
-                    left: $leftOffsetSmall;
+                    left: $leftOffset;
                 }
                 .letter2 {
-                    left: $leftOffsetSmall + $letterSizeSmall;
+                    left: $leftOffset + $letterSize;
                 }
                 .letter3 {
-                    left: $leftOffsetSmall + $letterSizeSmall *2;
+                    left: $leftOffset + $letterSize*2;
                 }
                 .letter4 {
-                    left: $leftOffsetSmall + $letterSizeSmall *3;
+                    left: $leftOffset + $letterSize*3;
                 }
                 .letter5 {
-                    left: $leftOffsetSmall + $letterSizeSmall *4;
+                    left: $leftOffset + $letterSize*4;
                 }
                 .letter6 {
-                    left: $leftOffsetSmall + $letterSizeSmall *5;
+                    left: $leftOffset + $letterSize*5;
                 }
                 .letter7 {
-                    left: $leftOffsetSmall + $letterSizeSmall *6;
+                    left: $leftOffset + $letterSize*6;
                 }
                 .letter8 {
-                    left: $leftOffsetSmall + $letterSizeSmall *7;
+                    left: $leftOffset + $letterSize*7;
                 }
                 .letter9 {
-                    left: $leftOffsetSmall + $letterSizeSmall *8;
+                    left: $leftOffset + $letterSize*8;
                 }
                 .letter10 {
-                    left: $leftOffsetSmall + $letterSizeSmall *9;
+                    left: $leftOffset + $letterSize*9;
                 }
             }
-        }
+
+            #header-title.affix {
+                position: fixed;
+                top: 0;
+            }
+
+            @media screen and (max-width: 800px) {
+                #gofundme {
+                    #group-photo {
+                        position: absolute;
+                        bottom: 500px;
+                    }
+                    #gofundme-info {
+                        #gofundme-copy {
+                            font-size: 1em;
+                        }
+                    }
+                }
+            }
+
+            @media screen and (max-width: 1200px) {
+                #gofundme {
+                    #group-photo {
+                        position: absolute;
+                        bottom: 500px;
+                    }
+                    #gofundme-info {
+                        right: 00px;
+                        left: 00px;
+                        bottom: 100px;
+                        height: 400px;
+                        #gofundme-copy {
+                            font-size: 1.2em;
+                        }
+                    }
+                }
+                #artist-page {
+                    text-align: center;
+                    .image-tag {
+                        margin-left: 0px;
+                    }
+                    #artist-info {
+                        position: relative;
+                        width: 90vw; // top: 10vh;
+                        // left: 40px;
+                        right: 80px; // height: 500px;
+                        // bottom: auto;
+                        // overflow-y: auto;
+                        background-color: rgba(255, 255, 255, 0.5);
+                        h1 {
+                            font-family: 'Lato';
+                            font-weight: 900;
+                            background-color: rgba(255, 255, 255, 0.8);
+                            padding: 40px;
+                            margin-bottom: 0;
+                            margin-top: 0;
+                        }
+                        p {
+                            padding: 40px;
+                            margin-top: 0;
+                            margin-bottom: 0;
+                        }
+                    }
+                    #artist-gallery {
+                        position: relative;
+                        top: 80px;
+                        left: 40px;
+                        .bg {
+                            z-index: initial;
+                            height: auto;
+                            max-width: 90vw;
+                            margin-top: 0;
+                            margin-left: 0;
+                            margin-right: 0;
+                            z-index: 1;
+                        }
+                    }
+                }
+                #splash-copy {
+                    padding: 40px;
+                    bottom: 20px;
+                    top: 350px;
+                    right: 20px;
+                    left: 20px;
+                    width: auto;
+                }
+                #artists {
+                    .artist {
+                        position: relative;
+                        height: 700px;
+                        margin-bottom: 200px;
+                        cursor: pointer;
+                    }
+                    .profile-picture {
+                        left: 0;
+                        right: 0;
+                        width: auto;
+                        height: 340px;
+                        top: 0;
+                        bottom: 0;
+                        img {
+                            height: 340px;
+                            width: auto;
+                        }
+                    }
+                    .profile-bg {
+                        position: absolute;
+                        left: 0;
+                        height: 340px;
+                        width: auto;
+                        right: 0;
+                        top: 440px; // bottom: -400px;
+                        img {
+                            width: 100%;
+                        }
+                    }
+                }
+                #header-title {
+                    .disconnect1 {
+                        top: $topOffsetSmall + $letterOffsetSizeSmall;
+                    }
+                    .disconnect2 {
+                        top: $topOffsetSmall - $letterOffsetSizeSmall;
+                    }
+                    .disconnect3 {
+                        top: $topOffsetSmall + $letterOffsetSizeSmall *2;
+                    }
+                    .disconnect4 {
+                        top: $topOffsetSmall - $letterOffsetSizeSmall *0.5;
+                    }
+                    .disconnect5 {
+                        top: $topOffsetSmall + $letterOffsetSizeSmall *1.5;
+                    }
+                    .disconnect6 {
+                        top: $topOffsetSmall + $letterOffsetSizeSmall *0.5;
+                    }
+                    .disconnect7 {
+                        top: $topOffsetSmall - $letterOffsetSizeSmall *0.5;
+                    }
+                    .disconnect8 {
+                        top: $topOffsetSmall + $letterOffsetSizeSmall;
+                    }
+                    .disconnect9 {
+                        top: $topOffsetSmall - $letterOffsetSizeSmall;
+                    }
+                    .disconnect10 {
+                        top: $topOffsetSmall + $letterOffsetSizeSmall;
+                    }
+                    .letter1 {
+                        left: $leftOffsetSmall;
+                    }
+                    .letter2 {
+                        left: $leftOffsetSmall + $letterSizeSmall;
+                    }
+                    .letter3 {
+                        left: $leftOffsetSmall + $letterSizeSmall *2;
+                    }
+                    .letter4 {
+                        left: $leftOffsetSmall + $letterSizeSmall *3;
+                    }
+                    .letter5 {
+                        left: $leftOffsetSmall + $letterSizeSmall *4;
+                    }
+                    .letter6 {
+                        left: $leftOffsetSmall + $letterSizeSmall *5;
+                    }
+                    .letter7 {
+                        left: $leftOffsetSmall + $letterSizeSmall *6;
+                    }
+                    .letter8 {
+                        left: $leftOffsetSmall + $letterSizeSmall *7;
+                    }
+                    .letter9 {
+                        left: $leftOffsetSmall + $letterSizeSmall *8;
+                    }
+                    .letter10 {
+                        left: $leftOffsetSmall + $letterSizeSmall *9;
+                    }
+                }
+            }
