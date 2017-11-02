@@ -1,0 +1,78 @@
+body {
+  overflow-y: scroll;
+  padding: 0 0;
+  max-height: 100vh;
+  background-color: #222;
+  font-family: monospace;
+  font-size: 14px;
+  color: #FFF;
+  image-rendering: pixelated;
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/WordHunter.png?alt=media&token=fc9b2b19-6b11-4543-8263-36e68cd157f4");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat; }
+
+table td {
+  font-size: 14px; }
+
+a {
+  color: #DDD;
+  text-decoration: none;
+  font-family: monospace;
+  font-size: 14px; }
+
+a:hover {
+  color: #FFF;
+  text-decoration: underline; }
+
+input {
+  width: 100%;
+  font-family: monospace;
+  font-size: 14px;
+  padding: 10px;
+  margin: 2px;
+  cursor: pointer;
+  border: none; }
+
+table {
+  font-family: monospace;
+  font-size: 14px; }
+
+#Container {
+  margin: auto auto;
+  max-width: 800px;
+  min-width: 400px;
+  background-color: rgba(20, 20, 20, 0.9);
+  padding: 40px;
+  margin-bottom: 50vh; }
+
+#Stats {
+  text-align: center; }
+
+h1 {
+  margin: 0;
+  padding: 0; }
+
+#Output {
+  max-height: 50vh;
+  font-size: 14px;
+  overflow-y: auto; }
+
+#Status {
+  color: #22FF22;
+  float: right;
+  font-size: 14px; }
+
+.bounty {
+  padding: 10px;
+  margin: 2px;
+  font-size: 14px;
+  display: inline-block;
+  cursor: pointer;
+  color: #000;
+  background-color: #DDD; }
+
+@media only screen and (min-width: 1200px) {
+  body {
+    padding: 0 0; } }
