@@ -48,9 +48,12 @@ angular.module('GradSite').service('StudentDataService', function () {
                 studentImage("tayler_full.png", "2017")
             ],
             studentProfileImage("Tayler")),
-        student(8, "Max Kagno", "<div>&nbsp;&nbsp;</div>",
+        student(8, "Max Kagno", "<div>&nbsp;&nbsp;Max Kagno is a South Florida based artist getting his Bachelors of Fine Arts degree at FAU with a focus in printmaking. He works in various forms of print, including: woodblock, silkscreen, and copper plate etching. Using these different forms, he creates works commercially and for fine art. His main concept focuses around conveying personalities of people he gets to know using their body to describe them without their face. He prefers to take all his own reference photos for each piece he makes. Max’s works have been on display in the Juried Student Exhibition at FAU. He has also live printed tee-shirts with his woodblocks at events around South Florida as president of FAU’s Print Club president.</div>",
             [
-                studentImage("gio_full.png", "2017")
+                studentImage("max1.png", "2017"),
+                studentImage("max2.png", "2017"),
+                studentImage("max3.png", "2017"),
+                studentImage("max4.png", "2017")
             ],
             studentProfileImage("Max")),
     ];
