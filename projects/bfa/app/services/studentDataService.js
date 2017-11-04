@@ -74,10 +74,10 @@
     ];
 
     function studentImage(_url, _desc) {
-        return { url: "images\" + _url, desc: _desc };
+        return { url: "images" + _url, desc: _desc };
     }
     function studentProfileImage(_url) {
-        return { url: "images/profiles\" + _url + ".png" };
+        return { url: "images/profiles" + _url + ".png" };
     }
 
     function student(_id, _name, _desc, _images, _profile) {
@@ -85,8 +85,7 @@
             id: _id,
             name: _name,
             info: { name: _name, desc: _desc, profile: _profile },
-            images: _images,
-           
+            images: _images
         }
     }
 
