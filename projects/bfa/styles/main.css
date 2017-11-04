@@ -29,6 +29,9 @@ body {
 #header {
   height: 100vh; }
 
+#location {
+  text-align: center; }
+
 #gofundme {
   position: relative;
   text-align: center;
