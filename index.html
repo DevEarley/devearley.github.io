@@ -37,10 +37,9 @@
 <body ng-app="DEVE" class="dark-text" ng-controller="AppController as vm">
     <div id="DEVEContent" class="{{vm.Theme}}" ng-class="{'mobile':vm.IsMobile==true}">
         <!-- Page Content -->
-        <div perfect-parallax parallax-ratio="0.1">
-            <div perfect-parallax parallax-ratio="0.95" class="img-bg"></div>
-            <div perfect-parallax parallax-ratio="0.95" class="img" ng-class="{'no-parallax':vm.IsMobile==true}"></div>
-        </div>
+    <div style="position: fixed" class="img-bg">
+            <div class="img">
+    </div></div>
         <ng-view style="display:inline-block;width:100vw!important;height:100vh!important" autoscroll="true" />
     </div>
 
@@ -57,7 +56,6 @@
     <script src="./libs/angular-aria.min.js"></script>
     <script src="./libs/angular-material.min.js"></script>
     <script src="./libs/angular-route.js"></script>
-    <script src="./libs/angular-parallax.js"></script>
 
     <!-- App -->
     <script src="./app/app.js"></script>
