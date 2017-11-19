@@ -296,6 +296,11 @@ body {
     border-right: 0px solid rgba(255, 255, 255, 0);
 }
 
+.blog-copy {
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
 .copy h1 {
     margin-top: 0;
 }
@@ -310,83 +315,76 @@ body {
     color: #FFF;
 }
 
-.aura .copy b {
-    color: #71BE60;
-}
+.aura .copy b,
+.aura .copy h2,
+.aura .copy h1{
+     color: #71BE60;
 
+}
 .ocean .copy {
     background-color: rgba(255, 255, 255, 0.9);
     color: #222;
 }
-
+.ocean .blog-copy {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #222;
+}
 .ocean .copy h1,
 .ocean .copy h2,
 .ocean .copy li {
-    color: #222;
+    color: #000;
 }
-
 .ocean .copy b {
     color: #000;
 }
-
 .fish .copy {
     background-color: rgba(0, 55, 44, 0.7);
     color: #FFF;
 }
-
 .fish .blog-copy {
     background-color: rgba(0, 55, 44, 0.9)!important;
     color: #FFF;
 }
-
 .fish .copy b {
     color: #fe9a58;
 }
-
 .fish .copy h1,
 .fish .copy h2 {
     color: #fe9a58;
 }
-
 .fish .copy li {
     color: #fff;
 }
-
 .stairs .copy {
     background-color: rgba(75, 75, 81, 0.7);
     color: #FFF;
 }
-
 .stairs .blog-copy {
-    background-color: rgba(75, 75, 81, 0.9)!important;
+    background-color: rgba(75, 75, 81, 0.95)!important;
     color: #FFF;
 }
-
 .stairs .copy b {
     color: #FFF;
     padding-left: 4px;
     padding-right: 2px;
     background-color: rgba(75, 75, 81, 0.9);
 }
-
 .bushes .copy {
     background-color: rgba(10, 10, 48, 0.8);
     color: #FFF;
 }
-
 .bushes .copy b {
     color: #FFF;
     padding-left: 4px;
     padding-right: 2px;
     background-color: rgba(10, 10, 48, 0.8);
 }
-
 .mobile .copy {
     padding: 20px !important;
     /*width: auto !important;*/
+
     font-size: 18px;
 }
-
 .unpop-animation {
     opacity: 1;
     animation-fill-mode: both;
@@ -399,7 +397,6 @@ body {
     -o-animation: unpop-anim 0.5s;
     animation: unpop-anim 0.5s;
 }
-
 .pop-animation {
     opacity: 0;
     animation-fill-mode: both;
@@ -412,25 +409,21 @@ body {
     -o-animation: pop-anim 0.5s;
     animation: pop-anim 0.5s;
 }
-
 .nav-grid .nav-grid-item .fa.fa-file-pdf-o {
     color: #FF5b5b !important;
 }
-
 .nav-grid .nav-grid-item .fa.fa-twitter-square {
     color: #1DA1F2 !important;
     width: 30px;
     height: 30px;
     line-height: 27px;
 }
-
 .nav-grid .nav-grid-item .fa.fa-linkedin-square {
     color: #0077B5 !important;
     width: 30px;
     height: 30px;
     line-height: 27px;
 }
-
 @-webkit-keyframes pop-anim {
     0% {
         /*margin-top: 0;
@@ -439,6 +432,7 @@ body {
         height: 120vh;*/
         opacity: 1;
     }
+
     100% {
         /*margin-top: 20vh;
         left: 20vw;
@@ -447,7 +441,6 @@ body {
         opacity: 0;
     }
 }
-
 @-moz-keyframes pop-anim {
     0% {
         /*margin-top: 0;
@@ -456,6 +449,7 @@ body {
         height: 120vh;*/
         opacity: 1;
     }
+
     100% {
         /*margin-top: 20vh;
         left: 20vw;
@@ -464,7 +458,6 @@ body {
         opacity: 0;
     }
 }
-
 @-o-keyframes pop-anim {
     0% {
         /*margin-top: 0;
@@ -473,6 +466,7 @@ body {
         height: 120vh;*/
         opacity: 1;
     }
+
     100% {
         /*margin-top: 20vh;
         left: 20vw;
@@ -481,7 +475,6 @@ body {
         opacity: 0;
     }
 }
-
 @keyframes pop-anim {
     0% {
         /*margin-top: 0;
@@ -490,6 +483,7 @@ body {
         height: 120vh;*/
         opacity: 1;
     }
+
     100% {
         /*margin-top: 20vh;
         left: 20vw;
@@ -498,7 +492,6 @@ body {
         opacity: 0;
     }
 }
-
 @-webkit-keyframes unpop-anim {
     0% {
         /*margin-top: 20vh;
@@ -507,6 +500,7 @@ body {
         height: 60vh;*/
         opacity: 0;
     }
+
     100% {
         /*margin-top: 0;
         left: 0;
@@ -515,7 +509,6 @@ body {
         opacity: 1;
     }
 }
-
 @-moz-keyframes unpop-anim {
     0% {
         /*margin-top: 20vh;
@@ -524,6 +517,7 @@ body {
         height: 60vh;*/
         opacity: 0;
     }
+
     100% {
         /*margin-top: 0;
         left: 0;
@@ -532,7 +526,6 @@ body {
         opacity: 1;
     }
 }
-
 @-o-keyframes unpop-anim {
     0% {
         /*margin-top: 20vh;
@@ -541,6 +534,7 @@ body {
         height: 60vh;*/
         opacity: 0;
     }
+
     100% {
         /*margin-top: 0;
         left: 0;
@@ -549,7 +543,6 @@ body {
         opacity: 1;
     }
 }
-
 @keyframes unpop-anim {
     0% {
         /*margin-top: 20vh;
@@ -558,6 +551,7 @@ body {
         height: 60vh;*/
         opacity: 0;
     }
+
     100% {
         /*margin-top: 0;
         left: 0;
@@ -566,7 +560,6 @@ body {
         opacity: 1;
     }
 }
-
 @media only screen and (max-width: 768px) {
     .title {
         margin-left: 5%;
@@ -575,6 +568,7 @@ body {
         padding-bottom: 10px;
         height: auto;
     }
+
     .title:after {
         margin-top: 30px;
         margin-left: 115px;
@@ -582,18 +576,22 @@ body {
         max-width: 400px;
         margin-right: 20px;
     }
+
     .title:before {
         left: -20px;
         top: 13px;
     }
+
     .copy {
         margin-left: 5%;
         width: 90%;
     }
+
     .nav-grid {
         margin-left: 5%;
         width: 90%;
     }
+
     .nav-grid .nav-grid-item {
         width: 92%;
         margin-right: 4%;
@@ -601,9 +599,11 @@ body {
         font-size: 12px;
         margin-bottom: 18px;
     }
+
     .nav-grid .nav-grid-item.nav-grid-item-auto {
         /*width: 92%!important;*/
     }
+
     .nav-grid .nav-grid-item .fa {
         margin: 0;
         font-size: 30px;
@@ -613,6 +613,7 @@ body {
         /*line-height: 7px;*/
         display: inline-block;
     }
+
     .nav-grid .nav-grid-item .nav-label {
         margin: 0;
         float: right;
@@ -622,61 +623,66 @@ body {
         font-size: 20px;
     }
 }
-
 @media only screen and (min-width: 768px) and (max-width: 1024px) {}
-
 @media only screen and (min-width: 768px) {
     .title {
         margin-left: 150px;
         width: 500px;
     }
+
     .title:after {
         margin-left: 50px;
         width: 400px;
     }
+
     .title:before {
         left: -135px;
     }
+
     .copy {
         margin-left: 150px;
         width: 500px;
     }
+
     .copy.blog-copy {
-        margin-left: 100px;
-        width: 800px!important;
+        margin-left: 5vw;
+        width: 90vw!important;
     }
+
     .nav-grid {
         margin-left: 150px;
         width: 500px;
     }
 }
-
 @media only screen and (min-width: 1024px) and (max-width:1400px) {}
-
 @media only screen and (min-width: 1024px) {
     .title {
         margin-left: 400px;
         width: 500px;
     }
+
     .title:after {
         margin-left: 50px;
         width: 400px;
     }
+
     .title:before {
         left: -135px;
     }
+
     .copy {
         margin-left: 400px;
         width: 500px;
     }
+
     .copy.blog-copy {
-        margin-left: 300px;
-        width: 800px!important;
+        margin-left: 10vw;
+        width: 80vw!important;
     }
+
     .nav-grid {
         margin-left: 400px;
         width: 500px;
     }
 }
-
 @media only screen and (min-width: 1400px) {}

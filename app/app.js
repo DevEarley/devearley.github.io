@@ -7,10 +7,14 @@ angular.module('DEVE', ['ngRoute','ngTouch', 'ngMaterial' ])
         })
         .when('/blog', {
             templateUrl: 'app/templates/blog.html',
-        })   
+        }).when('/blog/angularjs-typescript-1', {
+            templateUrl: 'app/templates/blogs/blog1.html',
+        }).when('/blog/angularjs-typescript-2', {
+            templateUrl: 'app/templates/blogs/blog2.html',
+        })
 }).run(function ($rootScope, $http) {
     $rootScope.IsMobile = WURFL.is_mobile;
-    
+
     var json = 'https://ipv4.myexternalip.com/json';
     $http.get(json).then(function (result) {
         $rootScope.IPAddress = result.data.ip;

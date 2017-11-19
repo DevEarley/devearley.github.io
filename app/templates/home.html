@@ -3,16 +3,16 @@
     <div class="content">
         <div class="copy ">
             Alex is a full stack web developer and designer from Palm Beach, Florida. He has worked on enterprise solutions, iOS apps,
-            marketing email campaigns, and wholesale trading platforms. Alex is proficient with <b>TypeScript HTML SCSS</b>and<b> AngularJS</b> on the front end; <b>C#</b> with <b>ASP.NET, Nancy</b> server side. Please
-            see his resume for more information.
+            marketing email campaigns, and wholesale trading platforms. Alex is proficient with <b>TypeScript HTML SCSS</b>and<b> AngularJS</b>            on the front end; <b>C#</b> with <b>ASP.NET, Nancy</b> server side. Please see his resume for more information.
         </div>
         <div class="nav-grid">
-            <a href="mailto:alexearley@me.com" target="_self" class="nav-grid-item">
-                <i class="fa fa-envelope-o"></i>
+            <div ng-click="vm.gotoBlogs()" class="nav-grid-item">
+                <i class="fa fa-coffee"></i>
                 <div class="nav-label">
-                    Email
+                    Blog
                 </div>
-            </a>
+            </div>
+
             <a href="https://www.linkedin.com/in/alex-earley-00a73928" target="_blank" class="nav-grid-item">
                 <i class="fa fa-linkedin-square"></i>
                 <div class="nav-label">LinkedIn</div>
@@ -53,8 +53,8 @@
                     Resumes
                 </div>
             </div>
-                </div>
-            <div class="nav-grid" ng-show="vm.ShowProjects">
+        </div>
+        <div class="nav-grid" ng-show="vm.ShowProjects">
             <div class="projects" ng-class="{'active':vm.ShowProjects}">
                 <a href="https://shoshingamestudio.itch.io/" target="_blank" class="nav-grid-item">
                     <i class="fa fa-gamepad"></i>
@@ -105,8 +105,8 @@
                     </div>
                 </a>
             </div>
-                </div>
-                <div class="nav-grid" ng-show="vm.ShowResumes">
+        </div>
+        <div class="nav-grid" ng-show="vm.ShowResumes">
             <div class="projects" ng-class="{'active':vm.ShowResumes}">
                 <a href="https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/resumes%2FAlexEarley-GameDevResume%20(1).docx?alt=media&token=c919612f-c3cd-4a1e-ac32-0fb4063330e5"
                     target="_blank" class="nav-grid-item">
@@ -136,16 +136,16 @@
                 </a>
             </div>
         </div>
-        <div class="copy " ng-click="vm.gotoBlog();">
+        <div class="copy " ng-click="vm.gotoBlog('angularjs-typescript-1');">
             <h1> AngularJS + Typescript <i class="fa fa-arrow-right"></i></h1>
             Tutorial for building a simple Hello World app with Typescript using NPM with VS Code.
         </div>
+
         <div class="copy">
             <blockquote class="twitter-tweet" data-lang="en">
                 <p lang="en" dir="ltr">The ship I built in Crocotile3d made it to Monogame! With the help of Wings3D and Autodesk FBX converter
                     2013. <a href="https://twitter.com/hashtag/gamedev?src=hash&amp;ref_src=twsrc%5Etfw">#gamedev</a>
-                    <a
-                        href="https://twitter.com/hashtag/pixelart?src=hash&amp;ref_src=twsrc%5Etfw">#pixelart</a> <a href="https://twitter.com/hashtag/lowpoly?src=hash&amp;ref_src=twsrc%5Etfw">#lowpoly</a>                        <a href="https://t.co/XC3avQwDDT">pic.twitter.com/XC3avQwDDT</a></p>&mdash; AlexEarley (@DevEarley)
+                    <a href="https://twitter.com/hashtag/pixelart?src=hash&amp;ref_src=twsrc%5Etfw">#pixelart</a> <a href="https://twitter.com/hashtag/lowpoly?src=hash&amp;ref_src=twsrc%5Etfw">#lowpoly</a>                    <a href="https://t.co/XC3avQwDDT">pic.twitter.com/XC3avQwDDT</a></p>&mdash; AlexEarley (@DevEarley)
                 <a href="https://twitter.com/DevEarley/status/916723970568802304?ref_src=twsrc%5Etfw">October 7, 2017</a></blockquote>
             <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>

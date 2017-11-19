@@ -1,53 +1,16 @@
 <div>
     <div class="title"></div>
     <div class="content">
-        <div class="copy blog-copy ">
-            <h1>Typescript with AngularJS and Node in VS Code.</h1>
-            <h2> By Alex Earley, Sunday November 19th, 2017 </h2>
-            <div>
-                &nbsp;&nbsp;It took me the better part of yesterday to build this small little 'Hello World' app. I am glad that I did. AngularJS
-                is my bread and butter at work, and my boss has shown interest in typescript. I wanted to introduce TypeScript
-                to my stack, but not do it in the middle of a sprint at work. So I updated VS Code and installed TypeScript
-                via NPM. I Google'd a handful of errors and questions, and soon enough I had a 'Hello World' alert popping
-                up on ng-click.
+            <div class="copy " ng-click="vm.gotoBlog('angularjs-typescript-1');">
+                <h1> AngularJS + Typescript <i class="fa fa-arrow-right"></i></h1>
+              <b> Part 1 </b>  Tutorial for building a simple Hello World app with TypeScript using NPM with VS Code. In this post, I go over everything you will need for TypeScript development.
             </div>
-            <h2>Why TypeScript? </h2>
-            <div>
-                &nbsp;&nbsp;TypeScript is a superset of javascript. It compiles down to javascript. It introduces type saftey, interfaces,
-                easier to read syntax, and real time error detection.
+            <div class="copy " ng-click="vm.gotoBlog('angularjs-typescript-2');">
+                <h1> AngularJS + Typescript <i class="fa fa-arrow-right"></i></h1>
+                <b> Part 2 </b>  Tutorial for building a simple Hello World app with Typescript using NPM with VS Code. In this post, I explain how to build an AngularJS app and controller in typescript.
             </div>
-            <h2>Tools you will need.</h2>
-            <div>
-                <ul>
-                    <li>Git Bash</li>
-                    <li>VS Code</li>
-                    <li>Node</li>
-
-                </ul>
+            <div class="copy" ng-click="vm.gotoHome()" style="cursor: pointer;margin-bottom: 100px;">
+                <h1><i class="fa fa-arrow-left"></i> Back to Home</h1>
             </div>
-            <h2>Setup your project</h2>
-            <div>
-                &nbsp;&nbsp;Create your root project folder and navigate to it with VS Code. Press CTRL + '~' To Open up the Terminal. Choose
-                bash.exe from the dropdown.
-            </div>
-            <h2>Install Node dependencies</h2>
-            <div>
-                In the Terminal Window type the following commands.
-                <ul>
-                    <li>$npm install -g typescript;</li>
-                    <li>$npm install -g yarn </li>
-                    <li>$npm install -g uglifyes;</li>
-                </ul>
-                To insure the tools installed correctly, run the following.
-                <ul>
-                    <li>npm ls -g --depth 0;</li>
-                </ul>
-
-            </div>
-            <h2>Add JS dependencies with yarn.</h2>
-            <div>
-                Run the following commands in VS Code.
-            </div>
-        </div>
     </div>
 </div>

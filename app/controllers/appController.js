@@ -10,12 +10,18 @@ function AppController($scope, $rootScope, $location, $timeout, $window) {
     vm.ShowProjects = false;
     vm.ShowResumes = false;
     vm.ShowProjectsSemaphore = true;
-    vm.gotoBlog = function () {
-        $location.path("blog");
-    }    
+
+    vm.gotoBlog = function (url) {
+        $location.path("blog/" + url);
+    }
+    vm.gotoBlogs = function () {
+        $location.path("blog/" );
+    }
+
     vm.gotoHome = function () {
         $location.path("/");
-    }    
+    }
+
     vm.Change = function(newTheme)
     {
         vm.Popping = true;
