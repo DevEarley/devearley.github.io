@@ -1,16 +1,16 @@
-﻿
-/*#region Site wide*/
+﻿/*#region Site wide*/
+
 @font-face {
     font-family: 'ostrich';
     src: url(../OstrichSans-Heavy.otf);
 }
 
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+@media screen and (-ms-high-contrast: active),
+(-ms-high-contrast: none) {
     html {
         overflow: hidden;
         height: 100%;
     }
-
     body {
         overflow: auto;
         height: 100%;
@@ -21,11 +21,17 @@ body {
     margin: 0;
 }
 
-p, a, h1, h2, ul {
+p,
+a,
+h1,
+h2,
+ul,
+li {
     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
     font-style: normal;
     font-variant: normal;
     font-weight: 400;
+    color: #FFF;
 }
 
 li {
@@ -33,17 +39,17 @@ li {
     padding-bottom: 20px;
 }
 
-p, a, ul {
+p,
+a,
+ul {
     font-size: 14px;
     font-style: normal;
     font-variant: normal;
     font-weight: 400;
     line-height: 23px;
-    color: #5b5b5b;
+    color: #FFF;
     text-decoration: none;
 }
-
-
 
 .white-bg {
     background-color: #FFF;
@@ -67,10 +73,9 @@ p, a, ul {
     color: #7803c3 !important;
 }
 
-.text-center{
-    text-align:center;
+.text-center {
+    text-align: center;
 }
-
 
 .animate {
     -webkit-transition: all 0.2s ease-in-out;
@@ -79,11 +84,9 @@ p, a, ul {
     transition: all 0.2s ease-in-out;
 }
 
-
 .form-group {
     margin-bottom: 0;
 }
-
 
 .bold {
     color: #CE2027;
@@ -106,9 +109,8 @@ p, a, ul {
 }
 
 
-
-
 /*#endregion*/
+
 
 /*#region Responsive Design - width*/
 
@@ -117,65 +119,55 @@ p, a, ul {
     .narrow-only {
         display: initial;
     }
-
     .copy.narrow-only {
         display: block;
     }
-
     .wide-only {
         display: none;
     }
 }
 
-
-@media only screen and (min-width: 768px) {
-}
+@media only screen and (min-width: 768px) {}
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
     /* For narrow desktop: */
     .narrow-only {
         display: initial;
     }
-
     .copy.narrow-only {
         display: block;
     }
-
     .wide-only {
         display: none;
     }
 }
 
-@media only screen and (min-width: 1024px) {
-}
+@media only screen and (min-width: 1024px) {}
 
 @media only screen and (min-width: 1024px) and (max-width:1400px) {
     /* For wide desktop: */
     .narrow-only {
         display: none;
     }
-
     .copy.narrow-only {
         display: none;
     }
-
     .wide-only {
         display: initial;
     }
 }
-
 
 @media only screen and (min-width: 1400px) {
     .narrow-only {
         display: none;
     }
-
     .copy.narrow-only {
         display: none;
     }
-
     .wide-only {
         display: initial;
     }
 }
+
+
 /*#endregion*/

@@ -1,10 +1,13 @@
 angular.module('DEVE', ['ngRoute','ngTouch', 'ngMaterial' ])
 .config(function ($routeProvider, $locationProvider, $mdThemingProvider) {
-    $locationProvider.html5Mode(true);
+
     $routeProvider
-    .when('/', {
-        templateUrl: 'app/templates/home.html',       
-    })   
+        .when('/', {
+            templateUrl: 'app/templates/home.html',
+        })
+        .when('/blog', {
+            templateUrl: 'app/templates/blog.html',
+        })   
 }).run(function ($rootScope, $http) {
     $rootScope.IsMobile = WURFL.is_mobile;
     

@@ -10,6 +10,12 @@ function AppController($scope, $rootScope, $location, $timeout, $window) {
     vm.ShowProjects = false;
     vm.ShowResumes = false;
     vm.ShowProjectsSemaphore = true;
+    vm.gotoBlog = function () {
+        $location.path("blog");
+    }    
+    vm.gotoHome = function () {
+        $location.path("/");
+    }    
     vm.Change = function(newTheme)
     {
         vm.Popping = true;
@@ -25,6 +31,8 @@ function AppController($scope, $rootScope, $location, $timeout, $window) {
         vm.ShowProjectsSemaphore = false;
         e.preventDefault();
         vm.ShowProjects = !vm.ShowProjects;
+
+        vm.ShowResumes = false;
     }
 
     vm.OpenResumes = function (e) {
@@ -33,6 +41,7 @@ function AppController($scope, $rootScope, $location, $timeout, $window) {
         vm.ShowProjectsSemaphore = false;
         e.preventDefault();
         vm.ShowResumes = !vm.ShowResumes;
+        vm.ShowProjects = false;
     }
 
     vm.Email = function (emailId, subject, message) {
