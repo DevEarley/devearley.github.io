@@ -6,11 +6,7 @@
             <h1>Typescript with AngularJS and Node in VS Code.</h1>
             <b> By Alex Earley, Sunday November 19th, 2017 </b>
             <div>
-                It took me the better part of yesterday to build this small little 'Hello World' app. I am glad that I did. AngularJS is
-                my bread and butter at work, and my boss has shown interest in typescript. I wanted to introduce TypeScript
-                to my stack, but not do it in the middle of a sprint at work. So I updated VS Code and installed TypeScript
-                via NPM. I Google'd a handful of errors and questions, and soon enough I had a 'Hello World' alert popping
-                up on ng-click.
+                It took me the better part of yesterday to build this small little 'Hello World' app. I am glad that I did. AngularJS is my bread and butter at work, and my boss has shown interest in typescript. I wanted to introduce TypeScript to my stack, but not do it in the middle of a sprint at work. So I updated VS Code and installed TypeScript via NPM. I Google'd a handful of errors and questions, and soon enough I had a 'Hello World' alert popping up on ng-click.
             </div>
         </div>
         <div class="copy blog-copy ">
@@ -50,6 +46,7 @@
                     <li>$npm install -g typescript;</li>
                     <li>$npm install -g yarn; </li>
                     <li>$npm install -g uglifyes;</li>
+                    <li>( If you have uglifyJS installed, uninstall before installing uglifyES.)</li>
                 </ul>
                 To insure the tools installed correctly, run the following.
                 <ul>
@@ -77,6 +74,7 @@
                     <li>Create bundle.sh in root directory, paste the following.</li>
                     <li>
                         <pre>
+tsc;
 uglifyjs \
 ./node_modules/angular/angular.min.js \
 ./node_modules/angular-route/angular-route.min.js \
@@ -85,17 +83,38 @@ uglifyjs \
 </pre>
                     </li>
                 </ul>
+                <h2>What does this script do?</h2>
             </div>
         </div>
         <div class="copy blog-copy ">
-            <h2>What do we have so far?</h2>
-            <div>We have a bunch of empty files and a bundle.sh that does something. But no 'Hello World' yet. Now that we are
-                almost done with set up, time to learn some fundamental things about TypeScript.
+            <h2>Definitely Typed - TypeScript type definitions</h2>
+            <div>
+                You may ask yourself, if my code is in TypeScript then don't my libraries need to be .ts files? TypesScript compiles down to JS, and your JS will look like a normal angular app that has the same normal angular dependecies. In order to have your TypeScript code correctly integrate with your libraries you do need to have whats called 'Typed Definitions'. These help TypeScript interface with common JS libraries.
             </div>
-            <h2 style="cursor:pointer" ng-click="vm.gotoBlog('angularjs-typescript-2')"> Part 2 <i class="fa fa-arrow-right"></i></h2>
+            <div>
+                We can install these using yarn.
+                <ul>
+                    <li>$yarn add @types/angular;</li>
+                    <li>$yarn add @types/angular-route;</li>
+                    <li>$yarn add @types/jquery;</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copy blog-copy ">
+            <h2>Bringing it all together</h2>
+            Finally we will need to setup tsconfig.json and index.html files. The tsconfig will tell TypeScript Compiler (tsc) what files it needs to compile and tells VS Code what type definitions to use. Because the bundle.sh comiles everything into a single main.min.js, the index file will only need one JS reference.
+        </div>
+        <div class="copy blog-copy ">
+            <h2>What do we have so far?</h2>
+            <div>We have a bunch of useless files and a bundle.sh that does something. But no 'Hello World' yet. Now that we are almost done with set up, time to learn some fundamental things about TypeScript.
+            </div>
+            <h2 style="cursor:pointer" ng-click="vm.gotoBlog('angularjs-typescript-2')"> Part 2
+                <i class="fa fa-arrow-right"></i>
+            </h2>
         </div>
         <div class="copy" ng-click="vm.gotoBlogs()" style="cursor: pointer;margin-bottom: 100px;">
-            <h1><i class="fa fa-arrow-left"></i> Back to Blogs</h1>
+            <h1>
+                <i class="fa fa-arrow-left"></i> Back to Blogs</h1>
         </div>
     </div>
 </div>
