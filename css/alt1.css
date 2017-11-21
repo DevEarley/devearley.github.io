@@ -153,7 +153,7 @@ body {
 }
 
 .aura .title {
-    background-color: rgba(66, 57, 76, 0.5);
+    background-color: rgba(34, 17, 35, 0.5);
 }
 
 .ocean .title {
@@ -256,7 +256,7 @@ body {
 }
 
 .aura .nav-grid {
-    background-color: rgba(66, 57, 76, 0.5);
+    background-color: rgba(34, 17, 35, 0.5);
 }
 
 .ocean .nav-grid {
@@ -313,12 +313,12 @@ body {
 }
 
 .aura .copy {
-    background-color: rgba(66, 57, 76, 0.5);
+    background-color: rgba(34, 17, 35, 0.5);
     color: #FFF;
 }
 
 .aura .blog-copy {
-    background-color: rgba(66, 57, 76, 0.9)!important;
+    background-color: rgba(34, 17, 35, 0.9)!important;
     color: #FFF;
 }
 
@@ -689,8 +689,8 @@ body {
         width: 500px;
     }
     .copy.blog-copy {
-        margin-left: 10vw;
-        width: 80vw!important;
+        margin-left: 15vw;
+        width: 60vw!important;
     }
     .nav-grid {
         margin-left: 400px;
