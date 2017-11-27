@@ -5,71 +5,22 @@
 <head>
     <meta charset="utf-8">
     <title>DevEarley</title>
-
-    <link href="./css/bootstrap2.css" type="text/css" rel="stylesheet">
-    <link href="./css/font-awesome.css" type="text/css" rel="stylesheet">
-    <link href="./css/site.css" type="text/css" rel="stylesheet">
-    <link href="./css/alt1.css" type="text/css" rel="stylesheet">
-    <link href="./css/unsubscribe.css" type="text/css" rel="stylesheet">
-    <link href="./css/landing.css" type="text/css" rel="stylesheet">
-    <link href="./css/footer.css" type="text/css" rel="stylesheet">
-    <link href="./css/form.css" type="text/css" rel="stylesheet">
-    <link href="./css/thanks.css" type="text/css" rel="stylesheet">
-    <link href="./css/toastr.min.css" type="text/css" rel="stylesheet">
-    <link href="./css/angular-material.min.css" type="text/css" rel="stylesheet">
+    <link href="./main.css" type="text/css" rel="stylesheet">
     <link href="./favicon.ico" rel="icon" type="image/x-icon" />
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple_logo.png">
     <link rel="icon" type="image/png" href="/144_logo.png" sizes="32x32">
     <link rel="shortcut icon" href="favicon.ico">
     <meta name="msapplication-TileImage" content="/small_logo.png">
     <meta name="msapplication-TileColor" content="#FFF">
-
-    <style>
-        [ng-cloak] {
-            display: none;
-        }
-    </style>
-
     <base href="/">
-
 </head>
 
-<body ng-app="DEVE" class="dark-text" ng-controller="AppController as vm">
-    <div id="DEVEContent" class="{{vm.Theme}}" ng-class="{'mobile':vm.IsMobile==true}">
-        <!-- Page Content -->
-    <div style="position: fixed" class="img-bg">
-            <div class="img">
-    </div></div>
-        <ng-view style="display:inline-block;width:100vw!important;height:100vh!important" autoscroll="true" />
+<body ng-app="DevEarleyApp"  ng-controller="MainController as vm">
+    <div class="{{vm.Theme}}" ng-class="{'mobile':vm.IsMobile==true}">
+        <ng-view  />
     </div>
+    <div id="Footer"><a href="http://devearley.github.io"><small>© Alex Earley | Shoshin Game Studio 2017 </small></a> | <a href="#" ng-click="vm.Shuffle()"><small><i class="fa fa-random"></i> Shuffle Themes</small></a>        | <a target="_blank" href="http://devearley.github.io/projects/live-voting"><small>Theme Vote!</small></a></div>
 
-    <div id="Footer"><a href="http://devearley.github.io"><small>© Alex Earley | Shoshin Game Studio 2017 </small></a> | <a href="#" ng-click="vm.Shuffle()"><small><i class="fa fa-random"></i> Shuffle Themes</small></a> | <a target="_blank" href="http://devearley.github.io/projects/live-voting"><small>Theme Vote!</small></a></div>
-    <!-- Dependencies -->
-    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-    <script type="text/javascript" src="//wurfl.io/wurfl.js"></script>
-    <script src="./libs/jquery-1.11.3.min.js"></script>
-    <script src="./libs/md5.js"></script>
-    <script src="./libs/toastr.min.js"></script>
-    <script src="./libs/angular.min.js"></script>
-    <script src="./libs/angular-animate.min.js"></script>
-    <script src="./libs/angular-touch.min.js"></script>
-    <script src="./libs/angular-aria.min.js"></script>
-    <script src="./libs/angular-material.min.js"></script>
-    <script src="./libs/angular-route.js"></script>
-
-    <!-- App -->
-    <script src="./app/app.js"></script>
-
-    <!-- Directives -->
-    <script src="./app/directives/simpleAffix.js"></script>
-    <script src="./app/directives/mobileOnly.js"></script>
-
-    <!-- Services -->
-    <script src="./app/services/ValidationService.js"></script>
-    <script src="./app/services/StatesService.js"></script>
-
-    <!-- Controllers -->
-    <script src="./app/controllers/appController.js"></script>
-
+    <script src="./main.js"></script>
 </body>
 </html>

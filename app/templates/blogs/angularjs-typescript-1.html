@@ -3,10 +3,14 @@
     <div class="content">
 
         <div class="copy blog-copy ">
+            <div class="count">Part 1</div>
             <h1>Typescript with AngularJS and Node in VS Code.</h1>
-            <b> By Alex Earley, Sunday November 19th, 2017 </b>
+            <b> By Alex Earley, Sunday November 19th, 2017. Updated Sunday November 26th, 2017.</b>
             <div>
-                It took me the better part of yesterday to build this small little 'Hello World' app. I am glad that I did. AngularJS is my bread and butter at work, and my boss has shown interest in typescript. I wanted to introduce TypeScript to my stack, but not do it in the middle of a sprint at work. So I updated VS Code and installed TypeScript via NPM. I Google'd a handful of errors and questions, and soon enough I had a 'Hello World' alert popping up on ng-click.
+                It took me the better part of yesterday to build this small little 'Hello World' app. I am glad that I did. I wanted to introduce
+                TypeScript to my stack, but not do it in the middle of a sprint at work. So I updated VS Code and installed
+                TypeScript via NPM. I Google'd a handful of errors and questions, and soon enough I had a 'Hello World' alert
+                popping up on ng-click.
             </div>
         </div>
         <div class="copy blog-copy ">
@@ -15,17 +19,20 @@
                 TypeScript is a superset of javascript. It compiles down to javascript. It introduces type saftey, interfaces, easier to
                 read syntax, and real time error detection.
             </div>
+        </div>
+        <div class="copy blog-copy ">
+            <div class="count">Step 1</div>
             <h2>Tools you will need.</h2>
             <div>
                 <ul>
-                    <li>Git Bash</li>
-                    <li>VS Code</li>
-                    <li>Node</li>
-
+                    <li>Git Bash - <a href="https://git-scm.com/downloads" target="_blank">https://git-scm.com/downloads</a></li>
+                    <li>Visual Studio Code - <a href="https://code.visualstudio.com/" target="_blank">https://code.visualstudio.com/</a></li>
+                    <li>Node - <a href="https://nodejs.org/en/" target="_blank">https://nodejs.org/en/</a></li>
                 </ul>
             </div>
         </div>
         <div class="copy blog-copy ">
+            <div class="count">Step 2</div>
             <h2>Setup your project</h2>
             <div>
                 <ul>
@@ -39,6 +46,7 @@
             </div>
         </div>
         <div class="copy blog-copy ">
+            <div class="count">Step 3</div>
             <h2>Install Node dependencies</h2>
             <div>
                 In the Terminal Window type the following commands.
@@ -56,6 +64,7 @@
             </div>
         </div>
         <div class="copy blog-copy ">
+            <div class="count">Step 4</div>
             <h2>Add JS dependencies with yarn.</h2>
             <div>
                 The following commands will add library dependencies to node_modules folder.
@@ -67,6 +76,7 @@
             </div>
         </div>
         <div class="copy blog-copy ">
+            <div class="count">Step 5</div>
             <h2>Create a bundling script file</h2>
             <div> This is optional, you may run these commands however you'd like. I prefer to dump them into a bundle.sh file
                 and run that.
@@ -83,13 +93,16 @@ uglifyjs \
 </pre>
                     </li>
                 </ul>
-                <h2>What does this script do?</h2>
             </div>
         </div>
         <div class="copy blog-copy ">
+            <div class="count">Step 6</div>
             <h2>Definitely Typed - TypeScript type definitions</h2>
             <div>
-                You may ask yourself, if my code is in TypeScript then don't my libraries need to be .ts files? TypesScript compiles down to JS, and your JS will look like a normal angular app that has the same normal angular dependecies. In order to have your TypeScript code correctly integrate with your libraries you do need to have whats called 'Typed Definitions'. These help TypeScript interface with common JS libraries.
+                You may ask yourself, if my code is in TypeScript then don't my libraries need to be .ts files? TypesScript compiles down
+                to JS, and your JS will look like a normal angular app that has the same normal angular dependecies. In order
+                to have your TypeScript code correctly integrate with your libraries you do need to have whats called 'Typed
+                Definitions'. These help TypeScript interface with common JS libraries.
             </div>
             <div>
                 We can install these using yarn.
@@ -102,15 +115,43 @@ uglifyjs \
         </div>
         <div class="copy blog-copy ">
             <h2>Bringing it all together</h2>
-            Finally we will need to setup tsconfig.json and index.html files. The tsconfig will tell TypeScript Compiler (tsc) what files it needs to compile and tells VS Code what type definitions to use. Because the bundle.sh comiles everything into a single main.min.js, the index file will only need one JS reference.
+            <div>Finally we will need to setup tsconfig.json and index.html files. The tsconfig will tell TypeScript Compiler
+                (tsc) what files it needs to compile and tells VS Code what type definitions to use. Because the bundle.sh
+                comiles everything into a single main.min.js, the index file will only need one JS reference.</div>
+        </div>
+        <div class="copy blog-copy ">
+            <div class="count">Step 7</div>
+            <h2>tsconfig.json</h2>
+            <pre>
+{
+    "compilerOptions": {
+        "sourceMap": true,
+        "target": "es6",
+        "module":"commonjs",
+        "allowSyntheticDefaultImports": true,
+        "types": [
+            "angular",
+            "angular-route",
+            "jquery"
+        ]
+    },
+    "files": [
+        "node_modules/@types/angular/index.d.ts",
+        "node_modules/@types/angular-route/index.d.ts",
+        "node_modules/@types/jquery/index.d.ts",
+        "app/app.ts"
+    ]
+}
+</pre>
         </div>
         <div class="copy blog-copy ">
             <h2>What do we have so far?</h2>
-            <div>We have a bunch of useless files and a bundle.sh that does something. But no 'Hello World' yet. Now that we are almost done with set up, time to learn some fundamental things about TypeScript.
+            <div>We have a bunch of useless files and a bundle.sh that does something. But no 'Hello World' yet. Now that we are
+                almost done with set up, time to learn some more about AngularJS.
             </div>
-            <h2 style="cursor:pointer" ng-click="vm.gotoBlog('angularjs-typescript-2')"> Part 2
-                <i class="fa fa-arrow-right"></i>
-            </h2>
+            <div style="margin-top:20px;">
+                <h2 style="cursor:pointer; float:right; " ng-click="vm.gotoBlog('angularjs-typescript-2')">AngularJS + Typescript Part 2 <i class="fa fa-arrow-right"></i></h2>
+            </div>
         </div>
         <div class="copy" ng-click="vm.gotoBlogs()" style="cursor: pointer;margin-bottom: 100px;">
             <h1>

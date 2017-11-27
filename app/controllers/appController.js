@@ -53,18 +53,16 @@ function AppController($scope, $rootScope, $location, $timeout, $window) {
     vm.Email = function (emailId, subject, message) {
         $window.open("mailto:alexearley@me.com", "_self");
     }
+
     vm.Shuffle = function()
     {
-
         vm.Popping = true;
         $timeout(function () {
 
             vm.Popping = false;
             var index = Math.floor(Math.random() *( vm.Themes.length ));
             vm.Theme = vm.Themes[index];
-          
         }, 300);
-       
     }
     vm.Shuffle();
 
@@ -72,9 +70,7 @@ function AppController($scope, $rootScope, $location, $timeout, $window) {
         window.onbeforeunload = undefined;
     });
 
-    function handleOnbeforeUnload() {
-      
-    }
+    function handleOnbeforeUnload() {}
 
     $window.onbeforeunload = handleOnbeforeUnload;
 });

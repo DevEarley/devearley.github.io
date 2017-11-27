@@ -4,16 +4,30 @@
     overflow-x: hidden;
     overflow-y: scroll;
     height: 180vh !important;
-    font-family: Helvetica, Roboto, "Segoe UI", Calibri, sans-serif;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
 
 body {
     background-color: #000 !important;
-    font-family: Helvetica, Roboto, "Segoe UI", Calibri, sans-serif;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
 
 .content {
     background-color: #222;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+
+.count {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    font-size: 18px;
+    opacity: 0.35;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+
+h1,
+h2 {
     font-family: Helvetica, Roboto, "Segoe UI", Calibri, sans-serif;
 }
 
@@ -172,6 +186,36 @@ body {
     background-color: rgba(10, 10, 48, 0.8);
 }
 
+pre,
+ul {
+    padding: 20px;
+}
+
+.aura ul,
+.aura pre {
+    background-color: rgba(34, 17, 35, 0.9);
+}
+
+.ocean ul,
+.ocean pre {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.fish ul,
+.fish pre {
+    background-color: rgba(0, 55, 44, 0.9);
+}
+
+.stairs ul,
+.stairs pre {
+    background-color: rgba(75, 75, 81, 0.9);
+}
+
+.bushes ul,
+.bushes pre {
+    background-color: rgba(10, 10, 48, 0.9);
+}
+
 .title:after {
     width: 400px;
     height: 100px;
@@ -308,7 +352,8 @@ body {
     padding-right: 10vw;
 }
 
-.copy h1 {
+.copy h1,
+.copy h2 {
     margin-top: 0;
 }
 
@@ -322,6 +367,8 @@ body {
     color: #FFF;
 }
 
+.aura .copy a,
+.aura .copy a:hover,
 .aura .copy b,
 .aura .copy h2,
 .aura .copy h1 {
@@ -340,7 +387,8 @@ body {
 
 .ocean .copy h1,
 .ocean .copy h2,
-.ocean .copy li {
+.ocean .copy li,
+.ocean .copy p {
     color: #000;
 }
 
@@ -358,6 +406,8 @@ body {
     color: #FFF;
 }
 
+.fish .copy a,
+.fish .copy a:hover,
 .fish .copy b {
     color: #fe9a58;
 }

@@ -1,0 +1,147 @@
+<div>
+    <div class="title"></div>
+    <div class="content">
+        <div class="copy blog-copy ">
+            <div class="count">Part 2</div>
+            <h1>Typescript with AngularJS and Node in VS Code.</h1>
+            <b> By Alex Earley, Created Sunday November 19th, 2017. Updated Sunday November 26th, 2017.  </b>
+            <div></div>
+        </div>
+        <div class="copy blog-copy ">
+            <h2>Lets Recap, Why Typescript? </h2>
+            <div>
+                TypeScript is a superset of javascript. It compiles down to javascript. It introduces type saftey, interfaces, easier to
+                read syntax, and real time error detection.
+            </div>
+        </div>
+        <div class="copy blog-copy ">
+            <h2> Why Angular? </h2>
+            <div>
+                Angular is MVC on the client. Define your Model, View, and Controller then let angular do the heavy lifting. Service Injection,
+                DOM binding, Directives... Angular brings alot to the table.
+            </div>
+        </div>
+        <div class="copy blog-copy ">
+            <h2>Modules, Controllers, Directives, and Scopes</h2>
+            <div>Angular has a certain vocabulary, you may be familiar with some of these phrases. If not, see below.
+                <p><b>Module</b> - Each Angular App is built out of many components defined in JS. These components are each
+                    defined somewhere in the HTML. The highest-level component is an 'App'. This is defined by setting ng-app="MyModuleName"
+                    in some element. </p>
+                <p><b>Shared Module</b> - Sometimes you write code that can easily be used in another project. You may wrap
+                    this code in it's own module and inject this module into other modules. You do this in the module's constructor.
+                </p>
+                <p><b>Controller</b> - Each View in your MVC App will need a Controller. This will either contain some of the
+                    logic for the page's functionality. The logic here is typically very specific to the function of this
+                    indivdual page.</p>
+                <p><b>Directive</b> - Sometimes logic is used multiple places in an app, and it seems it can be boiled down
+                    to a certain shared component. This is where a Directive steps in. A Directive is almost like a mini
+                    MVC app. It has a Controller and a View. Directives can be defined in HTML as it's own element type.</p>
+                <p><b>Scope</b> - Whether it's a Controller or a Directive, it has Scope. Each Scope is bound to the View and
+                    Controller. This allows the controller to manipulate the View. The Scope is a POJO. Any changes to it
+                    will result in the DOM changing instantly.</p>
+            </div>
+        </div>
+        <div class="copy blog-copy ">
+            <div class="count">Step 1</div>
+            <h2>Create the Module </h2>
+            <div>
+                App.ts should look like this.
+                <pre>
+
+module AngularDemo.Controller {
+
+    export interface IDemoScope extends ng.IScope {
+        scopeTest: Function;
+    }
+
+    export class DemoController {
+        constructor(private $scope: IDemoScope) {
+            $scope.scopeTest = () => {
+                alert("HelloWorld");
+            };
+        }
+    }
+}
+module AngularDemo {
+    export class App {
+        static createModule(angular: ng.IAngularStatic) {
+            angular.module('AngularDemo', ['ngRoute'])
+                .controller('DemoController', AngularDemo.Controller.DemoController);
+        }
+    }
+}
+
+AngularDemo.App.createModule(angular);
+
+</pre>
+            </div>
+        </div>
+        <div class="copy blog-copy ">
+            <h2>Breaking it down.</h2>
+            <pre> angular.module('AngularDemo', ['ngRoute']) </pre>
+            <div>
+                This is where we tell Angular to create a module called 'AngularDemo', and use the shared module called 'ngRoute'. ngRoute
+                is a routing provider written by the Angular team. It is a way of routing different views and controllers
+                via the URL and '$location.path();'.
+            </div>
+       
+            <pre>.controller('DemoController', AngularDemo.Controller.DemoController);</pre>
+            <div>
+                The next line sets up the 'DemoController' and assigns the object we defined in earlier in 'app.ts'.
+            </div>
+        </div>
+    </div>
+    <div class="copy blog-copy ">
+        <div class="count">Step 2</div>
+        <h2>Setting up the view, index.html</h2>
+        <div>
+            <pre>
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;styles/app.css&quot;&gt;
+&lt;/head&gt;
+
+&lt;body ng-app=&quot;AngularDemo&quot;&gt;
+  &lt;div ng-controller=&quot;DemoController&quot;&gt;
+      &lt;button ng-click=&quot;scopeTest()&quot;&gt;HelloWorld&lt;/button&gt;
+  &lt;/div&gt;
+    &lt;script src=&quot;main.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+                </pre>
+        </div>
+    </div>
+    <div class="copy blog-copy ">
+        <div class="count">Step 3</div>
+        <h2>Compile...</h2>
+        <div>Press CTRL + '~' To Open up the Terminal. Choose bash.exe from the dropdown.</div>
+        <div> Run './compile.sh' The output should look something like the following.</div>
+        <pre>
+$ ./compile.sh
+Rendering Complete, saving .css file...
+Wrote CSS to C:\Demo1\styles\app.css
+</pre>
+    </div>
+    <div class="copy blog-copy ">
+        <div class="count">Step 4</div>
+        <h2>Run It!</h2>
+        <div> Use './run.sh' to start the open up a new browser window with the app running. </div>
+        <div> Click 'Hello World' button and you should see an alert popup.</div>
+    </div>
+    <div class="copy blog-copy ">
+        <h2>What is AngularJS doing?</h2>
+        <div> In the button tag, there is a ng-click parameter. Whatever we set this to will be called if it is a member of the
+            controller's scope. Which it is, that was set up in 'app.ts'. 'ng-app' and 'ng-controller' are also defined here.
+            But defining the controller is the job of route provider, right? That will be in Part 3.</div>
+        <div style="margin-top:20px;">
+            <h2 style="cursor:pointer; float:right; " ng-click="vm.gotoBlog('angularjs-typescript-3')">AngularJS + Typescript Part 3 <i class="fa fa-arrow-right"></i></h2>
+        </div>
+    </div>
+    <div class="copy" style="margin-bottom: 100px;">
+        <h2 style="cursor:pointer;" ng-click="vm.gotoBlog( 'angularjs-typescript-1') "><i class="fa fa-arrow-left"></i> AngularJS + Typescript Part 1 </h2>
+        <h2 style="cursor:pointer;" ng-click="vm.gotoBlogs()"><i class="fa fa-arrow-left"></i> Back to Blogs</h2>
+    </div>
+</div>
+</div>
