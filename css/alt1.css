@@ -392,7 +392,8 @@ ul {
     color: #000;
 }
 
-.ocean .copy b {
+.ocean .copy b,
+.ocean .copy a {
     color: #000;
 }
 

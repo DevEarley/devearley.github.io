@@ -37,9 +37,10 @@
             <div>
                 In the Terminal Window type the following commands.
                 <ul>
-                    <li>$npm install -g typescript;</li>
-                    <li>$npm install -g yarn; </li>
-                    <li>$npm install -g uglifyes;</li>
+                    <li>Press CTRL + '~' To Open up the Terminal. Choose bash.exe from the dropdown.</li>
+                    <li>npm install -g typescript;</li>
+                    <li>npm install -g yarn; </li>
+                    <li>npm install -g uglify-es;</li>
                     <li>( If you have uglifyJS installed, uninstall before installing uglifyES.)</li>
                 </ul>
                 To insure the tools installed correctly, run the following.
@@ -50,7 +51,19 @@
             </div>
         </div>
         <div class="copy blog-copy ">
-            <div class="count">Step 3</div>
+                <div class="count">Step 3</div>
+                <h2>Add JS dependencies with yarn.</h2>
+                <div>
+                    The following commands will add library dependencies to node_modules folder.
+                    <ul>
+                        <li>yarn add angular;</li>
+                        <li>yarn add angular-route;</li>
+                        <li>yarn add jquery;</li>
+                    </ul>
+                </div>
+            </div>
+        <div class="copy blog-copy ">
+            <div class="count">Step 4</div>
             <h2>Setup your project</h2>
             <div>
                 <ul>
@@ -59,23 +72,11 @@
                     <li>Create /app/app.ts </li>
                     <li>Create /index.html </li>
                     <li>Create /tsconfig.json </li>
-                    <li>Press CTRL + '~' To Open up the Terminal. Choose bash.exe from the dropdown.</li>
-                </ul>
+                     </ul>
             </div>
         </div>
     
-        <div class="copy blog-copy ">
-            <div class="count">Step 4</div>
-            <h2>Add JS dependencies with yarn.</h2>
-            <div>
-                The following commands will add library dependencies to node_modules folder.
-                <ul>
-                    <li>$yarn add angular;</li>
-                    <li>$yarn add angular-route;</li>
-                    <li>$yarn add jquery;</li>
-                </ul>
-            </div>
-        </div>
+        
         <div class="copy blog-copy ">
             <div class="count">Step 5</div>
             <h2>Create a bundling script file</h2>
@@ -108,9 +109,9 @@ uglifyjs \
             <div>
                 We can install these using yarn.
                 <ul>
-                    <li>$yarn add @types/angular;</li>
-                    <li>$yarn add @types/angular-route;</li>
-                    <li>$yarn add @types/jquery;</li>
+                    <li>yarn add @types/angular;</li>
+                    <li>yarn add @types/angular-route;</li>
+                    <li>yarn add @types/jquery;</li>
                 </ul>
             </div>
         </div>
