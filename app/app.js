@@ -11,9 +11,10 @@ angular.module('DEVE', ['ngRoute','ngTouch', 'ngMaterial' ])
             templateUrl: 'app/templates/blogs/angularjs-typescript-1.html',
         }).when('/blog/angularjs-typescript-2', {
             templateUrl: 'app/templates/blogs/angularjs-typescript-2.html',
+        }).when('/blog/angularjs-typescript-3', {
+            templateUrl: 'app/templates/blogs/angularjs-typescript-3.html',
         })
 }).run(function ($rootScope, $http) {
-  
 
     toastr.options = {
         "positionClass": "toast-bottom-right",

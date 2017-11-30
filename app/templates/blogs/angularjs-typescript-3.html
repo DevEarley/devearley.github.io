@@ -1,0 +1,54 @@
+<div>
+    <div class="title"></div>
+    <div class="content">
+        <div class="copy blog-copy ">
+            <div class="count">Part 3</div>
+            <h1>Typescript with AngularJS and Node in VS Code.</h1>
+            <b> By Alex Earley, Created Sunday November 30th, 2017. Updated Sunday November 30th, 2017.  </b>
+            <div></div>
+        </div>
+        <div class="copy blog-copy ">
+            <h2>Lets Recap, Why Angular? </h2>
+            <div>
+                Angular is MVC on the client. Define your Model, View, and Controller then let angular do the heavy lifting. Service Injection,
+                DOM binding, Directives... Angular brings alot to the table.
+            </div>
+        </div>
+        <div class="copy blog-copy ">
+            <h2> Why use Directives? </h2>
+            <div>
+              <div>First of all, lets define directive again.</div> 
+               <p><b>Directive</b> - Sometimes logic is used multiple places in an app, and it seems it can be boiled down
+                to a certain shared component. This is where a Directive steps in. A Directive is almost like a mini
+                MVC app. It has a Controller and a View. Directives can be defined in HTML as it's own element type.</p>
+            </div>
+            <div>At my job, I write enterprise-level software. When you are writing software to do some enterprise level functions, odds are the component you need is already been written and tested. So rather than re-invent the wheel each time, we should share the code between modules. This way, if you need to make a change across the entire module, you only need to update one file. </div>
+            <div>One of my solutions I work on has a SharedUI project that contains many directives. We recently decided to change the style of all the text fields across all projects in the solution. It was an easy change because I went into the directive's code, added a class and I was done.</div>
+        </div>
+        <div class="copy blog-copy ">
+            <div class="count">Step 1</div>
+            <h2>Create the Directive </h2>
+            <div>
+                dialog.ts should look like this.
+                <pre>
+
+
+</pre>
+            </div>
+        </div>
+
+    <div class="copy blog-copy ">
+        <h2>What is AngularJS doing?</h2>
+        <div> In the button tag, there is a ng-click parameter. Whatever we set this to will be called if it is a member of the
+            controller's scope. Which it is, that was set up in 'app.ts'. 'ng-app' and 'ng-controller' are also defined here.
+            But defining the controller is the job of route provider, right? That will be in Part 3.</div>
+        <div style="margin-top:20px;">
+            <h2 style="cursor:pointer; float:right; " ng-click="vm.gotoBlog('angularjs-typescript-3')">AngularJS + Typescript Part 3 <i class="fa fa-arrow-right"></i></h2>
+        </div>
+    </div>
+    <div class="copy" style="margin-bottom: 100px;">
+        <h2 style="cursor:pointer;" ng-click="vm.gotoBlog( 'angularjs-typescript-1') "><i class="fa fa-arrow-left"></i> AngularJS + Typescript Part 1 </h2>
+        <h2 style="cursor:pointer;" ng-click="vm.gotoBlogs()"><i class="fa fa-arrow-left"></i> Back to Blogs</h2>
+    </div>
+</div>
+</div>
