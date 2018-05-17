@@ -2,8 +2,26 @@ angular.module('DEVE', ['ngRoute','ngTouch', 'ngMaterial' ])
 .config(function ($routeProvider, $locationProvider, $mdThemingProvider) {
 
     $routeProvider
-        .when('/', {
-            templateUrl: 'app/templates/home.html',
+    .when('/', {
+        templateUrl: 'app/templates/home.html',
+        })
+        .when('/mockups', {
+            templateUrl: 'app/templates/mockups.html',
+        })
+        .when('/mockups/web', {
+            templateUrl: 'app/templates/mockups-web-apps.html',
+        })
+        .when('/mockups/iot', {
+            templateUrl: 'app/templates/mockups-iot.html',
+        })
+        .when('/mockups/mobile', {
+            templateUrl: 'app/templates/mockups-mobile.html',
+        })
+        .when('/mockups/windows', {
+            templateUrl: 'app/templates/mockups-windows.html',
+        })
+        .when('/mockups/design-doc', {
+            templateUrl: 'app/templates/mockups-design-doc.html',
         })
         .when('/blog', {
             templateUrl: 'app/templates/blog.html',

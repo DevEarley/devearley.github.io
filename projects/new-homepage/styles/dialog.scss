@@ -1,0 +1,26 @@
+#blackout {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+#dialog-container {
+    position: fixed;
+    left: 10vw;
+    right: 10vw;
+    bottom: 200px;
+    top: 100px;
+}
+
+#dialog-header {
+    color: $theme-color;
+    background-color: $theme-dark-color;
+}
+
+#dialog-footer {
+    color: $theme-color;
+    background-color: $theme-dark-color;
+}

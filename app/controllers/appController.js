@@ -17,7 +17,14 @@ function AppController($scope, $rootScope, $location, $timeout, $window) {
     vm.gotoBlogs = function () {
         $location.path("blog/" );
     }
-
+    $scope.onClickMockups= function()
+    {
+        $location.path("mockups/")
+    }
+    $scope.onClickMockup= function(mockup)
+    {
+        $location.path("mockups/"+mockup)
+    }
     vm.gotoHome = function () {
         $location.path("/");
     }
@@ -65,6 +72,11 @@ function AppController($scope, $rootScope, $location, $timeout, $window) {
         }, 300);
     }
     vm.Shuffle();
+
+    vm.SetTheme = function (index)
+    {
+        vm.Theme = vm.Themes[index];
+    }
 
     $scope.$on("$destroy", function () {
         window.onbeforeunload = undefined;

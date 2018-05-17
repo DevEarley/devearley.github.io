@@ -1,0 +1,26 @@
+<div>
+        <div class="title"></div>
+        <div class="content">
+                <div class="copy ">
+                        <h1>Mockups</h1>
+                        <button ng-click="onClickMockup('web')">
+                                <img style="width:100%; margin-bottom:10px"
+                                     src="images/mockups-web.png">
+                        </button>
+                        <button ng-click="onClickMockup('mobile')">
+                                <img style="width:100%; margin-bottom:10px"
+                                     src="images/mockups-mobile.png">
+                        </button>
+                        <button ng-click="onClickMockup('iot')">
+                                <img style="width:100%; margin-bottom:10px"
+                                     src="images/mockups-iot.png">
+                        </button>
+                </div>
+                <div class="copy"
+                     ng-click="vm.gotoHome()"
+                     style="cursor: pointer;margin-bottom: 100px;">
+                        <h1>
+                                <i class="fa fa-arrow-left"></i> Back to Home</h1>
+                </div>
+        </div>
+</div>

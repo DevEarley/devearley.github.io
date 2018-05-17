@@ -1,4 +1,10 @@
-﻿var layersToolBarElement = document.getElementById("LayersToolBar"),
+/*
+TODO:
+    Control Z is still a major todo.
+
+Keep it pure JS.
+ */
+var layersToolBarElement = document.getElementById("LayersToolBar"),
     layersToolBarButtonElement = document.getElementById("LayersToolBarButton"),
     tilesToolBarElement = document.getElementById("TilesToolBar"),
     tilesToolBarButtonElement = document.getElementById("TilesToolBarButton"),
@@ -16,6 +22,10 @@
     conditionsToolBarButtonElement = document.getElementById("ConditionsToolBarButton"),
     paramsToolBarElement = document.getElementById("ParamsToolBar"),
     paramsToolBarButtonElement = document.getElementById("ParamsToolBarButton"),
+    itemsToolBarElement = document.getElementById("ItemsToolBar"),
+    itemsToolBarButtonElement = document.getElementById("ItemsToolBarButton"),
+    charactersToolBarElement = document.getElementById("CharactersToolBar"),
+    charactersToolBarButtonElement = document.getElementById("CharactersToolBarButton"),
     paintBrushInputX = document.getElementById("PaintBrushInputX"),
     paintBrushInputY = document.getElementById("PaintBrushInputY"),
     renameLayerInput = document.getElementById("RenameLayerInput"),
@@ -25,6 +35,10 @@
     renameActionInput = document.getElementById("RenameActionInput"),
     renameParamNameInput = document.getElementById("RenameParamNameInput"),
     renameParamValueInput = document.getElementById("RenameParamValueInput"),
+    renameItemNameInput = document.getElementById("RenameItemNameInput"),
+    renameItemValueInput = document.getElementById("RenameItemValueInput"),
+    renameCharacterNameInput = document.getElementById("RenameCharacterNameInput"),
+    renameCharacterValueInput = document.getElementById("RenameCharacterValueInput"),
     conditionNameInput = document.getElementById("ConditionNameInput"),
     conditionLHSInput = document.getElementById("ConditionLHSInput"),
     conditionOperationInput = document.getElementById("ConditionOperationInput"),
@@ -56,6 +70,8 @@
     actionsPreview = document.getElementById("ActionsPreview"),
     conditionsPreview = document.getElementById("ConditionsPreview"),
     paramsPreview = document.getElementById("ParamsPreview"),
+    itemsPreview = document.getElementById("ItemsPreview"),
+    charactersPreview = document.getElementById("CharactersPreview"),
     lastTilePreview = document.getElementById("LastTilePreview"),
     triggersPreview = document.getElementById("TriggersPreview"),
     scrollingElement = document.getElementById("CanvasContainer"),
@@ -65,6 +81,8 @@
     showEventsToolBar = false,
     showActionsToolBar = false,
     showConditionsToolBar = false,
+    showItemsToolBar = false,
+    showCharactersToolBar = false,
     showParamsToolBar = false,
     showMapToolBar = false,
     selectedTool = 0,
@@ -80,7 +98,9 @@ var c = document.getElementsByTagName('canvas')[0],
 ctx.canvas.height = cw;
 ctx.canvas.width = ch;
 ctx.font = "10px Lucida Console";
-
+var layersHistory = [],
+    maxHistory = 100;
+var currentHistory = 0;
 function clickToggleXRay() {
     xRayView = !xRayView;
     togglePaletteMode(false);
@@ -201,6 +221,16 @@ function clickConditionsToolBarButton() {
 function clickParamsToolBarButton() {
     showParamsToolBar = !showParamsToolBar;
     toggleToolBar(showParamsToolBar, paramsToolBarElement, paramsToolBarButtonElement);
+}
+
+function clickItemsToolBarButton() {
+    showItemsToolBar = !showItemsToolBar;
+    toggleToolBar(showItemsToolBar, itemsToolBarElement, itemsToolBarButtonElement);
+}
+
+function clickCharactersToolBarButton() {
+    showCharactersToolBar = !showCharactersToolBar;
+    toggleToolBar(showCharactersToolBar, charactersToolBarElement, charactersToolBarButtonElement);
 }
 
 function onFocusInput() {
@@ -362,7 +392,7 @@ function keyPressHandler(event) {
     if (inputLocked) return;
     var key = String.fromCharCode(event.keyCode || event.charCode).toUpperCase();
     var shift = event.shiftKey;
-    var ctrl = event.ctrlKey;
+   // var ctrl = event.ctrlKey;
     switch (key) {
         case 'Q':
             toggleContextMenu();
@@ -370,28 +400,29 @@ function keyPressHandler(event) {
         case 'B':
             clickPaintTool();
             break;
-        case 'P': 
+        case 'P':
             clickPaletteButton();
             break;
-        case 'X': 
+        case 'X':
             clickToggleXRay();
             break;
-        case 'F': 
+        case 'F':
             clickToggleFog();
             break;
         case 'Z':
-            clickTogglePerspective();
+            if (shift) clickUndo();
+            else clickTogglePerspective();
             break;
-        case 'E': 
+        case 'E':
             clickEraserTool();
             break;
-        case 'I': 
+        case 'I':
             clickEyedropperTool();
             break;
-        case 'W': 
+        case 'W':
             clickWallSliceTool();
             break;
-        case 'N': 
+        case 'N':
             clickNineSliceTool();
             break;
         case 'T':
@@ -400,7 +431,6 @@ function keyPressHandler(event) {
         case 'S':
             clickSubtileTool();
             break;
-          
     }
 }
 
@@ -411,7 +441,7 @@ function createMapObject() {
         palette: palette,
         triggers: triggers,
         gameState: gameState,
-        playerState:playerState
+        playerState: playerState
     }
 }
 
@@ -438,6 +468,43 @@ function updateProgress(evt) {
     }
 }
 
+function clickUndo() {
+   
+    if (currentHistory > 0) {
+        var newHistory = currentHistory - 2;
+        var layerHistory = layersHistory[newHistory];
+        if (layerHistory == undefined) return; 
+        currentHistory--;
+        layers = JSON.parse(JSON.stringify(layerHistory));
+    }
+   
+    
+}
+var writeHistorySemaphore = false;
+function writeHistory() {
+    if (writeHistorySemaphore) return;
+    else
+    {
+        writeHistorySemaphore = true;
+        setTimeout(function () { 
+            writeHistorySemaphore = false;
+
+            setHistory();
+        }, 1000);
+    }
+}
+
+function setHistory()
+{
+    if (currentHistory == maxHistory-1) {
+        layersHistory[currentHistory] = JSON.parse(JSON.stringify(layers));
+        layersHistory.shift();
+    }
+    else {
+        layersHistory[currentHistory] = JSON.parse(JSON.stringify(layers));
+        currentHistory++;
+    }
+}
 function loaded(evt) {
     var fileString = evt.target.result;
     var map = JSON.parse(fileString);
@@ -453,7 +520,7 @@ function loaded(evt) {
 
 function errorHandler(evt) {
     alert("Error reading file. " + evt.target.error.name);
-    
+
 }
 
 function genID() {

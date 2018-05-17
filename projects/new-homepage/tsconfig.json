@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "sourceMap": true,
+        "target": "es6",
+        "module": "commonjs",
+        "allowSyntheticDefaultImports": true,
+        "types": [
+            "angular",
+            "angular-route",
+            "jquery"
+        ]
+    },
+    "files": [
+        "node_modules/@types/angular/index.d.ts",
+        "node_modules/@types/angular-route/index.d.ts",
+        "node_modules/@types/jquery/index.d.ts",
+        "app/app.ts"
+    ]
+}
