@@ -31,23 +31,7 @@
                 <i class="fa fa-linkedin-square"></i>
                 <div class="nav-label">LinkedIn</div>
             </a>
-            <a class="nav-grid-item"
-               target="_blank"
-               ng-click="onClickMockups($event)">
-                <i class="fa fa-picture-o"></i>
-                <div class="nav-label">
-                    Mockups
-                </div>
-            </a>
 
-            <a href="https://github.com/devearley/"
-               target="_blank"
-               class="nav-grid-item">
-                <i class="fa fa-github"></i>
-                <div class="nav-label">
-                    GitHub
-                </div>
-            </a>
             <a href="https://gist.github.com/DevEarley"
                target="_blank"
                class="nav-grid-item">
@@ -62,6 +46,23 @@
                     Codepen
                 </div>
             </a>
+            <div ng-click="vm.OpenResumes($event)"
+                 class="nav-grid-item">
+                <i class="fa"
+                   ng-class="{'fa-folder':!vm.ShowResumes,'fa-folder-open':vm.ShowResumes}"></i>
+                <div class="nav-label">
+                    Resumes
+                </div>
+            </div>
+
+            <div class="nav-grid-item"
+               target="_blank"
+               ng-click="onClickMockups($event)">
+                <i class="fa fa-picture-o"></i>
+                <div class="nav-label">
+                    Mockups
+                </div>
+            </div>
 
             <div ng-click="vm.OpenProjects($event)"
                  class="nav-grid-item">
@@ -72,14 +73,15 @@
                 </div>
             </div>
 
-            <div ng-click="vm.OpenResumes($event)"
-                 class="nav-grid-item">
-                <i class="fa"
-                   ng-class="{'fa-folder':!vm.ShowResumes,'fa-folder-open':vm.ShowResumes}"></i>
+            <div class="nav-grid-item"
+               target="_blank"
+               ng-click="onClickThemes($event)">
+                <i class="fa fa-picture-o"></i>
                 <div class="nav-label">
-                    Resumes
+                    Themes
                 </div>
             </div>
+
         </div>
         <div class="nav-grid"
              ng-show="vm.ShowProjects">
@@ -91,6 +93,14 @@
                     <i class="fa fa-gamepad"></i>
                     <div class="nav-label">
                         itch.io
+                    </div>
+                </a>
+                <a href="https://github.com/devearley/"
+                   target="_blank"
+                   class="nav-grid-item">
+                    <i class="fa fa-github"></i>
+                    <div class="nav-label">
+                        GitHub
                     </div>
                 </a>
                 <a class="nav-grid-item"
@@ -146,21 +156,22 @@
                 </a>
             </div>
         </div>
-        <div class="copy " ng-show="vm.ShowMockups"></div>
+        <div class="copy "
+             ng-show="vm.ShowMockups">
             <h1>Mockups</h1>
             <button ng-click="onClickMockup('web')">
-                    <img style="width:100%; margin-bottom:10px"
-                         src="images/mockups-web.png">
+                <img style="width:100%; margin-bottom:10px"
+                     src="images/mockups-web.png">
             </button>
             <button ng-click="onClickMockup('mobile')">
-                    <img style="width:100%; margin-bottom:10px"
-                         src="images/mockups-mobile.png">
+                <img style="width:100%; margin-bottom:10px"
+                     src="images/mockups-mobile.png">
             </button>
             <button ng-click="onClickMockup('iot')">
-                    <img style="width:100%; margin-bottom:10px"
-                         src="images/mockups-iot.png">
+                <img style="width:100%; margin-bottom:10px"
+                     src="images/mockups-iot.png">
             </button>
-    </div>
+        </div>
         <div class="nav-grid"
              ng-show="vm.ShowResumes">
             <div class="projects"
@@ -199,7 +210,8 @@
                 </a>
             </div>
         </div>
-        <div class="copy">
+        <div class="copy"
+             ng-show="vm.ShowThemes">
             <h1>Themes</h1>
             <div ng-click="vm.SetTheme(0)">
                 <img style="width:100%"

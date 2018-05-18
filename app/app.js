@@ -11,6 +11,9 @@ angular.module('DEVE', ['ngRoute','ngTouch', 'ngMaterial' ])
         .when('/mockups/web', {
             templateUrl: 'app/templates/mockups-web-apps.html',
         })
+        .when('/mockups/web-2', {
+            templateUrl: 'app/templates/mockups-web-apps-2.html',
+        })
         .when('/mockups/iot', {
             templateUrl: 'app/templates/mockups-iot.html',
         })

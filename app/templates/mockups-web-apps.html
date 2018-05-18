@@ -1,7 +1,7 @@
 <div>
         <div class="title">Mockups - Web Apps</div>
         <div class="content">
-                <div class="copy ">
+                <div class="copy  blog-copy ">
                         <h1>Mockups - Web Apps</h1>
                         <img class="gallery-img"
                              src="images/web/web-dashboard.png">
@@ -33,10 +33,16 @@
                              src="images/web/web-security-factors.png">
                 </div>
                 <div class="copy"
-                     ng-click="onClickMockups()"
+                ng-click="onClickMockup('web-2')"
+                style="cursor: pointer;margin-bottom: 100px;">
+                   <h1>
+                          Mockups - Web Apps - Page 2  <i class="fa fa-arrow-right"></i></h1>
+           </div>
+                <div class="copy"
+                     ng-click="vm.gotoHome()"
                      style="cursor: pointer;margin-bottom: 100px;">
                         <h1>
-                                <i class="fa fa-arrow-left"></i> Back to Mockups</h1>
+                                <i class="fa fa-arrow-left"></i> Back to Home</h1>
                 </div>
         </div>
 </div>
