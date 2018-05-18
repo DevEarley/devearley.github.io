@@ -33,7 +33,7 @@
             </a>
             <a class="nav-grid-item"
                target="_blank"
-               ng-click="onClickMockups()">
+               ng-click="onClickMockups($event)">
                 <i class="fa fa-picture-o"></i>
                 <div class="nav-label">
                     Mockups
@@ -146,6 +146,21 @@
                 </a>
             </div>
         </div>
+        <div class="copy " ng-show="vm.ShowMockups"></div>
+            <h1>Mockups</h1>
+            <button ng-click="onClickMockup('web')">
+                    <img style="width:100%; margin-bottom:10px"
+                         src="images/mockups-web.png">
+            </button>
+            <button ng-click="onClickMockup('mobile')">
+                    <img style="width:100%; margin-bottom:10px"
+                         src="images/mockups-mobile.png">
+            </button>
+            <button ng-click="onClickMockup('iot')">
+                    <img style="width:100%; margin-bottom:10px"
+                         src="images/mockups-iot.png">
+            </button>
+    </div>
         <div class="nav-grid"
              ng-show="vm.ShowResumes">
             <div class="projects"

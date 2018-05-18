@@ -17,10 +17,10 @@ function AppController($scope, $rootScope, $location, $timeout, $window) {
     vm.gotoBlogs = function () {
         $location.path("blog/" );
     }
-    $scope.onClickMockups= function()
-    {
-        $location.path("mockups/")
-    }
+    // $scope.onClickMockups= function()
+    // {
+    //     $location.path("mockups/")
+    // }
     $scope.onClickMockup= function(mockup)
     {
         $location.path("mockups/"+mockup)
@@ -28,7 +28,6 @@ function AppController($scope, $rootScope, $location, $timeout, $window) {
     vm.gotoHome = function () {
         $location.path("/");
     }
-
     vm.Change = function(newTheme)
     {
         vm.Popping = true;
@@ -37,6 +36,16 @@ function AppController($scope, $rootScope, $location, $timeout, $window) {
             vm.Theme = newTheme;
         }, 300);
     }
+    $scope.onClickMockups = function (e) {
+        if (vm.ShowProjectsSemaphore == false) return;
+        $timeout(function () { vm.ShowProjectsSemaphore = true; }, 500);
+        vm.ShowProjectsSemaphore = false;
+        e.preventDefault();
+        vm.ShowMockups = !vm.ShowMockups;
+        vm.ShowProjects = false;
+        vm.ShowResumes = false;
+    }
+
 
     vm.OpenProjects = function (e) {
         if (vm.ShowProjectsSemaphore == false) return;
@@ -44,7 +53,7 @@ function AppController($scope, $rootScope, $location, $timeout, $window) {
         vm.ShowProjectsSemaphore = false;
         e.preventDefault();
         vm.ShowProjects = !vm.ShowProjects;
-
+        vm.ShowMockups = false;
         vm.ShowResumes = false;
     }
 
@@ -55,6 +64,7 @@ function AppController($scope, $rootScope, $location, $timeout, $window) {
         e.preventDefault();
         vm.ShowResumes = !vm.ShowResumes;
         vm.ShowProjects = false;
+        vm.ShowMockups = false;
     }
 
     vm.Email = function (emailId, subject, message) {
