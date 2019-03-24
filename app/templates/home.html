@@ -2,11 +2,11 @@
     <div class="title"></div>
     <div class="content">
         <div class="copy ">
-            Alex is a full stack web developer and designer from Palm Beach, Florida. He has worked on enterprise solutions, iOS apps, marketing email campaigns, and wholesale trading platforms. Alex is proficient with
+            Welcome! I am full stack web developer and designer from Palm Beach, Florida. I have interests in Enterprise Websites, Progressive Web Apps, Video Game Development, and Open Source software. I am proficient with
             <b>TypeScript HTML SCSS</b>and
-            <b> AngularJS</b> on the front end;
+            <b> Angular</b> on the front end;
             <b>C#</b> with
-            <b>ASP.NET, Nancy</b> server side. Please see his resume for more information.
+            <b>.NET Core and Entity Framework</b> server side. Please see my resume for more information.
             <br>
             <br>
             <a href="https://twitter.com/DevEarley?ref_src=twsrc%5Etfw"
@@ -16,6 +16,95 @@
                     src="https://platform.twitter.com/widgets.js"
                     charset="utf-8"></script>
         </div>
+        <div class="copy "
+             ng-show="vm.ShowMockups">
+            <h1>Mockups</h1>
+            <button ng-click="onClickMockup('web')">
+                <img style="width:100%; margin-bottom:10px"
+                     src="images/mockups-web.png">
+            </button>
+            <button ng-click="onClickMockup('mobile')">
+                <img style="width:100%; margin-bottom:10px"
+                     src="images/mockups-mobile.png">
+            </button>
+            <button ng-click="onClickMockup('iot')">
+                <img style="width:100%; margin-bottom:10px"
+                     src="images/mockups-iot.png">
+            </button>
+        </div>
+        <div class="copy"
+             ng-show="vm.ShowThemes">
+            <h1>Themes</h1>
+            <div ng-click="vm.SetTheme(0)">
+                <img style="width:100%"
+                     src="images/theme_fish.png" />
+            </div>
+            <div ng-click="vm.SetTheme(1)">
+                <img style="width:100%"
+                     src="images/theme_aura.png" />
+            </div>
+            <div ng-click="vm.SetTheme(2)">
+                <img style="width:100%"
+                     src="images/theme_ocean.png" />
+            </div>
+            <div ng-click="vm.SetTheme(3)">
+                <img style="width:100%"
+                     src="images/theme_stairs.png" />
+            </div>
+            <div ng-click="vm.SetTheme(4)">
+                <img style="width:100%"
+                     src="images/theme_bushes.png" />
+            </div>
+        </div>
+        <div class="nav-grid"
+             ng-show="vm.ShowProjects">
+            <div class="projects"
+                 ng-class="{'active':vm.ShowProjects}">
+                <a href="https://shoshingamestudio.itch.io/"
+                   target="_blank"
+                   class="nav-grid-item">
+                    <i class="fa fa-gamepad"></i>
+                    <div class="nav-label">
+                        itch.io
+                    </div>
+                </a>
+                <a href="https://github.com/devearley/"
+                   target="_blank"
+                   class="nav-grid-item">
+                    <i class="fa fa-github"></i>
+                    <div class="nav-label">
+                        GitHub
+                    </div>
+                </a>
+                <a class="nav-grid-item nav-grid-item-auto"
+                   target="_blank"
+                   href="projects/cc0">
+                    <i class="fa fa-creative-commons"></i>
+                    <div class="nav-label">
+                        CC0-Pixel-Art
+                    </div>
+                </a>
+                <a class="nav-grid-item nav-grid-item-auto"
+                   target="_blank"
+                   href="https://codepen.io/DevEarley/pen/XRpmBr">
+                    <i class="fa fa-codepen"></i>
+                    <div class="nav-label">
+                        Quixotic-Circle-Graph
+                    </div>
+                </a>
+
+
+                <a class="nav-grid-item nav-grid-item-auto"
+                   target="_blank"
+                   href="https://codepen.io/DevEarley/pen/KobMay">
+                    <i class="fa fa-codepen"></i>
+                    <div class="nav-label">
+                        Loading Animation
+                    </div>
+                </a>
+            </div>
+        </div>
+
         <div class="nav-grid">
             <div ng-click="vm.gotoBlogs()"
                  class="nav-grid-item">
@@ -46,18 +135,17 @@
                     Codepen
                 </div>
             </a>
-            <div ng-click="vm.OpenResumes($event)"
-                 class="nav-grid-item">
-                <i class="fa"
-                   ng-class="{'fa-folder':!vm.ShowResumes,'fa-folder-open':vm.ShowResumes}"></i>
-                <div class="nav-label">
-                    Resumes
-                </div>
-            </div>
-
+            <a class="nav-grid-item nav-grid-item-auto"
+            target="_blank"
+            href="https://docs.google.com/document/d/1cj2--8C0UOVTf-DEApwViRYPAVmXHJFeWa64flpe-9Q">
+             <i class="fa fa-file-text"></i>
+             <div class="nav-label">
+                Resume
+             </div>
+         </a>
             <div class="nav-grid-item"
-               target="_blank"
-               ng-click="onClickMockups($event)">
+                 target="_blank"
+                 ng-click="onClickMockups($event)">
                 <i class="fa fa-picture-o"></i>
                 <div class="nav-label">
                     Mockups
@@ -74,8 +162,8 @@
             </div>
 
             <div class="nav-grid-item"
-               target="_blank"
-               ng-click="onClickThemes($event)">
+                 target="_blank"
+                 ng-click="onClickThemes($event)">
                 <i class="fa fa-picture-o"></i>
                 <div class="nav-label">
                     Themes
@@ -83,285 +171,7 @@
             </div>
 
         </div>
-        <div class="nav-grid"
-             ng-show="vm.ShowProjects">
-            <div class="projects"
-                 ng-class="{'active':vm.ShowProjects}">
-                <a href="https://shoshingamestudio.itch.io/"
-                   target="_blank"
-                   class="nav-grid-item">
-                    <i class="fa fa-gamepad"></i>
-                    <div class="nav-label">
-                        itch.io
-                    </div>
-                </a>
-                <a href="https://github.com/devearley/"
-                   target="_blank"
-                   class="nav-grid-item">
-                    <i class="fa fa-github"></i>
-                    <div class="nav-label">
-                        GitHub
-                    </div>
-                </a>
-                <a class="nav-grid-item"
-                   target="_blank"
-                   href="projects/live-voting/">
-                    <i class="fa fa-coffee"></i>
-                    <div class="nav-label">
-                        Live Vote
-                    </div>
-                </a>
-
-                <a class="nav-grid-item nav-grid-item-auto"
-                   target="_blank"
-                   href="projects/cc0">
-                    <i class="fa fa-creative-commons"></i>
-                    <div class="nav-label">
-                        CC0-Pixel-Art
-                    </div>
-                </a>
-                <a class="nav-grid-item nav-grid-item-auto"
-                   target="_blank"
-                   href="projects/gallery-awesome/">
-                    <i class="fa fa-coffee"></i>
-                    <div class="nav-label">
-                        Gallery-Awesome
-                    </div>
-                </a>
-                <a class="nav-grid-item nav-grid-item-auto"
-                   target="_blank"
-                   href="https://codepen.io/DevEarley/pen/XRpmBr">
-                    <i class="fa fa-codepen"></i>
-                    <div class="nav-label">
-                        Quixotic-Circle-Graph
-                    </div>
-                </a>
 
 
-                <a class="nav-grid-item nav-grid-item-auto"
-                   target="_blank"
-                   href="https://codepen.io/DevEarley/pen/KobMay">
-                    <i class="fa fa-codepen"></i>
-                    <div class="nav-label">
-                        Loading Animation
-                    </div>
-                </a>
-                <a class="nav-grid-item nav-grid-item-auto"
-                   target="_blank"
-                   href="projects/mighty-file-editor/">
-                    <i class="fa fa-coffee"></i>
-                    <div class="nav-label">
-                        Mighty-File-Editor
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="copy "
-             ng-show="vm.ShowMockups">
-            <h1>Mockups</h1>
-            <button ng-click="onClickMockup('web')">
-                <img style="width:100%; margin-bottom:10px"
-                     src="images/mockups-web.png">
-            </button>
-            <button ng-click="onClickMockup('mobile')">
-                <img style="width:100%; margin-bottom:10px"
-                     src="images/mockups-mobile.png">
-            </button>
-            <button ng-click="onClickMockup('iot')">
-                <img style="width:100%; margin-bottom:10px"
-                     src="images/mockups-iot.png">
-            </button>
-        </div>
-        <div class="nav-grid"
-             ng-show="vm.ShowResumes">
-            <div class="projects"
-                 ng-class="{'active':vm.ShowResumes}">
-                <a href="https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/resumes%2FAlexEarley-GameDevResume%20(1).docx?alt=media&token=c919612f-c3cd-4a1e-ac32-0fb4063330e5"
-                   target="_blank"
-                   class="nav-grid-item">
-                    <i class="fa fa-file-text-o"></i>
-                    <div class="nav-label">
-                        Game-Dev Resume
-                    </div>
-                </a>
-                <a href="https://firebasestorage.googleapis.com/v0/b/shoshingamestudio-90843.appspot.com/o/resumes%2FAlexEarley-GameDevResume.pdf?alt=media&token=93357d95-c4a7-45d4-9b9a-182310314abe"
-                   target="_blank"
-                   class="nav-grid-item">
-                    <i class="fa fa-file-pdf-o"></i>
-                    <div class="nav-label">
-                        Game-Dev Resume
-                    </div>
-                </a>
-                <a href="Resume.docx"
-                   target="_blank"
-                   class="nav-grid-item">
-                    <i class="fa fa-file-text-o"></i>
-                    <div class="nav-label">
-                        Web-Dev Resume
-                    </div>
-                </a>
-                <a href="Resume.pdf"
-                   target="_blank"
-                   class="nav-grid-item">
-                    <i class="fa fa-file-pdf-o"></i>
-                    <div class="nav-label">
-                        Web-Dev Resume
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="copy"
-             ng-show="vm.ShowThemes">
-            <h1>Themes</h1>
-            <div ng-click="vm.SetTheme(0)">
-                <img style="width:100%"
-                     src="images/theme_fish.png" />
-            </div>
-            <div ng-click="vm.SetTheme(1)">
-                <img style="width:100%"
-                     src="images/theme_aura.png" />
-            </div>
-            <div ng-click="vm.SetTheme(2)">
-                <img style="width:100%"
-                     src="images/theme_ocean.png" />
-            </div>
-            <div ng-click="vm.SetTheme(3)">
-                <img style="width:100%"
-                     src="images/theme_stairs.png" />
-            </div>
-            <div ng-click="vm.SetTheme(4)">
-                <img style="width:100%"
-                     src="images/theme_bushes.png" />
-            </div>
-        </div>
-        <div class="copy "
-             ng-click="vm.gotoBlog('angularjs-typescript-1');">
-            <h1> AngularJS + Typescript
-                <i class="fa fa-arrow-right"></i>
-            </h1>
-            Tutorial for building a simple Hello World app with Typescript using NPM with VS Code.
-        </div>
-        <div class="copy">
-            <blockquote class="twitter-tweet"
-                        data-lang="en">
-                <p lang="en"
-                   dir="ltr">My trip to London and Paris with
-                    <a href="https://twitter.com/TheCharNetwork?ref_src=twsrc%5Etfw">@thecharnetwork</a>
-                    <a href="https://t.co/EPbJDSb9e8">https://t.co/EPbJDSb9e8</a>
-                </p>&mdash; AlexEarley (@DevEarley)
-                <a href="https://twitter.com/DevEarley/status/995687547123765248?ref_src=twsrc%5Etfw">May 13, 2018</a>
-            </blockquote>
-            <script async
-                    src="https://platform.twitter.com/widgets.js"
-                    charset="utf-8"></script>
-
-        </div>
-        <div class="copy">
-            <blockquote class="twitter-tweet"
-                        data-lang="en">
-                <p lang="en"
-                   dir="ltr">The ship I built in Crocotile3d made it to Monogame! With the help of Wings3D and Autodesk FBX converter 2013.
-                    <a href="https://twitter.com/hashtag/gamedev?src=hash&amp;ref_src=twsrc%5Etfw">#gamedev</a>
-                    <a href="https://twitter.com/hashtag/pixelart?src=hash&amp;ref_src=twsrc%5Etfw">#pixelart</a>
-                    <a href="https://twitter.com/hashtag/lowpoly?src=hash&amp;ref_src=twsrc%5Etfw">#lowpoly</a>
-                    <a href="https://t.co/XC3avQwDDT">pic.twitter.com/XC3avQwDDT</a>
-                </p>&mdash; AlexEarley (@DevEarley)
-                <a href="https://twitter.com/DevEarley/status/916723970568802304?ref_src=twsrc%5Etfw">October 7, 2017</a>
-            </blockquote>
-            <script async
-                    src="//platform.twitter.com/widgets.js"
-                    charset="utf-8"></script>
-        </div>
-        <div class="copy">
-            <blockquote class="twitter-tweet"
-                        data-lang="en">
-                <p lang="en"
-                   dir="ltr">Download this spritesheet I made for nothin.
-                    <a href="https://twitter.com/hashtag/cc0?src=hash">#cc0</a> License.
-                    <a href="https://twitter.com/hashtag/pixelart?src=hash">#pixelart</a>
-                    <a href="https://twitter.com/hashtag/gamedev?src=hash">#gamedev</a>
-                    <a href="https://t.co/Ck5MpUZWo4">https://t.co/Ck5MpUZWo4</a>
-                    <a href="https://t.co/TShcOamPyi">pic.twitter.com/TShcOamPyi</a>
-                </p>&mdash; AlexEarley (@DevEarley)
-                <a href="https://twitter.com/DevEarley/status/909962204715405317">September 19, 2017</a>
-            </blockquote>
-            <script async
-                    src="//platform.twitter.com/widgets.js"
-                    charset="utf-8"></script>
-        </div>
-        <div class="copy">
-            <blockquote class="twitter-tweet"
-                        data-lang="en">
-                <p lang="en"
-                   dir="ltr">Tired Ol&#39; Plumber
-                    <a href="https://twitter.com/hashtag/pixelart?src=hash">#pixelart</a>
-                    <a href="https://t.co/j5LYWh3pgJ">pic.twitter.com/j5LYWh3pgJ</a>
-                </p>&mdash; AlexEarley (@DevEarley)
-                <a href="https://twitter.com/DevEarley/status/844317060360523776">March 21, 2017</a>
-            </blockquote>
-            <script async
-                    src="//platform.twitter.com/widgets.js"
-                    charset="utf-8"></script>
-        </div>
-        <div class="copy">
-            <blockquote class="twitter-tweet"
-                        data-lang="en">
-                <p lang="en"
-                   dir="ltr">
-                    Time is relative. Slow time on click.
-                    <a href="https://twitter.com/hashtag/CSharp?src=hash">#CSharp</a>
-                    <a href="https://twitter.com/hashtag/gamedev?src=hash">#gamedev</a>
-                    <a href="https://twitter.com/hashtag/unity3D?src=hash">#unity3D</a>
-                    <a href="https://t.co/QfJIHwnCQ4">https://t.co/QfJIHwnCQ4</a>
-                </p>&mdash; AlexEarley (@DevEarley)
-                <a href="https://twitter.com/DevEarley/status/858155019551551488">April 29, 2017</a>
-            </blockquote>
-            <script async
-                    src="//platform.twitter.com/widgets.js"
-                    charset="utf-8"></script>
-        </div>
-        <div class="copy">
-            <blockquote class="twitter-tweet"
-                        data-lang="en">
-                <p lang="en"
-                   dir="ltr">My site&#39;s repo.
-                    <a href="https://twitter.com/hashtag/angularjs?src=hash">#angularjs</a>
-                    <a href="https://twitter.com/hashtag/Bootstrap?src=hash">#Bootstrap</a>
-                    <a href="https://twitter.com/hashtag/javascript?src=hash">#javascript</a>
-                    <a href="https://twitter.com/hashtag/git?src=hash">#git</a>
-                    <a href="https://twitter.com/hashtag/html5?src=hash">#html5</a>
-                    <a href="https://twitter.com/hashtag/UIUX?src=hash">#UIUX</a>
-                    <a href="https://t.co/idHSzBAYR1">https://t.co/idHSzBAYR1</a>
-                    <a href="https://t.co/diKoIbnJNj">https://t.co/diKoIbnJNj</a>
-                    <a href="https://t.co/q4AA8SKAwd">pic.twitter.com/q4AA8SKAwd</a>
-                </p>&mdash; AlexEarley (@DevEarley)
-                <a href="https://twitter.com/DevEarley/status/858157206134501377">April 29, 2017</a>
-            </blockquote>
-            <script async
-                    src="//platform.twitter.com/widgets.js"
-                    charset="utf-8"></script>
-        </div>
-        <div class="copy">
-            <blockquote class="twitter-tweet"
-                        data-lang="en">
-                <p lang="en"
-                   dir="ltr">
-                    Map Editor I made for
-                    <a href="https://twitter.com/hashtag/TriLub?src=hash">#TriLub</a>. Exports to JSON, consumed by TriLub in
-                    <a href="https://twitter.com/hashtag/unity3d?src=hash">#unity3d</a>
-                    <a href="https://t.co/WOgfXs6KA4">https://t.co/WOgfXs6KA4</a>
-                    <br>
-                    <br>
-                    <a href="https://twitter.com/hashtag/gamedev?src=hash">#gamedev</a>
-                    <a href="https://twitter.com/hashtag/html5?src=hash">#html5</a>
-                    <a href="https://twitter.com/hashtag/purejavascript?src=hash">#purejavascript</a>
-                    <a href="https://t.co/eFMTd1k0sR">pic.twitter.com/eFMTd1k0sR</a>
-                </p>&mdash; AlexEarley (@DevEarley)
-                <a href="https://twitter.com/DevEarley/status/817560195144544256">January 7, 2017</a>
-            </blockquote>
-            <script async
-                    src="//platform.twitter.com/widgets.js"
-                    charset="utf-8"></script>
-        </div>
     </div>
 </div>

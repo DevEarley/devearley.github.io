@@ -1,15 +1,15 @@
 ﻿html {
     /*-webkit-transform: translateZ(0);*/
-    min-height: 1200px;
     overflow-x: hidden;
     overflow-y: scroll;
-    height: 180vh !important;
+    height: 100vh !important;
     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
 
 body {
     background-color: #000 !important;
     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+
 }
 .gallery-img
 {
@@ -24,6 +24,7 @@ button{
 .content {
     background-color: #222;
     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    padding-bottom:100px;
 }
 
 .count {
@@ -104,7 +105,7 @@ h2 {
 .img-bg {
     width: 100vw;
     overflow: hidden;
-    height: 120vh;
+    height: 100vh;
     position: absolute;
     opacity: 1;
     background-color: #000;
@@ -113,7 +114,7 @@ h2 {
 .img {
     width: 100vw;
     overflow: hidden;
-    height: 120vh;
+    height: 100vh;
     background-size: cover;
     background-position-y: center;
     background-position-x: center;
@@ -126,7 +127,7 @@ h2 {
 }
 
 .aura .img {
-    background-image: url("../images/personalsite_aura.png");
+    background-image: url("../images/theme_clematis.jpg");
 }
 
 .ocean .img {
@@ -141,7 +142,7 @@ h2 {
 
 .stairs .img {
     background-position-y: center;
-    background-image: url("../images/personalsite_stairs.png");
+    background-image: url("../images/theme_lights.jpeg");
 }
 
 .bushes .img {
@@ -176,7 +177,7 @@ h2 {
 }
 
 .aura .title {
-    background-color: rgba(34, 17, 35, 0.5);
+    background-color: rgba(6,2,20, 0.8);
 }
 
 .ocean .title {
@@ -237,7 +238,7 @@ ul {
 }
 
 .aura .title:after {
-    background-image: url("../images/personalsite_aura_title.png");
+    background-image: url("../images/theme_clematis_title.png");
 }
 
 .ocean .title:after {
@@ -309,7 +310,7 @@ ul {
 }
 
 .aura .nav-grid {
-    background-color: rgba(34, 17, 35, 0.5);
+    background-color: rgba(6,2,20, 0.8);
 }
 
 .ocean .nav-grid {
@@ -367,12 +368,12 @@ ul {
 }
 
 .aura .copy {
-    background-color: rgba(34, 17, 35, 0.5);
+    background-color: rgba(6,2,20, 0.8);
     color: #FFF;
 }
 
 .aura .blog-copy {
-    background-color: rgba(34, 17, 35, 0.9)!important;
+    background-color: rgba(6,2,20, 0.8)!important;
     color: #FFF;
 }
 
@@ -381,7 +382,7 @@ ul {
 .aura .copy b,
 .aura .copy h2,
 .aura .copy h1 {
-    color: #71BE60;
+    color: #ed205a;
 }
 
 .ocean .copy {

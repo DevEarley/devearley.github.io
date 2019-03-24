@@ -1,1 +1,1 @@
-watch-http-server -a localhost -p 8181 -o;
+http-server -a localhost -p 8181;
