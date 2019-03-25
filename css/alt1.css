@@ -11,6 +11,10 @@ body {
     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 
 }
+
+a{
+    display:block;
+}
 .gallery-img
 {
     width:100%;
