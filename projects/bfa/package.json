@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "angular": "^1.6.6",
+    "angular": "^1.8.0",
     "angular-route": "^1.6.6",
     "angular-sanitize": "^1.6.6",
     "font-awesome": "^4.7.0",
